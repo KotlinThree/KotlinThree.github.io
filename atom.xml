@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[KotlinThree's Blog]]></title>
+  <subtitle><![CDATA[for the dream]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2015-12-17T04:07:11.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name><![CDATA[KotlinThree]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2015/12/17/new-to-kotlin/"/>
+    <id>http://yoursite.com/2015/12/17/new-to-kotlin/</id>
+    <published>2015-12-17T04:07:11.000Z</published>
+    <updated>2015-12-17T04:07:11.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="Kotlin_u7B80_u4ECB"><a href="#Kotlin_u7B80_u4ECB" class="headerlink" title="Kotlin简介"></a>Kotlin简介</h1><h2 id="Kotlin_u662F_u4EC0_u4E48"><a href="#Kotlin_u662F_u4EC0_u4E48" class="headerlink" title="Kotlin是什么"></a>Kotlin是什么</h2><p>发布于2011年，是一门适用于JVM, Android以及浏览器静态语言，<strong><em>100% 兼容Java™</em></strong></p>
+<h2 id="u4E3A_u4EC0_u4E48_u9009_u62E9Kotlin"><a href="#u4E3A_u4EC0_u4E48_u9009_u62E9Kotlin" class="headerlink" title="为什么选择Kotlin"></a>为什么选择Kotlin</h2><ul>
+<li>简洁，大幅度减少你需要写的重复代码</li>
+</ul>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用lambda表达式来过滤链表：</span><br><span class="line">val positiveNumbers = <span class="type">list</span>.filter &#123;<span class="keyword">it</span> &gt; <span class="number">0</span>&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>安全，避免整个类中类似空指针异常这样的错误，测试妹妹再也不用担心你的NullPointException了</p>
+</li>
+<li><p>通用，可以用于构建服务器端程序、Android程序或者运行在浏览器里的前端程序</p>
+</li>
+<li><p>互操作，重用已有的JVM平台框架或库，与Java无缝兼容，可直接在之前项目上面使用Kotlin</p>
+</li>
+<li><p>工具，一门语言需要工具化，这正是JetBrains做得最好的地方</p>
+</li>
+<li><p>可靠，JetBrains提供技术支持</p>
+</li>
+</ul>
+<a id="more"></a>
+<h2 id="u8BD5_u7528Kotlin"><a href="#u8BD5_u7528Kotlin" class="headerlink" title="试用Kotlin"></a>试用Kotlin</h2><ul>
+<li>单独编译，你可以使用ant、maven或者gradle编译kotlin，<a href="https://kotlinlang.org/docs/tutorials/command-line.html" target="_blank" rel="external">编译器下载</a></li>
+<li>在IntelliJ IDEA或者Android Studio上编写kotlin，<a href="https://kotlinlang.org/docs/tutorials/getting-started.html" target="_blank" rel="external">安装插件</a></li>
+<li>在eclipse上编写kotlin，<a href="https://kotlinlang.org/docs/tutorials/getting-started-eclipse.html" target="_blank" rel="external">安装插件</a></li>
+<li><a href="http://try.kotlinlang.org/" target="_blank" rel="external">在线编辑</a></li>
+</ul>
+<h2 id="u76F8_u5173_u8D44_u6E90"><a href="#u76F8_u5173_u8D44_u6E90" class="headerlink" title="相关资源"></a>相关资源</h2><ul>
+<li><a href="https://kotlinlang.org/" target="_blank" rel="external">官方网站</a></li>
+<li><a href="http://kotlinlang.cn/" target="_blank" rel="external">中文网站</a></li>
+<li><a href="https://kotlinlang.org/docs/kotlin-docs.pdf" target="_blank" rel="external">文档下载</a></li>
+<li><a href="https://kotlinthree.github.io/" target="_blank" rel="external">KotlinThree</a></li>
+</ul>
+<h2 id="u53C2_u8003_u5185_u5BB9"><a href="#u53C2_u8003_u5185_u5BB9" class="headerlink" title="参考内容"></a>参考内容</h2><p><a href="http://kotlinlang.cn/" target="_blank" rel="external">Kotlin</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="Kotlin_u7B80_u4ECB"><a href="#Kotlin_u7B80_u4ECB" class="headerlink" title="Kotlin简介"></a>Kotlin简介</h1><h2 id="Kotlin_u662F_u4EC0_u4E48"><a href="#Kotlin_u662F_u4EC0_u4E48" class="headerlink" title="Kotlin是什么"></a>Kotlin是什么</h2><p>发布于2011年，是一门适用于JVM, Android以及浏览器静态语言，<strong><em>100% 兼容Java™</em></strong></p>
+<h2 id="u4E3A_u4EC0_u4E48_u9009_u62E9Kotlin"><a href="#u4E3A_u4EC0_u4E48_u9009_u62E9Kotlin" class="headerlink" title="为什么选择Kotlin"></a>为什么选择Kotlin</h2><ul>
+<li>简洁，大幅度减少你需要写的重复代码</li>
+</ul>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用lambda表达式来过滤链表：</span><br><span class="line">val positiveNumbers = <span class="type">list</span>.filter &#123;<span class="keyword">it</span> &gt; <span class="number">0</span>&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>安全，避免整个类中类似空指针异常这样的错误，测试妹妹再也不用担心你的NullPointException了</p>
+</li>
+<li><p>通用，可以用于构建服务器端程序、Android程序或者运行在浏览器里的前端程序</p>
+</li>
+<li><p>互操作，重用已有的JVM平台框架或库，与Java无缝兼容，可直接在之前项目上面使用Kotlin</p>
+</li>
+<li><p>工具，一门语言需要工具化，这正是JetBrains做得最好的地方</p>
+</li>
+<li><p>可靠，JetBrains提供技术支持</p>
+</li>
+</ul>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Welcome]]></title>
+    <link href="http://yoursite.com/2015/12/15/welcome/"/>
+    <id>http://yoursite.com/2015/12/15/welcome/</id>
+    <published>2015-12-15T13:36:29.000Z</published>
+    <updated>2015-12-16T09:42:17.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://img4.duitang.com/uploads/blog/201312/13/20131213162251_ueFLz.jpeg" alt="Zenus"></p>
+<a id="more"></a>
+<h2 id="KotlinThree_u7EC4_u7EC7_u6210_u7ACB_u4E86_uFF01_uFF01_uFF01_u6B22_u8FCE_u5927_u5BB6_u524D_u6765_u505A_u5BA2_uFF01_28_u6B64_u5904_u5E94_u6709_u638C_u58F0_7E_29_2C__u6B22_u8FCE_u5927_u5BB6_u4E00_u8D77_u6765_u5B66_u4E60_u63A2_u8BA8Kotlin"><a href="#KotlinThree_u7EC4_u7EC7_u6210_u7ACB_u4E86_uFF01_uFF01_uFF01_u6B22_u8FCE_u5927_u5BB6_u524D_u6765_u505A_u5BA2_uFF01_28_u6B64_u5904_u5E94_u6709_u638C_u58F0_7E_29_2C__u6B22_u8FCE_u5927_u5BB6_u4E00_u8D77_u6765_u5B66_u4E60_u63A2_u8BA8Kotlin" class="headerlink" title="KotlinThree组织成立了！！！欢迎大家前来做客！(此处应有掌声~), 欢迎大家一起来学习探讨Kotlin"></a><strong>KotlinThree组织成立了</strong>！！！欢迎大家前来做客！(此处应有掌声~), 欢迎大家一起来学习探讨Kotlin</h2>]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://img4.duitang.com/uploads/blog/201312/13/20131213162251_ueFLz.jpeg" alt="Zenus"></p>]]>
+    
+    </summary>
+    
+      <category term="star" scheme="http://yoursite.com/tags/star/"/>
+    
+  </entry>
+  
+</feed>
