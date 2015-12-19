@@ -105,7 +105,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/star/" style="font-size: 10px;">star</a>
+						<a href="/tags/companion/" style="font-size: 10px;">companion</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/object/" style="font-size: 10px;">object</a> <a href="/tags/star/" style="font-size: 10px;">star</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a>
 					</div>
 				</section>
 				
@@ -166,6 +166,68 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-class-object-object" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/19/class-object-object/" class="article-date">
+  	<time datetime="2015-12-19T11:02:38.000Z" itemprop="datePublished">2015-12-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/19/class-object-object/">类与对象 -- object</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="u5BF9_u8C61_uFF08object_uFF09_u8868_u8FBE_u5F0F_u548C_u5BF9_u8C61_u58F0_u660E"><a href="#u5BF9_u8C61_uFF08object_uFF09_u8868_u8FBE_u5F0F_u548C_u5BF9_u8C61_u58F0_u660E" class="headerlink" title="对象（object）表达式和对象声明"></a>对象（object）表达式和对象声明</h2><p>Kotlin中提供关键object，与java中的“Object”不同（在java中“Object”是所有类的基类，等同于Kotlin的“Any”，参考<a href="https://kotlinlang.org/docs/reference/java-interop.html#mapped-types">java-interop</a>），用于直接申明一个对象，有两种使用写法：对象表达式和对象声明</p>
+<h3 id="u5BF9_u8C61_u8868_u8FBE_u5F0F"><a href="#u5BF9_u8C61_u8868_u8FBE_u5F0F" class="headerlink" title="对象表达式"></a>对象表达式</h3><p>通过对象表达式可以越过类的定义直接得到一个对象：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">val</span> point</span> = <span class="keyword">object</span> &#123;</span><br><span class="line">	<span class="variable"><span class="keyword">var</span> x</span>: <span class="typename">Int</span> = <span class="number">0</span></span><br><span class="line">	<span class="variable"><span class="keyword">var</span> y</span>: <span class="typename">Int</span> = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个对象可以继承于某个基类，或者实现其他接口:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">Device</span></span>(<span class="variable"><span class="keyword">var</span> name</span>: String) &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface Vedio &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">play</span><span class="params">()</span>&#123;&#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable"><span class="keyword">var</span> television</span> = <span class="keyword">object</span> : Device(<span class="string">"Sony"</span>), Vedio&#123;&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/companion/">companion</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kotlin/">kotlin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/object/">object</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单例/">单例</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/对象/">对象</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/19/class-object-object/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-new-to-kotlin" class="article article-type-post" itemscope itemprop="blogPost">
   

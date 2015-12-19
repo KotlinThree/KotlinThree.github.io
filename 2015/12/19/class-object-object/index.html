@@ -1,26 +1,215 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[KotlinThree's Blog]]></title>
-  <subtitle><![CDATA[for the dream]]></subtitle>
-  <link href="/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
-  <updated>2015-12-19T08:39:09.000Z</updated>
-  <id>http://yoursite.com/</id>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
   
-  <author>
-    <name><![CDATA[KotlinThree]]></name>
+  <title>类与对象 -- object | KotlinThree&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="对象（object）表达式和对象声明Kotlin中提供关键object，与java中的“Object”不同（在java中“Object”是所有类的基类，等同于Kotlin的“Any”，参考java-interop），用于直接申明一个对象，有两种使用写法：对象表达式和对象声明
+对象表达式通过对象表达式可以越过类的定义直接得到一个对象：
+1234val point = object &amp;#123;	va">
+<meta property="og:type" content="article">
+<meta property="og:title" content="类与对象 -- object">
+<meta property="og:url" content="http://yoursite.com/2015/12/19/class-object-object/index.html">
+<meta property="og:site_name" content="KotlinThree's Blog">
+<meta property="og:description" content="对象（object）表达式和对象声明Kotlin中提供关键object，与java中的“Object”不同（在java中“Object”是所有类的基类，等同于Kotlin的“Any”，参考java-interop），用于直接申明一个对象，有两种使用写法：对象表达式和对象声明
+对象表达式通过对象表达式可以越过类的定义直接得到一个对象：
+1234val point = object &amp;#123;	va">
+<meta property="og:updated_time" content="2015-12-19T08:39:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="类与对象 -- object">
+<meta name="twitter:description" content="对象（object）表达式和对象声明Kotlin中提供关键object，与java中的“Object”不同（在java中“Object”是所有类的基类，等同于Kotlin的“Any”，参考java-interop），用于直接申明一个对象，有两种使用写法：对象表达式和对象声明
+对象表达式通过对象表达式可以越过类的定义直接得到一个对象：
+1234val point = object &amp;#123;	va">
+  
+    <link rel="alternative" href="/atom.xml" title="KotlinThree&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Kotlin-logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">KotlinThree</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">for the dream</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/KotlinThree/KotlinThree.github.io" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="/" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/companion/" style="font-size: 10px;">companion</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/object/" style="font-size: 10px;">object</a> <a href="/tags/star/" style="font-size: 10px;">star</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">KotlinThree</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Kotlin-logo.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">KotlinThree</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">for the dream</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/KotlinThree/KotlinThree.github.io" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="/" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-class-object-object" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/19/class-object-object/" class="article-date">
+  	<time datetime="2015-12-19T11:02:38.000Z" itemprop="datePublished">2015-12-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
     
-  </author>
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
-  <generator uri="http://hexo.io/">Hexo</generator>
+    <h1 class="article-title" itemprop="name">
+      类与对象 -- object
+    </h1>
   
-  <entry>
-    <title><![CDATA[类与对象 -- object]]></title>
-    <link href="http://yoursite.com/2015/12/19/class-object-object/"/>
-    <id>http://yoursite.com/2015/12/19/class-object-object/</id>
-    <published>2015-12-19T11:02:38.000Z</published>
-    <updated>2015-12-19T08:39:09.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="u5BF9_u8C61_uFF08object_uFF09_u8868_u8FBE_u5F0F_u548C_u5BF9_u8C61_u58F0_u660E"><a href="#u5BF9_u8C61_uFF08object_uFF09_u8868_u8FBE_u5F0F_u548C_u5BF9_u8C61_u58F0_u660E" class="headerlink" title="对象（object）表达式和对象声明"></a>对象（object）表达式和对象声明</h2><p>Kotlin中提供关键object，与java中的“Object”不同（在java中“Object”是所有类的基类，等同于Kotlin的“Any”，参考<a href="https://kotlinlang.org/docs/reference/java-interop.html#mapped-types" target="_blank" rel="external">java-interop</a>），用于直接申明一个对象，有两种使用写法：对象表达式和对象声明</p>
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/companion/">companion</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kotlin/">kotlin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/object/">object</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单例/">单例</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/对象/">对象</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="u5BF9_u8C61_uFF08object_uFF09_u8868_u8FBE_u5F0F_u548C_u5BF9_u8C61_u58F0_u660E"><a href="#u5BF9_u8C61_uFF08object_uFF09_u8868_u8FBE_u5F0F_u548C_u5BF9_u8C61_u58F0_u660E" class="headerlink" title="对象（object）表达式和对象声明"></a>对象（object）表达式和对象声明</h2><p>Kotlin中提供关键object，与java中的“Object”不同（在java中“Object”是所有类的基类，等同于Kotlin的“Any”，参考<a href="https://kotlinlang.org/docs/reference/java-interop.html#mapped-types" target="_blank" rel="external">java-interop</a>），用于直接申明一个对象，有两种使用写法：对象表达式和对象声明</p>
 <h3 id="u5BF9_u8C61_u8868_u8FBE_u5F0F"><a href="#u5BF9_u8C61_u8868_u8FBE_u5F0F" class="headerlink" title="对象表达式"></a>对象表达式</h3><p>通过对象表达式可以越过类的定义直接得到一个对象：</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">val</span> point</span> = <span class="keyword">object</span> &#123;</span><br><span class="line">	<span class="variable"><span class="keyword">var</span> x</span>: <span class="typename">Int</span> = <span class="number">0</span></span><br><span class="line">	<span class="variable"><span class="keyword">var</span> y</span>: <span class="typename">Int</span> = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个对象可以继承于某个基类，或者实现其他接口:</p>
@@ -47,105 +236,106 @@
 <p>看到上面的例子我们我们就会思考如果我们定义两个内部关联对象怎么办，答案当然是不行，不管是否声明对象名，一个类里面只能声明一个内部关联对象。</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Desk</span></span>&#123;</span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> DeskTop &#123;</span><br><span class="line">        <span class="variable"><span class="keyword">var</span> area</span> = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> Leg&#123;  <span class="comment">// error, compile complain</span></span><br><span class="line">        <span class="variable"><span class="keyword">var</span> lenght</span> = <span class="number">80</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://kotlinlang.org" target="_blank" rel="external">kotlin</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="u5BF9_u8C61_uFF08object_uFF09_u8868_u8FBE_u5F0F_u548C_u5BF9_u8C61_u58F0_u660E"><a href="#u5BF9_u8C61_uFF08object_uFF09_u8868_u8FBE_u5F0F_u548C_u5BF9_u8C61_u58F0_u660E" class="headerlink" title="对象（object）表达式和对象声明"></a>对象（object）表达式和对象声明</h2><p>Kotlin中提供关键object，与java中的“Object”不同（在java中“Object”是所有类的基类，等同于Kotlin的“Any”，参考<a href="https://kotlinlang.org/docs/reference/java-interop.html#mapped-types">java-interop</a>），用于直接申明一个对象，有两种使用写法：对象表达式和对象声明</p>
-<h3 id="u5BF9_u8C61_u8868_u8FBE_u5F0F"><a href="#u5BF9_u8C61_u8868_u8FBE_u5F0F" class="headerlink" title="对象表达式"></a>对象表达式</h3><p>通过对象表达式可以越过类的定义直接得到一个对象：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">val</span> point</span> = <span class="keyword">object</span> &#123;</span><br><span class="line">	<span class="variable"><span class="keyword">var</span> x</span>: <span class="typename">Int</span> = <span class="number">0</span></span><br><span class="line">	<span class="variable"><span class="keyword">var</span> y</span>: <span class="typename">Int</span> = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个对象可以继承于某个基类，或者实现其他接口:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">Device</span></span>(<span class="variable"><span class="keyword">var</span> name</span>: String) &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface Vedio &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">play</span><span class="params">()</span>&#123;&#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable"><span class="keyword">var</span> television</span> = <span class="keyword">object</span> : Device(<span class="string">"Sony"</span>), Vedio&#123;&#125;</span><br></pre></td></tr></table></figure>]]>
+
+      
+    </div>
     
-    </summary>
-    
-      <category term="companion" scheme="http://yoursite.com/tags/companion/"/>
-    
-      <category term="kotlin" scheme="http://yoursite.com/tags/kotlin/"/>
-    
-      <category term="object" scheme="http://yoursite.com/tags/object/"/>
-    
-      <category term="单例" scheme="http://yoursite.com/tags/%E5%8D%95%E4%BE%8B/"/>
-    
-      <category term="对象" scheme="http://yoursite.com/tags/%E5%AF%B9%E8%B1%A1/"/>
-    
-  </entry>
+  </div>
   
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/2015/12/17/new-to-kotlin/"/>
-    <id>http://yoursite.com/2015/12/17/new-to-kotlin/</id>
-    <published>2015-12-17T04:07:11.000Z</published>
-    <updated>2015-12-17T04:07:11.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="Kotlin_u7B80_u4ECB"><a href="#Kotlin_u7B80_u4ECB" class="headerlink" title="Kotlin简介"></a>Kotlin简介</h1><h2 id="Kotlin_u662F_u4EC0_u4E48"><a href="#Kotlin_u662F_u4EC0_u4E48" class="headerlink" title="Kotlin是什么"></a>Kotlin是什么</h2><p>发布于2011年，是一门适用于JVM, Android以及浏览器静态语言，<strong><em>100% 兼容Java™</em></strong></p>
-<h2 id="u4E3A_u4EC0_u4E48_u9009_u62E9Kotlin"><a href="#u4E3A_u4EC0_u4E48_u9009_u62E9Kotlin" class="headerlink" title="为什么选择Kotlin"></a>为什么选择Kotlin</h2><ul>
-<li>简洁，大幅度减少你需要写的重复代码</li>
-</ul>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用lambda表达式来过滤链表：</span><br><span class="line">val positiveNumbers = <span class="type">list</span>.filter &#123;<span class="keyword">it</span> &gt; <span class="number">0</span>&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>安全，避免整个类中类似空指针异常这样的错误，测试妹妹再也不用担心你的NullPointException了</p>
-</li>
-<li><p>通用，可以用于构建服务器端程序、Android程序或者运行在浏览器里的前端程序</p>
-</li>
-<li><p>互操作，重用已有的JVM平台框架或库，与Java无缝兼容，可直接在之前项目上面使用Kotlin</p>
-</li>
-<li><p>工具，一门语言需要工具化，这正是JetBrains做得最好的地方</p>
-</li>
-<li><p>可靠，JetBrains提供技术支持</p>
-</li>
-</ul>
-<a id="more"></a>
-<h2 id="u8BD5_u7528Kotlin"><a href="#u8BD5_u7528Kotlin" class="headerlink" title="试用Kotlin"></a>试用Kotlin</h2><ul>
-<li>单独编译，你可以使用ant、maven或者gradle编译kotlin，<a href="https://kotlinlang.org/docs/tutorials/command-line.html" target="_blank" rel="external">编译器下载</a></li>
-<li>在IntelliJ IDEA或者Android Studio上编写kotlin，<a href="https://kotlinlang.org/docs/tutorials/getting-started.html" target="_blank" rel="external">安装插件</a></li>
-<li>在eclipse上编写kotlin，<a href="https://kotlinlang.org/docs/tutorials/getting-started-eclipse.html" target="_blank" rel="external">安装插件</a></li>
-<li><a href="http://try.kotlinlang.org/" target="_blank" rel="external">在线编辑</a></li>
-</ul>
-<h2 id="u76F8_u5173_u8D44_u6E90"><a href="#u76F8_u5173_u8D44_u6E90" class="headerlink" title="相关资源"></a>相关资源</h2><ul>
-<li><a href="https://kotlinlang.org/" target="_blank" rel="external">官方网站</a></li>
-<li><a href="http://kotlinlang.cn/" target="_blank" rel="external">中文网站</a></li>
-<li><a href="https://kotlinlang.org/docs/kotlin-docs.pdf" target="_blank" rel="external">文档下载</a></li>
-<li><a href="https://kotlinthree.github.io/" target="_blank" rel="external">KotlinThree</a></li>
-</ul>
-<h2 id="u53C2_u8003_u5185_u5BB9"><a href="#u53C2_u8003_u5185_u5BB9" class="headerlink" title="参考内容"></a>参考内容</h2><p><a href="http://kotlinlang.cn/" target="_blank" rel="external">Kotlin</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="Kotlin_u7B80_u4ECB"><a href="#Kotlin_u7B80_u4ECB" class="headerlink" title="Kotlin简介"></a>Kotlin简介</h1><h2 id="Kotlin_u662F_u4EC0_u4E48"><a href="#Kotlin_u662F_u4EC0_u4E48" class="headerlink" title="Kotlin是什么"></a>Kotlin是什么</h2><p>发布于2011年，是一门适用于JVM, Android以及浏览器静态语言，<strong><em>100% 兼容Java™</em></strong></p>
-<h2 id="u4E3A_u4EC0_u4E48_u9009_u62E9Kotlin"><a href="#u4E3A_u4EC0_u4E48_u9009_u62E9Kotlin" class="headerlink" title="为什么选择Kotlin"></a>为什么选择Kotlin</h2><ul>
-<li>简洁，大幅度减少你需要写的重复代码</li>
-</ul>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用lambda表达式来过滤链表：</span><br><span class="line">val positiveNumbers = <span class="type">list</span>.filter &#123;<span class="keyword">it</span> &gt; <span class="number">0</span>&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>安全，避免整个类中类似空指针异常这样的错误，测试妹妹再也不用担心你的NullPointException了</p>
-</li>
-<li><p>通用，可以用于构建服务器端程序、Android程序或者运行在浏览器里的前端程序</p>
-</li>
-<li><p>互操作，重用已有的JVM平台框架或库，与Java无缝兼容，可直接在之前项目上面使用Kotlin</p>
-</li>
-<li><p>工具，一门语言需要工具化，这正是JetBrains做得最好的地方</p>
-</li>
-<li><p>可靠，JetBrains提供技术支持</p>
-</li>
-</ul>]]>
     
-    </summary>
-    
-  </entry>
+<nav id="article-nav">
   
-  <entry>
-    <title><![CDATA[Welcome]]></title>
-    <link href="http://yoursite.com/2015/12/15/welcome/"/>
-    <id>http://yoursite.com/2015/12/15/welcome/</id>
-    <published>2015-12-15T13:36:29.000Z</published>
-    <updated>2015-12-16T09:42:17.000Z</updated>
-    <content type="html"><![CDATA[<p><img src="http://img4.duitang.com/uploads/blog/201312/13/20131213162251_ueFLz.jpeg" alt="Zenus"></p>
-<a id="more"></a>
-<h2 id="KotlinThree_u7EC4_u7EC7_u6210_u7ACB_u4E86_uFF01_uFF01_uFF01_u6B22_u8FCE_u5927_u5BB6_u524D_u6765_u505A_u5BA2_uFF01_28_u6B64_u5904_u5E94_u6709_u638C_u58F0_7E_29_2C__u6B22_u8FCE_u5927_u5BB6_u4E00_u8D77_u6765_u5B66_u4E60_u63A2_u8BA8Kotlin"><a href="#KotlinThree_u7EC4_u7EC7_u6210_u7ACB_u4E86_uFF01_uFF01_uFF01_u6B22_u8FCE_u5927_u5BB6_u524D_u6765_u505A_u5BA2_uFF01_28_u6B64_u5904_u5E94_u6709_u638C_u58F0_7E_29_2C__u6B22_u8FCE_u5927_u5BB6_u4E00_u8D77_u6765_u5B66_u4E60_u63A2_u8BA8Kotlin" class="headerlink" title="KotlinThree组织成立了！！！欢迎大家前来做客！(此处应有掌声~), 欢迎大家一起来学习探讨Kotlin"></a><strong>KotlinThree组织成立了</strong>！！！欢迎大家前来做客！(此处应有掌声~), 欢迎大家一起来学习探讨Kotlin</h2>]]></content>
-    <summary type="html">
-    <![CDATA[<p><img src="http://img4.duitang.com/uploads/blog/201312/13/20131213162251_ueFLz.jpeg" alt="Zenus"></p>]]>
-    
-    </summary>
-    
-      <category term="star" scheme="http://yoursite.com/tags/star/"/>
-    
-  </entry>
   
-</feed>
+    <a href="/2015/12/17/new-to-kotlin/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 KotlinThree
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
