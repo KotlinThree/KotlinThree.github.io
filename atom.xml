@@ -15,32 +15,6 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://yoursite.com/2015/12/26/Functional-Kotlin/"/>
-    <id>http://yoursite.com/2015/12/26/Functional-Kotlin/</id>
-    <published>2015-12-26T11:53:16.000Z</published>
-    <updated>2015-12-26T11:53:16.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="Functional_Kotlin__u51FD_u6570_u5F0F_u7F16_u7A0B"><a href="#Functional_Kotlin__u51FD_u6570_u5F0F_u7F16_u7A0B" class="headerlink" title="Functional Kotlin 函数式编程"></a>Functional Kotlin 函数式编程</h1><h2 id="u4F60_u6709_u591A_u4E86_u89E3_u51FD_u6570_uFF1F"><a href="#u4F60_u6709_u591A_u4E86_u89E3_u51FD_u6570_uFF1F" class="headerlink" title="你有多了解函数？"></a>你有多了解函数？</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">func</span> <span class="tag">hello</span>(<span class="attribute">name</span>: String) &#123;</span><br><span class="line">    <span class="tag">print</span>(<span class="string">"Hello $&#123;name&#125;"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">hello</span>(<span class="string">"kotlin"</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>什么是函数？</li>
-<li>什么是函数签名？</li>
-<li>什么是方法？</li>
-<li>方法与函数有什么区别？</li>
-<li>方法的本质是什么？</li>
-<li>什么是函数式编程？</li>
-</ul>
-<ol>
-<li>下面这段话是我从The Swift Programming Language (Swift 2.1) 中看到的</li>
-</ol>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Functions are self-contained chunks <span class="keyword">of</span> code <span class="keyword">that</span> perform a specific task. You give a function a <span class="property">name</span> <span class="keyword">that</span> identifies what <span class="keyword">it</span> <span class="keyword">does</span>, <span class="keyword">and</span> this <span class="property">name</span> <span class="keyword">is</span> used <span class="keyword">to</span> “call” <span class="keyword">the</span> function <span class="keyword">to</span> perform <span class="keyword">its</span> task when needed.</span><br></pre></td></tr></table></figure>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="Functional_Kotlin__u51FD_u6570_u5F0F_u7F16_u7A0B"><a href="#Functional_Kotlin__u51FD_u6570_u5F0F_u7F16_u7A0B" class="headerlink" tit]]>
-    </summary>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[类与对象——泛型]]></title>
     <link href="http://yoursite.com/2015/12/22/class-object-generic/"/>
     <id>http://yoursite.com/2015/12/22/class-object-generic/</id>
