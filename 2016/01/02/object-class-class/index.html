@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>类与对象 —— 类（一） | KotlinThree&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="类的声明kotlin用关键字class声明，声明一个类可以只声明头的部分，类的声明默认是final的。就像：
+123class Persion//或者class Person(name: String)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="类与对象 —— 类（一）">
+<meta property="og:url" content="http://yoursite.com/2016/01/02/object-class-class/index.html">
+<meta property="og:site_name" content="KotlinThree's Blog">
+<meta property="og:description" content="类的声明kotlin用关键字class声明，声明一个类可以只声明头的部分，类的声明默认是final的。就像：
+123class Persion//或者class Person(name: String)">
+<meta property="og:updated_time" content="2016-01-02T10:14:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="类与对象 —— 类（一）">
+<meta name="twitter:description" content="类的声明kotlin用关键字class声明，声明一个类可以只声明头的部分，类的声明默认是final的。就像：
+123class Persion//或者class Person(name: String)">
+  
+    <link rel="alternative" href="/atom.xml" title="KotlinThree&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Kotlin-logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">KotlinThree</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">for the dream</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/KotlinThree/KotlinThree.github.io" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="/" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/companion/" style="font-size: 10px;">companion</a> <a href="/tags/generics/" style="font-size: 10px;">generics</a> <a href="/tags/kotlin/" style="font-size: 20px;">kotlin</a> <a href="/tags/object/" style="font-size: 10px;">object</a> <a href="/tags/star/" style="font-size: 10px;">star</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/委托/" style="font-size: 10px;">委托</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a> <a href="/tags/泛型/" style="font-size: 10px;">泛型</a> <a href="/tags/类/" style="font-size: 10px;">类</a> <a href="/tags/类与对象/" style="font-size: 10px;">类与对象</a> <a href="/tags/继承/" style="font-size: 10px;">继承</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">KotlinThree</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Kotlin-logo.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">KotlinThree</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">for the dream</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/KotlinThree/KotlinThree.github.io" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="/" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-object-class-class" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/02/object-class-class/" class="article-date">
+  	<time datetime="2016-01-02T08:01:28.000Z" itemprop="datePublished">2016-01-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      类与对象 —— 类（一）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/class/">class</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kotlin/">kotlin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/委托/">委托</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/类/">类</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/继承/">继承</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="u7C7B_u7684_u58F0_u660E"><a href="#u7C7B_u7684_u58F0_u660E" class="headerlink" title="类的声明"></a>类的声明</h2><p>kotlin用关键字<code>class</code>声明，声明一个类可以只声明头的部分，类的声明默认是<code>final</code>的。就像：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Persion</span></span></span><br><span class="line"><span class="comment">//或者</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(name: String)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>类的构造函数可以有很多，但是只有一个可以声明在类的头部，这个构造函数被称做“主构造函数”，其他的被称做“次构造函数”。构造函数使用<code>constructor</code>关键字，主构造函数在没有可见性修饰符和注解的情况下，<code>constructor</code>可以被省略。默认的情况下，所有的构造函数的可见性都是<code>public</code>，对于使用方来说是与类的可见性保持一致。</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Customer <span class="keyword">public</span> @Inject <span class="function"><span class="keyword">constructor</span><span class="params">(name: <span class="keyword">String</span>)</span> <span class="comment">&#123; ... &#125;</span></span></span><br></pre></td></tr></table></figure>
+<p>主构造函数没有自己的函数体，它的参数可以在类的初始化块（<code>init</code>修饰）访问，在类的属性初始化时也可以访问。所以，在主构造函数里面想要做的事情，可以放在类的初始化块中实现。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Customer</span>(<span class="title">name</span>: <span class="title">String</span>) </span>&#123;</span><br><span class="line">	val customerKey = name.toUpperCase()</span><br><span class="line">    init &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Customer initialized with value <span class="subst">$&#123;name&#125;</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果我们想要在类的全局都可以访问主构造函数的参数，可以在参数前面加上<code>val</code>或者<code>var</code>，这样主构造函数的参数就和类的属性一样了。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(<span class="variable"><span class="keyword">val</span> name</span>: String,<span class="variable"><span class="keyword">val</span> age</span>: <span class="typename">Int</span>)&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">showName</span><span class="params">()</span>&#123;</span></span><br><span class="line">        print(<span class="string">"my name is $name"</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">open</span> <span class="function"><span class="keyword">fun</span> <span class="title">showAge</span><span class="params">()</span>&#123;</span></span><br><span class="line">        print(<span class="string">"my age is $age"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>次构造函数必须要使用<code>constructor</code>修饰，并且必须直接或者间接的委托给主构造函数。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Person(val name: <span class="built_in">String</span>) &#123;</span><br><span class="line">    <span class="constructor"><span class="keyword">constructor</span>(name: String, parent: Person) : this(name) </span>&#123;</span><br><span class="line">        parent.children.add(<span class="keyword">this</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="u7EE7_u627F"><a href="#u7EE7_u627F" class="headerlink" title="继承"></a>继承</h2><h3 id="u7C7B_u7684_u7EE7_u627F"><a href="#u7C7B_u7684_u7EE7_u627F" class="headerlink" title="类的继承"></a>类的继承</h3><p>kotlin中所有的类都有一个父类<code>Any</code>，类似于java中的Object，但不存在对等关系。Any中只有<code>equals()</code>、<code>hashCode()</code>和<code>toString()</code>三个方法，所以其他的Object的方法都不能直接调用。详情请参见<a href="https://kotlinlang.org/docs/reference/java-interop.html#object-methods" target="_blank" rel="external">Java interoperability</a>。后面有机会我们会再讲到。</p>
+<p>kotlin默认类都是<code>final</code>的，为了可以被继承，我们需要在类的声明前面加上<code>open</code>，让该类可以被其他类继承。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">Base</span></span>(p: <span class="typename">Int</span>)</span><br></pre></td></tr></table></figure>
+<p>如果父类有主构造函数的话，则必须在子类声明的头部被初始化。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class <span class="function"><span class="title">Derived</span><span class="params">(p: Int)</span></span> : <span class="function"><span class="title">Base</span><span class="params">(p)</span></span></span><br></pre></td></tr></table></figure>
+<p>次构造函数也必须直接或间接的初始化父类的构造函数：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> MyView : View &#123;</span><br><span class="line">    <span class="constructor"><span class="keyword">constructor</span>(ctx: Context) : super(ctx) </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="constructor"><span class="keyword">constructor</span>(ctx: Context, attrs: AttributeSet) : super(ctx, attrs) </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="u590D_u5199_u65B9_u6CD5"><a href="#u590D_u5199_u65B9_u6CD5" class="headerlink" title="复写方法"></a>复写方法</h3><p>同类一样，子类只能复写父类中被<code>open</code>修饰的函数，复写方法必须使用<code>override</code>。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(name: String, age: <span class="typename">Int</span>)&#123;</span><br><span class="line">    <span class="variable"><span class="keyword">var</span> name</span> = name;</span><br><span class="line">    <span class="variable"><span class="keyword">val</span> age</span> = age;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">showName</span><span class="params">()</span>&#123;</span></span><br><span class="line">        print(<span class="string">"my name is $name"</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">open</span> <span class="function"><span class="keyword">fun</span> <span class="title">showAge</span><span class="params">()</span>&#123;</span></span><br><span class="line">        print(<span class="string">"my age is $age"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Women</span></span>(name: String, age: <span class="typename">Int</span>) : Person(name, age)&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">showAge</span><span class="params">()</span>&#123;</span></span><br><span class="line">        print(<span class="string">"my age is 18"</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">showName</span><span class="params">()</span>&#123;</span></span><br><span class="line">        <span class="comment">// error, compiler complain</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>子类中复写的方法，默认也是<code>open</code>的，如果需要，可以在方法<code>override</code>之前添加<code>final</code>注解，让该子类的子类不能再复写该方法。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">v</span><span class="params">()</span> &#123;&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="u591A_u7EE7_u627F"><a href="#u591A_u7EE7_u627F" class="headerlink" title="多继承"></a>多继承</h3><p>kotlin和java8一样，本身并不能同时继承于多个类，但是可以实现多个接口，而且接口可以有自己的实现，所以当父类和接口或者接口和接口中的方法一样时，会发生冲突，我们需要明确这个时候的解决方案，不然就会<code>compiler complain</code>。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">interface Young&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">showAge</span><span class="params">()</span>&#123;</span></span><br><span class="line">        print(<span class="string">"my age is between 13 and 25"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>(name: String, age: <span class="typename">Int</span>) : Person(name, age), Young&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">showAge</span><span class="params">()</span> &#123;</span></span><br><span class="line">        super<span class="type">&lt;Person&gt;</span>.showAge()</span><br><span class="line">        super<span class="type">&lt;Young&gt;</span>.showAge()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="u59D4_u6258"><a href="#u59D4_u6258" class="headerlink" title="委托"></a>委托</h2><p>委托被认为是一个非常好的替代继承和实现的设计模式，kotlin也支持这种模式。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">interface Base &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">print</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseImpl</span></span>(<span class="variable"><span class="keyword">val</span> x</span>: <span class="typename">Int</span>) : Base &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">print</span><span class="params">()</span> &#123; <span class="title">print</span><span class="params">(x)</span> &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span></span>(b: Base) : Base by b</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span> &#123;</span></span><br><span class="line">    <span class="variable"><span class="keyword">val</span> b</span> = BaseImpl(<span class="number">10</span>)</span><br><span class="line">    Derived(b).print() <span class="comment">// prints 10</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在类的声明过程中，在父类类型后面使用<code>by</code>关键字指明在Derived的对象中将会内部存储<code>b</code>对象，并且编译器会将<code>Base</code>的所有方法指向<code>b</code>。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/12/22/class-object-generic/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">类与对象——泛型</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 KotlinThree
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

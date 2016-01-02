@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/01/02/object-class-class/</loc>
+    <lastmod>2016-01-02T10:14:33.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2015/12/19/class-object-object/</loc>
     <lastmod>2015-12-26T12:21:04.000Z</lastmod>
   </url>
