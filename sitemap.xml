@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/01/14/kotlin%E4%B8%AD%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96/</loc>
+    <lastmod>2016-02-01T11:07:17.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/01/02/object-class-class/</loc>
     <lastmod>2016-01-02T10:14:33.000Z</lastmod>
   </url>
