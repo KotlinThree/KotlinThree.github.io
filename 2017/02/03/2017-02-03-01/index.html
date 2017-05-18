@@ -6,14 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | KotlinThree&#39;s Blog</title>
+  <title>Kotlin Primer·第一章·启程 | KotlinThree&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="KotlinThree&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="其实最初是准备写一本电子书然后免费开放给大家的，可惜啊可惜毅力不够，坚持不下来，所以还是当成博客来写，写好了再出电子书吧。">
+<meta name="keywords" content="Kotlin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin Primer·第一章·启程">
+<meta property="og:url" content="http://yoursite.com/2017/02/03/2017-02-03-01/index.html">
 <meta property="og:site_name" content="KotlinThree&#39;s Blog">
+<meta property="og:description" content="其实最初是准备写一本电子书然后免费开放给大家的，可惜啊可惜毅力不够，坚持不下来，所以还是当成博客来写，写好了再出电子书吧。">
+<meta property="og:image" content="http://cdn.kymjs.com/kotlin/1-3-1.png">
+<meta property="og:image" content="http://cdn.kymjs.com/kotlin/1-4-1.png">
+<meta property="og:image" content="http://cdn.kymjs.com/kotlin/1-4-2.png">
+<meta property="og:image" content="http://cdn.kymjs.com/kotlin/1-4-3.png">
+<meta property="og:image" content="http://cdn.kymjs.com/kotlin/1-4-4.png">
+<meta property="og:image" content="http://cdn.kymjs.com/kotlin/1-4-5.png">
+<meta property="og:image" content="http://cdn.kymjs.com/kotlin/1-4-6.png">
+<meta property="og:updated_time" content="2017-05-18T07:51:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KotlinThree&#39;s Blog">
+<meta name="twitter:title" content="Kotlin Primer·第一章·启程">
+<meta name="twitter:description" content="其实最初是准备写一本电子书然后免费开放给大家的，可惜啊可惜毅力不够，坚持不下来，所以还是当成博客来写，写好了再出电子书吧。">
+<meta name="twitter:image" content="http://cdn.kymjs.com/kotlin/1-3-1.png">
   
     <link rel="alternative" href="/atom.xml" title="KotlinThree&#39;s Blog" type="application/atom+xml">
   
@@ -155,330 +168,97 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2017-02-03-01" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Kotlin Primer·第一章·启程
+    </h1>
+  
+
+        
+        <a href="/2017/02/03/2017-02-03-01/" class="archive-article-date">
+  	<time datetime="2017-02-03T09:34:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-03</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>题外话：全书的目录以及主要内容已经公开，可在我公众号【<a href="http://mp.weixin.qq.com/s/3W6ciZYM1o_J5VqIFyNIpQ" target="_blank" rel="external">技术实验室</a>】的历史推送文章查看</p>
+<p>第一部分——快速上手<br><a href="https://kymjs.com/code/2017/02/03/01/" target="_blank" rel="external">第一章·启程</a><br><a href="https://kymjs.com/code/2017/02/04/01/" target="_blank" rel="external">第二章·基本语法</a><br><a href="https://kymjs.com/code/2017/02/07/01/" target="_blank" rel="external">第三章·Kotlin 与 Java 混编</a><br>第二部分——开始学习 Kotlin<br><a href="https://kymjs.com/code/2017/02/12/01/" target="_blank" rel="external">第四章·Kotlin 的类特性(上)</a><br><a href="https://kymjs.com/code/2017/02/26/01/" target="_blank" rel="external">第四章·Kotlin 的类特性(下)</a><br><a href="https://kymjs.com/code/2017/04/09/01/" target="_blank" rel="external">第五章·函数与闭包</a>   </p>
+</blockquote>
+<p>欢迎阅读本书！Kotlin 语言是一种新的静态类型编程语言，可运行于 JVM 环境同时也能用来开发 Android 应用。本章为学习和使用这一新兴的语言做准备，并讨论在一些常见开发环境中运行 Kotlin 程序的方法。  </p>
+<h3 id="1-1-Kotlin语言介绍"><a href="#1-1-Kotlin语言介绍" class="headerlink" title="1.1 Kotlin语言介绍"></a>1.1 Kotlin语言介绍</h3><p>Kotlin 是 JetBrains 在 2010 年推出的基于 JVM 的新编程语言。开发者称，设计它的目的是避免 Java 语言编程中的一些难题。比如：在 Kotlin 中类型系统控制了空指针引用，可以有效避免 Java 中常见的NullPointException。<br>作为一个跨平台的语言，Kotlin 可以工作于任何 Java 的工作环境：服务器端的应用，移动应用（Android版），桌面应用程序。 </p>
+<a id="more"></a> 
+<h3 id="1-2-Kotlin的优势"><a href="#1-2-Kotlin的优势" class="headerlink" title="1.2 Kotlin的优势"></a>1.2 Kotlin的优势</h3><p>相比于 Java，Kotlin 有着更好的语法结构，安全性和开发工具支持。<br>Kotlin 中没有基础类型，数组是定长的，泛型是安全的，即便运行时也是安全的。此外，该语言支持闭包，还可通过内联进行优化。不过，它不支持检查异常（Checked Exceptions），许多语言设计者认为这是它的瑕疵。不论如何，重要的是 Java 和 Kotlin 之间的互操作性：Kotlin 可以调用 Java，反之亦可。</p>
+<h3 id="1-3-准备工作"><a href="#1-3-准备工作" class="headerlink" title="1.3 准备工作"></a>1.3 准备工作</h3><p>Intellij IDEA 是 JetBrains 提供的继承开发环境，可以用来开发 Kotlin 应用程序。<br>如果你是一名 Android 开发者，你也可以使用 Android Studio 来开发 Kotlin 程序。如你所知，Android Studio 其实就是 Intellij IDEA 的插件扩展，Intellij IDEA 是由 JetBrains 所开发，而 Kotlin 同样是由 JetBrains 创造的，其中的兼容性自然不用多说。<br>在安装好 Intellij IDEA 后，还需要安装 Kotlin 插件。<br><strong>说明</strong>：从 Intellij 15 开始，已经自带了 Kotlin 插件，无需再次下载，而 Android Studio 却没有。不过还是建议你运行一下下面的步骤，检查一下插件是否为最新版。</p>
+<p>首先启动你的 IDE，按下快捷键 Ctrl+, (Mac 下为 command+,) 打开Preference 界面。<br>点击左侧 Plugin 栏，打开插件界面。<br>点击 Browse repositories（如图1-3-1）。   </p>
+<p><img src="http://cdn.kymjs.com/kotlin/1-3-1.png" alt="图1-3-1：kotlin安装">    </p>
+<p>在弹出的窗口上方，搜索 “Kotlin”，选中 Kotlin 和 Kotlin Extension For Android。<br>点击右侧的 Install。<br>安装完成后按钮会变成 Restart，再次点击重启 IDE。<br>刚刚安装的这两个插件分别为 Kotlin 语言支持包，和我们稍后会用到的Android 开发的扩展包。   </p>
+<p><strong>一点小技巧</strong>：也许由于网络环境原因，会造成下载失败。可以根据弹出窗口中提示的(或直接在 JetBrains 插件市场搜索)下载链接，使用国内网盘的离线下载功能，下载到网盘后再从网盘下载到本地。  </p>
+<h3 id="1-4-Hello-Kotlin"><a href="#1-4-Hello-Kotlin" class="headerlink" title="1.4 Hello Kotlin"></a>1.4 Hello Kotlin</h3><h4 id="1-4-1-第一个Kotlin程序"><a href="#1-4-1-第一个Kotlin程序" class="headerlink" title="1.4.1 第一个Kotlin程序"></a>1.4.1 第一个Kotlin程序</h4><p>首先我们打开 Intellij 选中 Create a new project 选项后可以看到如下界面。<br>在 Additional Libraries and Frameworks 选项框中，如果你已经成功安装 Kotlin 插件，可以直接勾选 Kotlin(Java) 选项。<br>再点击下方的 Create 按钮，在弹出的 Create Kotlin Java Runtime Library 选项框中，我们选择 Use library from plugin 并确定(如图1-4-1)。  </p>
+<p><img src="http://cdn.kymjs.com/kotlin/1-4-1.png" alt="图1-4-1">  </p>
+<p>点击 Next，填写工程名和路径，这里我们创建一个名为 Hello 的工程，并点击 Finish 完成创建(如图1-4-2)。  </p>
+<p><img src="http://cdn.kymjs.com/kotlin/1-4-2.png" alt="图1-4-2">  </p>
+<p>首次创建工程需要等待一段时间，编译器这个时候正在帮助我们下载一些必要的依赖项。<br>工程构建完成后，右键工程目录的 src 图标，选择 New -&gt; Kotlin File，这里我们新建一个名为 Hello 的 Kotlin 源码文件(如图1-4-3)。  </p>
+<p> <img src="http://cdn.kymjs.com/kotlin/1-4-3.png" alt="图1-4-3">  </p>
+<p>看一下左侧的工程目录，src 文件夹中存放的是源码，可以在这里新建包或类；Hello.iml 文件声明了一些项目所需的环境依赖，我们不用关心。<br>于是，终于可以开始激动人心的编码了。  </p>
+<p> <img src="http://cdn.kymjs.com/kotlin/1-4-4.png" alt="图1-4-4">  </p>
+<p>Kotlin 程序非常简单，简单到只需要三行代码，相比起 Java 连包名都不是必须的。  </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">    print(<span class="string">"hello kotlin!"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>按下 Ctrl+R 快捷键，或者右上角绿色三角形，运行写好的程序(如图1-4-5)  </p>
+<p> <img src="http://cdn.kymjs.com/kotlin/1-4-5.png" alt="图1-4-5">  </p>
+<p>同 Java 语言一样，Kotlin 程序主入口也是 main() 函数。但是作为函数是一等公民的语言，它不需要像 Java 那样必须声明一个类。<br>在 Kotlin 中，函数的声明用 <code>fun</code> 表示，变量也与 Java 不同，是变量名在前，变量类型在后，中间用冒号隔开。<br>同时你也一定发现了，Kotlin 程序非常简洁，连分号也不需要写，当然如果你是刚从 Java 过渡来的，改不掉或不想改掉这个习惯，写上了也不会有错，因为它是可选的。<br>同时，我们还可以发现，在左侧的工程目录多了一个红色名为 out 的目录，它是用来存放 .class 文件的。</p>
+<h4 id="1-4-2-面向对象的Kotlin程序"><a href="#1-4-2-面向对象的Kotlin程序" class="headerlink" title="1.4.2 面向对象的Kotlin程序"></a>1.4.2 面向对象的Kotlin程序</h4><p>下面我们将 Hello 程序改一改，为它加入一些面向对象的特性。<br>我们创建一个包，并在包下新建名为 <code>Person</code> 的类。  </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.kymjs.kotlin.helloobj</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(<span class="keyword">val</span> name: String) &#123;</div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">printName</span><span class="params">()</span></span> &#123;</div><div class="line">        println(name)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>再回到<figure class="highlight plain"><figcaption><span>main() 函数</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```kotlin</div><div class="line">import com.kymjs.kotlin.helloobj.Person</div><div class="line"></div><div class="line">fun main(args: Array&lt;String&gt;) &#123;</div><div class="line">    println(&quot;hello kotlin!&quot;)</div><div class="line">    Person(&quot;Zhang Tao&quot;).printName()</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>再次按下 Ctrl+R 快捷键，或者右上角绿色三角形，运行写好的程序(如图1-4-6)  </p>
+<p> <img src="http://cdn.kymjs.com/kotlin/1-4-6.png" alt="图1-4-6">  </p>
+<p>细心查看代码，Kotlin 创建对象的时候并不需要<code>new</code>关键字，而是像调用普通方法一样直接调用构造方法就可以了。<br>同时，由于两个文件不在同一个包下，需要导入 <code>Person</code> 类所在的包才能找到，当然，编译器已经帮我们解决了繁杂的导包过程。  </p>
+<h3 id="1-5-编码风格"><a href="#1-5-编码风格" class="headerlink" title="1.5 编码风格"></a>1.5 编码风格</h3><p>有关编码风格的一点建议，同 Java 类似，使用驼峰命名法，类名首字母大写，每个单词的首字母大写；方法和属性变量首字母小写；采用四个空格缩进。<br>值得一提的是，官方文档中建议在 Kotlin 语言中不要给属性前面加前缀，例如通常我们习惯加上一个小写 <code>m</code> 或者下划线等。<br>冒号，在分隔两个类型的时候，应该在左右都有空格，在实例和类型之间，应该紧靠实例变量，例如：  </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Foo</span>&lt;<span class="type">out T : Any</span>&gt; : <span class="type">Bar &#123;</span></span></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">(a: <span class="type">Int</span>)</span></span>: T</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Lambdas表达式，如果是简单的只用一行就可以表示的 lambda，应当遵循在大括号的两侧、箭头的两侧、参数的两侧都使用空格隔开，例如：  </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">list.filter &#123; it &gt; <span class="number">10</span> &#125;.map &#123; element -&gt; element * <span class="number">2</span> &#125;</div></pre></td></tr></table></figure>
+<h3 id="1-6-小结"><a href="#1-6-小结" class="headerlink" title="1.6 小结"></a>1.6 小结</h3><p>在本章中，你已经编写了两个 Kotlin 程序，相信你也已经对 Kotlin 产生了兴趣。希望你也能像我一样，沉醉于使用 Kotlin 开发。<br>继续学习下一章的内容吧，我们将进入 Kotlin 的语法世界。  </p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我们喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://7xpox6.com1.z0.glb.clouddn.com/WechatIMG603.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/05/kotlin_function_three_common_methods/" class="archive-article-date">
-  	<time datetime="2016-07-05T14:06:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/05/kotlin_function_three_common_methods/">Kotlin 函数式编程三板斧</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">函数式编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/13/kotlin_config_http_kolley/" class="archive-article-date">
-  	<time datetime="2016-06-13T12:23:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/13/kotlin_config_http_kolley/">Kotlin 实现配置化网络请求</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络请求</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/14/kotlin中的语法糖/" class="archive-article-date">
-  	<time datetime="2016-01-14T05:49:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/14/kotlin中的语法糖/">kotlin中的语法糖</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/02/object-class-class/" class="archive-article-date">
-  	<time datetime="2016-01-02T08:01:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/02/object-class-class/">类与对象 —— 类（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">class</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">类</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">继承</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">委托</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/22/class-object-generic/" class="archive-article-date">
-  	<time datetime="2015-12-22T15:08:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/22/class-object-generic/">类与对象——泛型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">generics</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">泛型</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类与对象</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/19/class-object-object/" class="archive-article-date">
-  	<time datetime="2015-12-19T11:02:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/19/class-object-object/">类与对象 -- object</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">object</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">companion</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">单例</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">对象</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/17/new-to-kotlin/" class="archive-article-date">
-  	<time datetime="2015-12-17T13:35:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/17/new-to-kotlin/">Kotlin简介</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -490,60 +270,108 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/15/welcome/" class="archive-article-date">
-  	<time datetime="2015-12-15T13:36:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/15/welcome/">Welcome</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">star</a>
+        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/03/2017-02-03-01/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/02/04/2017-02-04-01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Kotlin Primer·第二章·基本语法
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2016/08/27/kotlin_good_bad_bugly/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Kotlin：The Good, The Bad, and The Ugly(译)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
   
 
 
@@ -567,8 +395,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

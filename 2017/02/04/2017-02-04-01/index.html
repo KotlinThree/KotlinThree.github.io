@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | KotlinThree&#39;s Blog</title>
+  <title>Kotlin Primer·第二章·基本语法 | KotlinThree&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="KotlinThree&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="前三章的内容是为方便想在短时间内马上用上Kotlin的人，例如作为一个刚入职的新人，公司的代码已经是用Kotlin编写了，你应该如何更快的融入与适应。">
+<meta name="keywords" content="Kotlin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin Primer·第二章·基本语法">
+<meta property="og:url" content="http://yoursite.com/2017/02/04/2017-02-04-01/index.html">
 <meta property="og:site_name" content="KotlinThree&#39;s Blog">
+<meta property="og:description" content="前三章的内容是为方便想在短时间内马上用上Kotlin的人，例如作为一个刚入职的新人，公司的代码已经是用Kotlin编写了，你应该如何更快的融入与适应。">
+<meta property="og:updated_time" content="2017-05-18T07:41:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KotlinThree&#39;s Blog">
+<meta name="twitter:title" content="Kotlin Primer·第二章·基本语法">
+<meta name="twitter:description" content="前三章的内容是为方便想在短时间内马上用上Kotlin的人，例如作为一个刚入职的新人，公司的代码已经是用Kotlin编写了，你应该如何更快的融入与适应。">
   
     <link rel="alternative" href="/atom.xml" title="KotlinThree&#39;s Blog" type="application/atom+xml">
   
@@ -155,330 +160,91 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2017-02-04-01" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Kotlin Primer·第二章·基本语法
+    </h1>
+  
+
+        
+        <a href="/2017/02/04/2017-02-04-01/" class="archive-article-date">
+  	<time datetime="2017-02-04T07:44:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>题外话：全书的目录以及主要内容已经公开，可在我公众号【<a href="http://mp.weixin.qq.com/s/3W6ciZYM1o_J5VqIFyNIpQ" target="_blank" rel="external">技术实验室</a>】的历史推送文章查看</p>
+<p>第一部分——快速上手<br><a href="https://kymjs.com/code/2017/02/03/01/" target="_blank" rel="external">第一章·启程</a><br><a href="https://kymjs.com/code/2017/02/04/01/" target="_blank" rel="external">第二章·基本语法</a><br><a href="https://kymjs.com/code/2017/02/07/01/" target="_blank" rel="external">第三章·Kotlin 与 Java 混编</a><br>第二部分——开始学习 Kotlin<br><a href="https://kymjs.com/code/2017/02/12/01/" target="_blank" rel="external">第四章·Kotlin 的类特性(上)</a><br><a href="https://kymjs.com/code/2017/02/26/01/" target="_blank" rel="external">第四章·Kotlin 的类特性(下)</a><br><a href="https://kymjs.com/code/2017/04/09/01/" target="_blank" rel="external">第五章·函数与闭包</a>  </p>
+</blockquote>
+<p>Kotlin 程序是什么样子的？如果浏览过本书，你会看到许多例子。很有可能你觉得 Kotlin 语言有点古怪，充满了 <code>var field: String</code> 这样的语法。然而读完本章后，你将不再对这些语法感到陌生，甚至很可能喜欢上它们。  </p>
+<h3 id="2-1-变量"><a href="#2-1-变量" class="headerlink" title="2.1 变量"></a>2.1 变量</h3><a id="more"></a>
+<p>让我们来看一个很简单的程序。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">    <span class="keyword">var</span> quantity = <span class="number">5</span></div><div class="line">    <span class="keyword">val</span> price: <span class="built_in">Double</span> = <span class="number">20.3</span></div><div class="line">    <span class="keyword">val</span> name: String = <span class="string">"大米"</span></div><div class="line"></div><div class="line">    println(<span class="string">"单价:<span class="subst">$price</span>"</span>)</div><div class="line">    println(<span class="string">"数量:<span class="subst">$quantity</span>"</span>)</div><div class="line">    println(<span class="string">"产品:<span class="subst">$name</span> 总计:<span class="subst">$&#123;quantity * price&#125;</span>"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面的代码中，首先创建了一个名为 <code>quantity</code> 的变量用以表示产品的数量，并初始化为 5。<br>一个值为 20.3 的常量 <code>price</code>，用来表示产品的单价。<br>一个表示产品名字的字符串常量 <code>name</code>。  </p>
+<p>通过这段代码我们可以看到，Kotlin 语言声明一个变量使用关键字 <code>var</code>，声明一个常量使用 <code>val</code>，声明时 Kotlin 语言是可以自动推测出字段类型的，例如上面代码中的 <code>var quantity = 5</code> 会被认为是 <code>Int</code> 类型，但如果你希望它是一个 <code>Double</code> 类型，则需要显示声明类型，例如 <code>var quantity: Double = 5</code>。</p>
+<h3 id="2-2-语句"><a href="#2-2-语句" class="headerlink" title="2.2 语句"></a>2.2 语句</h3><h4 id="2-2-1-in关键字的使用"><a href="#2-2-1-in关键字的使用" class="headerlink" title="2.2.1 in关键字的使用"></a>2.2.1 in关键字的使用</h4><p>判断一个对象是否在某一个区间内，可以使用in关键字  </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//如果存在于区间(1,Y-1)，则打印OK</span></div><div class="line"><span class="keyword">if</span> (x <span class="keyword">in</span> <span class="number">1.</span>.y<span class="number">-1</span>) </div><div class="line">  print(<span class="string">"OK"</span>)</div><div class="line"></div><div class="line"><span class="comment">//如果x不存在于array中，则输出Out</span></div><div class="line"><span class="keyword">if</span> (x !<span class="keyword">in</span> <span class="number">0.</span>.array.lastIndex) </div><div class="line">  print(<span class="string">"Out"</span>)</div><div class="line"></div><div class="line"><span class="comment">//打印1到5</span></div><div class="line"><span class="keyword">for</span> (x <span class="keyword">in</span> <span class="number">1.</span><span class="number">.5</span>) </div><div class="line">  print(x)</div><div class="line"></div><div class="line"><span class="comment">//遍历集合(类似于Java中的for(String name : names))</span></div><div class="line"><span class="keyword">for</span> (name <span class="keyword">in</span> names)</div><div class="line">  println(name)</div><div class="line"></div><div class="line"><span class="comment">//如果names集合中包含text对象则打印yes</span></div><div class="line"><span class="keyword">if</span> (text <span class="keyword">in</span> names)</div><div class="line">  print(<span class="string">"yes"</span>)</div></pre></td></tr></table></figure>
+<h4 id="2-2-2-when表达式"><a href="#2-2-2-when表达式" class="headerlink" title="2.2.2 when表达式"></a>2.2.2 when表达式</h4><p>类似于 Java 中的 switch，但是 Kotlin 更加智能，可以自动判断参数的类型并转换为响应的匹配值。 </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">cases</span><span class="params">(obj: <span class="type">Any</span>)</span></span> &#123; </div><div class="line">  <span class="keyword">when</span> (obj) &#123;</div><div class="line">    <span class="number">1</span>       -&gt; print(<span class="string">"第一项"</span>)</div><div class="line">    <span class="string">"hello"</span> -&gt; print(<span class="string">"这个是字符串hello"</span>)</div><div class="line">    <span class="keyword">is</span> <span class="built_in">Long</span> -&gt; print(<span class="string">"这是一个Long类型数据"</span>)</div><div class="line">    !<span class="keyword">is</span> String -&gt; print(<span class="string">"这不是String类型的数据"</span>)</div><div class="line">    <span class="keyword">else</span>    -&gt; print(<span class="string">"else类似于Java中的default"</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-2-3-智能类型推测"><a href="#2-2-3-智能类型推测" class="headerlink" title="2.2.3 智能类型推测"></a>2.2.3 智能类型推测</h4><p>判断一个对象是否为一个类的实例，可以使用is关键字<br>与 Java 中的<figure class="highlight plain"><figcaption><span>Kotlin 中如果已经确定了一个对象的类型，可以在接下来的代码块中直接作为这个确定类型使用。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```kotlin</div><div class="line">fun getStringLength(obj: Any): Int? &#123;</div><div class="line">  if (obj is String) &#123;</div><div class="line">    // 做过类型判断以后，obj会被系统自动转换为String类型</div><div class="line">    return obj.length </div><div class="line">  &#125;</div><div class="line"></div><div class="line">  //同时还可以使用!is，来取反</div><div class="line">  if (obj !is String)&#123;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  // 代码块外部的obj仍然是Any类型的引用</div><div class="line">  return null</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="2-2-4-空值检测"><a href="#2-2-4-空值检测" class="headerlink" title="2.2.4 空值检测"></a>2.2.4 空值检测</h4><p>Kotlin 是空指针安全的，也就意味着你不会再看到那恼人的空指针异常。<br>例如这句代码 <code>println(files?.size)</code>，只会在 <code>files</code>不为空时执行。<br>以及，你可以这样写  </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//当data不为空的时候，执行语句块</span></div><div class="line"><span class="keyword">data</span>?.let&#123;</div><div class="line">	<span class="comment">//... </span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//相反的，以下代码当data为空时才会执行</span></div><div class="line"><span class="keyword">data</span>?:let&#123;</div><div class="line">	<span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-3-函数"><a href="#2-3-函数" class="headerlink" title="2.3 函数"></a>2.3 函数</h3><h4 id="2-3-1-函数的声明"><a href="#2-3-1-函数的声明" class="headerlink" title="2.3.1 函数的声明"></a>2.3.1 函数的声明</h4><p>函数使用关键字 <code>fun</code> 声明，如下代码创建了一个名为 <code>say()</code> 的函数，它接受一个 <code>String</code> 类型的参数，并返回一个 <code>String</code> 类型的值  </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">say</span><span class="params">(str: <span class="type">String</span>)</span></span>: String &#123;</div><div class="line">	<span class="keyword">return</span> str</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>同时，在 Kotlin 中，如果像这种简单的函数，可以简写为 </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">say</span><span class="params">(str: <span class="type">String</span>)</span></span>: String = str</div></pre></td></tr></table></figure>
+<p>如果是返回<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```kotlin</div><div class="line">fun getIntValue(value: Int) = value</div></pre></td></tr></table></figure></p>
+<h4 id="2-3-2-函数的默认参数"><a href="#2-3-2-函数的默认参数" class="headerlink" title="2.3.2 函数的默认参数"></a>2.3.2 函数的默认参数</h4><p>你也可以使用默认参数来实现重载类似的功能  </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">say</span><span class="params">(str: <span class="type">String</span> = <span class="string">"hello"</span>)</span></span>: String = str</div></pre></td></tr></table></figure>
+<p>这时候你可以调用<figure class="highlight plain"><figcaption><span>```"hello"```，也可以自己传入参数```say("world")```来得到传入参数值。   </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">有时参数非常多的时候，也可以使用多行参数的写法，它们是相同的  </div><div class="line"></div><div class="line">```kotlin</div><div class="line">fun say(firstName: String = &quot;Tao&quot;,</div><div class="line">		lastName: String = &quot;Zhang&quot;)&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="2-3-3-变参函数"><a href="#2-3-3-变参函数" class="headerlink" title="2.3.3 变参函数"></a>2.3.3 变参函数</h4><p>同 Java 的变长参数一样，Kotlin 也支持变长参数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在Java中，我们这么表示一个变长函数</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasEmpty</span><span class="params">(String... strArray)</span></span>&#123;</div><div class="line">	<span class="keyword">for</span> (String str : strArray)&#123;</div><div class="line">		<span class="keyword">if</span> (<span class="string">""</span>.equals(str) || str == <span class="keyword">null</span>)</div><div class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//在Kotlin中，使用关键字vararg来表示</span></div><div class="line"><span class="function">fun <span class="title">hasEmpty</span><span class="params">(vararg strArray: String?)</span>: Boolean</span>&#123;</div><div class="line">	<span class="keyword">for</span> (str in strArray)&#123;</div><div class="line">		<span class="keyword">if</span> (<span class="string">""</span>.equals(str) || str == <span class="keyword">null</span>)</div><div class="line">			<span class="keyword">return</span> <span class="keyword">true</span>	</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">false</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-3-4-扩展函数"><a href="#2-3-4-扩展函数" class="headerlink" title="2.3.4 扩展函数"></a>2.3.4 扩展函数</h4><p>你可以给父类添加一个方法，这个方法将可以在所有子类中使用<br>例如，在 Android 开发中，我们常常使用这样的扩展函数：  </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> Activity.<span class="title">toast</span><span class="params">(message: <span class="type">CharSequence</span>, duration: <span class="type">Int</span> = Toast.LENGTH_SHORT)</span></span> &#123;</div><div class="line">    Toast.makeText(<span class="keyword">this</span>, message, duration).show()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 这样，我们就可以在每一个 <code>Activity</code> 中直接使用toast()函数了。   </p>
+<h4 id="2-3-5-将函数作为参数"><a href="#2-3-5-将函数作为参数" class="headerlink" title="2.3.5 将函数作为参数"></a>2.3.5 将函数作为参数</h4><p> Kotlin 中，可以将一个函数作为参数传递给另一个函数  </p>
+ <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"> <span class="function"><span class="keyword">fun</span> lock<span class="type">&lt;T&gt;</span><span class="params">(lock: <span class="type">Lock</span>, body: ()</span></span> -&gt; T ) : T &#123;</div><div class="line">	    lock.lock()</div><div class="line">	    <span class="keyword">try</span> &#123;</div><div class="line">	        <span class="keyword">return</span> body()</div><div class="line">	    &#125;</div><div class="line">	    <span class="keyword">finally</span> &#123;</div><div class="line">	        lock.unlock()</div><div class="line">	    &#125;</div><div class="line">&#125;</div><div class="line"> ``` </div><div class="line">上面的代码中，我们传入了一个无参的 body() 作为 lock() 的参数，</div><div class="line"></div><div class="line">### <span class="number">2.4</span> 小结  </div><div class="line"></div><div class="line">最后，我们用一段代码来总结本章内容，你能看懂吗？  </div><div class="line"></div><div class="line">```kotlin</div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line"></div><div class="line">    <span class="keyword">val</span> firstName: String = <span class="string">"Tao"</span></div><div class="line">    <span class="keyword">val</span> lastName: String? = <span class="string">"Zhang"</span></div><div class="line"></div><div class="line">    println(<span class="string">"my name is <span class="subst">$&#123;getName(firstName, lastName)&#125;</span>"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">hasEmpty</span><span class="params">(<span class="keyword">vararg</span> strArray: <span class="type">String</span>?)</span></span>: <span class="built_in">Boolean</span> &#123;</div><div class="line">    <span class="keyword">for</span> (str <span class="keyword">in</span> strArray) &#123;</div><div class="line">        str ?: <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">getName</span><span class="params">(firstName: <span class="type">String</span>?, lastName: <span class="type">String</span>? = <span class="string">"unknow"</span>)</span></span>: String &#123;</div><div class="line">    <span class="keyword">if</span> (hasEmpty(firstName, lastName)) &#123;</div><div class="line">        lastName?.let &#123; <span class="keyword">return</span><span class="symbol">@getName</span> <span class="string">"<span class="subst">$&#123;checkName(firstName)&#125;</span> <span class="subst">$lastName</span>"</span> &#125;</div><div class="line">        firstName?.let &#123; <span class="keyword">return</span><span class="symbol">@getName</span> <span class="string">"<span class="subst">$firstName</span> <span class="subst">$&#123;checkName(lastName)&#125;</span>"</span> &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="string">"<span class="subst">$firstName</span> <span class="subst">$lastName</span>"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">checkName</span><span class="params">(name: <span class="type">String</span>?)</span></span>: String = name ?: <span class="string">"unknow"</span></div></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我们喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://7xpox6.com1.z0.glb.clouddn.com/WechatIMG603.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/05/kotlin_function_three_common_methods/" class="archive-article-date">
-  	<time datetime="2016-07-05T14:06:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/05/kotlin_function_three_common_methods/">Kotlin 函数式编程三板斧</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">函数式编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/13/kotlin_config_http_kolley/" class="archive-article-date">
-  	<time datetime="2016-06-13T12:23:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/13/kotlin_config_http_kolley/">Kotlin 实现配置化网络请求</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络请求</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/14/kotlin中的语法糖/" class="archive-article-date">
-  	<time datetime="2016-01-14T05:49:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/14/kotlin中的语法糖/">kotlin中的语法糖</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/02/object-class-class/" class="archive-article-date">
-  	<time datetime="2016-01-02T08:01:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/02/object-class-class/">类与对象 —— 类（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">class</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">类</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">继承</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">委托</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/22/class-object-generic/" class="archive-article-date">
-  	<time datetime="2015-12-22T15:08:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/22/class-object-generic/">类与对象——泛型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">generics</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">泛型</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类与对象</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/19/class-object-object/" class="archive-article-date">
-  	<time datetime="2015-12-19T11:02:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/19/class-object-object/">类与对象 -- object</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">object</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">companion</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">单例</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">对象</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/17/new-to-kotlin/" class="archive-article-date">
-  	<time datetime="2015-12-17T13:35:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/17/new-to-kotlin/">Kotlin简介</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -490,60 +256,108 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/15/welcome/" class="archive-article-date">
-  	<time datetime="2015-12-15T13:36:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/15/welcome/">Welcome</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">star</a>
+        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/04/2017-02-04-01/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/02/07/2017-02-07-01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Kotlin Primer·第三章·Kotlin 与 Java 混编
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/02/03/2017-02-03-01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Kotlin Primer·第一章·启程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
   
 
 
@@ -567,8 +381,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

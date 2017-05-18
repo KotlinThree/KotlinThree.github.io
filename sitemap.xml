@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/02/07/2017-02-07-01/</loc>
+    
+    <lastmod>2017-05-18T07:54:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/02/03/2017-02-03-01/</loc>
+    
+    <lastmod>2017-05-18T07:51:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/04/09/2017-04-09-01/</loc>
+    
+    <lastmod>2017-05-18T07:50:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/02/26/2017-02-26-01/</loc>
+    
+    <lastmod>2017-05-18T07:50:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/02/12/2017-02-12-01/</loc>
+    
+    <lastmod>2017-05-18T07:48:17.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/02/04/2017-02-04-01/</loc>
+    
+    <lastmod>2017-05-18T07:41:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/05/18/swiftvskotlin_variables/</loc>
     
     <lastmod>2017-05-18T04:59:58.000Z</lastmod>
@@ -65,7 +107,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2015/12/22/class-object-generic/</loc>
+    <loc>http://yoursite.com/2015/12/19/class-object-object/</loc>
     
     <lastmod>2016-02-01T11:01:27.000Z</lastmod>
     
@@ -79,7 +121,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2015/12/19/class-object-object/</loc>
+    <loc>http://yoursite.com/2015/12/22/class-object-generic/</loc>
     
     <lastmod>2016-02-01T11:01:27.000Z</lastmod>
     

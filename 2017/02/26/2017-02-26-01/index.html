@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | KotlinThree&#39;s Blog</title>
+  <title>Kotlin Primer·第四章·Kotlin 的类特性(下) | KotlinThree&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="KotlinThree&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="Kotlin 中有很多非常好的特性，扩展方法、伴生对象、原生支持动态代理、伪多继承">
+<meta name="keywords" content="Kotlin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin Primer·第四章·Kotlin 的类特性(下)">
+<meta property="og:url" content="http://yoursite.com/2017/02/26/2017-02-26-01/index.html">
 <meta property="og:site_name" content="KotlinThree&#39;s Blog">
+<meta property="og:description" content="Kotlin 中有很多非常好的特性，扩展方法、伴生对象、原生支持动态代理、伪多继承">
+<meta property="og:updated_time" content="2017-05-18T07:50:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KotlinThree&#39;s Blog">
+<meta name="twitter:title" content="Kotlin Primer·第四章·Kotlin 的类特性(下)">
+<meta name="twitter:description" content="Kotlin 中有很多非常好的特性，扩展方法、伴生对象、原生支持动态代理、伪多继承">
   
     <link rel="alternative" href="/atom.xml" title="KotlinThree&#39;s Blog" type="application/atom+xml">
   
@@ -155,330 +160,99 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2017-02-26-01" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Kotlin Primer·第四章·Kotlin 的类特性(下)
+    </h1>
+  
+
+        
+        <a href="/2017/02/26/2017-02-26-01/" class="archive-article-date">
+  	<time datetime="2017-02-26T03:48:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-26</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>题外话：全书的目录以及主要内容已经公开，可在我公众号【<a href="http://mp.weixin.qq.com/s/3W6ciZYM1o_J5VqIFyNIpQ" target="_blank" rel="external">技术实验室</a>】的历史推送文章查看</p>
+<p>第一部分——快速上手<br><a href="https://kymjs.com/code/2017/02/03/01/" target="_blank" rel="external">第一章·启程</a><br><a href="https://kymjs.com/code/2017/02/04/01/" target="_blank" rel="external">第二章·基本语法</a><br><a href="https://kymjs.com/code/2017/02/07/01/" target="_blank" rel="external">第三章·Kotlin 与 Java 混编</a><br>第二部分——开始学习 Kotlin<br><a href="https://kymjs.com/code/2017/02/12/01/" target="_blank" rel="external">第四章·Kotlin 的类特性(上)</a><br><a href="https://kymjs.com/code/2017/02/26/01/" target="_blank" rel="external">第四章·Kotlin 的类特性(下)</a><br><a href="https://kymjs.com/code/2017/04/09/01/" target="_blank" rel="external">第五章·函数与闭包</a>  </p>
+</blockquote>
+<p>前面三章的内容是写给希望快速了解 Kotlin 语言的大忙人的。<br>而从本章开始，才会真正讲述 Kotlin 语言的神奇之处。   </p>
+<h3 id="4-5-类的扩展"><a href="#4-5-类的扩展" class="headerlink" title="4.5 类的扩展"></a>4.5 类的扩展</h3><a id="more"></a> 
+<p>在 Java 开发的时候，经常会写一大堆的 Utils 类，甚至经常写一些common包，比如著名的 <code>apache-commons</code> 系列、<code>Guava</code>等等。<br>如果每个类在想要用这些工具类的时候，他们自己就已经具备了这些工具方法多好，<code>Kotlin</code> 的类扩展方法就是这个作用。 </p>
+<h4 id="4-5-1-扩展方法"><a href="#4-5-1-扩展方法" class="headerlink" title="4.5.1 扩展方法"></a>4.5.1 扩展方法</h4><p>在之前的文章中我就讲过扩展方法了，这里就不再多赘述，只回顾一下扩展方法的格式： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fun Activity.toast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT) &#123;</div><div class="line">    Toast.makeText(this, message, duration).show()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>首先是一个 <code>fun</code> 关键字，紧接着是要扩展哪个类的类名，点方法名，然后是方法的声明和返回值以及方法体。  </p>
+<h4 id="4-5-2-小心有坑"><a href="#4-5-2-小心有坑" class="headerlink" title="4.5.2 小心有坑"></a>4.5.2 小心有坑</h4><p>需要注意的是扩展方法是静态解析的，而并不是真正给类添加了这个方法。<br>举个例子：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">open class Animal&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">class Dog : Animal()</div><div class="line"></div><div class="line">object Main &#123;</div><div class="line">    fun Animal.bark() = &quot;animal&quot;</div><div class="line"></div><div class="line">    fun Dog.bark() = &quot;dog&quot;</div><div class="line"></div><div class="line">    fun Animal.printBark(anim: Animal)&#123;</div><div class="line">        println(anim.bark())</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @JvmStatic fun main(args: Array&lt;String&gt;) &#123;</div><div class="line">        Animal().printBark(Dog())</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最终的输出是 <code>animal</code>，而不是 <code>dog</code>。<br>因为扩展方法是静态解析的，在添加扩展方法的时候类型为 <code>Animal</code>，那么即便运行时传入了子类对象，也依旧会执行参数中声明时类型的方法。    </p>
+<h4 id="4-6-1-强转与智能转换"><a href="#4-6-1-强转与智能转换" class="headerlink" title="4.6.1 强转与智能转换"></a>4.6.1 强转与智能转换</h4><p>在 <code>Kotlin</code> 中，用 is 来判断一个对象是否是某个类的实例，用 as 来做强转。  </p>
+<p>Kotlin 有一个很好的特性，叫 <code>智能转换(smart cast)</code>，在我之前的文章中也提到过。就是当已经确定一个对象的类型后，可以自动识别为这个类的对象，而不用再手动强转。   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">fun main(args: Array&lt;String&gt;) &#123;</div><div class="line">	var animal: Animal? = null</div><div class="line">    if (animal is Dog) &#123;</div><div class="line">    	//在这里你必须手动强转为Dog的对象</div><div class="line">       animal.bark()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-6-2-总有例外"><a href="#4-6-2-总有例外" class="headerlink" title="4.6.2 总有例外"></a>4.6.2 总有例外</h4><p>如果智能转换的对象是一个全局变量，这个变量可能在别的地方被改变赋值，所以你必须手动判断与转换它的类型。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">open class Animal &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Dog : Animal() &#123;</div><div class="line">    fun bark() &#123;</div><div class="line">        println(&quot;animal&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var animal: Animal? = null</div><div class="line"></div><div class="line">fun main(args: Array&lt;String&gt;) &#123;</div><div class="line">    if (animal is Dog) &#123;</div><div class="line">    	//在这里你必须手动强转为Dog的对象</div><div class="line">       (animal as Dog).bark()</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">``` </div><div class="line"></div><div class="line">### 4.7 伴生对象  </div><div class="line"></div><div class="line">在上一篇 **Kotlin 与 Java 互转** 中 我们提到这样一段工具类代码</div></pre></td></tr></table></figure>
+<p>class StringUtils {<br>    companion object {<br>       fun isEmpty(str: String): Boolean {<br>            return “” == str<br>        }<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">由于 `Kotlin` 没有静态方法。在大多数情况下，官方建议是简单地使用 包级 函数。如果你需要写一个可以无需用一个类的实例来调用、但需要访问类内部的函数(例如,工厂方法或单利),你可以把它写成一个用 `companion` 修饰的对象内的方法。我们称 `companion` 修饰的对象为伴生对象。    </div><div class="line"></div><div class="line">将上面的代码编译后查看，实际上是编译器生成了一个 `public` 的内部对象。</div></pre></td></tr></table></figure></p>
+<p>public final class StringUtils public constructor() {<br>    public companion object {<br>        public final fun isEmpty(str: kotlin.String): kotlin.Boolean {<br>        /<em> compiled code </em>/<br>        }<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 4.8 单例类设计</div><div class="line"></div><div class="line">伴生对象更多的用途是用来创建一个单例类。如果只是简单的写，直接用伴生对象返回一个 `val` 修饰的外部类对象就可以了，但是更多的时候我们希望在类被调用的时候才去初始化他的对象。以下代码将线程安全问题交给虚拟机在静态内部类加载时处理，是一种推荐的写法：</div></pre></td></tr></table></figure></p>
+<p>class Single private constructor() {<br>    companion object {<br>        fun get():Single{<br>            return Holder.instance<br>        }<br>    }</p>
+<pre><code>private object Holder {
+    val instance = Single()
+}
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 4.9 动态代理</div><div class="line"></div><div class="line">写多继承还是要根据场景来，正好今天跟朋友聊到他们项目重构的问题，我当时就说了一句：果然还是 `Kotlin` 好，原生支持动态代理。  </div><div class="line"></div><div class="line">朋友的一个 Android 项目，所有网络请求包括回调和参数全部封装在了一个 BaseActivity 中，然后随着项目越来越大，这一些网络请求方法想要抽出来，但又害怕牵连到线上的改动，我就推荐他用个动态代理来做，但是 Java 的动态代理又得要反射，又得要额外多写很多的代码方法，又是一个大改动。  </div><div class="line"></div><div class="line">反之看 `Kotlin` 的动态代理：</div></pre></td></tr></table></figure></p>
+<p>interface Animal{<br>    fun bark()<br>}</p>
+<p>class Dog :Animal {<br>    override fun bark() {<br>        println(“Wang Wang”)<br>    }<br>}</p>
+<p>class Cat(animal: Animal) : Animal by animal {<br>}</p>
+<p>fun main(args: Array<string>) {<br>   Cat(Dog()).bark()<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">这样，我们就很成功的让一只猫的叫声用狗去代理掉了，于是上面的 `main` 方法执行完后就变成了 Wang Wang。  </div><div class="line"></div><div class="line">### 4.10 伪多继承 </div><div class="line"></div><div class="line">Kotlin 的动态代理更多的是用在一种需要多继承的场景。  </div><div class="line">例如，还是之前我举的我朋友那个项目的例子，他们的问题在于，每个 `BaseActivity` 的子类，都会要请求不同的网络，可能A需要获取用户信息，B需要获取活动列表，C既需要活动列表也需要获取用户信息，D却只需要获取图片列表。  </div><div class="line"></div><div class="line">这样一个场景，使用一个代理类实现所有需要获取信息的接口方法。然后让不同的子类去实现所需的接口，请求统一交给代理类完成。这样不仅维护网络请求信息方便，而且每个类不会有额外多出来的方法防止新人接触项目的时候调用错请求方法。  </div><div class="line"></div><div class="line">还是用猫狗来举例：</div></pre></td></tr></table></figure></string></p>
+<p>interface Animal{<br>    fun bark()<br>}</p>
+<p>interface Food{<br>    fun eat()<br>}</p>
+<p>class Delegate : Animal, Food {<br>    override fun eat() {<br>        println(“mouse”)<br>    }</p>
+<pre><code>override fun bark() {
+    println(&quot;Miao&quot;)
+}
+</code></pre><p>}</p>
+<p>class Cat(animal: Animal, food: Food) : Animal by animal, Food by food {<br>}</p>
+<p>@JvmStatic fun main(args: Array<string>) {<br>    val delegate: Delegate = Delegate()<br>    Cat(delegate, delegate).bark()<br>}<br>```</string></p>
+<p>Kotlin 的类就介绍这么多，下一章我们讲：<strong>闭包</strong> </p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我们喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://7xpox6.com1.z0.glb.clouddn.com/WechatIMG603.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/05/kotlin_function_three_common_methods/" class="archive-article-date">
-  	<time datetime="2016-07-05T14:06:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/05/kotlin_function_three_common_methods/">Kotlin 函数式编程三板斧</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">函数式编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/13/kotlin_config_http_kolley/" class="archive-article-date">
-  	<time datetime="2016-06-13T12:23:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/13/kotlin_config_http_kolley/">Kotlin 实现配置化网络请求</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络请求</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/14/kotlin中的语法糖/" class="archive-article-date">
-  	<time datetime="2016-01-14T05:49:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/14/kotlin中的语法糖/">kotlin中的语法糖</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/02/object-class-class/" class="archive-article-date">
-  	<time datetime="2016-01-02T08:01:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/02/object-class-class/">类与对象 —— 类（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">class</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">类</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">继承</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">委托</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/22/class-object-generic/" class="archive-article-date">
-  	<time datetime="2015-12-22T15:08:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/22/class-object-generic/">类与对象——泛型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">generics</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">泛型</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类与对象</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/19/class-object-object/" class="archive-article-date">
-  	<time datetime="2015-12-19T11:02:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/19/class-object-object/">类与对象 -- object</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">object</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">companion</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">单例</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">对象</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/17/new-to-kotlin/" class="archive-article-date">
-  	<time datetime="2015-12-17T13:35:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/17/new-to-kotlin/">Kotlin简介</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -490,60 +264,108 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/15/welcome/" class="archive-article-date">
-  	<time datetime="2015-12-15T13:36:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/15/welcome/">Welcome</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">star</a>
+        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/26/2017-02-26-01/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/04/09/2017-04-09-01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Kotlin Primer·第五章·函数与闭包
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/02/12/2017-02-12-01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Kotlin Primer·第四章·Kotlin 的类特性(上)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
   
 
 
@@ -567,8 +389,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

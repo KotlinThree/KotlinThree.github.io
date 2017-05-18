@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | KotlinThree&#39;s Blog</title>
+  <title>Kotlin Primer·第五章·函数与闭包 | KotlinThree&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="KotlinThree&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="久违了，Kotlin 的闭包。函数与闭包的特性可以算是 Kotlin 语言最大的特性了，所以写了很久。">
+<meta name="keywords" content="Kotlin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin Primer·第五章·函数与闭包">
+<meta property="og:url" content="http://yoursite.com/2017/04/09/2017-04-09-01/index.html">
 <meta property="og:site_name" content="KotlinThree&#39;s Blog">
+<meta property="og:description" content="久违了，Kotlin 的闭包。函数与闭包的特性可以算是 Kotlin 语言最大的特性了，所以写了很久。">
+<meta property="og:updated_time" content="2017-05-18T07:50:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KotlinThree&#39;s Blog">
+<meta name="twitter:title" content="Kotlin Primer·第五章·函数与闭包">
+<meta name="twitter:description" content="久违了，Kotlin 的闭包。函数与闭包的特性可以算是 Kotlin 语言最大的特性了，所以写了很久。">
   
     <link rel="alternative" href="/atom.xml" title="KotlinThree&#39;s Blog" type="application/atom+xml">
   
@@ -155,330 +160,114 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2017-04-09-01" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Kotlin Primer·第五章·函数与闭包
+    </h1>
+  
+
+        
+        <a href="/2017/04/09/2017-04-09-01/" class="archive-article-date">
+  	<time datetime="2017-04-09T05:48:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>题外话：全书的目录以及主要内容已经公开，可在我公众号【<a href="http://mp.weixin.qq.com/s/3W6ciZYM1o_J5VqIFyNIpQ" target="_blank" rel="external">技术实验室</a>】的历史推送文章查看</p>
+<p>第一部分——快速上手<br><a href="https://kymjs.com/code/2017/02/03/01/" target="_blank" rel="external">第一章·启程</a><br><a href="https://kymjs.com/code/2017/02/04/01/" target="_blank" rel="external">第二章·基本语法</a><br><a href="https://kymjs.com/code/2017/02/07/01/" target="_blank" rel="external">第三章·Kotlin 与 Java 混编</a><br>第二部分——开始学习 Kotlin<br><a href="https://kymjs.com/code/2017/02/12/01/" target="_blank" rel="external">第四章·Kotlin 的类特性(上)</a><br><a href="https://kymjs.com/code/2017/02/26/01/" target="_blank" rel="external">第四章·Kotlin 的类特性(下)</a><br><a href="https://kymjs.com/code/2017/04/09/01/" target="_blank" rel="external">第五章·函数与闭包</a>  </p>
+</blockquote>
+<p>函数与闭包的特性可以算是 Kotlin 语言最大的特性了。  </p>
+<h3 id="5-1-函数"><a href="#5-1-函数" class="headerlink" title="5.1 函数"></a>5.1 函数</h3><p>即使 Kotlin 是一门面向对象的编程语言，它也是有函数的概念的——而不像 Java 那样，仅仅有“方法”。<br>回顾一下前面第二章讲述的函数声明语法：</p>
+<a id="more"></a>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">say</span><span class="params">(str: <span class="type">String</span>)</span></span>: String &#123;</div><div class="line">	<span class="keyword">return</span> str</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>函数使用关键字 <code>fun</code> 声明，如下代码创建了一个名为 say() 的函数，它接受一个 String 类型的参数，并返回一个 String 类型的值。</p>
+<h4 id="5-1-1-Unit"><a href="#5-1-1-Unit" class="headerlink" title="5.1.1 Unit"></a>5.1.1 Unit</h4><p>如果一个函数是空函数，比如 Android 开发中的 TextWatch 接口，通常只会用到一个方法，但必须把所有方法都重写一遍，就可以通过这种方式来简写：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">editText.addTextChangedListener(<span class="keyword">object</span> : TextWatcher &#123;</div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">afterTextChanged</span><span class="params">(s: <span class="type">Editable</span>?)</span></span> = <span class="built_in">Unit</span></div><div class="line"></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">beforeTextChanged</span><span class="params">(s: <span class="type">CharSequence</span>?, start: <span class="type">Int</span>, count: <span class="type">Int</span>, after: <span class="type">Int</span>)</span></span> = <span class="built_in">Unit</span></div><div class="line"></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onTextChanged</span><span class="params">(s: <span class="type">CharSequence</span>?, start: <span class="type">Int</span>, before: <span class="type">Int</span>, count: <span class="type">Int</span>)</span></span> = <span class="built_in">Unit</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Unit 表示的是一个值的类型。 这种类型对应于Java中的 <code>void</code> 类型。</p>
+<h4 id="5-1-2-Nothing"><a href="#5-1-2-Nothing" class="headerlink" title="5.1.2 Nothing"></a>5.1.2 Nothing</h4><p>如果一个函数不会返回（也就是说只要调用这个函数，那么在它返回之前程序肯定出错了，比如一定会抛出异常的函数），理论上你可以随便给他一个返回值，通常我们会声明为返回 Nothing 类型。我们看到 Nothing 的注释：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Nothing has no instances. You can use Nothing to represent "a value that never exists": for example,</div><div class="line"> * if a function has the return type of Nothing, it means that it never returns (always throws an exception).</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Nothing</span> <span class="keyword">private</span> <span class="keyword">constructor</span></span>()</div></pre></td></tr></table></figure>
+<p>没有任何实例。 您可以使用 Nothing 来表示“永远不存在的值”.</p>
+<h3 id="5-2-复杂的特性"><a href="#5-2-复杂的特性" class="headerlink" title="5.2 复杂的特性"></a>5.2 复杂的特性</h3><h4 id="5-2-1-嵌套函数"><a href="#5-2-1-嵌套函数" class="headerlink" title="5.2.1 嵌套函数"></a>5.2.1 嵌套函数</h4><p>Kotlin 的函数有一些非常有意思的特性，比如函数中再声明函数。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">function</span><span class="params">()</span></span> &#123;</div><div class="line">  <span class="keyword">val</span> valuesInTheOuterScope = <span class="string">"Kotlin is awesome!"</span></div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">fun</span> <span class="title">theFunctionInside</span><span class="params">(int: <span class="type">Int</span> = <span class="number">10</span>)</span></span> &#123;</div><div class="line">    println(valuesInTheOuterScope)</div><div class="line">    <span class="keyword">if</span> (int &gt;= <span class="number">5</span>) theFunctionInside(int - <span class="number">1</span>)</div><div class="line">  &#125;</div><div class="line">  theFunctionInside()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>与内部类有些类似，内部函数可以直接访问外部函数的局部变量、常量，这种写法通常使用在 <code>会在某些条件下触发递归的方法内</code>，在一般情况下是不推荐使用嵌套函数的。 </p>
+<h4 id="5-2-2-运算符重载"><a href="#5-2-2-运算符重载" class="headerlink" title="5.2.2 运算符重载"></a>5.2.2 运算符重载</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">  <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1.</span><span class="number">.100</span> step <span class="number">20</span>) &#123;</div><div class="line">    print(<span class="string">"<span class="subst">$i</span> "</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这段函数将会输出 <code>1 21 41 61 81</code> </p>
+<p>这段神奇的循环是怎么执行的？  </p>
+<p>in关键字，在编译以后，会被翻译为一个迭代器方法，其源码可以在 <code>Progressions</code> 类中查看到</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">iterator</span><span class="params">()</span></span>: IntIterator = IntProgressionIterator(first, last, step)</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * An iterator over a progression of values of type `Int`.</div><div class="line"> */</div><div class="line"><span class="keyword">internal</span> <span class="class"><span class="keyword">class</span> <span class="title">IntProgressionIterator</span></span>(first: <span class="built_in">Int</span>, last: <span class="built_in">Int</span>, <span class="keyword">val</span> step: <span class="built_in">Int</span>) : IntIterator() &#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">var</span> next = first</div><div class="line">    <span class="keyword">private</span> <span class="keyword">val</span> finalElement = last</div><div class="line">    <span class="keyword">private</span> <span class="keyword">var</span> hasNext: <span class="built_in">Boolean</span> = <span class="keyword">if</span> (step &gt; <span class="number">0</span>) first &lt;= last <span class="keyword">else</span> first &gt;= last</div><div class="line"></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">hasNext</span><span class="params">()</span></span>: <span class="built_in">Boolean</span> = hasNext</div><div class="line"></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">nextInt</span><span class="params">()</span></span>: <span class="built_in">Int</span> &#123;</div><div class="line">        <span class="keyword">val</span> value = next</div><div class="line">        <span class="keyword">if</span> (value == finalElement) &#123;</div><div class="line">            hasNext = <span class="literal">false</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            next += step</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> value</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>in 关键字之后，还有两个点的 <code>..</code> ，他表示一个封闭区间，其内部实现原理是通过运算符重载来完成的。首先看到他的函数定义，你可以在  <code>Int</code> 类的源码中找到：  </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">/** Creates a range from this value to the specified [other] value. */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">rangeTo</span><span class="params">(other: <span class="type">Int</span>)</span></span>: IntRange</div></pre></td></tr></table></figure>
+<p>运算符重载需要使用关键字<code>operator</code>修饰，其余定义与函数相同。<br>通过源码看到，上面的代码实际<code>..</code>的原理实际上就是对一个 Int 值，调用他的 <code>rangeTo</code>方法，传入一个 Int 参数，并返回一个区间对象。<br>带入到上面的代码，实际上就是把<code>..</code>看做是方法名，调用 1 的<code>rangeTo</code>方法，传入 100 作为参数，会返回一个区间对象。 然后再用迭代器 <code>in</code> 便利区间中的每一个值。<br>所以上面那种写法改写为下面这样，依旧是能正常运行的。  </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1.</span>rangeTo(<span class="number">100</span>) step <span class="number">20</span>) &#123;</div><div class="line">    print(<span class="string">"<span class="subst">$i</span> "</span>)</div><div class="line">&#125;</div><div class="line">```  </div><div class="line"></div><div class="line">&gt; 说道运算符给大家讲个笑话，在 C/C++/Java 中，其实有一个大家经常使用但是没有人知道的运算符，叫`趋近于`写法为 `--&gt;`，例如下面的代码：  </div><div class="line">&gt; int i = <span class="number">10</span>;  </div><div class="line">&gt; <span class="keyword">while</span>(i --&gt; <span class="number">0</span>)&#123;  </div><div class="line">&gt;     printf(<span class="string">"%d"</span>, i);  </div><div class="line">&gt; &#125;   </div><div class="line">&gt; 这个代码运行完后将会依次打印 <span class="number">10</span> 到 <span class="number">0</span> 数字。不信你试试</div><div class="line"></div><div class="line"></div><div class="line">#### <span class="number">5.2</span><span class="number">.3</span> 中缀表达式</div><div class="line"></div><div class="line">运算符的数量毕竟是有限的，有时并不一定有合适的。例如上面代码中的步长这个意义，就没有合适的运算符可以标识。  </div><div class="line">这时候我们可以用一个单词或字母来当运算符用(其本质还是函数调用)，叫做中缀表达式，**所谓中缀表达式就是不需要点和括号的方法调用**。  </div><div class="line">你可以在 Reangs 中看到`step`源码声明：  </div><div class="line"></div><div class="line">```kotlin</div><div class="line"><span class="keyword">public</span> <span class="keyword">infix</span> <span class="function"><span class="keyword">fun</span> IntProgression.<span class="title">step</span><span class="params">(step: <span class="type">Int</span>)</span></span>: IntProgression &#123;</div><div class="line">    checkStepIsPositive(step &gt; <span class="number">0</span>, step)</div><div class="line">    <span class="keyword">return</span> IntProgression.fromClosedRange(first, last, <span class="keyword">if</span> (<span class="keyword">this</span>.step &gt; <span class="number">0</span>) step <span class="keyword">else</span> -step)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>中缀表达式需要用<code>infix</code>修饰，从源码看到，在 SDK 中定义了一个叫 step 的方法，最终返回一个<code>IntProgression</code>对象，这个对象最终会被作用到 in，也就是迭代器的第三个参数step上。  </p>
+<h3 id="5-2-闭包"><a href="#5-2-闭包" class="headerlink" title="5.2 闭包"></a>5.2 闭包</h3><p>其实在 Kotlin 中与其说一等公民是函数，不如说一等公民是闭包。  </p>
+<p>例如在 Kotlin 中，你可以写出这种怪异的代码</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">    test</div><div class="line">&#125;</div><div class="line"><span class="keyword">val</span> test = <span class="keyword">if</span> (<span class="number">5</span> &gt; <span class="number">3</span>) &#123;</div><div class="line">    print(<span class="string">"yes"</span>)</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    print(<span class="string">"no"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当然，我们都知道这段代码永远都只会输出yes。<br>这里只是为了演示，if 语句仍旧是一个闭包。而事实上，上文包括前文讲到的所有：函数、Lambda、if语句、for、when，都可以称之为闭包，但通常情况下，我们所说的闭包是 Lambda 表达式。  </p>
+<h4 id="5-2-1-自执行闭包"><a href="#5-2-1-自执行闭包" class="headerlink" title="5.2.1 自执行闭包"></a>5.2.1 自执行闭包</h4><p>自执行闭包就是在定义闭包的同时直接执行闭包，一般用于初始化上下文环境。<br>例如：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123; x: <span class="built_in">Int</span>, y: <span class="built_in">Int</span> -&gt;</div><div class="line">    println(<span class="string">"<span class="subst">$&#123;x + y&#125;</span>"</span>)</div><div class="line">&#125;(<span class="number">1</span>, <span class="number">3</span>)</div></pre></td></tr></table></figure>
+<h3 id="5-3-Lambda"><a href="#5-3-Lambda" class="headerlink" title="5.3 Lambda"></a>5.3 Lambda</h3><h4 id="5-3-1-Lambda-表达式"><a href="#5-3-1-Lambda-表达式" class="headerlink" title="5.3.1 Lambda 表达式"></a>5.3.1 Lambda 表达式</h4><p>Lambda 表达式俗称匿名函数，熟悉Java的大家应该也明白这是个什么概念。Kotlin 的 Lambda表达式更“纯粹”一点， 因为它是真正把Lambda抽象为了一种类型，而 Java 8 的 Lambda 只是单方法匿名接口实现的语法糖罢了。  </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> printMsg = &#123; msg: String -&gt; </div><div class="line">	println(msg) </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">  printMsg.invoke(<span class="string">"hello"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上是 Lambda 表达式最简单的实例。<br>首先声明了一个名为<code>printMsg</code>的 Lambda，它接受一个 String 类型的值作为参数，然后在 main 函数中调用它。如果还想省略，你还可以在调用时直接省略invoke，像函数一样使用。  </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">  printMsg(<span class="string">"hello"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Lambda 表达式还有非常多的语法糖，比如  </p>
+<ul>
+<li>当参数只有一个的时候，声明中可以不用显示声明参数，在使用参数时可以用 it 来替代那个唯一的参数。  </li>
+<li>当有多个用不到的参数时，可以用下划线来替代参数名(1.1以后的特性)，但是如果已经用下划线来省略参数时，是不能使用 it 来替代当前参数的。  </li>
+<li>Lambda 最后一条语句的执行结果表示这个 Lambda 的返回值。</li>
+</ul>
+<p>需要注意的是：闭包是不能有变长参数的<br>例如前面讲过变长参数的函数，但是闭包的参数数量是必须固定的。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">printLog</span><span class="params">(<span class="keyword">vararg</span> str: <span class="type">String</span>)</span></span> &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="5-3-2-高阶函数"><a href="#5-3-2-高阶函数" class="headerlink" title="5.3.2 高阶函数"></a>5.3.2 高阶函数</h4><p>Lambda 表达式最大的特点是可以作为参数传递。当定义一个闭包作为参数的函数，称这个函数为高阶函数。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">    log(<span class="string">"world"</span>, printMsg)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">val</span> printMsg = &#123; str: String -&gt;</div><div class="line">    println(str)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">val</span> log = &#123; str: String, printLog: (String) -&gt; <span class="built_in">Unit</span> -&gt;</div><div class="line">    printLog(str)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个例子中，log 是一个接受一个 String 和一个以 String 为参数并返回 Unit 的 Lambda 表达式为参数的 Lambda 表达式。<br>读起来有点绕口，其实就是 log 有两个参数，一个str:String，一个printLog: (String) -&gt; Unit。</p>
+<h4 id="5-3-3-内联函数"><a href="#5-3-3-内联函数" class="headerlink" title="5.3.3 内联函数"></a>5.3.3 内联函数</h4><p>在使用高阶函数时，一定要知道内联函数这个东西。它可以大幅提升高阶函数的性能。<br>官方文档的描述是这样的：使用 高阶函数 在运行时会带来一些不利: 每个函数都是一个对象, 而且它还要捕获一个闭包, 也就是, 在函<br>数体内部访问的那些外层变量. 内存占用(函数对象和类都会占用内存) 以及虚方法调用都会带来运行时的消耗.</p>
+<p>但是也不是说所有的函数都要内联，因为一旦添加了<code>inline</code>修饰，在编译阶段，编译器将会把函数拆分，插入到调用出。如果一个 inline 函数是很大的，那他会大幅增加调用它的那个函数的体积。  </p>
+<h3 id="5-4-小结"><a href="#5-4-小结" class="headerlink" title="5.4 小结"></a>5.4 小结</h3><p>闭包应该算是 Kotlin 最核心特性之一了。<br>使用好闭包可以让代码量大大减少，例如 Kotlin 最著名的开源库：<code>Anko</code>，使用 Anko 去动态代码布局，比使用 Java 代码配合 xml 要更加简洁。   </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?, persistentState: <span class="type">PersistableBundle</span>?)</span></span> &#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState, persistentState)</div><div class="line">        MyActivityUI().setContentView(<span class="keyword">this</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyActivityUI</span> : <span class="type">AnkoComponent</span>&lt;<span class="type">MyActivity</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">createView</span><span class="params">(ui: <span class="type">AnkoContext</span>&lt;<span class="type">MyActivity</span>&gt;)</span></span> = ui.apply &#123;</div><div class="line">        verticalLayout &#123;</div><div class="line">            editText()</div><div class="line">            button(<span class="string">"Say Hello"</span>) &#123;</div><div class="line">                onClick &#123; ctx.toast(<span class="string">"Hello!"</span>) &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;.view</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以看到，充分运用了闭包的灵活性，省略了很多的临时变量和参数声明。<br>然而，也正是因为闭包的灵活性，造成如果泛滥的话，可能会写出可读性非常差的代码(这里就不举反例了， js 的 lambda 滥用的结果就能想象了)</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我们喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://7xpox6.com1.z0.glb.clouddn.com/WechatIMG603.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/05/kotlin_function_three_common_methods/" class="archive-article-date">
-  	<time datetime="2016-07-05T14:06:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/05/kotlin_function_three_common_methods/">Kotlin 函数式编程三板斧</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">函数式编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/13/kotlin_config_http_kolley/" class="archive-article-date">
-  	<time datetime="2016-06-13T12:23:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/13/kotlin_config_http_kolley/">Kotlin 实现配置化网络请求</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络请求</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/14/kotlin中的语法糖/" class="archive-article-date">
-  	<time datetime="2016-01-14T05:49:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/14/kotlin中的语法糖/">kotlin中的语法糖</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/02/object-class-class/" class="archive-article-date">
-  	<time datetime="2016-01-02T08:01:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/02/object-class-class/">类与对象 —— 类（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">class</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">类</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">继承</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">委托</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/22/class-object-generic/" class="archive-article-date">
-  	<time datetime="2015-12-22T15:08:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/22/class-object-generic/">类与对象——泛型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">generics</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">泛型</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类与对象</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/19/class-object-object/" class="archive-article-date">
-  	<time datetime="2015-12-19T11:02:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/19/class-object-object/">类与对象 -- object</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">object</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">companion</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">单例</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">对象</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/17/new-to-kotlin/" class="archive-article-date">
-  	<time datetime="2015-12-17T13:35:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/17/new-to-kotlin/">Kotlin简介</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -490,60 +279,108 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/15/welcome/" class="archive-article-date">
-  	<time datetime="2015-12-15T13:36:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/15/welcome/">Welcome</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">star</a>
+        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/04/09/2017-04-09-01/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/05/18/swiftvskotlin_variables/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Swift vs. Kotlin 之变量定义
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/02/26/2017-02-26-01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Kotlin Primer·第四章·Kotlin 的类特性(下)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
   
 
 
@@ -567,8 +404,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
