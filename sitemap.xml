@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/05/18/swiftvskotlin_variables/</loc>
+    
+    <lastmod>2017-05-18T04:59:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2015/12/17/new-to-kotlin/</loc>
     
     <lastmod>2017-05-17T11:08:52.000Z</lastmod>
@@ -58,7 +65,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2015/12/19/class-object-object/</loc>
+    <loc>http://yoursite.com/2015/12/22/class-object-generic/</loc>
     
     <lastmod>2016-02-01T11:01:27.000Z</lastmod>
     
@@ -72,7 +79,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2015/12/22/class-object-generic/</loc>
+    <loc>http://yoursite.com/2015/12/19/class-object-object/</loc>
     
     <lastmod>2016-02-01T11:01:27.000Z</lastmod>
     

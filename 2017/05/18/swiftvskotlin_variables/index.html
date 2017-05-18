@@ -6,19 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>NullPointException 利器 Kotlin 可选型 | KotlinThree&#39;s Blog</title>
+  <title>Swift vs. Kotlin 之变量定义 | KotlinThree&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tags: Kotlin NullPointException (简称 NPE ) 被称作 The Billion Dollar Mistake 一直困扰着Java 和 Android 开发者。Kotlin 的类型系统中提供可选类型用于减少 NPE 问题带来的风险。">
-<meta name="keywords" content="Kotlin">
+  <meta name="description" content="tags: Kotlin, Swift Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。">
+<meta name="keywords" content="Kotlin,Swift">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NullPointException 利器 Kotlin 可选型">
-<meta property="og:url" content="http://yoursite.com/2016/07/14/kotlin-type-option/index.html">
+<meta property="og:title" content="Swift vs. Kotlin 之变量定义">
+<meta property="og:url" content="http://yoursite.com/2017/05/18/swiftvskotlin_variables/index.html">
 <meta property="og:site_name" content="KotlinThree&#39;s Blog">
-<meta property="og:description" content="tags: Kotlin NullPointException (简称 NPE ) 被称作 The Billion Dollar Mistake 一直困扰着Java 和 Android 开发者。Kotlin 的类型系统中提供可选类型用于减少 NPE 问题带来的风险。">
-<meta property="og:updated_time" content="2017-05-16T15:44:58.000Z">
+<meta property="og:description" content="tags: Kotlin, Swift Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。">
+<meta property="og:image" content="http://7xpox6.com1.z0.glb.clouddn.com/1495082763.png">
+<meta property="og:updated_time" content="2017-05-18T04:59:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NullPointException 利器 Kotlin 可选型">
-<meta name="twitter:description" content="tags: Kotlin NullPointException (简称 NPE ) 被称作 The Billion Dollar Mistake 一直困扰着Java 和 Android 开发者。Kotlin 的类型系统中提供可选类型用于减少 NPE 问题带来的风险。">
+<meta name="twitter:title" content="Swift vs. Kotlin 之变量定义">
+<meta name="twitter:description" content="tags: Kotlin, Swift Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。">
+<meta name="twitter:image" content="http://7xpox6.com1.z0.glb.clouddn.com/1495082763.png">
   
     <link rel="alternative" href="/atom.xml" title="KotlinThree&#39;s Blog" type="application/atom+xml">
   
@@ -160,80 +162,66 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-kotlin-type-option" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-swiftvskotlin_variables" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      NullPointException 利器 Kotlin 可选型
+      Swift vs. Kotlin 之变量定义
     </h1>
   
 
         
-        <a href="/2016/07/14/kotlin-type-option/" class="archive-article-date">
-  	<time datetime="2016-07-14T10:52:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-14</time>
+        <a href="/2017/05/18/swiftvskotlin_variables/" class="archive-article-date">
+  	<time datetime="2017-05-18T04:59:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>tags: Kotlin</p>
-<p>NullPointException (简称 NPE ) 被称作 <a href="https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions" target="_blank" rel="external">The Billion Dollar Mistake</a> 一直困扰着Java 和 Android 开发者。Kotlin 的类型系统中提供可选类型用于减少 NPE 问题带来的风险。</p>
+        <p>tags: Kotlin, Swift</p>
+<p>Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。</p>
 <a id="more"></a>
-<p>虽然，Kotlin 提供了可选类型用于减少 NPE 问题的风险，但是并没有办法完全消除 NPE 带来的隐患，本问将探讨如何巧妙地使用「可选型」更好的规避 NPE 的发生。</p>
-<h2 id="可选型定义"><a href="#可选型定义" class="headerlink" title="可选型定义"></a>可选型定义</h2><h3 id="非空类型"><a href="#非空类型" class="headerlink" title="非空类型"></a>非空类型</h3><p>我们先从可选型的定义开始，当我们在 Kotlin 中定义一个变量时，默认就是非空类型的，当你将一个非空类型置空的时候，编译器会告诉你这不可行。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a: String = <span class="string">"abc"</span></div><div class="line">a = <span class="literal">null</span> <span class="comment">// compilation error</span></div></pre></td></tr></table></figure>
-<p>因此，如果你后面任何时候使用该变量时，都可以放心的使用而不用担心会发生 NPE。所以要想远离 NPE，首先需要<strong>「尽可能的使用非空类型的定义」</strong>。</p>
-<h3 id="可选型（可空类型）"><a href="#可选型（可空类型）" class="headerlink" title="可选型（可空类型）"></a>可选型（可空类型）</h3><p>虽然「非空类型」能够有效避免 NPE 的问题，但是有时候我们总不可避免的需要使用「可选类型」。在定义可选型的时候，我们只要在非空类型的后面添加一个 <code>?</code> 就可以了。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> b: String? = <span class="string">"abc"</span></div><div class="line">b = <span class="literal">null</span> <span class="comment">// ok</span></div></pre></td></tr></table></figure>
-<p>在使用可选型变量的时候，这个变量就有可能为空，所以在使用前我们应该对其进行空判断（在 Java 中我们经常这样做），这样往往带来带来大量的工作，这些空判断代码本身没有什么实际意义，并且让代码的可读性和简洁性带来了巨大的挑战。在网上可以看到许多人针对如何减少 NPE 提出了自己的建议，有的的确很不错，但成本依然很大。除此之外，还有一个最可恶的场景「我们会忘记」。</p>
-<p>Kotlin 为了解决这个问题，它并不允许我们直接使用一个可选型的变量去调用方法或者属性。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> l = b.length <span class="comment">// compilation error</span></div></pre></td></tr></table></figure>
-<p>你可以和 Java 中一样，在使用变量之前先进行空判断，然后再去调用。如果使用这种方法，那么空判断是必须的。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> l = <span class="keyword">if</span> (b != <span class="literal">null</span>) b.length <span class="keyword">else</span> <span class="number">-1</span></div></pre></td></tr></table></figure>
-<p><strong>注意： 如果你定义的变量是全局变量，即使你做了空判断，依然不能使用变量去调用方法或者属性。</strong>这个时候你需要考虑使用下面的介绍的方法。</p>
-<p>Kotlin 为可选型提供了一个安全调用操作符 <code>?.</code>，使用该操作符可以方便调用可选型的方法或者属性。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> l = b?.length</div></pre></td></tr></table></figure>
-<p>这里 <code>l</code> 得到的返回依然是一个可选型 <code>Int?</code>。</p>
-<p>Kotlin 还提供了一个强转的操作符 <code>!!</code>，这个操作符能够强行调用变量的方法或者属性，而不管这个变量是否为空，如果这个时候该变量为空时，那么就会发生 NPE。所以如果不想继续陷入 NPE 的困境无法自拔，请不要该操作符走的太近。</p>
-<h2 id="Elvis-操作符"><a href="#Elvis-操作符" class="headerlink" title="Elvis 操作符"></a><code>Elvis</code> 操作符</h2><p>上面有提到一种情况，当 <code>b</code> 为空时，返回它的长度值给一个默认值 -1。要实现这样的逻辑当然可以用 <code>ifelse</code> 的逻辑判断实现，但 Kotlin 提供了一个更优雅的书写方式 <code>?:</code>。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> l = b?.length ?: <span class="number">-1</span></div></pre></td></tr></table></figure>
-<p><code>b?.length ?: -1</code> 和 <code>if (b != null) b.length else -1</code> 完全等价的。</p>
-<p>其实你还可以在 <code>?:</code> 后面添加任何表达式，比如你可以在后面会用 <code>return</code> 和 <code>throw</code>（在 Kotlin 中它们都是表达式）。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">(node: <span class="type">Node</span>)</span></span>: String? &#123;</div><div class="line">  <span class="keyword">val</span> parent = node.getParent() ?: <span class="keyword">return</span> <span class="literal">null</span></div><div class="line">  <span class="keyword">val</span> name = node.getName() ?: <span class="keyword">throw</span> IllegalArgumentException(<span class="string">"name expected"</span>)</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="let-函数"><a href="#let-函数" class="headerlink" title="let 函数"></a><code>let</code> 函数</h2><p><code>let</code> 是官方 <code>stdlib</code> 提供的标准函数库里面的函数，这个函数巧妙的利用的 Kotlin 语言的特性让 <code>let</code> 接受的表达式参数中的调用方是非空的。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> listWithNulls: List&lt;String?&gt; = listOf(<span class="string">"A"</span>, <span class="literal">null</span>)</div><div class="line"><span class="keyword">for</span> (item <span class="keyword">in</span> listWithNulls) &#123;</div><div class="line">    item?.let &#123; println(it) &#125; <span class="comment">// prints A and ignores null</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>上面代码的只会输出 <code>A</code>，而不会输出 <code>null</code>。</p>
-<p><strong>需要注意的是，这个方法调用的时候必须要使用 <code>?.</code> 操作符调用才能生效哦。</strong>如果你的部分代码依赖于一个可选型变量为非空的时候，就可以使用 <code>let</code> 函数。</p>
-<p>参考这个函数的实现，下面我尝试提供几个自己定义的方法。</p>
-<h2 id="自定义处理"><a href="#自定义处理" class="headerlink" title="自定义处理"></a>自定义处理</h2><p>这里定义的两个方法是参考 <code>Swift</code> 里面的 <code>if let</code> 和 <code>guard</code> 进行的抽象。</p>
-<h3 id="orElse-函数"><a href="#orElse-函数" class="headerlink" title="orElse 函数"></a><code>orElse</code> 函数</h3><p><code>orElse</code> 是和 <code>Elvis</code> 函数结合使用的，默认 <code>Elvis</code> 后面只能直接或者执行一个表达式获取返回值或者直接通过 <code>return</code> 或者 <code>throw</code> 结束当前函数的执行。结合 <code>orElse</code> 函数，你能够更加灵活的处理前面的 <code>null</code>。</p>
-<ul>
-<li>你可以处理一些逻辑以后，再返回一个可用的值。</li>
-</ul>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a:String? = <span class="literal">null</span></div><div class="line"><span class="keyword">var</span> b = a ?: orElse &#123;</div><div class="line">	<span class="comment">// 做任何事</span></div><div class="line">   <span class="keyword">return</span><span class="symbol">@orElse</span> <span class="string">"s"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>也可以处理一些逻辑后， 通过<code>return</code> 或者 <code>throw</code> 结束当前函数的执行。</li>
-</ul>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a:String? = <span class="literal">null</span></div><div class="line"><span class="keyword">var</span> b = a ?: orElse &#123;</div><div class="line">	<span class="comment">// 做任何事</span></div><div class="line">   <span class="keyword">return</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="guard-函数"><a href="#guard-函数" class="headerlink" title="guard 函数"></a><code>guard</code> 函数</h3><p><code>Elvis</code> 默认只能对单个变量或表达式是否为空进行处理，当碰到多个变量需要一起判断时，就会束手无策，<code>guard</code> 就是为了解决这个问题。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">fun testGuard(a: String?, b: String?, c: String?)&#123;</div><div class="line">	guard(a, b, c) ?: orElse &#123;</div><div class="line">        print("a or b or c is null </div><div class="line">")</div><div class="line">        return</div><div class="line">    &#125;</div><div class="line">    // 现在 `a`，`b`，`c` 都是不为空</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>由于没有编译器的支持，所以暂时还不能实现 <a href="https://kotlinlang.org/docs/reference/null-safety.html#checking-for-null-keyword--in-conditions" target="_blank" rel="external">空屏蔽</a>。</p>
-<p>这里定义的两个函数的实现，你可以自己尝试去实现一下，就当是个练习（鬼笑）。<a href="https://github.com/KotlinThree/AndroidExtension" target="_blank" rel="external">AndroidExtension</a>有具体的实现代码。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>经过一系列分析以后，我们已经对怎么使用好 Kotlin 可选型有一定的了解，如果不想 NPE 问题不断困扰，可以参考这里总结的几条。</p>
-<ul>
-<li>尽可能的使用非空类型的定义</li>
-<li>远离 <code>!!</code>，如果非要用，请调用代码在前面「三行之内」进行非空判断</li>
-<li>熟练使用 <code>Elvis</code> 操作符</li>
-<li>自定义一些常用的函数，让自己的代码更流畅</li>
-</ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://kotlinlang.org/docs/reference/null-safety.html" target="_blank" rel="external">null-safety</a></li>
-<li><a href="https://github.com/apple/swift-evolution/blob/master/proposals/0056-trailing-closures-in-guard.md" target="_blank" rel="external">trailing-closures-in-guard</a></li>
-</ul>
+<h2 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h2><h4 id="Kotlin："><a href="#Kotlin：" class="headerlink" title="Kotlin："></a>Kotlin：</h4><p>你看下我们 Kotlin 定义变量太酷了，比我们之前用 Java 方便太多了，你们 Swift 声明变量方便吗？</p>
+<h4 id="Swift："><a href="#Swift：" class="headerlink" title="Swift："></a>Swift：</h4><p>哦，你们是怎么样的？</p>
+<h4 id="Kotlin：-1"><a href="#Kotlin：-1" class="headerlink" title="Kotlin："></a>Kotlin：</h4><p>我们可以直接这样定义一个变量 <code>val b = 2</code>，Kotlin 可以自行推断变量的类型，要是 Java 就不行了，必须要给每个变量定义类型。</p>
+<h4 id="Swift：-1"><a href="#Swift：-1" class="headerlink" title="Swift："></a>Swift：</h4><p>我们这里也有类型推断的功能，我们声明一个变量直接 <code>let count = 10</code> 就可以了，和你们差不多。</p>
+<h4 id="Kotlin：-2"><a href="#Kotlin：-2" class="headerlink" title="Kotlin："></a>Kotlin：</h4><p>咦，你们用 <code>let</code> 声明变量，和我们不太一样。</p>
+<h4 id="Swift：-2"><a href="#Swift：-2" class="headerlink" title="Swift："></a>Swift：</h4><p>是的，我们用 <code>let</code> 声明常量，用 <code>var</code> 声明变量，而且我们常量还分为储值变量和计算变量。</p>
+<h4 id="Kotlin：-3"><a href="#Kotlin：-3" class="headerlink" title="Kotlin："></a>Kotlin：</h4><p>储值变量和计算变量？是个什么概念，我们这里没有。</p>
+<h4 id="Swift：-3"><a href="#Swift：-3" class="headerlink" title="Swift："></a>Swift：</h4><p>像 <code>var count = 10</code> 这样的定义就是储值变量。像</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var <span class="params">&lt;variable name&gt;</span>: <span class="params">&lt;type&gt;</span> &#123;</div><div class="line">    <span class="class">get </span>&#123;</div><div class="line">        <span class="params">&lt;statements&gt;</span></div><div class="line">    &#125;</div><div class="line">    set(<span class="params">&lt;setter name&gt;</span>) &#123;</div><div class="line">        <span class="params">&lt;statements&gt;</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样定义为变量自定义了 getter 和 setter 方法，这样每次获取变量值得时候都要经过一些的计算才能得到变量的值，所以叫计算变量。</p>
+<h4 id="Kotlin：-4"><a href="#Kotlin：-4" class="headerlink" title="Kotlin："></a>Kotlin：</h4><p>这个和我们定义 getter 和 setter 方法一样吗。我们完整的变量定义是这样的</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var &lt;propertyName&gt;[: &lt;PropertyType&gt;] [= &lt;property_initializer&gt;]</div><div class="line">    <span class="meta">[&lt;getter&gt;]</span></div><div class="line">    <span class="meta">[&lt;setter&gt;]</span></div></pre></td></tr></table></figure>
+<p>其中 initializer、getter 和 setter 是可以省略的，但是我们没有计算变量这个概念。</p>
+<h4 id="Swift：-4"><a href="#Swift：-4" class="headerlink" title="Swift："></a>Swift：</h4><p>恩，我们定义变量的语法是差不多的，除了 <code>let</code> 和 <code>val</code> 的差别。</p>
+<h4 id="Kotlin：-5"><a href="#Kotlin：-5" class="headerlink" title="Kotlin："></a>Kotlin：</h4><p>哎，你们的计算变量能不能给自己赋值啊？如果可以赋值的话，和储值变量有什么差别呢？</p>
+<p>我们 getter 和 setter 方法里面有个「支持域」的概念，可以通过「支持域」直接给变量赋值，所以重写 getter 和 setter 方法也只是实现不一样，本身没有质的差别。</p>
+<h4 id="Swift：-5"><a href="#Swift：-5" class="headerlink" title="Swift："></a>Swift：</h4><p>我们不行，在 getter 和 setter 只能通过另外一个储值变量来保存计算的结果。</p>
+<h4 id="Kotlin：-6"><a href="#Kotlin：-6" class="headerlink" title="Kotlin："></a>Kotlin：</h4><p>这点还是有差异的，因为你们 getter 和 setter 不能给当前变量赋值，只能进行计算的工作，所以你们才有计算变量的概念。</p>
+<h4 id="Swift：-6"><a href="#Swift：-6" class="headerlink" title="Swift："></a>Swift：</h4><p>应该是这样的。</p>
+<h2 id="知识点总结"><a href="#知识点总结" class="headerlink" title="知识点总结"></a>知识点总结</h2><h3 id="Kotlin"><a href="#Kotlin" class="headerlink" title="Kotlin"></a>Kotlin</h3><p>Kotlin 定义变量的完整语法</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var &lt;propertyName&gt;[: &lt;PropertyType&gt;] [= &lt;property_initializer&gt;]</div><div class="line">    <span class="meta">[&lt;getter&gt;]</span></div><div class="line">    <span class="meta">[&lt;setter&gt;]</span></div></pre></td></tr></table></figure>
+<p>其中 initializer、getter 和 setter 是并不是必须的。在属性类型可以通过 initializer 推断的情况下，属性类型也可以不声明。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> a: <span class="built_in">Int</span> = <span class="number">1</span>  <span class="comment">// 直接声明</span></div><div class="line"><span class="keyword">val</span> b = <span class="number">2</span>   <span class="comment">// `Int` 类型是推断出来的</span></div><div class="line"><span class="keyword">val</span> c: <span class="built_in">Int</span>  <span class="comment">// 在没有初始化赋值的化，需要定义类型</span></div></pre></td></tr></table></figure>
+<p>Kotlin 制定定义只读变量(read-only variable，又叫常量)和变量(mutable variable)，分别用 <code>val</code> 和 <code>var</code> 关键字修饰。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val <span class="selector-tag">a</span>: Int = <span class="number">1</span> <span class="comment">// 不可再次赋值</span></div><div class="line"><span class="selector-tag">var</span> <span class="selector-tag">b</span>: Int = <span class="number">1</span> <span class="comment">// 可再次赋值</span></div></pre></td></tr></table></figure>
+<h3 id="Swift"><a href="#Swift" class="headerlink" title="Swift"></a>Swift</h3><p>Swift 声明常量，用 let 关键字，常量的值在初始化后不能被再次修改</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>&gt;</span>[: <span class="tag">&lt;<span class="name">type</span>&gt;</span>] = <span class="tag">&lt;<span class="name">expression</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Swift 声明储值变量，用 var 关键字，变量的值可以被任意修改</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var <span class="tag">&lt;<span class="name">variable</span> <span class="attr">name</span>&gt;</span>[: <span class="tag">&lt;<span class="name">type</span>&gt;</span>] = <span class="tag">&lt;<span class="name">expression</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Swift 声明计算变量，用 var 关键字，同时需要指定 set 和 get 的方式，仅指定 get 则为只读计算变量</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var <span class="params">&lt;variable name&gt;</span>: <span class="params">&lt;type&gt;</span> &#123;</div><div class="line">    <span class="class">get </span>&#123;</div><div class="line">        <span class="params">&lt;statements&gt;</span></div><div class="line">    &#125;</div><div class="line">    set(<span class="params">&lt;setter name&gt;</span>) &#123;</div><div class="line">        <span class="params">&lt;statements&gt;</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Swift 支持类型推断，在有初始值的情况下，可以省去类型声明，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> count: Int = <span class="number">10</span> <span class="comment">// 常量</span></div><div class="line"><span class="keyword">var</span> message: <span class="built_in">String</span> = <span class="string">"Hello"</span> <span class="comment">// 变量</span></div></pre></td></tr></table></figure>
+<p>可以简写为</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> <span class="built_in">count</span> = <span class="number">10</span> <span class="comment">// Int 类型</span></div><div class="line"><span class="keyword">var</span> message = <span class="string">"Hello"</span> <span class="comment">// String 类型</span></div></pre></td></tr></table></figure>
+<p>该课程发布在沪江学习App上，会在该博客上同步更新，有兴趣的可以下载该 App 体验一下。</p>
+<p><img src="http://7xpox6.com1.z0.glb.clouddn.com/1495082763.png" alt=""></p>
 
       
 
@@ -274,6 +262,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Swift</a>
         		</li>
       		
 		</ul>
@@ -329,7 +321,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2016/07/14/kotlin-type-option/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/18/swiftvskotlin_variables/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -343,18 +335,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/08/02/kotlin_one_method_no_viewholder/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Kotlin 一个扩展函数，从此丢掉 ViewHolder
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/07/05/kotlin_function_three_common_methods/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Kotlin 函数式编程三板斧</div>
+    <a href="/2016/08/27/kotlin_good_bad_bugly/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Kotlin：The Good, The Bad, and The Ugly(译)</div>
       <i class="icon-circle-right"></i>
     </a>
   
