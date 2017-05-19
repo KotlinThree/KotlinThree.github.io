@@ -22,7 +22,8 @@
 <meta property="og:image" content="http://cdn.kymjs.com/kotlin/1-4-4.png">
 <meta property="og:image" content="http://cdn.kymjs.com/kotlin/1-4-5.png">
 <meta property="og:image" content="http://cdn.kymjs.com/kotlin/1-4-6.png">
-<meta property="og:updated_time" content="2017-05-18T07:51:39.000Z">
+<meta property="og:image" content="http://7xpox6.com1.z0.glb.clouddn.com/qrcode_for_gh_b2ad0581a6c4_430.jpg?imageView2/2/w/320">
+<meta property="og:updated_time" content="2017-05-19T15:55:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin Primer·第一章·启程">
 <meta name="twitter:description" content="其实最初是准备写一本电子书然后免费开放给大家的，可惜啊可惜毅力不够，坚持不下来，所以还是当成博客来写，写好了再出电子书吧。">
@@ -190,7 +191,7 @@
       
         <blockquote>
 <p>题外话：全书的目录以及主要内容已经公开，可在我公众号【<a href="http://mp.weixin.qq.com/s/3W6ciZYM1o_J5VqIFyNIpQ" target="_blank" rel="external">技术实验室</a>】的历史推送文章查看</p>
-<p>第一部分——快速上手<br><a href="https://kymjs.com/code/2017/02/03/01/" target="_blank" rel="external">第一章·启程</a><br><a href="https://kymjs.com/code/2017/02/04/01/" target="_blank" rel="external">第二章·基本语法</a><br><a href="https://kymjs.com/code/2017/02/07/01/" target="_blank" rel="external">第三章·Kotlin 与 Java 混编</a><br>第二部分——开始学习 Kotlin<br><a href="https://kymjs.com/code/2017/02/12/01/" target="_blank" rel="external">第四章·Kotlin 的类特性(上)</a><br><a href="https://kymjs.com/code/2017/02/26/01/" target="_blank" rel="external">第四章·Kotlin 的类特性(下)</a><br><a href="https://kymjs.com/code/2017/04/09/01/" target="_blank" rel="external">第五章·函数与闭包</a>   </p>
+<p>第一部分——快速上手<br><a href="http://shanghai.kotliner.cn/2017/02/03/2017-02-03-01/" target="_blank" rel="external">第一章·启程</a><br><a href="http://shanghai.kotliner.cn/2017/02/04/2017-02-04-01/" target="_blank" rel="external">第二章·基本语法</a><br><a href="http://shanghai.kotliner.cn/2017/02/07/2017-02-07-01/" target="_blank" rel="external">第三章·Kotlin 与 Java 混编</a><br>第二部分——开始学习 Kotlin<br><a href="http://shanghai.kotliner.cn/2017/02/12/2017-02-12-01/" target="_blank" rel="external">第四章·Kotlin 的类特性(上)</a><br><a href="http://shanghai.kotliner.cn/2017/02/26/2017-02-26-01/" target="_blank" rel="external">第四章·Kotlin 的类特性(下)</a><br><a href="http://shanghai.kotliner.cn/2017/04/09/2017-04-09-01/" target="_blank" rel="external">第五章·函数与闭包</a>     </p>
 </blockquote>
 <p>欢迎阅读本书！Kotlin 语言是一种新的静态类型编程语言，可运行于 JVM 环境同时也能用来开发 Android 应用。本章为学习和使用这一新兴的语言做准备，并讨论在一些常见开发环境中运行 Kotlin 程序的方法。  </p>
 <h3 id="1-1-Kotlin语言介绍"><a href="#1-1-Kotlin语言介绍" class="headerlink" title="1.1 Kotlin语言介绍"></a>1.1 Kotlin语言介绍</h3><p>Kotlin 是 JetBrains 在 2010 年推出的基于 JVM 的新编程语言。开发者称，设计它的目的是避免 Java 语言编程中的一些难题。比如：在 Kotlin 中类型系统控制了空指针引用，可以有效避免 Java 中常见的NullPointException。<br>作为一个跨平台的语言，Kotlin 可以工作于任何 Java 的工作环境：服务器端的应用，移动应用（Android版），桌面应用程序。 </p>
@@ -224,7 +225,8 @@
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Foo</span>&lt;<span class="type">out T : Any</span>&gt; : <span class="type">Bar &#123;</span></span></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">(a: <span class="type">Int</span>)</span></span>: T</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Lambdas表达式，如果是简单的只用一行就可以表示的 lambda，应当遵循在大括号的两侧、箭头的两侧、参数的两侧都使用空格隔开，例如：  </p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">list.filter &#123; it &gt; <span class="number">10</span> &#125;.map &#123; element -&gt; element * <span class="number">2</span> &#125;</div></pre></td></tr></table></figure>
-<h3 id="1-6-小结"><a href="#1-6-小结" class="headerlink" title="1.6 小结"></a>1.6 小结</h3><p>在本章中，你已经编写了两个 Kotlin 程序，相信你也已经对 Kotlin 产生了兴趣。希望你也能像我一样，沉醉于使用 Kotlin 开发。<br>继续学习下一章的内容吧，我们将进入 Kotlin 的语法世界。  </p>
+<h3 id="1-6-小结"><a href="#1-6-小结" class="headerlink" title="1.6 小结"></a>1.6 小结</h3><p>在本章中，你已经编写了两个 Kotlin 程序，相信你也已经对 Kotlin 产生了兴趣。希望你也能像我一样，沉醉于使用 Kotlin 开发。<br>继续学习下一章的内容吧，我们将进入 Kotlin 的语法世界。</p>
+<h2 id="欢迎大家关注我们的公众号"><a href="#欢迎大家关注我们的公众号" class="headerlink" title="欢迎大家关注我们的公众号"></a>欢迎大家关注我们的公众号</h2><p><img src="http://7xpox6.com1.z0.glb.clouddn.com/qrcode_for_gh_b2ad0581a6c4_430.jpg?imageView2/2/w/320" alt="">  </p>
 
       
 

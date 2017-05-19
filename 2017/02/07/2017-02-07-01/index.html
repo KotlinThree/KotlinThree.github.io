@@ -16,7 +16,8 @@
 <meta property="og:site_name" content="KotlinThree&#39;s Blog">
 <meta property="og:description" content="前三章的内容是为方便想在短时间内马上用上Kotlin的人，例如作为一个刚入职的新人，公司的代码已经是用Kotlin编写了，你应该如何更快的融入与适应。">
 <meta property="og:image" content="http://cdn.kymjs.com/kotlin/3-1-1.png">
-<meta property="og:updated_time" content="2017-05-18T07:54:12.000Z">
+<meta property="og:image" content="http://7xpox6.com1.z0.glb.clouddn.com/qrcode_for_gh_b2ad0581a6c4_430.jpg?imageView2/2/w/320">
+<meta property="og:updated_time" content="2017-05-19T15:56:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin Primer·第三章·Kotlin 与 Java 混编">
 <meta name="twitter:description" content="前三章的内容是为方便想在短时间内马上用上Kotlin的人，例如作为一个刚入职的新人，公司的代码已经是用Kotlin编写了，你应该如何更快的融入与适应。">
@@ -184,7 +185,7 @@
       
         <blockquote>
 <p>题外话：全书的目录以及主要内容已经公开，可在我公众号【<a href="http://mp.weixin.qq.com/s/3W6ciZYM1o_J5VqIFyNIpQ" target="_blank" rel="external">技术实验室</a>】的历史推送文章查看</p>
-<p>第一部分——快速上手<br><a href="https://kymjs.com/code/2017/02/03/01/" target="_blank" rel="external">第一章·启程</a><br><a href="https://kymjs.com/code/2017/02/04/01/" target="_blank" rel="external">第二章·基本语法</a><br><a href="https://kymjs.com/code/2017/02/07/01/" target="_blank" rel="external">第三章·Kotlin 与 Java 混编</a><br>第二部分——开始学习 Kotlin<br><a href="https://kymjs.com/code/2017/02/12/01/" target="_blank" rel="external">第四章·Kotlin 的类特性(上)</a><br><a href="https://kymjs.com/code/2017/02/26/01/" target="_blank" rel="external">第四章·Kotlin 的类特性(下)</a><br><a href="https://kymjs.com/code/2017/04/09/01/" target="_blank" rel="external">第五章·函数与闭包</a>  </p>
+<p>第一部分——快速上手<br><a href="http://shanghai.kotliner.cn/2017/02/03/2017-02-03-01/" target="_blank" rel="external">第一章·启程</a><br><a href="http://shanghai.kotliner.cn/2017/02/04/2017-02-04-01/" target="_blank" rel="external">第二章·基本语法</a><br><a href="http://shanghai.kotliner.cn/2017/02/07/2017-02-07-01/" target="_blank" rel="external">第三章·Kotlin 与 Java 混编</a><br>第二部分——开始学习 Kotlin<br><a href="http://shanghai.kotliner.cn/2017/02/12/2017-02-12-01/" target="_blank" rel="external">第四章·Kotlin 的类特性(上)</a><br><a href="http://shanghai.kotliner.cn/2017/02/26/2017-02-26-01/" target="_blank" rel="external">第四章·Kotlin 的类特性(下)</a><br><a href="http://shanghai.kotliner.cn/2017/04/09/2017-04-09-01/" target="_blank" rel="external">第五章·函数与闭包</a>   </p>
 </blockquote>
 <p>虽然 Kotlin 的开发很方便，但当你与他人协作时，总会碰到 Java 与 Kotlin 代码共存的代码项目。<br>本章就教你如何优雅的实现 Kotlin 与 Java 混合编程。   </p>
 <h3 id="3-1-直接转换"><a href="#3-1-直接转换" class="headerlink" title="3.1 直接转换"></a>3.1 直接转换</h3><h4 id="3-1-1-将-Java-转换为-Kotlin"><a href="#3-1-1-将-Java-转换为-Kotlin" class="headerlink" title="3.1.1 将 Java 转换为 Kotlin"></a>3.1.1 将 Java 转换为 Kotlin</h4><a id="more"></a>
@@ -208,6 +209,7 @@
 <p>表示外部类的一个伴生对象，你可以把他理解为外部类自动创建了一个对象作为自己的<code>field</code>。<br>与上面的类似，Java 在调用时，可以这样写：<code>StringUtils.Companion. isEmpty();</code><br>关于伴生对象，我们将在下一章 <code>类与对象</code> 详细讲解。  </p>
 <h4 id="3-3-2-包级别函数"><a href="#3-3-2-包级别函数" class="headerlink" title="3.3.2 包级别函数"></a>3.3.2 包级别函数</h4><p>与 Java 不同，Kotlin 允许函数独立存在，而不必依赖于某个类，这类函数我们称之为<strong>包级别函数</strong>(Package-Level Functions)。<br>为了兼容 Java，Kotlin 默认会将所有的包级别函数放在一个自动生成的叫 <code>ExampleKt</code> 的类中， 在 Java 中想要调用包级别函数时，需要通过这个类来调用。<br>当然，也是可以自定义的，你只需要通过注解 <code>@file:JvmName(&quot;Example&quot;)</code> 即可将当前文件中的所有包级别函数放到一个自动生成的名为 Example 的类中。   </p>
 <h4 id="3-3-3-空安全性"><a href="#3-3-3-空安全性" class="headerlink" title="3.3.3 空安全性"></a>3.3.3 空安全性</h4><p>在 Java 中，如果你调用的 kotlin 方法参数声明了非空类型，如果你在 Java 代码中传入一个空值，将在运行时抛出 <code>NullPointerException</code>。其内部原因在于 Kotlin 为每个非空类型加了断言，如果传入空值则会立刻抛出异常。<br>同样，如果你使用 null 对象去调用一个 kotlin 方法，将会立刻抛出<code>NullPointerException</code>（就算是调用普通 java 方法也是一样会抛出 NullPointerException ）   </p>
+<h2 id="欢迎大家关注我们的公众号"><a href="#欢迎大家关注我们的公众号" class="headerlink" title="欢迎大家关注我们的公众号"></a>欢迎大家关注我们的公众号</h2><p><img src="http://7xpox6.com1.z0.glb.clouddn.com/qrcode_for_gh_b2ad0581a6c4_430.jpg?imageView2/2/w/320" alt=""> </p>
 
       
 

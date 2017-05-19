@@ -15,10 +15,12 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/09/2017-04-09-01/index.html">
 <meta property="og:site_name" content="KotlinThree&#39;s Blog">
 <meta property="og:description" content="久违了，Kotlin 的闭包。函数与闭包的特性可以算是 Kotlin 语言最大的特性了，所以写了很久。">
-<meta property="og:updated_time" content="2017-05-18T07:50:55.000Z">
+<meta property="og:image" content="http://7xpox6.com1.z0.glb.clouddn.com/qrcode_for_gh_b2ad0581a6c4_430.jpg?imageView2/2/w/320">
+<meta property="og:updated_time" content="2017-05-19T15:56:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin Primer·第五章·函数与闭包">
 <meta name="twitter:description" content="久违了，Kotlin 的闭包。函数与闭包的特性可以算是 Kotlin 语言最大的特性了，所以写了很久。">
+<meta name="twitter:image" content="http://7xpox6.com1.z0.glb.clouddn.com/qrcode_for_gh_b2ad0581a6c4_430.jpg?imageView2/2/w/320">
   
     <link rel="alternative" href="/atom.xml" title="KotlinThree&#39;s Blog" type="application/atom+xml">
   
@@ -182,7 +184,7 @@
       
         <blockquote>
 <p>题外话：全书的目录以及主要内容已经公开，可在我公众号【<a href="http://mp.weixin.qq.com/s/3W6ciZYM1o_J5VqIFyNIpQ" target="_blank" rel="external">技术实验室</a>】的历史推送文章查看</p>
-<p>第一部分——快速上手<br><a href="https://kymjs.com/code/2017/02/03/01/" target="_blank" rel="external">第一章·启程</a><br><a href="https://kymjs.com/code/2017/02/04/01/" target="_blank" rel="external">第二章·基本语法</a><br><a href="https://kymjs.com/code/2017/02/07/01/" target="_blank" rel="external">第三章·Kotlin 与 Java 混编</a><br>第二部分——开始学习 Kotlin<br><a href="https://kymjs.com/code/2017/02/12/01/" target="_blank" rel="external">第四章·Kotlin 的类特性(上)</a><br><a href="https://kymjs.com/code/2017/02/26/01/" target="_blank" rel="external">第四章·Kotlin 的类特性(下)</a><br><a href="https://kymjs.com/code/2017/04/09/01/" target="_blank" rel="external">第五章·函数与闭包</a>  </p>
+<p>第一部分——快速上手<br><a href="http://shanghai.kotliner.cn/2017/02/03/2017-02-03-01/" target="_blank" rel="external">第一章·启程</a><br><a href="http://shanghai.kotliner.cn/2017/02/04/2017-02-04-01/" target="_blank" rel="external">第二章·基本语法</a><br><a href="http://shanghai.kotliner.cn/2017/02/07/2017-02-07-01/" target="_blank" rel="external">第三章·Kotlin 与 Java 混编</a><br>第二部分——开始学习 Kotlin<br><a href="http://shanghai.kotliner.cn/2017/02/12/2017-02-12-01/" target="_blank" rel="external">第四章·Kotlin 的类特性(上)</a><br><a href="http://shanghai.kotliner.cn/2017/02/26/2017-02-26-01/" target="_blank" rel="external">第四章·Kotlin 的类特性(下)</a><br><a href="http://shanghai.kotliner.cn/2017/04/09/2017-04-09-01/" target="_blank" rel="external">第五章·函数与闭包</a> </p>
 </blockquote>
 <p>函数与闭包的特性可以算是 Kotlin 语言最大的特性了。  </p>
 <h3 id="5-1-函数"><a href="#5-1-函数" class="headerlink" title="5.1 函数"></a>5.1 函数</h3><p>即使 Kotlin 是一门面向对象的编程语言，它也是有函数的概念的——而不像 Java 那样，仅仅有“方法”。<br>回顾一下前面第二章讲述的函数声明语法：</p>
@@ -234,6 +236,7 @@
 <h3 id="5-4-小结"><a href="#5-4-小结" class="headerlink" title="5.4 小结"></a>5.4 小结</h3><p>闭包应该算是 Kotlin 最核心特性之一了。<br>使用好闭包可以让代码量大大减少，例如 Kotlin 最著名的开源库：<code>Anko</code>，使用 Anko 去动态代码布局，比使用 Java 代码配合 xml 要更加简洁。   </p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?, persistentState: <span class="type">PersistableBundle</span>?)</span></span> &#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState, persistentState)</div><div class="line">        MyActivityUI().setContentView(<span class="keyword">this</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyActivityUI</span> : <span class="type">AnkoComponent</span>&lt;<span class="type">MyActivity</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">createView</span><span class="params">(ui: <span class="type">AnkoContext</span>&lt;<span class="type">MyActivity</span>&gt;)</span></span> = ui.apply &#123;</div><div class="line">        verticalLayout &#123;</div><div class="line">            editText()</div><div class="line">            button(<span class="string">"Say Hello"</span>) &#123;</div><div class="line">                onClick &#123; ctx.toast(<span class="string">"Hello!"</span>) &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;.view</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>可以看到，充分运用了闭包的灵活性，省略了很多的临时变量和参数声明。<br>然而，也正是因为闭包的灵活性，造成如果泛滥的话，可能会写出可读性非常差的代码(这里就不举反例了， js 的 lambda 滥用的结果就能想象了)</p>
+<h2 id="欢迎大家关注我们的公众号"><a href="#欢迎大家关注我们的公众号" class="headerlink" title="欢迎大家关注我们的公众号"></a>欢迎大家关注我们的公众号</h2><p><img src="http://7xpox6.com1.z0.glb.clouddn.com/qrcode_for_gh_b2ad0581a6c4_430.jpg?imageView2/2/w/320" alt=""> </p>
 
       
 
