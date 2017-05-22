@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-22T04:55:25.000Z</updated>
+  <updated>2017-05-22T05:08:00.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,132 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Swift vs. Kotlin 漫谈之函数定义</title>
+    <link href="http://yoursite.com/2017/05/22/swiftvskotlin_define_function/"/>
+    <id>http://yoursite.com/2017/05/22/swiftvskotlin_define_function/</id>
+    <published>2017-05-22T05:07:40.000Z</published>
+    <updated>2017-05-22T05:08:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>tags: Kotlin, Swift</p>
+<p>Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。</p>
+<a id="more"></a>
+<h2 id="技术漫谈"><a href="#技术漫谈" class="headerlink" title="技术漫谈"></a>技术漫谈</h2><p><strong>Swift：</strong></p>
+<p>Hi，又见面了。</p>
+<p><strong>Kotlin：</strong></p>
+<p>恩，上次没分出胜负，这次再来。</p>
+<p><strong>Swift：</strong></p>
+<p>好，今天讲讲函数，你们是怎么定义函数的呀？</p>
+<p><strong>Kotlin：</strong></p>
+<p>我们是这样定义的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fun &lt;functionName&gt;(&lt;parameters&gt;)[: &lt;Type&gt;] &#123;</div><div class="line">    &lt;block&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>你们呢？</p>
+<p><strong>Swift：</strong></p>
+<p>我们是这么定义的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">func &lt;function name&gt;(&lt;parameters&gt;) -&gt; &lt;return type&gt; &#123;</div><div class="line">    &lt;statements&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Kotlin：</strong></p>
+<p>区别就是个 <code>-&gt;</code> 和 <code>:</code> 的区别啊，其它都一样。</p>
+<p><strong>Swift：</strong></p>
+<p>嗯嗯嗯。还有个 <code>func</code> 和 <code>fun</code> 的区别。</p>
+<p><strong>Kotlin：</strong></p>
+<p>我们还可以用「单一表达式」直接声明函数，像这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fun &lt;functionName&gt;(&lt;parameters&gt;)[: &lt;Type&gt;] = &lt;singleExpression&gt;</div></pre></td></tr></table></figure>
+<p>在使用「单一表达式」来声明函数的时候返回的类型可以被推断出来，所以可以忽略不写。</p>
+<p><strong>Swift：</strong></p>
+<p>牛X。</p>
+<p><strong>Kotlin：</strong></p>
+<p>服不？</p>
+<p><strong>Swift：</strong></p>
+<p>不服，说说函数参数吧。</p>
+<p><strong>Kotlin：</strong></p>
+<p>Kotlin 中函数的参数使用帕斯卡尔（Pascal）符号定义，例如 <code>name: type</code>，使用逗号分割不同的参数，必须明确定义参数的类型。</p>
+<p><strong>Swift：</strong></p>
+<p>Swift 的参数也差不多，有外部名和内部名之分，外部名就是实参名，内部名就是形参名。</p>
+<p><strong>Kotlin：</strong></p>
+<p>那是咋定义的？</p>
+<p><strong>Swift：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">func f(valueA x: Int, valueB y: Int) &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里 valueA 和 valueB 就是外部参数名，x 和 y 是内部参数名<br>函数在调用时要写上外部参数名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">f(valueA: 1, valueB: 2)</div></pre></td></tr></table></figure>
+<p><strong>Kotlin：</strong></p>
+<p>如果不想写参数名呢？</p>
+<p><strong>Swift：</strong></p>
+<p>那在定义的时候用 _ 指代外部名就行了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">f(_ x: Int, _ y: Int) &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">f(1, 2) // 函数调用</div></pre></td></tr></table></figure>
+<p><strong>Kotlin：</strong> </p>
+<p>666666666666</p>
+<p><strong>Swift：</strong></p>
+<p>你们的参数可以加默认值吗？</p>
+<p><strong>Kotlin：</strong></p>
+<p>可以呀，后面 <code>=</code> 一个值就行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fun read(off: Int = 0) &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Swift：</strong></p>
+<p>我们也是一模一样的。</p>
+<p><strong>Kotlin：</strong></p>
+<p>赞</p>
+<p><strong>Swift：</strong></p>
+<p>再说说可变参数吧，我们可变参数的定义是在参数类型后面加三个点<code>...</code>，然后这个参数就可以当做数组使用了</p>
+<p><strong>Kotlin：</strong></p>
+<p>我们是用 <code>vararg</code> 关键字</p>
+<p><strong>Swift：</strong></p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">func arithmeticMean(_ numbers: Double...) -&gt; Double &#123;</div><div class="line">    var total: Double = 0</div><div class="line">    for number in numbers &#123;</div><div class="line">        total += number</div><div class="line">    &#125;</div><div class="line">    return total / Double(numbers.count)</div><div class="line">&#125;</div><div class="line">arithmeticMean(1, 2, 3, 4, 5)</div><div class="line">// 结果是 3.0</div><div class="line"></div><div class="line">arithmeticMean(3, 8.25, 18.75)</div><div class="line">// 结果是 10.0</div></pre></td></tr></table></figure>
+<p><strong>Kotlin：</strong></p>
+<p>我们是这样的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">fun &lt;T&gt; asList(vararg ts: T): List&lt;T&gt; &#123;</div><div class="line">    val result = ArrayList&lt;T&gt;()</div><div class="line">    for (t in ts) // ts is an Array</div><div class="line">        result.add(t)</div><div class="line">    return result</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Swift：</strong></p>
+<p>就是关键字不一样，其它还是非常相似的。</p>
+<p><strong>Kotlin：</strong></p>
+<p>恩，惺惺相惜。</p>
+<h1 id="知识点总结"><a href="#知识点总结" class="headerlink" title="知识点总结"></a>知识点总结</h1><h2 id="Swift-中函数的定义"><a href="#Swift-中函数的定义" class="headerlink" title="Swift 中函数的定义"></a>Swift 中函数的定义</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">func &lt;function name&gt;(&lt;parameters&gt;) -&gt; &lt;return type&gt; &#123;</div><div class="line">    &lt;statements&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果函数没有返回值，则定义方式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">func &lt;function name&gt;(&lt;parameters&gt;) &#123;</div><div class="line">    &lt;statements&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">func f(x: Int, y: Int) -&gt; Int &#123;    </div><div class="line">	return x + y  </div><div class="line">&#125;</div><div class="line"></div><div class="line">f(x: 1, y: 2) // 函数调用</div></pre></td></tr></table></figure>
+<h2 id="Swift-中函数的参数"><a href="#Swift-中函数的参数" class="headerlink" title="Swift 中函数的参数"></a>Swift 中函数的参数</h2><p>函数参数声明方式和声明变量相同，不过函数参数有外部名（实参名）和内部名（形参名）之分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">func f(valueA x: Int, valueB y: Int) &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里 valueA 和 valueB 就是外部参数名，x 和 y 是内部参数名<br>函数在调用是必须写上外部参数名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">f(valueA: 1, valueB: 2)</div></pre></td></tr></table></figure>
+<p>如果想要函数在调用时省略外部参数名，则可以在函数声明时把外部参数名指定为 _（下划线）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">f(_ x: Int, _ y: Int) &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">f(1, 2) // 函数调用</div></pre></td></tr></table></figure>
+<p>如果不区分外部和内部参数名，则外部和内部参数名相同，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">func f(x: Int, y: Int) -&gt; Int &#123;    </div><div class="line">	return x + y  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面这个函数的外部参数名和内部参数名都是 x 和 y</p>
+<h2 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h2><p>函数参数类型后面加三个点”…”，则可把这个参数声明成可变参数<br>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">func arithmeticMean(_ numbers: Double...) -&gt; Double &#123;</div><div class="line">    var total: Double = 0</div><div class="line">    for number in numbers &#123;</div><div class="line">        total += number</div><div class="line">    &#125;</div><div class="line">    return total / Double(numbers.count)</div><div class="line">&#125;</div><div class="line">arithmeticMean(1, 2, 3, 4, 5)</div><div class="line">// returns 3.0</div><div class="line"></div><div class="line">arithmeticMean(3, 8.25, 18.75)</div><div class="line">// returns 10.0</div></pre></td></tr></table></figure>
+<h2 id="函数参数默认值"><a href="#函数参数默认值" class="headerlink" title="函数参数默认值"></a>函数参数默认值</h2><p>函数的参数可以指定默认值，这样这个函数在调用是可以省略这个参数<br>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">func f(x: Int, y: Int = 3) -&gt; Int &#123;    </div><div class="line">	return x + y  </div><div class="line">&#125;</div><div class="line"></div><div class="line">f(x: 1)</div><div class="line">// 结果为 4</div></pre></td></tr></table></figure>
+<h2 id="Kotlin-函数定义"><a href="#Kotlin-函数定义" class="headerlink" title="Kotlin 函数定义"></a>Kotlin 函数定义</h2><p>Kotlin 用 <code>fun</code> 关键字来声明函数，常见的是用块（block）来声明函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fun &lt;functionName&gt;(&lt;parameters&gt;)[: &lt;Type&gt;] &#123;</div><div class="line">    &lt;block&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还可以用「单一表达式」直接声明函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fun &lt;functionName&gt;(&lt;parameters&gt;)[: &lt;Type&gt;] = &lt;singleExpression&gt;</div></pre></td></tr></table></figure>
+<p>在用「块」来声明函数的时候，返回的类型只有在没有返回（Kotlin 默认返回 Unit）的时候可以不定义。在使用「单一表达式」来声明函数的时候返回的类型可以被推断出来，所以可以忽略不写。</p>
+<h2 id="Kotlin-中函数的参数"><a href="#Kotlin-中函数的参数" class="headerlink" title="Kotlin 中函数的参数"></a>Kotlin 中函数的参数</h2><p>Kotlin 中函数的参数使用帕斯卡尔（Pascal）符号定义，例如 <code>name: type</code>，使用逗号分割不同的参数，必须明确定义参数的类型。</p>
+<h3 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h3><p>Kotlin 的函数中允许直接为参数提供默认值，在调用的时候如果使用默认值可以忽略这个参数不传递。默认参数的定义方式是在类型定义后面用 <code>=</code> 传递默认值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fun read(b: Array&lt;Byte&gt;, off: Int = 0, len: Int = b.size()) &#123;</div><div class="line">...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="可变参数-1"><a href="#可变参数-1" class="headerlink" title="可变参数"></a>可变参数</h3><p>对于参数数量可变的情况，在 Kotlin 中可以用 <code>vararg</code> 关键字来标记，和 Java 里面  <code>...</code> 是一个用途。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">fun &lt;T&gt; asList(vararg ts: T): List&lt;T&gt; &#123;</div><div class="line">    val result = ArrayList&lt;T&gt;()</div><div class="line">    for (t in ts) // ts is an Array</div><div class="line">        result.add(t)</div><div class="line">    return result</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后调用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val list = asList(1, 2, 3)</div></pre></td></tr></table></figure>
+<p>关于函数相关的知识，无论是 Swift 还是 Kotlin 都还有很多东西可以 PK，不过这篇这是基础语法篇，想要了解更多的和函数相关的 PK，敬请期待后面的更新。</p>
+<hr>
+<p><img src="http://7xpox6.com1.z0.glb.clouddn.com/kotlin-three-wechat.jpg" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;tags: Kotlin, Swift&lt;/p&gt;
+&lt;p&gt;Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Kotlin" scheme="http://yoursite.com/tags/Kotlin/"/>
+    
+      <category term="Swift" scheme="http://yoursite.com/tags/Swift/"/>
+    
+  </entry>
   
   <entry>
     <title>参与《Swift vs. Kotlin 漫谈》系列</title>
