@@ -6,21 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>玩转 Kotlin 委托属性 | KotlinThree&#39;s Blog</title>
+  <title>我与 Kotlin 的爱恨情仇之浅谈 block | KotlinThree&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tags: Kotlin Kotlin 属性要讲 Kotlin 的委托属性，要先从 Kotlin 的属性说起，当然关于属性的定义就不多介绍了。这里介绍一下 Kotlin 区别于 Java 独有的 back field 的概念。用过 Kotlin 的人都知道，Kotlin 的属性是天生带 Setter/Getter 方法的，不过如果要重写他们的话，写法有所不同。">
+  <meta name="description" content="前言hi, IMSK。是的，你没看错，没迷路，这里是 Kotlin  ，不是 Objective-C，别怕接下来跟我一起认识认识这个 block 的前世今生。前方高能，请您带上耳机，戴上眼镜。">
 <meta name="keywords" content="Kotlin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="玩转 Kotlin 委托属性">
-<meta property="og:url" content="http://yoursite.com/2017/05/22/kotlin_properties_delegate/index.html">
+<meta property="og:title" content="我与 Kotlin 的爱恨情仇之浅谈 block">
+<meta property="og:url" content="http://yoursite.com/2017/05/23/sk_love_block/index.html">
 <meta property="og:site_name" content="KotlinThree&#39;s Blog">
-<meta property="og:description" content="tags: Kotlin Kotlin 属性要讲 Kotlin 的委托属性，要先从 Kotlin 的属性说起，当然关于属性的定义就不多介绍了。这里介绍一下 Kotlin 区别于 Java 独有的 back field 的概念。用过 Kotlin 的人都知道，Kotlin 的属性是天生带 Setter/Getter 方法的，不过如果要重写他们的话，写法有所不同。">
-<meta property="og:image" content="http://7xpox6.com1.z0.glb.clouddn.com/kotlin-three-wechat.jpg">
-<meta property="og:updated_time" content="2017-05-22T13:04:43.000Z">
+<meta property="og:description" content="前言hi, IMSK。是的，你没看错，没迷路，这里是 Kotlin  ，不是 Objective-C，别怕接下来跟我一起认识认识这个 block 的前世今生。前方高能，请您带上耳机，戴上眼镜。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2874486-92b0b5724169c608.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2874486-9893735489e0c33f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2874486-e2d2fbc43ee9ba8a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2874486-ca3216bbf543510f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2874486-50b716e7833401b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2874486-dd20a3173a6a8837.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-05-25T07:13:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="玩转 Kotlin 委托属性">
-<meta name="twitter:description" content="tags: Kotlin Kotlin 属性要讲 Kotlin 的委托属性，要先从 Kotlin 的属性说起，当然关于属性的定义就不多介绍了。这里介绍一下 Kotlin 区别于 Java 独有的 back field 的概念。用过 Kotlin 的人都知道，Kotlin 的属性是天生带 Setter/Getter 方法的，不过如果要重写他们的话，写法有所不同。">
-<meta name="twitter:image" content="http://7xpox6.com1.z0.glb.clouddn.com/kotlin-three-wechat.jpg">
+<meta name="twitter:title" content="我与 Kotlin 的爱恨情仇之浅谈 block">
+<meta name="twitter:description" content="前言hi, IMSK。是的，你没看错，没迷路，这里是 Kotlin  ，不是 Objective-C，别怕接下来跟我一起认识认识这个 block 的前世今生。前方高能，请您带上耳机，戴上眼镜。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2874486-92b0b5724169c608.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="KotlinThree&#39;s Blog" type="application/atom+xml">
   
@@ -162,84 +167,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-kotlin_properties_delegate" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-sk_love_block" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      玩转 Kotlin 委托属性
+      我与 Kotlin 的爱恨情仇之浅谈 block
     </h1>
   
 
         
-        <a href="/2017/05/22/kotlin_properties_delegate/" class="archive-article-date">
-  	<time datetime="2017-05-22T13:04:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-22</time>
+        <a href="/2017/05/23/sk_love_block/" class="archive-article-date">
+  	<time datetime="2017-05-23T13:34:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>tags: Kotlin</p>
-<h2 id="Kotlin-属性"><a href="#Kotlin-属性" class="headerlink" title="Kotlin 属性"></a>Kotlin 属性</h2><p>要讲 Kotlin 的委托属性，要先从 Kotlin 的属性说起，当然关于属性的定义就不多介绍了。这里介绍一下 Kotlin 区别于 Java 独有的 back field 的概念。用过 Kotlin 的人都知道，Kotlin 的属性是天生带 Setter/Getter 方法的，不过如果要重写他们的话，写法有所不同。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>hi, IMSK。是的，你没看错，没迷路，这里是 <code>Kotlin</code>  ，不是 <code>Objective-C</code>，别怕接下来跟我一起认识认识这个 block 的前世今生。前方高能，请您带上耳机，戴上眼镜。</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a: String = &quot;1&quot;</div><div class="line">	get() = field</div><div class="line">	set(value) &#123;</div><div class="line">        field = value</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<p>我们可以看到，当需要重写 Setter/Getter 方法的时候，就需要用到 field 这个新概念，它其实是代表这个域本身。有些人刚开始看到这个东西的时候，可能会觉得很神秘，其实它里面的实现逻辑很简单，就是对应到 Java 中 Setter/Getter 方法，然后 field 在 Java 的方法中就是该属性本身，上面的代码编译后的代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">@NotNull</div><div class="line">private String a = &quot;1&quot;;</div><div class="line"></div><div class="line">@NotNull</div><div class="line">public final String getA() &#123;</div><div class="line">  return this.a;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public final void setA(@NotNull String value) &#123;</div><div class="line">  Intrinsics.checkParameterIsNotNull(value, &quot;value&quot;);</div><div class="line">  this.a = value;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>基于这样的逻辑，对于 <code>Kotlin</code> 属性的 <code>lateinit</code> 修饰符的实现原理，就可以很简单的推理出来，在属性的 <code>Getter</code> 方法中先判断该属性是否被赋值，否则的话抛出异常，下面就是一个用 <code>lateinit</code> 修饰的属性生成的 <code>Getter</code> 方法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@NotNull</div><div class="line">public final String getPropLateInit() &#123;</div><div class="line">  String var10000 = this.propLateInit;</div><div class="line">  if(this.propLateInit == null) &#123;</div><div class="line">     Intrinsics.throwUninitializedPropertyAccessException(&quot;propLateInit&quot;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  return var10000;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>讲到这里，反应快的人应该能猜到到，下面要讲的属性委托是基于什么原理实现的了。</p>
-<h2 id="Kotlin-委托属性"><a href="#Kotlin-委托属性" class="headerlink" title="Kotlin 委托属性"></a>Kotlin 委托属性</h2><h3 id="委托属性的声明"><a href="#委托属性的声明" class="headerlink" title="委托属性的声明"></a>委托属性的声明</h3><p>定义一个委托属性的语法是 <code>val/var &lt;property name&gt;: &lt;Type&gt; by &lt;expression&gt;</code>，其中 <code>by</code> 后面的就是属性的委托。属性委托不用继承什么特别的接口，只要拥有用 <code>operator</code> 修饰的 <code>getValue()</code> 和 <code>setValue()</code> (适用 var)的函数就可以了。</p>
-<p>需要注意的是在官方的文档里，要求 <code>getValue()</code> 和 <code>setValue()</code> 两个函数提供固定的参数，就像下面的例子一样。但是事实其实并非如此，这里我们先按照官方的说法继续，后面再解释这里的差异。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class Delegate &#123;</div><div class="line">    operator fun getValue(thisRef: Any?, property: KProperty&lt;*&gt;): String &#123;</div><div class="line">        return &quot;$thisRef, thank you for delegating &apos;$&#123;property.name&#125;&apos; to me!&quot;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    operator fun setValue(thisRef: Any?, property: KProperty&lt;*&gt;, value: String) &#123;</div><div class="line">        println(&quot;$value has been assigned to &apos;$&#123;property.name&#125; in $thisRef.&apos;&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>对于参数的描述这里做一个简单描述：</p>
+<h2 id="block是什么？"><a href="#block是什么？" class="headerlink" title="block是什么？"></a>block是什么？</h2><p>先来看看 Kotlin 代码长什么样子：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2874486-92b0b5724169c608.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>其中 <code>body</code> 就是一个 block， <code>() -&gt; T</code> 是一个 函数块（ 函数签名 ）。block 可以当做参数传入， 也可以当做返回值返回。在这里我就沿用我之前写 Objective-C 的习惯，暂且称作他为 闭包。</p>
+<h2 id="我爱-block"><a href="#我爱-block" class="headerlink" title="我爱 block"></a>我爱 block</h2><p>再来对比一下 Objective-C 里的 block：</p>
+<p>double (^multiplyTwoValues)(double, double);</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2874486-9893735489e0c33f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>如果之前没有写过 OC，那么我想第一反应只能无奈的说一句：不觉明历。回头来看看，还是 Kotlin 更加亲切一些，直接  <code>() -&gt; T</code> ，<code>{}</code>， 随便怎么玩，详细用法看官网吧<br><a href="https://kotlinlang.org/docs/reference/lambdas.html" target="_blank" rel="external">《Higher-Order Functions and Lambdas》</a> 。</p>
+<p> 为什么爱上 block， 举个简单例子: 我们经常要处理一个异步请求，等数据返回的时候，回调给调用方，如果是用 Java 来写，可能要用到接口（callback）来实现了的。那么在 Kotlin 里怎么办呢？</p>
+<p> 声明：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2874486-e2d2fbc43ee9ba8a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>调用：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2874486-ca3216bbf543510f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>看到了么？不用在像以前那样还要单独去写一个 <code>callback</code>  的 <code>interface</code> 类了，是不是很简洁。</p>
+<h2 id="我不爱-block"><a href="#我不爱-block" class="headerlink" title="我不爱 block"></a>我不爱 block</h2><p> 当然很大一部分原因是因为当年被 OC 中的 block 折磨的心累，写法让人难受不说，OC 先天的冗长代码实在是累，如果是个新手，还经常内存泄露，折磨的死去活来的。这里提一下，block是一个闭包，开发过程中，切记由于闭包是可以访问上文数据，处理不当就会导致内存泄露哦。</p>
+<p> 当然还有另外一方面的原因，就是声明多参数的时候，比较难受，OC实在是不想在提了的，事实上 Kotlin 还算可以接受的，比如：</p>
 <ul>
-<li><code>thisRef</code>，属性的拥有者；</li>
-<li><code>property</code>，对属性的描述，是 KProperty&lt;*&gt; 类型或是它的父类；</li>
-<li><code>value</code>，属性的值。</li>
+<li><p>Kotlin 中 block 多参数声明</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2874486-50b716e7833401b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>Kotlin 中 block 多参数调用</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2874486-dd20a3173a6a8837.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
 </ul>
-<h3 id="委托属性的背后实现"><a href="#委托属性的背后实现" class="headerlink" title="委托属性的背后实现"></a>委托属性的背后实现</h3><p>Kotlin 官方在官方标准库里提供委托属性的三个常用场景，作为委托属性的范例。这里重点分析一下 <code>lazy</code> 的背后的实现原理，然后顺带讲一下 <code>Observable</code> 和 <code>storing</code> 的用法。</p>
-<h4 id="lazy"><a href="#lazy" class="headerlink" title="lazy"></a>lazy</h4><p>通过 <code>lazy</code> 我们可以定义一个懒加载的属性，该属性的初始化不会再类创建的时候发生，而是在第一次用到它的时候赋值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val propLazy: Int by lazy&#123;1&#125;</div></pre></td></tr></table></figure>
-<p>我们查看一下编译后的 <code>bytecode</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	LINENUMBER 4 L1</div><div class="line">	ALOAD 0</div><div class="line">	GETSTATIC PropertiesDemo$propLazy$2.INSTANCE : LPropertiesDemo$propLazy$2;</div><div class="line">	CHECKCAST kotlin/jvm/functions/Function0</div><div class="line">	INVOKESTATIC kotlin/LazyKt.lazy (Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;</div><div class="line">	PUTFIELD PropertiesDemo.propLazy$delegate : Lkotlin/Lazy;</div><div class="line">L2</div></pre></td></tr></table></figure>
-<p>字节码的可读性太差，我们反编译一下，找到相关的代码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public PropertiesDemo() &#123;</div><div class="line">  this.propLazy$delegate = LazyKt.lazy((Function0)null.INSTANCE);</div><div class="line">&#125;</div><div class="line">   </div><div class="line">@NotNull</div><div class="line">private final Lazy propLazy$delegate;</div><div class="line"></div><div class="line">static final KProperty[] $$delegatedProperties = new KProperty[]&#123;(KProperty)Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(PropertiesDemo.class), &quot;propLazy&quot;, &quot;getPropLazy()I&quot;)))&#125;;</div><div class="line">   </div><div class="line">public final int getPropLazy() &#123;</div><div class="line">  Lazy var1 = this.propLazy$delegate;</div><div class="line">  KProperty var3 = $$delegatedProperties[0];</div><div class="line">  return ((Number)var1.getValue()).intValue();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>可以看到 Kotlin 为我们生成了一个 <code>Lazy</code> 类型的 <code>propLazy$delegate</code> 属性，同时生成一个 <code>getPropLazy()</code> 方法，但是我们并没有找到 <code>propLazy</code> 属性的定义（这一点我们先不管，后面再说）。</p>
-<p>在 <code>getPropLazy()</code> 的实现里可以看到返回的是 <code>propLazy$delegate.getValue()</code> 的值，再看下 <code>propLazy$delegate</code> 的赋值是在类的构造函数里面 <code>this.propLazy$delegate = LazyKt.lazy((Function0)null.INSTANCE);</code>。LazyKt 是系统的 <code>Lazy.kt</code> 文件生成的类文件，找到 <code>Lazy.kt</code> 的 <code>lazy()</code> 方法，返回的是 <code>SynchronizedLazyImpl</code> 的实例。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@kotlin.jvm.JvmVersion</div><div class="line">public fun &lt;T&gt; lazy(initializer: () -&gt; T): Lazy&lt;T&gt; = SynchronizedLazyImpl(initializer)</div></pre></td></tr></table></figure>
-<p>在 <code>SynchronizedLazyImpl</code> 实现代码里，通过 <code>_value</code> 用来真正保存属性的值。<code>_value</code> 的默认值是 <code>UNINITIALIZED_VALUE</code> (一个自定义的对象)。当 <code>_value</code> 不是默认值的时候，就会直接把 <code>_value</code> 的值作为 <code>getValue()</code> 的返回；当 <code>_value</code> 还是默认值的时候，就会调用 <code>initializer</code> 初始化表达式完成初始化，赋值给 <code>_value</code> 并作为 <code>getValue()</code> 的返回。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">private object UNINITIALIZED_VALUE</div><div class="line">private class SynchronizedLazyImpl&lt;out T&gt;(initializer: () -&gt; T, lock: Any? = null) : Lazy&lt;T&gt;, Serializable &#123;</div><div class="line">    private var initializer: (() -&gt; T)? = initializer</div><div class="line">    @Volatile private var _value: Any? = UNINITIALIZED_VALUE</div><div class="line">    // final field is required to enable safe publication of constructed instance</div><div class="line">    private val lock = lock ?: this</div><div class="line"></div><div class="line">    override val value: T</div><div class="line">        get() &#123;</div><div class="line">            val _v1 = _value</div><div class="line">            if (_v1 !== UNINITIALIZED_VALUE) &#123;</div><div class="line">                @Suppress(&quot;UNCHECKED_CAST&quot;)</div><div class="line">                return _v1 as T</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            return synchronized(lock) &#123;</div><div class="line">                val _v2 = _value</div><div class="line">                if (_v2 !== UNINITIALIZED_VALUE) &#123;</div><div class="line">                    @Suppress(&quot;UNCHECKED_CAST&quot;) (_v2 as T)</div><div class="line">                &#125;</div><div class="line">                else &#123;</div><div class="line">                    val typedValue = initializer!!()</div><div class="line">                    _value = typedValue</div><div class="line">                    initializer = null</div><div class="line">                    typedValue</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    override fun isInitialized(): Boolean = _value !== UNINITIALIZED_VALUE</div><div class="line"></div><div class="line">    override fun toString(): String = if (isInitialized()) value.toString() else &quot;Lazy value not initialized yet.&quot;</div><div class="line"></div><div class="line">    private fun writeReplace(): Any = InitializedLazyImpl(value)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>我们发现 <code>SynchronizedLazyImpl</code> 的 <code>getValue()</code> 方法并没有带参数，在反编译的 <code>getPropLazy()</code> 代码中 <code>KProperty var3 = $$delegatedProperties[0];</code> 这个变量其实根本没有用到，其实在正常的委托的反编译的代码是类似这样的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">return (String)this.propObservable$delegate.getValue(this, $$delegatedProperties[1]);</div></pre></td></tr></table></figure>
-<p>所以说其实我们在定义委托的时候，<code>getValue()</code> 和 <code>setValue()</code> 方法是可以不带参数的，只是官方在编译阶段做了限制，导致我们只能拥有带参数的方法。为了验证如果这个想法，我参考 <code>lazy</code> 实现了一个类似的功能，发现根本不能通过编译。</p>
-<h5 id="关于-propLazy-属性本身"><a href="#关于-propLazy-属性本身" class="headerlink" title="关于 propLazy 属性本身"></a>关于 <code>propLazy</code> 属性本身</h5><p>前面我们有提到在生成的字节码中，并不能找到 <code>propLazy</code> 这个属性的定义，我们先看看官网怎么说的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class C &#123;</div><div class="line">    var prop: Type by MyDelegate()</div><div class="line">&#125;</div><div class="line"></div><div class="line">// this code is generated by the compiler instead:</div><div class="line">class C &#123;</div><div class="line">    private val prop$delegate = MyDelegate()</div><div class="line">    var prop: Type</div><div class="line">        get() = prop$delegate.getValue(this, this::prop)</div><div class="line">        set(value: Type) = prop$delegate.setValue(this, this::prop, value)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>根据官方的文档描述，<code>Kotlin</code> 会自动生成 <code>prop$delegate</code> 属性，并复写 <code>prop</code> 的 <code>Setter/Getter</code> 方法。按照这个说话的话，我们上面在编译后的字节码里面应该是可以找到 <code>propLazy</code> 属性的。</p>
-<p>为了验证这个问题，我首先想到是不是因为这个属性是私有变量，在类里面没有使用，所以 <code>Kotlin</code> 编译器为了优化生成字节码的数量而故意去掉了呢。于是我故意在另外一个方法里尝试输出该属性，但是最后发现在编译后该处的使用被替换成 <code>getPropLazy()</code> 方法的调用，所以看来 <code>propLazy</code> 是真的没有了。</p>
-<p>为了进一步验证这个想法，我们还在运行时用反射的方法去获取该属性，发现的确找不到该属性，最后我们得出结论是委托属性在编译后会生成对应的 <code>prop$delegate</code> （被委托的属性」），然后生成生成委托属性的 <code>Setter/Getter</code> 方法，但是该属性本身并不在类的域定义里面，这个时候尝试用反射的方法直接拿到这个属性是做不到的（当然你可以通过 <code>prop$delegate</code> 反射到你想要的内容）。</p>
-<h3 id="Observable"><a href="#Observable" class="headerlink" title="Observable"></a>Observable</h3><p>官方推荐另外一个委托属性的应用就是 <code>Observable</code>，让属性在发生变动的时候可以被关注的地方观察到。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class User &#123;</div><div class="line">    var name: String by Delegates.observable(&quot;&lt;no name&gt;&quot;) &#123;</div><div class="line">        prop, old, new -&gt;</div><div class="line">        println(&quot;$old -&gt; $new&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">fun main(args: Array&lt;String&gt;) &#123;</div><div class="line">    val user = User()</div><div class="line">    user.name = &quot;first&quot;</div><div class="line">    user.name = &quot;second&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>上面代码的输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;no name&gt; -&gt; first</div><div class="line">first -&gt; second</div></pre></td></tr></table></figure>
-<p>想了解 <code>Observable</code> 的实现方式，大家可以参考前面分析 <code>lazy</code> 的方法，去探究一下。关于 <code>Observable</code> 的进一步实现场景，我们一直有一个想法，就是基于这个特性封装出一套 MVVM 的框架，等到这个框架实现以后，再和大家分享。</p>
-<h3 id="Storing"><a href="#Storing" class="headerlink" title="Storing"></a>Storing</h3><p><code>Storing</code> 的使用场景是被模型的属性全部委托到 <code>Map</code> 的结构去真实的存储数据，用于解析 <code>Json</code> 或者做一些动态的事情。</p>
-<pre><code>class User(val map: Map&lt;String, Any?&gt;) {
-    val name: String by map
-    val age: Int     by map
-}
-</code></pre><p>不过根据我的了解，一些 Json 的解析库是直接用反射的方式实现的反序列化，根据我们前面的分析，这里根本解析不出来，所以这个场景看来是使用不了了。</p>
-<h2 id="关于-BufferKnife-和-KotterKnife"><a href="#关于-BufferKnife-和-KotterKnife" class="headerlink" title="关于 BufferKnife 和 KotterKnife"></a>关于 <code>BufferKnife</code> 和 <code>KotterKnife</code></h2><h3 id="BufferKnife"><a href="#BufferKnife" class="headerlink" title="BufferKnife"></a><code>BufferKnife</code></h3><p>在 <code>Kotlin</code> 刚推出来的时候，由于不支持 <code>apt</code> ，所以会导致 <code>BufferKnife</code> 这类用注解实现的框架会使用不了，但是  <code>Kotlin</code> 很快就意识到这个问题并推出 <code>kapt</code>。在 <code>kapt</code> 推出来以后其实 <code>BufferKnife</code> 就可以正常使用了，我们也在我们的代码里使用了 <code>BufferKnife</code>。但当时 <code>BufferKnife</code> 在增量编译的时候有时候的确会出一些问题，导致我们那个时候最后选择了放弃，我们自己简单封装下 <code>findViewById</code> 的操作，有兴趣的可以看下 <a href="https://github.com/KotlinThree/AndroidExtension" target="_blank" rel="external">AndroidExtension</a> 。可能有些人关于 <code>Kotlin</code> 和 <code>BufferKnife</code> 的冲突信息是来自我们当时不准确的描述，导致认为他们不能一起使用。而且经过这么久的迭代，我相信官方应该早就解决这个问题了。</p>
-<h3 id="KotterKnife"><a href="#KotterKnife" class="headerlink" title="KotterKnife"></a><code>KotterKnife</code></h3><p><code>KotterKnife</code> 这个库的存在可能也是很多人认为 <code>Kotlin</code> 不能使用 <code>BufferKnife</code> 的一个因素。在我看来 <code>KotterKnife</code> 创建的时机是 <code>Kotlin</code> 还不支持 <code>apt</code> 的时候，在  <code>Kotlin</code> 推出 <code>kapt</code> 以后这个库就已经不怎么更新了，而且这个库从来没有发布过一个正式版本，所以可以看出这只是大神在用 <code>Kotlin</code> 做的一些新的尝试而已（这一点我是通过查看代码发现 <code>KotterKnife</code> 主要使用「委托属性」这个特性猜想出来的，仅供参考）。</p>
-<hr>
-<p><img src="http://7xpox6.com1.z0.glb.clouddn.com/kotlin-three-wechat.jpg" alt=""></p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://kotlinlang.org/docs/reference/" target="_blank" rel="external">官方文档</a></li>
-<li><a href="https://github.com/JakeWharton/kotterknife" target="_blank" rel="external">kotterknife</a></li>
-<li><a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="external">butterknife</a></li>
-</ul>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>Kotlin 中 block 随处可见 <code>{ ..do somethings.}</code>，所以咱必须得掌握它.</p>
+<p>比如结合提供的列表操作的语法糖：</p>
+<pre><code>strings.filter{ it.length == 5 }.sortBy{ it }.map{ it.toUpperCase() }
+</code></pre><p>比如在 Android 中写一个延迟的 <code>Runnable</code>：</p>
+<pre><code>postDelayed({
+    //do somethings block
+},300)
+</code></pre><p> block 让代码写起来更加方便，更加灵活（比如尾闭包等），函数式编程三板斧离不开它，但 block 同时带来的弊端也是有的，比如可读性差/内存管头疼等。但个人愚见，利大于弊，虽然一直褒贬不一，饱受争议的一个神奇的东西。既然提到 block 那么当然离不开另外一个神奇的东西 <code>typedef</code> 。还好最新的 Kotlin 中已经有了 一个类似的东西 <code>Type aliases</code> ((<a href="https://kotlinlang.org/docs/reference/type-aliases.html" target="_blank" rel="external">Type aliases (since 1.1) - Kotlin Programming Language</a>) . 如果大家感兴趣的话，那我下一章来谈谈这个 block 离不开的小情人吧。</p>
+<p> BTW  上面文中提到，block 会有内存泄露问题，无论还是 OC 是 Kotlin，当然我并没有提到如何解决，留给你第一个想象空间，那么第二个想象空间就是，既然有内存泄露，那么 block 的实现原理又是什么呢？ 跟匿名内部类有什么区别呢？</p>
 
       
 
@@ -335,7 +316,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/22/kotlin_properties_delegate/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/23/sk_love_block/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -349,18 +330,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/23/sk_love_block/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/05/25/sk_love_Extensions/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          我与 Kotlin 的爱恨情仇之浅谈 block
+          我与 Kotlin 的爱恨情仇之浅谈 Extensions
         
       </div>
     </a>
   
   
-    <a href="/2017/05/22/swiftvskotlin_define_function/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Swift vs. Kotlin 漫谈之函数定义</div>
+    <a href="/2017/05/22/kotlin_properties_delegate/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">玩转 Kotlin 委托属性</div>
       <i class="icon-circle-right"></i>
     </a>
   

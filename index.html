@@ -157,36 +157,32 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-sk_love_Type aliases" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-kotlin_do_java_not" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/27/kotlin_do_java_not/">那些年Kotlin轻易能实现，java很难实现的语法糖</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/27/kotlin_do_java_not/" class="archive-article-date">
+  	<time datetime="2017-05-27T07:00:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-27</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="我与-Kotlin-的爱恨情仇之浅谈-Type-aliases"><a href="#我与-Kotlin-的爱恨情仇之浅谈-Type-aliases" class="headerlink" title="我与 Kotlin 的爱恨情仇之浅谈 Type aliases"></a>我与 Kotlin 的爱恨情仇之浅谈 Type aliases</h1><blockquote>
-<p>在上一篇文章 <a href="http://shanghai.kotliner.cn/2017/05/25/sk_love_block/" target="_blank" rel="external">《我与 Kotlin 的爱恨情仇之浅谈 block》</a>最后, 我提到了 <code>Kotlin</code> 已经引入 <code>Type aliases</code> ，今天就跟大家一起来聊聊吧。</p>
-</blockquote>
-<h2 id="Type-aliases-是什么？"><a href="#Type-aliases-是什么？" class="headerlink" title="Type aliases 是什么？"></a>Type aliases 是什么？</h2><p>接受一个新的东西的时候，我们首先都会从字面去猜测它大概是用来做什么的，<code>Type aliases</code> 也不例外。<br> <code>Type</code> 顾名思义 <code>类型</code> , <code>aliases</code> 我想大伙也并不会太陌生，意味着 <code>别名</code>，很多时候我们会在系统的 <code>profile</code> 中加入一些 <code>aliases</code>，方便我们使用命令。二者联合起来就是： <code>给一个类型起一个别名</code>。</p>
-<h2 id="我爱-Type-aliases"><a href="#我爱-Type-aliases" class="headerlink" title="我爱 Type aliases"></a>我爱 Type aliases</h2><ul>
-<li><p>怎么用？</p>
-<p>使用关键字 <code>typealias</code>，举个例子：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">typealias NodeSet = Set&lt;Network.Node&gt;</div><div class="line"></div><div class="line">typealias Predicate&lt;T&gt; = (T) -&gt; Boolean</div></pre></td></tr></table></figure>
-<ul>
-<li><p>我写项目的时候已经用到了哪些呢？</p>
-<p><code>block</code> 闭包更加简洁，增加可复用，可读性。</p>
-<p>上一篇文中讲解有趣的 <code>block</code>，总结中提到让人头疼声明冗长，可读性差的问题。举个例子：让你去封装一个网络下载的API，方法是异步更新状态。</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1ffvimjc007j31kk036t9c.jpg" alt=""></p>
-<p>一个方法还是可以接受，假如由于需求的变更，需要重载很多方法出来的时候怎么办呢？难道要这样子么？</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1ffvisrohxxj31kw09bgni.jpg" alt=""></p>
-</li>
-</ul>
-<p>WTF,当然是review都不能通过的代码，看着新好累，当然在1.1之前抛开使用 block 而使用 interface，估计也只能选择无奈的review通过代码。但现在不用了的，使用 <code>typealias</code> 完美解决：</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1ffw359wvmfj31g40dodik.jpg" alt=""></p>
-<p>更多例子还是看官方文档吧：<a href="https://kotlinlang.org/docs/reference/type-aliases.html" target="_blank" rel="external">《reference/type-aliases》</a></p>
-<h2 id="我不爱-Type-aliases"><a href="#我不爱-Type-aliases" class="headerlink" title="我不爱 Type aliases"></a>我不爱 Type aliases</h2><p>只是按照之前的吐槽方式而已，才有了这一个节点，可以忽略，因为我很爱 <code>Type aliases</code>。如果非要我吐槽的话，只能说来的太迟了把。哈哈哈。</p>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p><code>Type aliases</code>的使用，能够让代码写起来更舒服。但切记不要滥用，比如文档中提到的 <code>typealias AInner = A.Inner</code>, 用的好的话还好，用的不好的话，别个接手你的代码要去跳转到定义里面才能看到这个别名到底是干嘛的。但它真是个好利器，赶紧用起来吧。</p>
-
+        <p>做android开发那么多年， 一直都是兢兢业业用java去码代码，直到两年前的一天发现了kotlin这门神奇的语言。犀利的语法特性，优雅的表达方式，从此掉入此坑。</p>
+<p>这里有个<a href="http://www.jcodecraeer.com/demo/from-java-to-kotlin/classes.html" target="_blank" rel="external">对比链接</a>可以看到表达同一个含义，kotlin相对java在表达上的优势。 </p>
+<p>最近google io大会把kotlin定为Android开发第一级语言，着实掀起了一股讨论kotlin的浪潮。那么，未来的androider是不是会用kotlin替代java呢？这里我们来讨论下一个话题：那些Kotlin轻易能实现，java很难实现的语法糖，由此来看一看kotlin的独特魅力。</p>
+        
+          <a class="article-more-a" href="/2017/05/27/kotlin_do_java_not/#more">more >></a>
+        
       
 
       
@@ -194,6 +190,89 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java vs kotlin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/27/kotlin_do_java_not/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-sk_love_Type aliases" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/25/sk_love_Type aliases/">我与 Kotlin 的爱恨情仇之浅谈 Type aliases</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/25/sk_love_Type aliases/" class="archive-article-date">
+  	<time datetime="2017-05-25T13:24:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>在上一篇文章 <a href="http://shanghai.kotliner.cn/2017/05/25/sk_love_block/" target="_blank" rel="external">《我与 Kotlin 的爱恨情仇之浅谈 block》</a>最后, 我提到了 <code>Kotlin</code> 已经引入 <code>Type aliases</code> ，今天就跟大家一起来聊聊吧。</p>
+</blockquote>
+<h2 id="Type-aliases-是什么？"><a href="#Type-aliases-是什么？" class="headerlink" title="Type aliases 是什么？"></a>Type aliases 是什么？</h2><p>接受一个新的东西的时候，我们首先都会从字面去猜测它大概是用来做什么的，<code>Type aliases</code> 也不例外。<br> <code>Type</code> 顾名思义 <code>类型</code> , <code>aliases</code> 我想大伙也并不会太陌生，意味着 <code>别名</code>，很多时候我们会在系统的 <code>profile</code> 中加入一些 <code>aliases</code>，方便我们使用命令。二者联合起来就是： <code>给一个类型起一个别名</code>。</p>
+        
+          <a class="article-more-a" href="/2017/05/25/sk_love_Type aliases/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -216,40 +295,28 @@
     <article id="post-sk_love_Extensions" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/25/sk_love_Extensions/">我与 Kotlin 的爱恨情仇之浅谈 Extensions</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/25/sk_love_Extensions/" class="archive-article-date">
+  	<time datetime="2017-05-25T13:24:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-25</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="我与-Kotlin-的爱恨情仇之浅谈-Extensions"><a href="#我与-Kotlin-的爱恨情仇之浅谈-Extensions" class="headerlink" title="我与 Kotlin 的爱恨情仇之浅谈 Extensions"></a>我与 Kotlin 的爱恨情仇之浅谈 Extensions</h1><blockquote>
-<p>Kotlin, similar to C# and Gosu, provides the ability to extend a class with new functionality without having to inherit from the class or use any type of design pattern such as Decorator. This is done via special declarations called extensions. Kotlin supports extension functions and extension properties.</p>
-</blockquote>
+        <p>Kotlin, similar to C# and Gosu, provides the ability to extend a class with new functionality without having to inherit from the class or use any type of design pattern such as Decorator. This is done via special declarations called extensions. Kotlin supports extension functions and extension properties.</p>
 <p>上一个章节<a href="http://shanghai.kotliner.cn/2017/05/25/sk_love_Type%20aliases/" target="_blank" rel="external">《我与 Kotlin 的爱恨情仇之浅谈 Type aliases》</a>中，带领大家一起领略了一下 <code>typealias</code>的基本用法。可以让你写出更加优美的代码。今天再带大家一起来领略一下 <code>Kotlin</code> 中另一个神奇好玩的东西: <code>Extensions</code>.</p>
-<h2 id="Extensions-是什么？"><a href="#Extensions-是什么？" class="headerlink" title="Extensions 是什么？"></a>Extensions 是什么？</h2><p>千万不要被 <code>JAVA</code> 中的 <code>extend</code> 给带歪了的，一个是扩展，一个是继承，完全不是一码事。而且这也是我讨厌的一点，至于原因我接下来就会讲到，当然纯属我个人认知喜好问题。</p>
-<p>文章口头就引用了<a href="https://kotlinlang.org/docs/reference/extensions.html" target="_blank" rel="external">《reference/extensions》</a>中的一段话，已经解释了 <code>Kotlin</code> 具备可以 <code>extension</code> (扩展) <code>functions</code> 以及 <code>properties</code> 的能力。</p>
-<h2 id="我爱-Extensions"><a href="#我爱-Extensions" class="headerlink" title="我爱 Extensions"></a>我爱 Extensions</h2><ul>
-<li><p>Extension Functions 我们可以给任何一个 <code>类</code> 包括系统的类追加扩展方法</p>
-<p>  给 <code>MutableList</code> 扩展(追加) 一个 <code>swap</code> 方法，用于交互两个 <code>index</code> 的 <code>value</code> :</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fun MutableList&lt;Int&gt;.swap(index1: Int, index2: Int) &#123;</div><div class="line">    val tmp = this[index1] // &apos;this&apos; corresponds to the list</div><div class="line">    this[index1] = this[index2]</div><div class="line">    this[index2] = tmp</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>  具体用的时候:</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">val l = mutableListOf(1, 2, 3)</div><div class="line">l.swap(0, 2) // &apos;this&apos; inside &apos;swap()&apos; will hold the value of &apos;l&apos;</div></pre></td></tr></table></figure>
-<ul>
-<li><p>Extension Properties 我们可以给任何一个 <code>类</code> 包括系统的类追加属性，但切记属性必须按约定来</p>
-<p> 我们可以给给 <code>List</code> 追加一个 <code>lastIndex</code> 属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">val &lt;T&gt; List&lt;T&gt;.lastIndex: Int</div><div class="line">get() = size - 1</div><div class="line">```    </div><div class="line"></div><div class="line">但是我说的约束是不能这样子写</div></pre></td></tr></table></figure>
-<p> val Foo.bar = 1 // error: initializers are not allowed for extension properties<br>```</p>
-<p>更多注意事项请看 <a href="https://kotlinlang.org/docs/reference/extensions.html" target="_blank" rel="external">《官方文档》</a></p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="我们项目中拿他来干什么呢？"><a href="#我们项目中拿他来干什么呢？" class="headerlink" title="我们项目中拿他来干什么呢？"></a>我们项目中拿他来干什么呢？</h3><p>  <code>Google</code> 一搜索一大把，比如出了名的 <a href="https://github.com/Kotlin/anko" target="_blank" rel="external">anko</a> ，里面提供大量的 <code>Extension</code>。 但我并没有用过 <code>anko</code>，虽然使用 <code>Kotlin</code> 写 <code>Android</code> 项目已经超过两年了的，原因是个人觉得太重了的，我们自己也封装了一个轻量级的 <a href="https://github.com/KotlinThree/AndroidExtension" target="_blank" rel="external">AndroidExtension</a></p>
-<p>  比如万恶的 <code>findViewById</code>,可以写成这样：</p>
-<pre><code>val textview = findview(R.id.txt)
-</code></pre><p> 比如臭长的 <code>Toast</code>, 现在也可以简单到这样啦：</p>
-<pre><code>toast(&quot;hello,I&apos;M SK&quot;)
-</code></pre><p> 还有更多有意思的，可以大大提高开发效率的扩展，具体可以查看我们的 <a href="https://github.com/KotlinThree" target="_blank" rel="external">KotlinThree GitHub</a></p>
-<h2 id="我不爱-Extensions"><a href="#我不爱-Extensions" class="headerlink" title="我不爱 Extensions"></a>我不爱 Extensions</h2><p>no, no, no 不能不爱，用起来实在是太爽了的，极大的提高了我的日常开发效率，但非要让我挑毛病的话，我只能说因为当初的 <code>Swift</code> 坑了我吧，我第一反应是跟 <code>Swift extension</code> 一样，终于可以摆脱之前要在一个类的开头，写一堆的接口，类似这样:</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1ffwstpktgkj31060mk79f.jpg" alt="image.png"><br>    但在 <code>Swift</code> 中可以用 <code>extension</code> 完美解决这个问题：<br>    <img src="https://ws3.sinaimg.cn/large/006tNbRwgy1ffwsub7k3yj317k0j641m.jpg" alt=""><br>好吧，所以在没有看仔细看 <code>Kotlin</code> 文档的时候，我以为 <code>extension</code> 用法和 <code>Swift</code> 一样呢，但完全不是一个概念。<code>Kotlin</code> 中压根就没有这个 <code>extension</code> 关键字。</p>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p> 这个语法糖，你可以随便去扩展你自己想要的功能，从而极大的提高我们开发效率，用起来确实让人爱不释手。那么 <code>Kotlin</code>  内部是怎么实现的？ 可以看看编译出来的文件，其实是帮忙做了一层转换，把我们的扩展的方法做成一个 <code>static method</code>, 然后调用的地方其实是调用生成的的这个 <code>static method</code>，之前<a href="http://www.jianshu.com/p/53c657bed4ab" target="_blank" rel="external">《我与 Kotlin 的爱恨情仇之浅谈 block》</a>谈到的另一把我爱不释手的利器 <code>block</code> 在评论中我也说了的，都是人家最后帮我们去生成了代码，然后一样的做法，虽然效率并没有任何提升，有兴趣的话，您不妨自己反编译试试。但却不得不说，大大提高了我们本身编码效率，毕竟重复的代码，谁写着都觉得心累。</p>
-
+        
+          <a class="article-more-a" href="/2017/05/25/sk_love_Extensions/#more">more >></a>
+        
       
 
       
@@ -257,6 +324,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -276,82 +354,30 @@
 
 
   
-    <article id="post-kotlin_do_java_not" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="那些年Kotlin轻易能实现，java很难实现的语法糖"><a href="#那些年Kotlin轻易能实现，java很难实现的语法糖" class="headerlink" title="那些年Kotlin轻易能实现，java很难实现的语法糖"></a>那些年Kotlin轻易能实现，java很难实现的语法糖</h2><p>做android开发那么多年， 一直都是兢兢业业用java去码代码，直到两年前的一天发现了kotlin这门神奇的语言。犀利的语法特性，优雅的表达方式，从此掉入此坑。</p>
-<p>这里有个<a href="http://www.jcodecraeer.com/demo/from-java-to-kotlin/classes.html" target="_blank" rel="external">对比链接</a>可以看到表达同一个含义，kotlin相对java在表达上的优势。 </p>
-<p>最近google io大会把kotlin定为Android开发第一级语言，着实掀起了一股讨论kotlin的浪潮。那么，未来的androider是不是会用kotlin替代java呢？这里我们来讨论下一个话题：那些Kotlin轻易能实现，java很难实现的语法糖，由此来看一看kotlin的独特魅力。</p>
-        
-          <a class="article-more-a" href="/2017/05/25/kotlin_do_java_not/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/25/kotlin_do_java_not/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-sk_love_block" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/23/sk_love_block/">我与 Kotlin 的爱恨情仇之浅谈 block</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/23/sk_love_block/" class="archive-article-date">
+  	<time datetime="2017-05-23T13:34:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-23</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="我与-Kotlin-的爱恨情仇之浅谈-block"><a href="#我与-Kotlin-的爱恨情仇之浅谈-block" class="headerlink" title="我与 Kotlin 的爱恨情仇之浅谈 block"></a>我与 Kotlin 的爱恨情仇之浅谈 block</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>hi, IMSK。是的，你没看错，没迷路，这里是 <code>Kotlin</code>  ，不是 <code>Objective-C</code>，别怕接下来跟我一起认识认识这个 block 的前世今生。前方高能，请您带上耳机，戴上眼镜。</p>
-<h2 id="block是什么？"><a href="#block是什么？" class="headerlink" title="block是什么？"></a>block是什么？</h2><p>先来看看 Kotlin 代码长什么样子：</p>
-<p> <img src="http://upload-images.jianshu.io/upload_images/2874486-92b0b5724169c608.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>其中 <code>body</code> 就是一个 block， <code>() -&gt; T</code> 是一个 函数块（ 函数签名 ）。block 可以当做参数传入， 也可以当做返回值返回。在这里我就沿用我之前写 Objective-C 的习惯，暂且称作他为 闭包。</p>
-<h2 id="我爱-block"><a href="#我爱-block" class="headerlink" title="我爱 block"></a>我爱 block</h2><p>再来对比一下 Objective-C 里的 block：</p>
-<p>double (^multiplyTwoValues)(double, double);</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2874486-9893735489e0c33f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>如果之前没有写过 OC，那么我想第一反应只能无奈的说一句：不觉明历。回头来看看，还是 Kotlin 更加亲切一些，直接  <code>() -&gt; T</code> ，<code>{}</code>， 随便怎么玩，详细用法看官网吧<br><a href="https://kotlinlang.org/docs/reference/lambdas.html" target="_blank" rel="external">《Higher-Order Functions and Lambdas》</a> 。</p>
-<p> 为什么爱上 block， 举个简单例子: 我们经常要处理一个异步请求，等数据返回的时候，回调给调用方，如果是用 Java 来写，可能要用到接口（callback）来实现了的。那么在 Kotlin 里怎么办呢？</p>
-<p> 声明：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2874486-e2d2fbc43ee9ba8a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>调用：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2874486-ca3216bbf543510f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>看到了么？不用在像以前那样还要单独去写一个 <code>callback</code>  的 <code>interface</code> 类了，是不是很简洁。</p>
-<h2 id="我不爱-block"><a href="#我不爱-block" class="headerlink" title="我不爱 block"></a>我不爱 block</h2><p> 当然很大一部分原因是因为当年被 OC 中的 block 折磨的心累，写法让人难受不说，OC 先天的冗长代码实在是累，如果是个新手，还经常内存泄露，折磨的死去活来的。这里提一下，block是一个闭包，开发过程中，切记由于闭包是可以访问上文数据，处理不当就会导致内存泄露哦。</p>
-<p> 当然还有另外一方面的原因，就是声明多参数的时候，比较难受，OC实在是不想在提了的，事实上 Kotlin 还算可以接受的，比如：</p>
-<ul>
-<li><p>Kotlin 中 block 多参数声明</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2874486-50b716e7833401b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-</li>
-<li><p>Kotlin 中 block 多参数调用</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2874486-dd20a3173a6a8837.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-</li>
-</ul>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>Kotlin 中 block 随处可见 <code>{ ..do somethings.}</code>，所以咱必须得掌握它.</p>
-<p>比如结合提供的列表操作的语法糖：</p>
-<pre><code>strings.filter{ it.length == 5 }.sortBy{ it }.map{ it.toUpperCase() }
-</code></pre><p>比如在 Android 中写一个延迟的 <code>Runnable</code>：</p>
-<pre><code>postDelayed({
-    //do somethings block
-},300)
-</code></pre><p> block 让代码写起来更加方便，更加灵活（比如尾闭包等），函数式编程三板斧离不开它，但 block 同时带来的弊端也是有的，比如可读性差/内存管头疼等。但个人愚见，利大于弊，虽然一直褒贬不一，饱受争议的一个神奇的东西。既然提到 block 那么当然离不开另外一个神奇的东西 <code>typedef</code> 。还好最新的 Kotlin 中已经有了 一个类似的东西 <code>Type aliases</code> ((<a href="https://kotlinlang.org/docs/reference/type-aliases.html" target="_blank" rel="external">Type aliases (since 1.1) - Kotlin Programming Language</a>) . 如果大家感兴趣的话，那我下一章来谈谈这个 block 离不开的小情人吧。</p>
-<p> BTW  上面文中提到，block 会有内存泄露问题，无论还是 OC 是 Kotlin，当然我并没有提到如何解决，留给你第一个想象空间，那么第二个想象空间就是，既然有内存泄露，那么 block 的实现原理又是什么呢？ 跟匿名内部类有什么区别呢？</p>
-
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>hi, IMSK。是的，你没看错，没迷路，这里是 <code>Kotlin</code>  ，不是 <code>Objective-C</code>，别怕接下来跟我一起认识认识这个 block 的前世今生。前方高能，请您带上耳机，戴上眼镜。</p>
+        
+          <a class="article-more-a" href="/2017/05/23/sk_love_block/#more">more >></a>
+        
       
 
       
@@ -359,11 +385,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/25/sk_love_block/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/05/23/sk_love_block/">展开全文 >></a>
         </p>
       
 
@@ -959,6 +996,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java vs kotlin</a>
               </li>
             
             <div class="clearfix"></div>

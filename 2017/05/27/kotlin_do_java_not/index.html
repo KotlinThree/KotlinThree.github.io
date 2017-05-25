@@ -6,25 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>KotlinThree&#39;s Blog</title>
+  <title>那些年Kotlin轻易能实现，java很难实现的语法糖 | KotlinThree&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我与 Kotlin 的爱恨情仇之浅谈 block前言hi, IMSK。是的，你没看错，没迷路，这里是 Kotlin  ，不是 Objective-C，别怕接下来跟我一起认识认识这个 block 的前世今生。前方高能，请您带上耳机，戴上眼镜。 block是什么？先来看看 Kotlin 代码长什么样子：   其中 body 就是一个 block， () -&amp;gt; T 是一个 函数块（ 函数签名 ）。">
+  <meta name="description" content="做android开发那么多年， 一直都是兢兢业业用java去码代码，直到两年前的一天发现了kotlin这门神奇的语言。犀利的语法特性，优雅的表达方式，从此掉入此坑。 这里有个对比链接可以看到表达同一个含义，kotlin相对java在表达上的优势。  最近google io大会把kotlin定为Android开发第一级语言，着实掀起了一股讨论kotlin的浪潮。那么，未来的androider是不是会">
+<meta name="keywords" content="Kotlin,Android,java vs kotlin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="KotlinThree&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/2017/05/25/sk_love_block/index.html">
+<meta property="og:title" content="那些年Kotlin轻易能实现，java很难实现的语法糖">
+<meta property="og:url" content="http://yoursite.com/2017/05/27/kotlin_do_java_not/index.html">
 <meta property="og:site_name" content="KotlinThree&#39;s Blog">
-<meta property="og:description" content="我与 Kotlin 的爱恨情仇之浅谈 block前言hi, IMSK。是的，你没看错，没迷路，这里是 Kotlin  ，不是 Objective-C，别怕接下来跟我一起认识认识这个 block 的前世今生。前方高能，请您带上耳机，戴上眼镜。 block是什么？先来看看 Kotlin 代码长什么样子：   其中 body 就是一个 block， () -&amp;gt; T 是一个 函数块（ 函数签名 ）。">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2874486-92b0b5724169c608.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2874486-9893735489e0c33f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2874486-e2d2fbc43ee9ba8a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2874486-ca3216bbf543510f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2874486-50b716e7833401b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2874486-dd20a3173a6a8837.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-05-25T06:35:57.000Z">
+<meta property="og:description" content="做android开发那么多年， 一直都是兢兢业业用java去码代码，直到两年前的一天发现了kotlin这门神奇的语言。犀利的语法特性，优雅的表达方式，从此掉入此坑。 这里有个对比链接可以看到表达同一个含义，kotlin相对java在表达上的优势。  最近google io大会把kotlin定为Android开发第一级语言，着实掀起了一股讨论kotlin的浪潮。那么，未来的androider是不是会">
+<meta property="og:updated_time" content="2017-05-25T07:14:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KotlinThree&#39;s Blog">
-<meta name="twitter:description" content="我与 Kotlin 的爱恨情仇之浅谈 block前言hi, IMSK。是的，你没看错，没迷路，这里是 Kotlin  ，不是 Objective-C，别怕接下来跟我一起认识认识这个 block 的前世今生。前方高能，请您带上耳机，戴上眼镜。 block是什么？先来看看 Kotlin 代码长什么样子：   其中 body 就是一个 block， () -&amp;gt; T 是一个 函数块（ 函数签名 ）。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2874486-92b0b5724169c608.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="那些年Kotlin轻易能实现，java很难实现的语法糖">
+<meta name="twitter:description" content="做android开发那么多年， 一直都是兢兢业业用java去码代码，直到两年前的一天发现了kotlin这门神奇的语言。犀利的语法特性，优雅的表达方式，从此掉入此坑。 这里有个对比链接可以看到表达同一个含义，kotlin相对java在表达上的优势。  最近google io大会把kotlin定为Android开发第一级语言，着实掀起了一股讨论kotlin的浪潮。那么，未来的androider是不是会">
   
     <link rel="alternative" href="/atom.xml" title="KotlinThree&#39;s Blog" type="application/atom+xml">
   
@@ -166,44 +160,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-sk_love_block" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-kotlin_do_java_not" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      那些年Kotlin轻易能实现，java很难实现的语法糖
+    </h1>
+  
+
+        
+        <a href="/2017/05/27/kotlin_do_java_not/" class="archive-article-date">
+  	<time datetime="2017-05-27T07:00:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-27</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="我与-Kotlin-的爱恨情仇之浅谈-block"><a href="#我与-Kotlin-的爱恨情仇之浅谈-block" class="headerlink" title="我与 Kotlin 的爱恨情仇之浅谈 block"></a>我与 Kotlin 的爱恨情仇之浅谈 block</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>hi, IMSK。是的，你没看错，没迷路，这里是 <code>Kotlin</code>  ，不是 <code>Objective-C</code>，别怕接下来跟我一起认识认识这个 block 的前世今生。前方高能，请您带上耳机，戴上眼镜。</p>
-<h2 id="block是什么？"><a href="#block是什么？" class="headerlink" title="block是什么？"></a>block是什么？</h2><p>先来看看 Kotlin 代码长什么样子：</p>
-<p> <img src="http://upload-images.jianshu.io/upload_images/2874486-92b0b5724169c608.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>其中 <code>body</code> 就是一个 block， <code>() -&gt; T</code> 是一个 函数块（ 函数签名 ）。block 可以当做参数传入， 也可以当做返回值返回。在这里我就沿用我之前写 Objective-C 的习惯，暂且称作他为 闭包。</p>
-<h2 id="我爱-block"><a href="#我爱-block" class="headerlink" title="我爱 block"></a>我爱 block</h2><p>再来对比一下 Objective-C 里的 block：</p>
-<p>double (^multiplyTwoValues)(double, double);</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2874486-9893735489e0c33f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>如果之前没有写过 OC，那么我想第一反应只能无奈的说一句：不觉明历。回头来看看，还是 Kotlin 更加亲切一些，直接  <code>() -&gt; T</code> ，<code>{}</code>， 随便怎么玩，详细用法看官网吧<br><a href="https://kotlinlang.org/docs/reference/lambdas.html" target="_blank" rel="external">《Higher-Order Functions and Lambdas》</a> 。</p>
-<p> 为什么爱上 block， 举个简单例子: 我们经常要处理一个异步请求，等数据返回的时候，回调给调用方，如果是用 Java 来写，可能要用到接口（callback）来实现了的。那么在 Kotlin 里怎么办呢？</p>
-<p> 声明：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2874486-e2d2fbc43ee9ba8a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>调用：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2874486-ca3216bbf543510f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>看到了么？不用在像以前那样还要单独去写一个 <code>callback</code>  的 <code>interface</code> 类了，是不是很简洁。</p>
-<h2 id="我不爱-block"><a href="#我不爱-block" class="headerlink" title="我不爱 block"></a>我不爱 block</h2><p> 当然很大一部分原因是因为当年被 OC 中的 block 折磨的心累，写法让人难受不说，OC 先天的冗长代码实在是累，如果是个新手，还经常内存泄露，折磨的死去活来的。这里提一下，block是一个闭包，开发过程中，切记由于闭包是可以访问上文数据，处理不当就会导致内存泄露哦。</p>
-<p> 当然还有另外一方面的原因，就是声明多参数的时候，比较难受，OC实在是不想在提了的，事实上 Kotlin 还算可以接受的，比如：</p>
-<ul>
-<li><p>Kotlin 中 block 多参数声明</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2874486-50b716e7833401b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-</li>
-<li><p>Kotlin 中 block 多参数调用</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2874486-dd20a3173a6a8837.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-</li>
-</ul>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>Kotlin 中 block 随处可见 <code>{ ..do somethings.}</code>，所以咱必须得掌握它.</p>
-<p>比如结合提供的列表操作的语法糖：</p>
-<pre><code>strings.filter{ it.length == 5 }.sortBy{ it }.map{ it.toUpperCase() }
-</code></pre><p>比如在 Android 中写一个延迟的 <code>Runnable</code>：</p>
-<pre><code>postDelayed({
-    //do somethings block
-},300)
-</code></pre><p> block 让代码写起来更加方便，更加灵活（比如尾闭包等），函数式编程三板斧离不开它，但 block 同时带来的弊端也是有的，比如可读性差/内存管头疼等。但个人愚见，利大于弊，虽然一直褒贬不一，饱受争议的一个神奇的东西。既然提到 block 那么当然离不开另外一个神奇的东西 <code>typedef</code> 。还好最新的 Kotlin 中已经有了 一个类似的东西 <code>Type aliases</code> ((<a href="https://kotlinlang.org/docs/reference/type-aliases.html" target="_blank" rel="external">Type aliases (since 1.1) - Kotlin Programming Language</a>) . 如果大家感兴趣的话，那我下一章来谈谈这个 block 离不开的小情人吧。</p>
-<p> BTW  上面文中提到，block 会有内存泄露问题，无论还是 OC 是 Kotlin，当然我并没有提到如何解决，留给你第一个想象空间，那么第二个想象空间就是，既然有内存泄露，那么 block 的实现原理又是什么呢？ 跟匿名内部类有什么区别呢？</p>
+        <p>做android开发那么多年， 一直都是兢兢业业用java去码代码，直到两年前的一天发现了kotlin这门神奇的语言。犀利的语法特性，优雅的表达方式，从此掉入此坑。</p>
+<p>这里有个<a href="http://www.jcodecraeer.com/demo/from-java-to-kotlin/classes.html" target="_blank" rel="external">对比链接</a>可以看到表达同一个含义，kotlin相对java在表达上的优势。 </p>
+<p>最近google io大会把kotlin定为Android开发第一级语言，着实掀起了一股讨论kotlin的浪潮。那么，未来的androider是不是会用kotlin替代java呢？这里我们来讨论下一个话题：那些Kotlin轻易能实现，java很难实现的语法糖，由此来看一看kotlin的独特魅力。</p>
+<a id="more"></a>
+<h2 id="函数编程"><a href="#函数编程" class="headerlink" title="函数编程"></a>函数编程</h2><p>在kotlin中，函数和类一样是一等公民，函数也可以作为参数传递（高阶函数特性），且可执行(闭包特性)。举个栗子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 函数作为对象</div><div class="line">val magic = fun(name: String) &#123;</div><div class="line">    println(&quot;hello $name&quot;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 函数闭包执行</div><div class="line">magic(&quot;tom&quot;)</div><div class="line"></div><div class="line"></div><div class="line">// 函数作为参数</div><div class="line">fun test(funParam: (String) -&gt; Unit) &#123;</div><div class="line">    funParam(&quot;tom2&quot;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">test(magic)</div></pre></td></tr></table></figure>
+<p>在集合类的数据处理上，kotlin中的<code>filter</code>、<code>map</code>等能方便做到数据转换。举个栗子，给定一个数字数组，过滤出数字为3的倍数的数字集合，数字前加#，以逗号分隔输出。如数组为<code>0~10</code>， 打印输出<code>#0, #3, #6, #9</code></p>
+<p>java代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">private static String solveList(List&lt;Integer&gt; list) &#123;</div><div class="line">    // filter</div><div class="line">    List&lt;Integer&gt; filterResult = new ArrayList&lt;&gt;();</div><div class="line">    for (Integer i : list) &#123;</div><div class="line">        if (i % 3 == 0) &#123;</div><div class="line">            filterResult.add(i);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // map</div><div class="line">    List&lt;String&gt; mapResult = new ArrayList&lt;&gt;();</div><div class="line">    for (Integer i : filterResult) &#123;</div><div class="line">        mapResult.add(&quot;#&quot; + i);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 逗号分隔</div><div class="line">    StringBuilder sb = new StringBuilder();</div><div class="line">    for (String s : mapResult) &#123;</div><div class="line">        sb.append(s).append(&quot;, &quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (sb.length() &gt; 0) &#123;</div><div class="line">        return sb.substring(0, sb.length() - 2);</div><div class="line">    &#125; else &#123;</div><div class="line">        return &quot;&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>kotlin代码如下，异常的简洁。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fun solveList(list: List&lt;Int&gt;) : String &#123;</div><div class="line">    return list.filter &#123; it % 3 == 0 &#125;.map &#123; &quot;#$it&quot; &#125;.reduce &#123; s1, s2 -&gt; &quot;$s1, $s2&quot; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>kotlin用的是函数式思维方式，函数式三板斧<code>filter</code>, <code>map</code>, <code>reduce</code> 接受函数作为参数，屏蔽了内部实现。 比如说这里3的倍数改成5的倍数，kotlin只要改<code>filter</code>的参数（函数参数）即可，java则要改方法的内部实现。</p>
+<h2 id="Extension"><a href="#Extension" class="headerlink" title="Extension"></a>Extension</h2><p>kotlin可对系统类进行方法扩展，如可以为集合增加<code>swap</code>函数功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fun &lt;T&gt; MutableList&lt;T&gt;.swap(index1: Int, index2: Int) &#123;</div><div class="line">    val tmp = this[index1] // &apos;this&apos; corresponds to the list</div><div class="line">    this[index1] = this[index2]</div><div class="line">    this[index2] = tmp</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>定义之后<code>MutableList</code>类型就可以直接调用<code>swap</code>方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val list = mutableListOf(&quot;aa&quot;, &quot;bb&quot;)</div><div class="line">list.swap(0, 1)</div></pre></td></tr></table></figure>
+<p>这种形式java是无法做到的，java要实现同样的功能必须额外定义一个新类。（事实上kotlin extension原理也是编译器生成一个新类~~）</p>
+<h2 id="数据类"><a href="#数据类" class="headerlink" title="数据类"></a>数据类</h2><p>数据类大量重复的getter和setter相信会是很多人在开发过程中吐槽的一个点。举一个很经典的例子，我们需要一个Person的数据类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">public class Person &#123;</div><div class="line">    private String name;</div><div class="line">    private int age;</div><div class="line">    private int sex;</div><div class="line">    private float height;</div><div class="line"></div><div class="line">    public Person(String name, int age, int sex, float height) &#123;</div><div class="line">        this.name = name;</div><div class="line">        this.sex = sex;</div><div class="line">        this.age = age;</div><div class="line">        this.height = height;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public String getName() &#123;</div><div class="line">        return name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setName(String name) &#123;</div><div class="line">        this.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public int getAge() &#123;</div><div class="line">        return age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setAge(int age) &#123;</div><div class="line">        this.age = age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public int getSex() &#123;</div><div class="line">    	 return sex;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setSex(int sex) &#123;</div><div class="line">    	this.sex = sex;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public float getHeight() &#123;</div><div class="line">        return height;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setHeight(float height) &#123;</div><div class="line">        this.height = height;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String toString() &#123;</div><div class="line">        return &quot;Person&#123;&quot; +</div><div class="line">                &quot;name=&apos;&quot; + name + &apos;\&apos;&apos; +</div><div class="line">                &quot;, age=&quot; + age +</div><div class="line">                &quot;, sex=&quot; + (sex == 0 ? &quot;男&quot; : &quot;女&quot;) +</div><div class="line">                &quot;, height=&quot; + height +</div><div class="line">                &quot;&#125;&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在Kotlin里，我们只需要一行代码就能完成以上的功能： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data class Person(var name: String, var age: Int, var sex: Int, var height: Float)</div></pre></td></tr></table></figure>
+<p><code>data class</code>有效的提供了一种构建器模式，可以指定参数初始化，同时默认提供<code>clone</code>方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//创建对象</div><div class="line">val person: Person = Person(name=&quot;tom&quot;, age = 10, height = 1.7f)</div></pre></td></tr></table></figure>
+<h2 id="Type-alias"><a href="#Type-alias" class="headerlink" title="Type alias"></a>Type alias</h2><p>java没alias的说法, kotlin type alias暂时很少用到，就不细讲了，有兴趣的参考官网链接 <a href="https://kotlinlang.org/docs/reference/type-aliases.html" target="_blank" rel="external">type-aliases</a></p>
+<h2 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h2><p>kotlin通过<code>${expression}</code>输出字符串，<code>expression</code>表示任意表达式 如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">println(&quot;My name&apos;s &#123;user.name&#125;&quot;)</div><div class="line">println(&quot;1 + 2 = $&#123;1 + 2&#125;&quot;)</div></pre></td></tr></table></figure>
+<p>java用<code>String.format</code>形式实现</p>
+<p>kotlin输出<code>list</code>, <code>map</code>等类型就友好的多。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">val list = (0..10).toMutableList()</div><div class="line">println(&quot;list=$list&quot;)</div><div class="line">// 输出list=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</div><div class="line"></div><div class="line">val map = mapOf(1 to &quot;One&quot;, 2 to &quot;Two&quot;, 3 to &quot;Three&quot;)</div><div class="line">println(&quot;map=$map&quot;)</div><div class="line"></div><div class="line">// 输出map=&#123;1=One, 2=Two, 3=Three&#125;</div></pre></td></tr></table></figure>
+<h2 id="option参数"><a href="#option参数" class="headerlink" title="option参数"></a>option参数</h2><p>kotlin有option参数的说法，如定义个图片加载接口，java需要通过重载方式定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">interface IHJImageLoader &#123;</div><div class="line">    public void displayImage(String uri, ImageView imageView);</div><div class="line"></div><div class="line">    public void displayImage(String uri, ImageView imageView, HJImageLoaderOptiono option);</div><div class="line"></div><div class="line">    public void displayImage(String uri, ImageView imageView, HJImageLoaderListener loaderListener);</div><div class="line"></div><div class="line">    public void displayImage(String uri, ImageView imageView, HJImageLoaderOptiono option, HJImageLoaderListener loaderListener);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>而kotlin只要定义个一个方法就行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">interface IHJImageLoader &#123;</div><div class="line">    fun displayImage(uri: String?, imageView: ImageView?, option: HJImageLoaderOption? = HJImageLoaderOption.defaultOption(), loaderListener: HJImageLoaderListener? = null)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>调用方式都是类似</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">val imageLoaderImpl: IHJImageLoader = ...</div><div class="line"></div><div class="line">imageLoaderImpl.displayImage(uri, imageView)</div><div class="line">imageLoaderImpl.displayImage(uri, imageView, option)</div><div class="line">imageLoaderImpl.displayImage(uri, imageView, option, loaderListener)</div></pre></td></tr></table></figure>
+<h2 id="操作符重载"><a href="#操作符重载" class="headerlink" title="操作符重载"></a>操作符重载</h2><p>kotlin操作符重载在DSL中得以发扬光大, 如下面一段语句表达</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">html &#123;</div><div class="line">	body &#123;</div><div class="line">		div &#123;</div><div class="line">			a(&quot;http://kotlinlang.org&quot;) &#123;</div><div class="line">				target = ATarget.blank</div><div class="line">				+&quot;Main site&quot;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>java要表达同样的含义，至少得<code>html</code>, <code>body</code>, <code>div</code>, <code>a</code>对象都<code>new</code>一遍，且要设置成员变量。冗余度和可读性上都远不如上面的表达来的舒爽。</p>
+<h2 id="协程编程"><a href="#协程编程" class="headerlink" title="协程编程"></a>协程编程</h2><p>todo</p>
 
       
 
@@ -238,6 +253,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java vs kotlin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -288,7 +322,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/25/sk_love_block/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/27/kotlin_do_java_not/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -302,18 +336,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/25/kotlin_do_java_not/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/22/kotlin_properties_delegate/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">玩转 Kotlin 委托属性</div>
+    <a href="/2017/05/25/sk_love_Type aliases/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我与 Kotlin 的爱恨情仇之浅谈 Type aliases</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -490,6 +515,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java vs kotlin</a>
               </li>
             
             <div class="clearfix"></div>

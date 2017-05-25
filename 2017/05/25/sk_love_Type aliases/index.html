@@ -6,21 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>KotlinThree&#39;s Blog</title>
+  <title>我与 Kotlin 的爱恨情仇之浅谈 Type aliases | KotlinThree&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我与 Kotlin 的爱恨情仇之浅谈 Type aliases 在上一篇文章 《我与 Kotlin 的爱恨情仇之浅谈 block》最后, 我提到了 Kotlin 已经引入 Type aliases ，今天就跟大家一起来聊聊吧。  Type aliases 是什么？接受一个新的东西的时候，我们首先都会从字面去猜测它大概是用来做什么的，Type aliases 也不例外。 Type 顾名思义 类型 ,">
+  <meta name="description" content="在上一篇文章 《我与 Kotlin 的爱恨情仇之浅谈 block》最后, 我提到了 Kotlin 已经引入 Type aliases ，今天就跟大家一起来聊聊吧。  Type aliases 是什么？接受一个新的东西的时候，我们首先都会从字面去猜测它大概是用来做什么的，Type aliases 也不例外。 Type 顾名思义 类型 , aliases 我想大伙也并不会太陌生，意味着 别名，很多">
+<meta name="keywords" content="Kotlin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="KotlinThree&#39;s Blog">
+<meta property="og:title" content="我与 Kotlin 的爱恨情仇之浅谈 Type aliases">
 <meta property="og:url" content="http://yoursite.com/2017/05/25/sk_love_Type aliases/index.html">
 <meta property="og:site_name" content="KotlinThree&#39;s Blog">
-<meta property="og:description" content="我与 Kotlin 的爱恨情仇之浅谈 Type aliases 在上一篇文章 《我与 Kotlin 的爱恨情仇之浅谈 block》最后, 我提到了 Kotlin 已经引入 Type aliases ，今天就跟大家一起来聊聊吧。  Type aliases 是什么？接受一个新的东西的时候，我们首先都会从字面去猜测它大概是用来做什么的，Type aliases 也不例外。 Type 顾名思义 类型 ,">
+<meta property="og:description" content="在上一篇文章 《我与 Kotlin 的爱恨情仇之浅谈 block》最后, 我提到了 Kotlin 已经引入 Type aliases ，今天就跟大家一起来聊聊吧。  Type aliases 是什么？接受一个新的东西的时候，我们首先都会从字面去猜测它大概是用来做什么的，Type aliases 也不例外。 Type 顾名思义 类型 , aliases 我想大伙也并不会太陌生，意味着 别名，很多">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1ffvimjc007j31kk036t9c.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1ffvisrohxxj31kw09bgni.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1ffw359wvmfj31g40dodik.jpg">
-<meta property="og:updated_time" content="2017-05-25T06:48:39.000Z">
+<meta property="og:updated_time" content="2017-05-25T07:13:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KotlinThree&#39;s Blog">
-<meta name="twitter:description" content="我与 Kotlin 的爱恨情仇之浅谈 Type aliases 在上一篇文章 《我与 Kotlin 的爱恨情仇之浅谈 block》最后, 我提到了 Kotlin 已经引入 Type aliases ，今天就跟大家一起来聊聊吧。  Type aliases 是什么？接受一个新的东西的时候，我们首先都会从字面去猜测它大概是用来做什么的，Type aliases 也不例外。 Type 顾名思义 类型 ,">
+<meta name="twitter:title" content="我与 Kotlin 的爱恨情仇之浅谈 Type aliases">
+<meta name="twitter:description" content="在上一篇文章 《我与 Kotlin 的爱恨情仇之浅谈 block》最后, 我提到了 Kotlin 已经引入 Type aliases ，今天就跟大家一起来聊聊吧。  Type aliases 是什么？接受一个新的东西的时候，我们首先都会从字面去猜测它大概是用来做什么的，Type aliases 也不例外。 Type 顾名思义 类型 , aliases 我想大伙也并不会太陌生，意味着 别名，很多">
 <meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1ffvimjc007j31kk036t9c.jpg">
   
     <link rel="alternative" href="/atom.xml" title="KotlinThree&#39;s Blog" type="application/atom+xml">
@@ -166,12 +167,28 @@
             <article id="post-sk_love_Type aliases" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      我与 Kotlin 的爱恨情仇之浅谈 Type aliases
+    </h1>
+  
+
+        
+        <a href="/2017/05/25/sk_love_Type aliases/" class="archive-article-date">
+  	<time datetime="2017-05-25T13:24:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-25</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="我与-Kotlin-的爱恨情仇之浅谈-Type-aliases"><a href="#我与-Kotlin-的爱恨情仇之浅谈-Type-aliases" class="headerlink" title="我与 Kotlin 的爱恨情仇之浅谈 Type aliases"></a>我与 Kotlin 的爱恨情仇之浅谈 Type aliases</h1><blockquote>
+        <blockquote>
 <p>在上一篇文章 <a href="http://shanghai.kotliner.cn/2017/05/25/sk_love_block/" target="_blank" rel="external">《我与 Kotlin 的爱恨情仇之浅谈 block》</a>最后, 我提到了 <code>Kotlin</code> 已经引入 <code>Type aliases</code> ，今天就跟大家一起来聊聊吧。</p>
 </blockquote>
 <h2 id="Type-aliases-是什么？"><a href="#Type-aliases-是什么？" class="headerlink" title="Type aliases 是什么？"></a>Type aliases 是什么？</h2><p>接受一个新的东西的时候，我们首先都会从字面去猜测它大概是用来做什么的，<code>Type aliases</code> 也不例外。<br> <code>Type</code> 顾名思义 <code>类型</code> , <code>aliases</code> 我想大伙也并不会太陌生，意味着 <code>别名</code>，很多时候我们会在系统的 <code>profile</code> 中加入一些 <code>aliases</code>，方便我们使用命令。二者联合起来就是： <code>给一个类型起一个别名</code>。</p>
+<a id="more"></a>
 <h2 id="我爱-Type-aliases"><a href="#我爱-Type-aliases" class="headerlink" title="我爱 Type aliases"></a>我爱 Type aliases</h2><ul>
 <li><p>怎么用？</p>
 <p>使用关键字 <code>typealias</code>，举个例子：</p>
@@ -226,6 +243,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -290,9 +318,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/05/27/kotlin_do_java_not/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          那些年Kotlin轻易能实现，java很难实现的语法糖
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/05/25/sk_love_Extensions/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">我与 Kotlin 的爱恨情仇之浅谈 Extensions</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -469,6 +506,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java vs kotlin</a>
               </li>
             
             <div class="clearfix"></div>
