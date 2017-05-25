@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/5 | KotlinThree&#39;s Blog</title>
+  <title>KotlinThree&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="我与 Kotlin 的爱恨情仇之浅谈 Type aliases 在上一篇文章 《我与 Kotlin 的爱恨情仇之浅谈 block》最后, 我提到了 Kotlin 已经引入 Type aliases ，今天就跟大家一起来聊聊吧。  Type aliases 是什么？接受一个新的东西的时候，我们首先都会从字面去猜测它大概是用来做什么的，Type aliases 也不例外。 Type 顾名思义 类型 ,">
+<meta property="og:type" content="article">
 <meta property="og:title" content="KotlinThree&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/05/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/05/25/sk_love_Type aliases/index.html">
 <meta property="og:site_name" content="KotlinThree&#39;s Blog">
+<meta property="og:description" content="我与 Kotlin 的爱恨情仇之浅谈 Type aliases 在上一篇文章 《我与 Kotlin 的爱恨情仇之浅谈 block》最后, 我提到了 Kotlin 已经引入 Type aliases ，今天就跟大家一起来聊聊吧。  Type aliases 是什么？接受一个新的东西的时候，我们首先都会从字面去猜测它大概是用来做什么的，Type aliases 也不例外。 Type 顾名思义 类型 ,">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1ffvimjc007j31kk036t9c.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1ffvisrohxxj31kw09bgni.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1ffw359wvmfj31g40dodik.jpg">
+<meta property="og:updated_time" content="2017-05-25T06:35:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KotlinThree&#39;s Blog">
+<meta name="twitter:description" content="我与 Kotlin 的爱恨情仇之浅谈 Type aliases 在上一篇文章 《我与 Kotlin 的爱恨情仇之浅谈 block》最后, 我提到了 Kotlin 已经引入 Type aliases ，今天就跟大家一起来聊聊吧。  Type aliases 是什么？接受一个新的东西的时候，我们首先都会从字面去猜测它大概是用来做什么的，Type aliases 也不例外。 Type 顾名思义 类型 ,">
+<meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1ffvimjc007j31kk036t9c.jpg">
   
     <link rel="alternative" href="/atom.xml" title="KotlinThree&#39;s Blog" type="application/atom+xml">
   
@@ -155,270 +163,161 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-sk_love_Type aliases" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="我与-Kotlin-的爱恨情仇之浅谈-Type-aliases"><a href="#我与-Kotlin-的爱恨情仇之浅谈-Type-aliases" class="headerlink" title="我与 Kotlin 的爱恨情仇之浅谈 Type aliases"></a>我与 Kotlin 的爱恨情仇之浅谈 Type aliases</h1><blockquote>
+<p>在上一篇文章 <a href="http://www.jianshu.com/p/53c657bed4ab" target="_blank" rel="external">《我与 Kotlin 的爱恨情仇之浅谈 block》</a>最后, 我提到了 <code>Kotlin</code> 已经引入 <code>Type aliases</code> ，今天就跟大家一起来聊聊吧。</p>
+</blockquote>
+<h2 id="Type-aliases-是什么？"><a href="#Type-aliases-是什么？" class="headerlink" title="Type aliases 是什么？"></a>Type aliases 是什么？</h2><p>接受一个新的东西的时候，我们首先都会从字面去猜测它大概是用来做什么的，<code>Type aliases</code> 也不例外。<br> <code>Type</code> 顾名思义 <code>类型</code> , <code>aliases</code> 我想大伙也并不会太陌生，意味着 <code>别名</code>，很多时候我们会在系统的 <code>profile</code> 中加入一些 <code>aliases</code>，方便我们使用命令。二者联合起来就是： <code>给一个类型起一个别名</code>。</p>
+<h2 id="我爱-Type-aliases"><a href="#我爱-Type-aliases" class="headerlink" title="我爱 Type aliases"></a>我爱 Type aliases</h2><ul>
+<li><p>怎么用？</p>
+<p>使用关键字 <code>typealias</code>，举个例子：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">typealias NodeSet = Set&lt;Network.Node&gt;</div><div class="line"></div><div class="line">typealias Predicate&lt;T&gt; = (T) -&gt; Boolean</div></pre></td></tr></table></figure>
+<ul>
+<li><p>我写项目的时候已经用到了哪些呢？</p>
+<p><code>block</code> 闭包更加简洁，增加可复用，可读性。</p>
+<p>上一篇文中讲解有趣的 <code>block</code>，总结中提到让人头疼声明冗长，可读性差的问题。举个例子：让你去封装一个网络下载的API，方法是异步更新状态。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1ffvimjc007j31kk036t9c.jpg" alt=""></p>
+<p>一个方法还是可以接受，假如由于需求的变更，需要重载很多方法出来的时候怎么办呢？难道要这样子么？</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1ffvisrohxxj31kw09bgni.jpg" alt=""></p>
+</li>
+</ul>
+<p>WTF,当然是review都不能通过的代码，看着新好累，当然在1.1之前抛开使用 block 而使用 interface，估计也只能选择无奈的review通过代码。但现在不用了的，使用 <code>typealias</code> 完美解决：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1ffw359wvmfj31g40dodik.jpg" alt=""></p>
+<p>更多例子还是看官方文档吧：<a href="https://kotlinlang.org/docs/reference/type-aliases.html" target="_blank" rel="external">《reference/type-aliases》</a></p>
+<h2 id="我不爱-Type-aliases"><a href="#我不爱-Type-aliases" class="headerlink" title="我不爱 Type aliases"></a>我不爱 Type aliases</h2><p>只是按照之前的吐槽方式而已，才有了这一个节点，可以忽略，因为我很爱 <code>Type aliases</code>。如果非要我吐槽的话，只能说来的太迟了把。哈哈哈。</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p><code>Type aliases</code>的使用，能够让代码写起来更舒服。但切记不要滥用，比如文档中提到的 <code>typealias AInner = A.Inner</code>, 用的好的话还好，用的不好的话，别个接手你的代码要去跳转到定义里面才能看到这个别名到底是干嘛的。但它真是个好利器，赶紧用起来吧。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我们喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://7xpox6.com1.z0.glb.clouddn.com/WechatIMG603.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/25/sk_love_block/" class="archive-article-date">
-  	<time datetime="2017-05-25T06:35:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-25</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/25/sk_love_Type aliases/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/25/sk_love_Type aliases/" class="archive-article-date">
-  	<time datetime="2017-05-25T06:35:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-25</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/25/sk_love_Extensions/" class="archive-article-date">
-  	<time datetime="2017-05-25T06:35:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-25</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2017/05/25/sk_love_block/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/25/sk_love_Extensions/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/25/kotlin_do_java_not/" class="archive-article-date">
-  	<time datetime="2017-05-25T06:35:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-25</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/22/kotlin_properties_delegate/" class="archive-article-date">
-  	<time datetime="2017-05-22T13:04:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-22</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/22/kotlin_properties_delegate/">玩转 Kotlin 委托属性</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/22/swiftvskotlin_define_function/" class="archive-article-date">
-  	<time datetime="2017-05-22T05:07:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/22/swiftvskotlin_define_function/">Swift vs. Kotlin 漫谈之函数定义</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Swift</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/22/swiftvs.kotlin_project/" class="archive-article-date">
-  	<time datetime="2017-05-22T04:53:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/22/swiftvs.kotlin_project/">参与《Swift vs. Kotlin 漫谈》系列</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Swift</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/18/swiftvskotlin_variables/" class="archive-article-date">
-  	<time datetime="2017-05-18T04:59:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/18/swiftvskotlin_variables/">Swift vs. Kotlin 之变量定义</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Swift</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -441,8 +340,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

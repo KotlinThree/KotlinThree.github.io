@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-22T13:04:43.000Z</updated>
+  <updated>2017-05-25T06:35:57.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,204 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2017/05/25/sk_love_block/"/>
+    <id>http://yoursite.com/2017/05/25/sk_love_block/</id>
+    <published>2017-05-25T06:35:57.000Z</published>
+    <updated>2017-05-25T06:35:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="我与-Kotlin-的爱恨情仇之浅谈-block"><a href="#我与-Kotlin-的爱恨情仇之浅谈-block" class="headerlink" title="我与 Kotlin 的爱恨情仇之浅谈 block"></a>我与 Kotlin 的爱恨情仇之浅谈 block</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>hi, IMSK。是的，你没看错，没迷路，这里是 <code>Kotlin</code>  ，不是 <code>Objective-C</code>，别怕接下来跟我一起认识认识这个 block 的前世今生。前方高能，请您带上耳机，戴上眼镜。</p>
+<h2 id="block是什么？"><a href="#block是什么？" class="headerlink" title="block是什么？"></a>block是什么？</h2><p>先来看看 Kotlin 代码长什么样子：</p>
+<p> <img src="http://upload-images.jianshu.io/upload_images/2874486-92b0b5724169c608.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>其中 <code>body</code> 就是一个 block， <code>() -&gt; T</code> 是一个 函数块（ 函数签名 ）。block 可以当做参数传入， 也可以当做返回值返回。在这里我就沿用我之前写 Objective-C 的习惯，暂且称作他为 闭包。</p>
+<h2 id="我爱-block"><a href="#我爱-block" class="headerlink" title="我爱 block"></a>我爱 block</h2><p>再来对比一下 Objective-C 里的 block：</p>
+<p>double (^multiplyTwoValues)(double, double);</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2874486-9893735489e0c33f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>如果之前没有写过 OC，那么我想第一反应只能无奈的说一句：不觉明历。回头来看看，还是 Kotlin 更加亲切一些，直接  <code>() -&gt; T</code> ，<code>{}</code>， 随便怎么玩，详细用法看官网吧<br><a href="https://kotlinlang.org/docs/reference/lambdas.html" target="_blank" rel="external">《Higher-Order Functions and Lambdas》</a> 。</p>
+<p> 为什么爱上 block， 举个简单例子: 我们经常要处理一个异步请求，等数据返回的时候，回调给调用方，如果是用 Java 来写，可能要用到接口（callback）来实现了的。那么在 Kotlin 里怎么办呢？</p>
+<p> 声明：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2874486-e2d2fbc43ee9ba8a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>调用：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2874486-ca3216bbf543510f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>看到了么？不用在像以前那样还要单独去写一个 <code>callback</code>  的 <code>interface</code> 类了，是不是很简洁。</p>
+<h2 id="我不爱-block"><a href="#我不爱-block" class="headerlink" title="我不爱 block"></a>我不爱 block</h2><p> 当然很大一部分原因是因为当年被 OC 中的 block 折磨的心累，写法让人难受不说，OC 先天的冗长代码实在是累，如果是个新手，还经常内存泄露，折磨的死去活来的。这里提一下，block是一个闭包，开发过程中，切记由于闭包是可以访问上文数据，处理不当就会导致内存泄露哦。</p>
+<p> 当然还有另外一方面的原因，就是声明多参数的时候，比较难受，OC实在是不想在提了的，事实上 Kotlin 还算可以接受的，比如：</p>
+<ul>
+<li><p>Kotlin 中 block 多参数声明</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2874486-50b716e7833401b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>Kotlin 中 block 多参数调用</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2874486-dd20a3173a6a8837.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+</ul>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>Kotlin 中 block 随处可见 <code>{ ..do somethings.}</code>，所以咱必须得掌握它.</p>
+<p>比如结合提供的列表操作的语法糖：</p>
+<pre><code>strings.filter{ it.length == 5 }.sortBy{ it }.map{ it.toUpperCase() }
+</code></pre><p>比如在 Android 中写一个延迟的 <code>Runnable</code>：</p>
+<pre><code>postDelayed({
+    //do somethings block
+},300)
+</code></pre><p> block 让代码写起来更加方便，更加灵活（比如尾闭包等），函数式编程三板斧离不开它，但 block 同时带来的弊端也是有的，比如可读性差/内存管头疼等。但个人愚见，利大于弊，虽然一直褒贬不一，饱受争议的一个神奇的东西。既然提到 block 那么当然离不开另外一个神奇的东西 <code>typedef</code> 。还好最新的 Kotlin 中已经有了 一个类似的东西 <code>Type aliases</code> ((<a href="https://kotlinlang.org/docs/reference/type-aliases.html" target="_blank" rel="external">Type aliases (since 1.1) - Kotlin Programming Language</a>) . 如果大家感兴趣的话，那我下一章来谈谈这个 block 离不开的小情人吧。</p>
+<p> BTW  上面文中提到，block 会有内存泄露问题，无论还是 OC 是 Kotlin，当然我并没有提到如何解决，留给你第一个想象空间，那么第二个想象空间就是，既然有内存泄露，那么 block 的实现原理又是什么呢？ 跟匿名内部类有什么区别呢？</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;我与-Kotlin-的爱恨情仇之浅谈-block&quot;&gt;&lt;a href=&quot;#我与-Kotlin-的爱恨情仇之浅谈-block&quot; class=&quot;headerlink&quot; title=&quot;我与 Kotlin 的爱恨情仇之浅谈 block&quot;&gt;&lt;/a&gt;我与 Kotlin 的爱恨情
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2017/05/25/sk_love_Type%20aliases/"/>
+    <id>http://yoursite.com/2017/05/25/sk_love_Type aliases/</id>
+    <published>2017-05-25T06:35:57.000Z</published>
+    <updated>2017-05-25T06:35:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="我与-Kotlin-的爱恨情仇之浅谈-Type-aliases"><a href="#我与-Kotlin-的爱恨情仇之浅谈-Type-aliases" class="headerlink" title="我与 Kotlin 的爱恨情仇之浅谈 Type aliases"></a>我与 Kotlin 的爱恨情仇之浅谈 Type aliases</h1><blockquote>
+<p>在上一篇文章 <a href="http://www.jianshu.com/p/53c657bed4ab" target="_blank" rel="external">《我与 Kotlin 的爱恨情仇之浅谈 block》</a>最后, 我提到了 <code>Kotlin</code> 已经引入 <code>Type aliases</code> ，今天就跟大家一起来聊聊吧。</p>
+</blockquote>
+<h2 id="Type-aliases-是什么？"><a href="#Type-aliases-是什么？" class="headerlink" title="Type aliases 是什么？"></a>Type aliases 是什么？</h2><p>接受一个新的东西的时候，我们首先都会从字面去猜测它大概是用来做什么的，<code>Type aliases</code> 也不例外。<br> <code>Type</code> 顾名思义 <code>类型</code> , <code>aliases</code> 我想大伙也并不会太陌生，意味着 <code>别名</code>，很多时候我们会在系统的 <code>profile</code> 中加入一些 <code>aliases</code>，方便我们使用命令。二者联合起来就是： <code>给一个类型起一个别名</code>。</p>
+<h2 id="我爱-Type-aliases"><a href="#我爱-Type-aliases" class="headerlink" title="我爱 Type aliases"></a>我爱 Type aliases</h2><ul>
+<li><p>怎么用？</p>
+<p>使用关键字 <code>typealias</code>，举个例子：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">typealias NodeSet = Set&lt;Network.Node&gt;</div><div class="line"></div><div class="line">typealias Predicate&lt;T&gt; = (T) -&gt; Boolean</div></pre></td></tr></table></figure>
+<ul>
+<li><p>我写项目的时候已经用到了哪些呢？</p>
+<p><code>block</code> 闭包更加简洁，增加可复用，可读性。</p>
+<p>上一篇文中讲解有趣的 <code>block</code>，总结中提到让人头疼声明冗长，可读性差的问题。举个例子：让你去封装一个网络下载的API，方法是异步更新状态。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1ffvimjc007j31kk036t9c.jpg" alt=""></p>
+<p>一个方法还是可以接受，假如由于需求的变更，需要重载很多方法出来的时候怎么办呢？难道要这样子么？</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1ffvisrohxxj31kw09bgni.jpg" alt=""></p>
+</li>
+</ul>
+<p>WTF,当然是review都不能通过的代码，看着新好累，当然在1.1之前抛开使用 block 而使用 interface，估计也只能选择无奈的review通过代码。但现在不用了的，使用 <code>typealias</code> 完美解决：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1ffw359wvmfj31g40dodik.jpg" alt=""></p>
+<p>更多例子还是看官方文档吧：<a href="https://kotlinlang.org/docs/reference/type-aliases.html" target="_blank" rel="external">《reference/type-aliases》</a></p>
+<h2 id="我不爱-Type-aliases"><a href="#我不爱-Type-aliases" class="headerlink" title="我不爱 Type aliases"></a>我不爱 Type aliases</h2><p>只是按照之前的吐槽方式而已，才有了这一个节点，可以忽略，因为我很爱 <code>Type aliases</code>。如果非要我吐槽的话，只能说来的太迟了把。哈哈哈。</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p><code>Type aliases</code>的使用，能够让代码写起来更舒服。但切记不要滥用，比如文档中提到的 <code>typealias AInner = A.Inner</code>, 用的好的话还好，用的不好的话，别个接手你的代码要去跳转到定义里面才能看到这个别名到底是干嘛的。但它真是个好利器，赶紧用起来吧。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;我与-Kotlin-的爱恨情仇之浅谈-Type-aliases&quot;&gt;&lt;a href=&quot;#我与-Kotlin-的爱恨情仇之浅谈-Type-aliases&quot; class=&quot;headerlink&quot; title=&quot;我与 Kotlin 的爱恨情仇之浅谈 Type aliase
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2017/05/25/sk_love_Extensions/"/>
+    <id>http://yoursite.com/2017/05/25/sk_love_Extensions/</id>
+    <published>2017-05-25T06:35:57.000Z</published>
+    <updated>2017-05-25T06:35:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="我与-Kotlin-的爱恨情仇之浅谈-Extensions"><a href="#我与-Kotlin-的爱恨情仇之浅谈-Extensions" class="headerlink" title="我与 Kotlin 的爱恨情仇之浅谈 Extensions"></a>我与 Kotlin 的爱恨情仇之浅谈 Extensions</h1><blockquote>
+<p>Kotlin, similar to C# and Gosu, provides the ability to extend a class with new functionality without having to inherit from the class or use any type of design pattern such as Decorator. This is done via special declarations called extensions. Kotlin supports extension functions and extension properties.</p>
+</blockquote>
+<p>上一个章节<a href="http://www.jianshu.com/p/2932135247af" target="_blank" rel="external">《我与 Kotlin 的爱恨情仇之浅谈 Type aliases》</a>中，带领大家一起领略了一下 <code>typealias</code>的基本用法。可以让你写出更加优美的代码。今天再带大家一起来领略一下 <code>Kotlin</code> 中另一个神奇好玩的东西: <code>Extensions</code>.</p>
+<h2 id="Extensions-是什么？"><a href="#Extensions-是什么？" class="headerlink" title="Extensions 是什么？"></a>Extensions 是什么？</h2><p>千万不要被 <code>JAVA</code> 中的 <code>extend</code> 给带歪了的，一个是扩展，一个是继承，完全不是一码事。而且这也是我讨厌的一点，至于原因我接下来就会讲到，当然纯属我个人认知喜好问题。</p>
+<p>文章口头就引用了<a href="https://kotlinlang.org/docs/reference/extensions.html" target="_blank" rel="external">《reference/extensions》</a>中的一段话，已经解释了 <code>Kotlin</code> 具备可以 <code>extension</code> (扩展) <code>functions</code> 以及 <code>properties</code> 的能力。</p>
+<h2 id="我爱-Extensions"><a href="#我爱-Extensions" class="headerlink" title="我爱 Extensions"></a>我爱 Extensions</h2><ul>
+<li><p>Extension Functions 我们可以给任何一个 <code>类</code> 包括系统的类追加扩展方法</p>
+<p>  给 <code>MutableList</code> 扩展(追加) 一个 <code>swap</code> 方法，用于交互两个 <code>index</code> 的 <code>value</code> :</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fun MutableList&lt;Int&gt;.swap(index1: Int, index2: Int) &#123;</div><div class="line">    val tmp = this[index1] // &apos;this&apos; corresponds to the list</div><div class="line">    this[index1] = this[index2]</div><div class="line">    this[index2] = tmp</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  具体用的时候:</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">val l = mutableListOf(1, 2, 3)</div><div class="line">l.swap(0, 2) // &apos;this&apos; inside &apos;swap()&apos; will hold the value of &apos;l&apos;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>Extension Properties 我们可以给任何一个 <code>类</code> 包括系统的类追加属性，但切记属性必须按约定来</p>
+<p> 我们可以给给 <code>List</code> 追加一个 <code>lastIndex</code> 属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">val &lt;T&gt; List&lt;T&gt;.lastIndex: Int</div><div class="line">get() = size - 1</div><div class="line">```    </div><div class="line"></div><div class="line">但是我说的约束是不能这样子写</div></pre></td></tr></table></figure>
+<p> val Foo.bar = 1 // error: initializers are not allowed for extension properties<br>```</p>
+<p>更多注意事项请看 <a href="https://kotlinlang.org/docs/reference/extensions.html" target="_blank" rel="external">《官方文档》</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="我们项目中拿他来干什么呢？"><a href="#我们项目中拿他来干什么呢？" class="headerlink" title="我们项目中拿他来干什么呢？"></a>我们项目中拿他来干什么呢？</h3><p>  <code>Google</code> 一搜索一大把，比如出了名的 <a href="https://github.com/Kotlin/anko" target="_blank" rel="external">anko</a> ，里面提供大量的 <code>Extension</code>。 但我并没有用过 <code>anko</code>，虽然使用 <code>Kotlin</code> 写 <code>Android</code> 项目已经超过两年了的，原因是个人觉得太重了的，我们自己也封装了一个轻量级的 <a href="https://github.com/KotlinThree/AndroidExtension" target="_blank" rel="external">AndroidExtension</a></p>
+<p>  比如万恶的 <code>findViewById</code>,可以写成这样：</p>
+<pre><code>val textview = findview(R.id.txt)
+</code></pre><p> 比如臭长的 <code>Toast</code>, 现在也可以简单到这样啦：</p>
+<pre><code>toast(&quot;hello,I&apos;M SK&quot;)
+</code></pre><p> 还有更多有意思的，可以大大提高开发效率的扩展，具体可以查看我们的 <a href="https://github.com/KotlinThree" target="_blank" rel="external">KotlinThree GitHub</a></p>
+<h2 id="我不爱-Extensions"><a href="#我不爱-Extensions" class="headerlink" title="我不爱 Extensions"></a>我不爱 Extensions</h2><p>no, no, no 不能不爱，用起来实在是太爽了的，极大的提高了我的日常开发效率，但非要让我挑毛病的话，我只能说因为当初的 <code>Swift</code> 坑了我吧，我第一反应是跟 <code>Swift extension</code> 一样，终于可以摆脱之前要在一个类的开头，写一堆的接口，类似这样:</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1ffwstpktgkj31060mk79f.jpg" alt="image.png"><br>    但在 <code>Swift</code> 中可以用 <code>extension</code> 完美解决这个问题：<br>    <img src="https://ws3.sinaimg.cn/large/006tNbRwgy1ffwsub7k3yj317k0j641m.jpg" alt=""><br>好吧，所以在没有看仔细看 <code>Kotlin</code> 文档的时候，我以为 <code>extension</code> 用法和 <code>Swift</code> 一样呢，但完全不是一个概念。<code>Kotlin</code> 中压根就没有这个 <code>extension</code> 关键字。</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p> 这个语法糖，你可以随便去扩展你自己想要的功能，从而极大的提高我们开发效率，用起来确实让人爱不释手。那么 <code>Kotlin</code>  内部是怎么实现的？ 可以看看编译出来的文件，其实是帮忙做了一层转换，把我们的扩展的方法做成一个 <code>static method</code>, 然后调用的地方其实是调用生成的的这个 <code>static method</code>，之前<a href="http://www.jianshu.com/p/53c657bed4ab" target="_blank" rel="external">《我与 Kotlin 的爱恨情仇之浅谈 block》</a>谈到的另一把我爱不释手的利器 <code>block</code> 在评论中我也说了的，都是人家最后帮我们去生成了代码，然后一样的做法，虽然效率并没有任何提升，有兴趣的话，您不妨自己反编译试试。但却不得不说，大大提高了我们本身编码效率，毕竟重复的代码，谁写着都觉得心累。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;我与-Kotlin-的爱恨情仇之浅谈-Extensions&quot;&gt;&lt;a href=&quot;#我与-Kotlin-的爱恨情仇之浅谈-Extensions&quot; class=&quot;headerlink&quot; title=&quot;我与 Kotlin 的爱恨情仇之浅谈 Extensions&quot;&gt;&lt;/a
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2017/05/25/kotlin_do_java_not/"/>
+    <id>http://yoursite.com/2017/05/25/kotlin_do_java_not/</id>
+    <published>2017-05-25T06:35:57.000Z</published>
+    <updated>2017-05-25T06:35:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="那些年Kotlin轻易能实现，java很难实现的语法糖"><a href="#那些年Kotlin轻易能实现，java很难实现的语法糖" class="headerlink" title="那些年Kotlin轻易能实现，java很难实现的语法糖"></a>那些年Kotlin轻易能实现，java很难实现的语法糖</h2><p>做android开发那么多年， 一直都是兢兢业业用java去码代码，直到两年前的一天发现了kotlin这门神奇的语言。犀利的语法特性，优雅的表达方式，从此掉入此坑。</p>
+<p>这里有个<a href="http://www.jcodecraeer.com/demo/from-java-to-kotlin/classes.html" target="_blank" rel="external">对比链接</a>可以看到表达同一个含义，kotlin相对java在表达上的优势。 </p>
+<p>最近google io大会把kotlin定为Android开发第一级语言，着实掀起了一股讨论kotlin的浪潮。那么，未来的androider是不是会用kotlin替代java呢？这里我们来讨论下一个话题：那些Kotlin轻易能实现，java很难实现的语法糖，由此来看一看kotlin的独特魅力。</p>
+<h2 id="函数编程"><a href="#函数编程" class="headerlink" title="函数编程"></a>函数编程</h2><p>在kotlin中，函数和类一样是一等公民，函数也可以作为参数传递（高阶函数特性），且可执行(闭包特性)。举个栗子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 函数作为对象</div><div class="line">val magic = fun(name: String) &#123;</div><div class="line">    println(&quot;hello $name&quot;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 函数闭包执行</div><div class="line">magic(&quot;tom&quot;)</div><div class="line"></div><div class="line"></div><div class="line">// 函数作为参数</div><div class="line">fun test(funParam: (String) -&gt; Unit) &#123;</div><div class="line">    funParam(&quot;tom2&quot;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">test(magic)</div></pre></td></tr></table></figure>
+<p>在集合类的数据处理上，kotlin中的<code>filter</code>、<code>map</code>等能方便做到数据转换。举个栗子，给定一个数字数组，过滤出数字为3的倍数的数字集合，数字前加#，以逗号分隔输出。如数组为<code>0~10</code>， 打印输出<code>#0, #3, #6, #9</code></p>
+<p>java代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">private static String solveList(List&lt;Integer&gt; list) &#123;</div><div class="line">    // filter</div><div class="line">    List&lt;Integer&gt; filterResult = new ArrayList&lt;&gt;();</div><div class="line">    for (Integer i : list) &#123;</div><div class="line">        if (i % 3 == 0) &#123;</div><div class="line">            filterResult.add(i);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // map</div><div class="line">    List&lt;String&gt; mapResult = new ArrayList&lt;&gt;();</div><div class="line">    for (Integer i : filterResult) &#123;</div><div class="line">        mapResult.add(&quot;#&quot; + i);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 逗号分隔</div><div class="line">    StringBuilder sb = new StringBuilder();</div><div class="line">    for (String s : mapResult) &#123;</div><div class="line">        sb.append(s).append(&quot;, &quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (sb.length() &gt; 0) &#123;</div><div class="line">        return sb.substring(0, sb.length() - 2);</div><div class="line">    &#125; else &#123;</div><div class="line">        return &quot;&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>kotlin代码如下，异常的简洁。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fun solveList(list: List&lt;Int&gt;) : String &#123;</div><div class="line">    return list.filter &#123; it % 3 == 0 &#125;.map &#123; &quot;#$it&quot; &#125;.reduce &#123; s1, s2 -&gt; &quot;$s1, $s2&quot; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>kotlin用的是函数式思维方式，函数式三板斧<code>filter</code>, <code>map</code>, <code>reduce</code> 接受函数作为参数，屏蔽了内部实现。 比如说这里3的倍数改成5的倍数，kotlin只要改<code>filter</code>的参数（函数参数）即可，java则要改方法的内部实现。</p>
+<h2 id="Extension"><a href="#Extension" class="headerlink" title="Extension"></a>Extension</h2><p>kotlin可对系统类进行方法扩展，如可以为集合增加<code>swap</code>函数功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fun &lt;T&gt; MutableList&lt;T&gt;.swap(index1: Int, index2: Int) &#123;</div><div class="line">    val tmp = this[index1] // &apos;this&apos; corresponds to the list</div><div class="line">    this[index1] = this[index2]</div><div class="line">    this[index2] = tmp</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>定义之后<code>MutableList</code>类型就可以直接调用<code>swap</code>方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val list = mutableListOf(&quot;aa&quot;, &quot;bb&quot;)</div><div class="line">list.swap(0, 1)</div></pre></td></tr></table></figure>
+<p>这种形式java是无法做到的，java要实现同样的功能必须额外定义一个新类。（事实上kotlin extension原理也是编译器生成一个新类~~）</p>
+<h2 id="数据类"><a href="#数据类" class="headerlink" title="数据类"></a>数据类</h2><p>数据类大量重复的getter和setter相信会是很多人在开发过程中吐槽的一个点。举一个很经典的例子，我们需要一个Person的数据类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">public class Person &#123;</div><div class="line">    private String name;</div><div class="line">    private int age;</div><div class="line">    private int sex;</div><div class="line">    private float height;</div><div class="line"></div><div class="line">    public Person(String name, int age, int sex, float height) &#123;</div><div class="line">        this.name = name;</div><div class="line">        this.sex = sex;</div><div class="line">        this.age = age;</div><div class="line">        this.height = height;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public String getName() &#123;</div><div class="line">        return name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setName(String name) &#123;</div><div class="line">        this.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public int getAge() &#123;</div><div class="line">        return age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setAge(int age) &#123;</div><div class="line">        this.age = age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public int getSex() &#123;</div><div class="line">    	 return sex;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setSex(int sex) &#123;</div><div class="line">    	this.sex = sex;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public float getHeight() &#123;</div><div class="line">        return height;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setHeight(float height) &#123;</div><div class="line">        this.height = height;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String toString() &#123;</div><div class="line">        return &quot;Person&#123;&quot; +</div><div class="line">                &quot;name=&apos;&quot; + name + &apos;\&apos;&apos; +</div><div class="line">                &quot;, age=&quot; + age +</div><div class="line">                &quot;, sex=&quot; + (sex == 0 ? &quot;男&quot; : &quot;女&quot;) +</div><div class="line">                &quot;, height=&quot; + height +</div><div class="line">                &quot;&#125;&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在Kotlin里，我们只需要一行代码就能完成以上的功能： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data class Person(var name: String, var age: Int, var sex: Int, var height: Float)</div></pre></td></tr></table></figure>
+<p><code>data class</code>有效的提供了一种构建器模式，可以指定参数初始化，同时默认提供<code>clone</code>方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//创建对象</div><div class="line">val person: Person = Person(name=&quot;tom&quot;, age = 10, height = 1.7f)</div></pre></td></tr></table></figure>
+<h2 id="Type-alias"><a href="#Type-alias" class="headerlink" title="Type alias"></a>Type alias</h2><p>java没alias的说法, kotlin type alias暂时很少用到，就不细讲了，有兴趣的参考官网链接 <a href="https://kotlinlang.org/docs/reference/type-aliases.html" target="_blank" rel="external">type-aliases</a></p>
+<h2 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h2><p>kotlin通过<code>${expression}</code>输出字符串，<code>expression</code>表示任意表达式 如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">println(&quot;My name&apos;s &#123;user.name&#125;&quot;)</div><div class="line">println(&quot;1 + 2 = $&#123;1 + 2&#125;&quot;)</div></pre></td></tr></table></figure>
+<p>java用<code>String.format</code>形式实现</p>
+<p>kotlin输出<code>list</code>, <code>map</code>等类型就友好的多。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">val list = (0..10).toMutableList()</div><div class="line">println(&quot;list=$list&quot;)</div><div class="line">// 输出list=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</div><div class="line"></div><div class="line">val map = mapOf(1 to &quot;One&quot;, 2 to &quot;Two&quot;, 3 to &quot;Three&quot;)</div><div class="line">println(&quot;map=$map&quot;)</div><div class="line"></div><div class="line">// 输出map=&#123;1=One, 2=Two, 3=Three&#125;</div></pre></td></tr></table></figure>
+<h2 id="option参数"><a href="#option参数" class="headerlink" title="option参数"></a>option参数</h2><p>kotlin有option参数的说法，如定义个图片加载接口，java需要通过重载方式定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">interface IHJImageLoader &#123;</div><div class="line">    public void displayImage(String uri, ImageView imageView);</div><div class="line"></div><div class="line">    public void displayImage(String uri, ImageView imageView, HJImageLoaderOptiono option);</div><div class="line"></div><div class="line">    public void displayImage(String uri, ImageView imageView, HJImageLoaderListener loaderListener);</div><div class="line"></div><div class="line">    public void displayImage(String uri, ImageView imageView, HJImageLoaderOptiono option, HJImageLoaderListener loaderListener);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>而kotlin只要定义个一个方法就行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">interface IHJImageLoader &#123;</div><div class="line">    fun displayImage(uri: String?, imageView: ImageView?, option: HJImageLoaderOption? = HJImageLoaderOption.defaultOption(), loaderListener: HJImageLoaderListener? = null)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>调用方式都是类似</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">val imageLoaderImpl: IHJImageLoader = ...</div><div class="line"></div><div class="line">imageLoaderImpl.displayImage(uri, imageView)</div><div class="line">imageLoaderImpl.displayImage(uri, imageView, option)</div><div class="line">imageLoaderImpl.displayImage(uri, imageView, option, loaderListener)</div></pre></td></tr></table></figure>
+<h2 id="操作符重载"><a href="#操作符重载" class="headerlink" title="操作符重载"></a>操作符重载</h2><p>kotlin操作符重载在DSL中得以发扬光大, 如下面一段语句表达</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">html &#123;</div><div class="line">	body &#123;</div><div class="line">		div &#123;</div><div class="line">			a(&quot;http://kotlinlang.org&quot;) &#123;</div><div class="line">				target = ATarget.blank</div><div class="line">				+&quot;Main site&quot;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>java要表达同样的含义，至少得<code>html</code>, <code>body</code>, <code>div</code>, <code>a</code>对象都<code>new</code>一遍，且要设置成员变量。冗余度和可读性上都远不如上面的表达来的舒爽。</p>
+<h2 id="协程编程"><a href="#协程编程" class="headerlink" title="协程编程"></a>协程编程</h2><p>todo</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;那些年Kotlin轻易能实现，java很难实现的语法糖&quot;&gt;&lt;a href=&quot;#那些年Kotlin轻易能实现，java很难实现的语法糖&quot; class=&quot;headerlink&quot; title=&quot;那些年Kotlin轻易能实现，java很难实现的语法糖&quot;&gt;&lt;/a&gt;那些年Ko
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>玩转 Kotlin 委托属性</title>
@@ -1037,8 +1235,8 @@
   
   <entry>
     <title>kotlin中的语法糖</title>
-    <link href="http://yoursite.com/2016/01/14/kotlin%E4%B8%AD%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96/"/>
-    <id>http://yoursite.com/2016/01/14/kotlin中的语法糖/</id>
+    <link href="http://yoursite.com/2016/01/14/kotlin_syntactic_sugar/"/>
+    <id>http://yoursite.com/2016/01/14/kotlin_syntactic_sugar/</id>
     <published>2016-01-14T05:49:44.000Z</published>
     <updated>2017-05-19T15:57:11.000Z</updated>
     
@@ -1072,260 +1270,6 @@
     
     
       <category term="kotlin" scheme="http://yoursite.com/tags/kotlin/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>类与对象 —— 类（一）</title>
-    <link href="http://yoursite.com/2016/01/02/object-class-class/"/>
-    <id>http://yoursite.com/2016/01/02/object-class-class/</id>
-    <published>2016-01-02T08:01:28.000Z</published>
-    <updated>2017-05-19T16:03:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="类的声明"><a href="#类的声明" class="headerlink" title="类的声明"></a>类的声明</h2><p>kotlin用关键字<code>class</code>声明，声明一个类可以只声明头的部分，类的声明默认是<code>final</code>的。就像：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">class Persion</div><div class="line">//或者</div><div class="line">class Person(name: String)</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>类的构造函数可以有很多，但是只有一个可以声明在类的头部，这个构造函数被称做“主构造函数”，其他的被称做“次构造函数”。构造函数使用<code>constructor</code>关键字，主构造函数在没有可见性修饰符和注解的情况下，<code>constructor</code>可以被省略。默认的情况下，所有的构造函数的可见性都是<code>public</code>，对于使用方来说是与类的可见性保持一致。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">class Customer public @Inject constructor(name: String) &#123; ... &#125;</div></pre></td></tr></table></figure>
-<p>主构造函数没有自己的函数体，它的参数可以在类的初始化块（<code>init</code>修饰）访问，在类的属性初始化时也可以访问。所以，在主构造函数里面想要做的事情，可以放在类的初始化块中实现。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">class Customer(name: String) &#123;</div><div class="line">	val customerKey = name.toUpperCase()</div><div class="line">    init &#123;</div><div class="line">        print(&quot;Customer initialized with value $&#123;name&#125;&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果我们想要在类的全局都可以访问主构造函数的参数，可以在参数前面加上<code>val</code>或者<code>var</code>，这样主构造函数的参数就和类的属性一样了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">open class Person(val name: String,val age: Int)&#123;</div><div class="line">    fun showName()&#123;</div><div class="line">        print(&quot;my name is $name&quot;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    open fun showAge()&#123;</div><div class="line">        print(&quot;my age is $age&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>次构造函数必须要使用<code>constructor</code>修饰，并且必须直接或者间接的委托给主构造函数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">class Person(val name: String) &#123;</div><div class="line">    constructor(name: String, parent: Person) : this(name) &#123;</div><div class="line">        parent.children.add(this)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><h3 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h3><p>kotlin中所有的类都有一个父类<code>Any</code>，类似于java中的Object，但不存在对等关系。Any中只有<code>equals()</code>、<code>hashCode()</code>和<code>toString()</code>三个方法，所以其他的Object的方法都不能直接调用。详情请参见<a href="https://kotlinlang.org/docs/reference/java-interop.html#object-methods" target="_blank" rel="external">Java interoperability</a>。后面有机会我们会再讲到。</p>
-<p>kotlin默认类都是<code>final</code>的，为了可以被继承，我们需要在类的声明前面加上<code>open</code>，让该类可以被其他类继承。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open class Base(p: Int)</div></pre></td></tr></table></figure>
-<p>如果父类有主构造函数的话，则必须在子类声明的头部被初始化。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">class Derived(p: Int) : Base(p)</div></pre></td></tr></table></figure>
-<p>次构造函数也必须直接或间接的初始化父类的构造函数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">class MyView : View &#123;</div><div class="line">    constructor(ctx: Context) : super(ctx) &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs) &#123;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="复写方法"><a href="#复写方法" class="headerlink" title="复写方法"></a>复写方法</h3><p>同类一样，子类只能复写父类中被<code>open</code>修饰的函数，复写方法必须使用<code>override</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">open class Person(name: String, age: Int)&#123;</div><div class="line">    var name = name;</div><div class="line">    val age = age;</div><div class="line">    fun showName()&#123;</div><div class="line">        print(&quot;my name is $name&quot;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    open fun showAge()&#123;</div><div class="line">        print(&quot;my age is $age&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Women(name: String, age: Int) : Person(name, age)&#123;</div><div class="line">    override fun showAge()&#123;</div><div class="line">        print(&quot;my age is 18&quot;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    override fun showName()&#123;</div><div class="line">        // error, compiler complain</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>子类中复写的方法，默认也是<code>open</code>的，如果需要，可以在方法<code>override</code>之前添加<code>final</code>注解，让该子类的子类不能再复写该方法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">final override fun v() &#123;&#125;</div></pre></td></tr></table></figure>
-<h3 id="多继承"><a href="#多继承" class="headerlink" title="多继承"></a>多继承</h3><p>kotlin和java8一样，本身并不能同时继承于多个类，但是可以实现多个接口，而且接口可以有自己的实现，所以当父类和接口或者接口和接口中的方法一样时，会发生冲突，我们需要明确这个时候的解决方案，不然就会<code>compiler complain</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">interface Young&#123;</div><div class="line">    fun showAge()&#123;</div><div class="line">        print(&quot;my age is between 13 and 25&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Student(name: String, age: Int) : Person(name, age), Young&#123;</div><div class="line"></div><div class="line">    override fun showAge() &#123;</div><div class="line">        super&lt;Person&gt;.showAge()</div><div class="line">        super&lt;Young&gt;.showAge()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="委托"><a href="#委托" class="headerlink" title="委托"></a>委托</h2><p>委托被认为是一个非常好的替代继承和实现的设计模式，kotlin也支持这种模式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">interface Base &#123;</div><div class="line">    fun print()</div><div class="line">&#125;</div><div class="line"></div><div class="line">class BaseImpl(val x: Int) : Base &#123;</div><div class="line">    override fun print() &#123; print(x) &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Derived(b: Base) : Base by b</div><div class="line"></div><div class="line">fun main() &#123;</div><div class="line">    val b = BaseImpl(10)</div><div class="line">    Derived(b).print() // prints 10</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在类的声明过程中，在父类类型后面使用<code>by</code>关键字指明在Derived的对象中将会内部存储<code>b</code>对象，并且编译器会将<code>Base</code>的所有方法指向<code>b</code>。</p>
-<h2 id="欢迎大家关注我们的公众号"><a href="#欢迎大家关注我们的公众号" class="headerlink" title="欢迎大家关注我们的公众号"></a>欢迎大家关注我们的公众号</h2><p><img src="http://7xpox6.com1.z0.glb.clouddn.com/qrcode_for_gh_b2ad0581a6c4_430.jpg?imageView2/2/w/320" alt=""> </p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;类的声明&quot;&gt;&lt;a href=&quot;#类的声明&quot; class=&quot;headerlink&quot; title=&quot;类的声明&quot;&gt;&lt;/a&gt;类的声明&lt;/h2&gt;&lt;p&gt;kotlin用关键字&lt;code&gt;class&lt;/code&gt;声明，声明一个类可以只声明头的部分，类的声明默认是&lt;code&gt;final&lt;/code&gt;的。就像：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;class Persion&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;//或者&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;class Person(name: String)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="kotlin" scheme="http://yoursite.com/tags/kotlin/"/>
-    
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
-      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
-    
-      <category term="继承" scheme="http://yoursite.com/tags/%E7%BB%A7%E6%89%BF/"/>
-    
-      <category term="委托" scheme="http://yoursite.com/tags/%E5%A7%94%E6%89%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>类与对象——泛型</title>
-    <link href="http://yoursite.com/2015/12/22/class-object-generic/"/>
-    <id>http://yoursite.com/2015/12/22/class-object-generic/</id>
-    <published>2015-12-22T15:08:50.000Z</published>
-    <updated>2017-05-19T15:56:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>与java一样，Kotlin也提供泛型，为类型安全提供保证，消除类型强转的烦恼。</p>
-<h3 id="泛型定义"><a href="#泛型定义" class="headerlink" title="泛型定义"></a>泛型定义</h3><p>好吧，如果只是简单声明一个泛型，和<code>Java</code>没有什么大的区别，你可以这样声明：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">class Box&lt;T&gt;(t: T) &#123;</div><div class="line">    var value = t</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>然后可以这样使用</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">val box: Box&lt;Int&gt; = Box&lt;Int&gt;(1)</div><div class="line"></div><div class="line">// 或者</div><div class="line"></div><div class="line">val box = Box(1) // 编译器会进行类型推断</div></pre></td></tr></table></figure>
-<h3 id="泛型约束"><a href="#泛型约束" class="headerlink" title="泛型约束"></a>泛型约束</h3><p>和类的继承一样，<code>Kotlin</code>中使用<code>:</code>代替<code>extends</code>对泛型的的类型上限进行约束。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">class SwipeRefreshableView&lt;T : View&gt;&#123;&#125;</div></pre></td></tr></table></figure>
-<p>不过这里你可以进行多个类型的上限约束：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class SwipeRefreshableView&lt;T&gt;</div><div class="line">    where T : View,</div><div class="line">          T : Refreshable &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">// 或者</div><div class="line"></div><div class="line">fun &lt;T&gt; cloneWhenGreater(list: List&lt;T&gt;, threshold: T): List&lt;T&gt;</div><div class="line">    where T : Comparable,</div><div class="line">          T : Cloneable &#123;</div><div class="line">  return list.filter &#123; it &gt; threshold &#125;.map &#123; it.clone() &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>到这里，对于之前用过泛型的同学来说都没有什么难度。so，kotlin还有什么java里没有的东西吗？</p>
-<h3 id="in和out"><a href="#in和out" class="headerlink" title="in和out"></a><code>in</code>和<code>out</code></h3><p><code>Kotlin</code>中引入两个新的泛型修饰符<code>in</code>和<code>out</code>，要解释这两个关键字的用法，我们先从另外两个概念说起‘covariant（协变性）’和‘contravariance（逆变性）’（不知道的可以<a href="http://www.cnblogs.com/Figgy/p/4575719.html" target="_blank" rel="external">参考</a>）。我们都知道在java中List不是协变的，而Array是协变的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Integer[] intArray = new Integer[10];</div><div class="line">Number[] numberArray = intArray;</div><div class="line">numberArray[0] = 1.0f;</div></pre></td></tr></table></figure>
-<p>在上面的代码中，<code>Integer[]</code>被认为是<code>Number[]</code>的子类型，所以可以将<code>intArray</code>赋值给<code>numberArray</code>，但是在随后的代码，我们将<code>1.0f</code>赋给<code>numberArray[0]</code>，因为在这里看来，将一个浮点型赋给一个Number对象不会有什么问题。最后悲剧发生了，当执行时，程序crash了。</p>
-<p>但是当你使用泛型的的时候：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; strs = new ArrayList&lt;&gt;();</div><div class="line">List&lt;Object&gt; objs = strs; // error, compiler complain</div></pre></td></tr></table></figure>
-<p><code>List&lt;String&gt;</code>并不是<code>List&lt;Object&gt;</code>的子类型，于是编译器告诉你，不能直接赋值。或许你会说我们可以使用通配符<code>? extends T</code>让它变得协变。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; strs = new ArrayList&lt;String&gt;();</div><div class="line">strs.add(&quot;0&quot;);</div><div class="line">strs.add(&quot;1&quot;);</div><div class="line">List&lt;? extends Object&gt; objs = strs;</div><div class="line">//编译通过</div></pre></td></tr></table></figure>
-<p><code>List&lt;String&gt;</code>是<code>List&lt;? extends Object&gt;</code>的子类，所以上面的代码的确能够编译运行，但是当你尝试为<code>objs</code>添加内容时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//然后添加一个int型试试</div><div class="line">objs.add(1); // error, compiler complain</div><div class="line">// 编译器编译出错</div><div class="line"></div><div class="line">// 现在再添加一个String</div><div class="line">objs.add(&quot;1&quot;); // error, compiler complain</div><div class="line">// 编译出错</div></pre></td></tr></table></figure>
-<p>对于objs并不会因为<code>objs = strs;</code>的赋值，而将<code>objs</code>的泛型类型转化为<code>String</code>类型，所以在不能判断objs的泛型类型的情况下，往objs添加任何类型的对象都是不被允许的。但是我们明确知道objs的所有类型上限（upper bound），于是我们可以通过<code>objs.get(0)</code>获取Object的对象。</p>
-<p> 小结一下，我们可以用通配符<code>? extends T</code>让泛型类变得协变，但是对于具体泛型类型的对象我们不能赋值，只能获取。于是在下面的假设中java就可以这么写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">interface Source&lt;T&gt; &#123;</div><div class="line">    public T getT();</div><div class="line">    public void setT(T t);</div><div class="line">&#125;</div><div class="line"></div><div class="line">public void copy(Source&lt;String&gt; strs)&#123;</div><div class="line">    Source&lt;? extends Object&gt; objs = strs;</div><div class="line">    objs.setT(&quot;a&quot;); // error, compiler complain</div><div class="line">	String str = (String) objs.getT();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在<code>Kotlin</code>中就可以这么写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">abstract class Source&lt;T&gt; &#123;</div><div class="line">    abstract fun getT(): T</div><div class="line">    abstract fun setT(t: T)  </div><div class="line">&#125;</div><div class="line"></div><div class="line">fun copyT(strs: Source&lt;String&gt;)&#123;</div><div class="line">    val objs: Source&lt;out Any?&gt; = strs;</div><div class="line">    objs.setT(&quot;a&quot;) // error, compiler complain</div><div class="line">    objs.getT()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>上面的<code>out Any?</code>可以用<code>*</code>代替。</p>
-<p>如果我们可以确定<code>Source</code>这个类不会有<code>abstract fun setT(t: T)</code>类似的操作，我们可以这样写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">abstract class Source&lt;out T&gt; &#123;</div><div class="line">    abstract fun getT(): T</div><div class="line">    // 如果下面出现会编译不过</div><div class="line">    // abstract fun setT(t: T) // error, compiler complain</div><div class="line">&#125;</div><div class="line"></div><div class="line">fun copyT(strs: Source&lt;String&gt;)&#123;</div><div class="line">    val objs: Source&lt;Any&gt; = strs;</div><div class="line">    objs.setT(&quot;a&quot;) // error, compiler complain</div><div class="line">    objs.getT()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>小结一下，在定义泛型类<code>C&lt;T&gt;</code>时，当我们在泛型类型<code>T</code>前面添加<code>out</code>，<code>C</code>为<code>T</code>的协变类。在该类的作用域内，类型<code>T</code>只能作为该类中函数的返回类型，不能作为参数传递进来，这时也称做<code>C</code>为<code>T</code>的生产者（Producer）。</p>
-<p>以此类推，在定义泛型类<code>C&lt;T&gt;</code>时，当我们在泛型类型<code>T</code>前面添加<code>in</code>，<code>C</code>为<code>T</code>的逆变类。在该类的作用域内，类型<code>T</code>只能作为该类中函数的参数传递进来，不能作为返回类型，这时也称做<code>C</code>为<code>T</code>的消费者（Consumer）。</p>
-<p>类似于<code>java</code>中的<a href="http://www.importnew.com/8966.html" target="_blank" rel="external">PECS</a>（Producer Extends，Consumer Super），我们可以总结出：‘Consumer in, Producer out’。</p>
-<p>如果在泛型类型使用测，在对应泛型的具体类型前面使用<code>out</code>，则等同于使用<code>java</code>中的<code>extends</code>字段，<code>in</code>则等同于<code>super</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">fun copy(from: Array&lt;out String&gt;, to: Array&lt;in String&gt;) &#123;</div><div class="line">    assert(from.size == to.size)</div><div class="line">    for (i in from.indices)</div><div class="line">        to[i] = from[i]</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 等同于</div><div class="line"></div><div class="line">public void copy(List&lt;? extends String&gt; from, List&lt;? super String&gt; to) &#123; ... &#125;</div></pre></td></tr></table></figure>
-<p>PS： 这里Array 与 List 不是对等关系。</p>
-<h2 id="欢迎大家关注我们的公众号"><a href="#欢迎大家关注我们的公众号" class="headerlink" title="欢迎大家关注我们的公众号"></a>欢迎大家关注我们的公众号</h2><p><img src="http://7xpox6.com1.z0.glb.clouddn.com/qrcode_for_gh_b2ad0581a6c4_430.jpg?imageView2/2/w/320" alt=""> </p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="http://www.cnblogs.com/panjun-Donet/archive/2008/09/27/1300609.html" target="_blank" rel="external">java泛型</a></li>
-<li><a href="http://www.cnblogs.com/Figgy/p/4575719.html" target="_blank" rel="external">不变性、协变性和逆变性（Invariance, Covariance &amp; Contravariance</a></li>
-<li><a href="http://www.importnew.com/8966.html" target="_blank" rel="external">Java 泛型: 什么是PECS（Producer Extends, Consumer Super）</a></li>
-<li><a href="https://kotlinlang.org/docs/reference/generics.html" target="_blank" rel="external">Kotlin-Generics</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;与java一样，Kotlin也提供泛型，为类型安全提供保证，消除类型强转的烦恼。&lt;/p&gt;
-&lt;h3 id=&quot;泛型定义&quot;&gt;&lt;a href=&quot;#泛型定义&quot; class=&quot;headerlink&quot; title=&quot;泛型定义&quot;&gt;&lt;/a&gt;泛型定义&lt;/h3&gt;&lt;p&gt;好吧，如果只是简单声明一个泛型，和&lt;code&gt;Java&lt;/code&gt;没有什么大的区别，你可以这样声明：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;class Box&amp;lt;T&amp;gt;(t: T) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    var value = t&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;然后可以这样使用&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="kotlin" scheme="http://yoursite.com/tags/kotlin/"/>
-    
-      <category term="generics" scheme="http://yoursite.com/tags/generics/"/>
-    
-      <category term="泛型" scheme="http://yoursite.com/tags/%E6%B3%9B%E5%9E%8B/"/>
-    
-      <category term="类与对象" scheme="http://yoursite.com/tags/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>类与对象 -- object</title>
-    <link href="http://yoursite.com/2015/12/19/class-object-object/"/>
-    <id>http://yoursite.com/2015/12/19/class-object-object/</id>
-    <published>2015-12-19T11:02:38.000Z</published>
-    <updated>2017-05-19T15:57:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="对象（object）表达式和对象声明"><a href="#对象（object）表达式和对象声明" class="headerlink" title="对象（object）表达式和对象声明"></a>对象（object）表达式和对象声明</h2><p>Kotlin中提供关键object，与java中的“Object”不同（在java中“Object”是所有类的基类，等同于Kotlin的“Any”，参考<a href="https://kotlinlang.org/docs/reference/java-interop.html#mapped-types" target="_blank" rel="external">java-interop</a>），用于直接申明一个对象，有两种使用写法：对象表达式和对象声明</p>
-<h3 id="对象表达式"><a href="#对象表达式" class="headerlink" title="对象表达式"></a>对象表达式</h3><p>通过对象表达式可以越过类的定义直接得到一个对象：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">val point = object &#123;</div><div class="line">	var x: Int = 0</div><div class="line">	var y: Int = 0</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个对象可以继承于某个基类，或者实现其他接口:</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">open class Device(var name: String) &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">interface Vedio &#123;</div><div class="line">    fun play()&#123;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var television = object : Device(&quot;Sony&quot;), Vedio&#123;&#125;</div></pre></td></tr></table></figure>
-<p>这可以方便的实现一个匿名内部类的对象用于方法的参数中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">window.addMouseListener(object : MouseAdapter() &#123;</div><div class="line">    override fun mouseClicked(e: MouseEvent) &#123;</div><div class="line">        // ...</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    override fun mouseEntered(e: MouseEvent) &#123;</div><div class="line">        // ...</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>在对象表达中可以方便的访问到作用域中的其他变量，及时这个变量并不是<code>final</code>的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">fun countClicks(window: JComponent) &#123;</div><div class="line">    var clickCount = 0</div><div class="line">    var enterCount = 0</div><div class="line"></div><div class="line">    window.addMouseListener(object : MouseAdapter() &#123;</div><div class="line">        override fun mouseClicked(e: MouseEvent) &#123;</div><div class="line">            clickCount++</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        override fun mouseEntered(e: MouseEvent) &#123;</div><div class="line">            enterCount++</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="对象声明"><a href="#对象声明" class="headerlink" title="对象声明"></a>对象声明</h3><p>对象声明可类似定义一个类一样定义一个对象：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">object RCtrl : Device(&quot;Remote Control&quot;), Infrared &#123;</div><div class="line">    override fun send(command: Int) &#123;</div><div class="line">        // send command</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">object RCtrl : Device(&quot;Remote Control&quot;), Infrared &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在使用的时候可以直接使用定义的对象：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fun main(args: Array&lt;String&gt;) &#123;</div><div class="line">    RCtrl.send(1)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>当然你也可以定义一个变量来获取获取这个对象，当时当你定义两个不同的变量来获取这个对象时，你会发现你并不能得到两个不同的变量。也就是说通过这种方式，我们获得一个<strong><em>单例</em></strong>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var rCtrl1 = RCtrl</div><div class="line">var rCtrl2 = RCtrl</div><div class="line">rCtrl1.name = &quot;TV Control&quot;</div><div class="line">print(&quot;rCtrl2 name = $&#123;rCtrl2.name&#125;&quot;)</div></pre></td></tr></table></figure>
-<p>在Kotlin中我们可以方便的通过对象声明来获得一个单例。</p>
-<p>不过需要注意的是，对象声明不能直接定义在一个函数中。</p>
-<p>与对象表达式不同，当对象声明在另一个类的内部时，这个对象并不能通过外部类的实例访问到该对象，而只能通过类名来访问，同样该对象也不能直接访问到外部类的方法和变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Desk&#123;</div><div class="line">	var legCount = 4</div><div class="line">	object DeskTop&#123;</div><div class="line">       var area = 0</div><div class="line">       fun showLegs()&#123;</div><div class="line">       	print&#123;&quot;desk legs $legCount&quot;&#125; // error, compile complain</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">fun main(args: Array&lt;String&gt;) &#123;</div><div class="line">	var desk = Desk()</div><div class="line">   	desk.DeskTop.area // error, compile complain</div><div class="line">   	Desk.DeskTop.area // right</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="companion对象"><a href="#companion对象" class="headerlink" title="companion对象"></a>companion对象</h3><p>当对象声明在另一个对象中时，我们可以通过关键字<code>companion</code>将对象与外部类关联在一起，这样我们就可以直接通过外部类访问到对象的内部元素。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">class MyClass &#123;</div><div class="line">    companion object Factory &#123;</div><div class="line">        fun create(): MyClass = MyClass()</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">val instance = MyClass.create()</div></pre></td></tr></table></figure>
-<p>我们甚至可以省略掉该对象的对象名，然后使用<code>Companion</code>替代需要声明的对象名：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">class MyClass &#123;</div><div class="line">    companion object &#123;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">val x = MyClass.Companion</div></pre></td></tr></table></figure>
-<p>看到上面的例子我们我们就会思考如果我们定义两个内部关联对象怎么办，答案当然是不行，不管是否声明对象名，一个类里面只能声明一个内部关联对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class Desk&#123;</div><div class="line">    companion object DeskTop &#123;</div><div class="line">        var area = 0;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    companion object Leg&#123;  // error, compile complain</div><div class="line">        var lenght = 80</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="欢迎大家关注我们的公众号"><a href="#欢迎大家关注我们的公众号" class="headerlink" title="欢迎大家关注我们的公众号"></a>欢迎大家关注我们的公众号</h2><p><img src="http://7xpox6.com1.z0.glb.clouddn.com/qrcode_for_gh_b2ad0581a6c4_430.jpg?imageView2/2/w/320" alt=""> </p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://kotlinlang.org" target="_blank" rel="external">kotlin</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;对象（object）表达式和对象声明&quot;&gt;&lt;a href=&quot;#对象（object）表达式和对象声明&quot; class=&quot;headerlink&quot; title=&quot;对象（object）表达式和对象声明&quot;&gt;&lt;/a&gt;对象（object）表达式和对象声明&lt;/h2&gt;&lt;p&gt;Kotlin中提供关键object，与java中的“Object”不同（在java中“Object”是所有类的基类，等同于Kotlin的“Any”，参考&lt;a href=&quot;https://kotlinlang.org/docs/reference/java-interop.html#mapped-types&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;java-interop&lt;/a&gt;），用于直接申明一个对象，有两种使用写法：对象表达式和对象声明&lt;/p&gt;
-&lt;h3 id=&quot;对象表达式&quot;&gt;&lt;a href=&quot;#对象表达式&quot; class=&quot;headerlink&quot; title=&quot;对象表达式&quot;&gt;&lt;/a&gt;对象表达式&lt;/h3&gt;&lt;p&gt;通过对象表达式可以越过类的定义直接得到一个对象：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;val point = object &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	var x: Int = 0&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	var y: Int = 0&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这个对象可以继承于某个基类，或者实现其他接口:&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="kotlin" scheme="http://yoursite.com/tags/kotlin/"/>
-    
-      <category term="object" scheme="http://yoursite.com/tags/object/"/>
-    
-      <category term="companion" scheme="http://yoursite.com/tags/companion/"/>
-    
-      <category term="单例" scheme="http://yoursite.com/tags/%E5%8D%95%E4%BE%8B/"/>
-    
-      <category term="对象" scheme="http://yoursite.com/tags/%E5%AF%B9%E8%B1%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kotlin简介</title>
-    <link href="http://yoursite.com/2015/12/17/new-to-kotlin/"/>
-    <id>http://yoursite.com/2015/12/17/new-to-kotlin/</id>
-    <published>2015-12-17T13:35:29.000Z</published>
-    <updated>2017-05-19T16:03:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Kotlin是什么"><a href="#Kotlin是什么" class="headerlink" title="Kotlin是什么"></a>Kotlin是什么</h2><p>发布于2011年，是一门适用于JVM, Android以及浏览器静态语言，<strong><em>100% 兼容Java™</em></strong></p>
-<h2 id="为什么选择Kotlin"><a href="#为什么选择Kotlin" class="headerlink" title="为什么选择Kotlin"></a>为什么选择Kotlin</h2><ul>
-<li>简洁，大幅度减少你需要写的重复代码</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">使用lambda表达式来过滤链表：</div><div class="line">val positiveNumbers = list.filter &#123;it &gt; 0&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><p>安全，避免整个类中类似空指针异常这样的错误，测试妹妹再也不用担心你的NullPointException了</p>
-</li>
-<li><p>通用，可以用于构建服务器端程序、Android程序或者运行在浏览器里的前端程序</p>
-</li>
-<li><p>互操作，重用已有的JVM平台框架或库，与Java无缝兼容，可直接在之前项目上面使用Kotlin</p>
-</li>
-<li><p>工具，一门语言需要工具化，这正是JetBrains做得最好的地方</p>
-</li>
-<li><p>可靠，JetBrains提供技术支持</p>
-</li>
-</ul>
-<a id="more"></a>
-<h2 id="试用Kotlin"><a href="#试用Kotlin" class="headerlink" title="试用Kotlin"></a>试用Kotlin</h2><ul>
-<li>单独编译，你可以使用ant、maven或者gradle编译kotlin，<a href="https://kotlinlang.org/docs/tutorials/command-line.html" target="_blank" rel="external">编译器下载</a></li>
-<li>在IntelliJ IDEA或者Android Studio上编写kotlin，<a href="https://kotlinlang.org/docs/tutorials/getting-started.html" target="_blank" rel="external">安装插件</a></li>
-<li>在eclipse上编写kotlin，<a href="https://kotlinlang.org/docs/tutorials/getting-started-eclipse.html" target="_blank" rel="external">安装插件</a></li>
-<li><a href="http://try.kotlinlang.org/" target="_blank" rel="external">在线编辑</a></li>
-</ul>
-<h2 id="相关资源"><a href="#相关资源" class="headerlink" title="相关资源"></a>相关资源</h2><ul>
-<li><a href="https://kotlinlang.org/" target="_blank" rel="external">官方网站</a></li>
-<li><a href="http://kotlinlang.cn/" target="_blank" rel="external">中文网站</a></li>
-<li><a href="https://kotlinlang.org/docs/kotlin-docs.pdf" target="_blank" rel="external">文档下载</a></li>
-<li><a href="https://kotlinthree.github.io/" target="_blank" rel="external">KotlinThree</a></li>
-</ul>
-<h2 id="欢迎大家关注我们的公众号"><a href="#欢迎大家关注我们的公众号" class="headerlink" title="欢迎大家关注我们的公众号"></a>欢迎大家关注我们的公众号</h2><p><img src="http://7xpox6.com1.z0.glb.clouddn.com/qrcode_for_gh_b2ad0581a6c4_430.jpg?imageView2/2/w/320" alt=""> </p>
-<h2 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h2><p><a href="http://kotlinlang.cn/" target="_blank" rel="external">Kotlin</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Kotlin是什么&quot;&gt;&lt;a href=&quot;#Kotlin是什么&quot; class=&quot;headerlink&quot; title=&quot;Kotlin是什么&quot;&gt;&lt;/a&gt;Kotlin是什么&lt;/h2&gt;&lt;p&gt;发布于2011年，是一门适用于JVM, Android以及浏览器静态语言，&lt;strong&gt;&lt;em&gt;100% 兼容Java™&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;为什么选择Kotlin&quot;&gt;&lt;a href=&quot;#为什么选择Kotlin&quot; class=&quot;headerlink&quot; title=&quot;为什么选择Kotlin&quot;&gt;&lt;/a&gt;为什么选择Kotlin&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;简洁，大幅度减少你需要写的重复代码&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;使用lambda表达式来过滤链表：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;val positiveNumbers = list.filter &amp;#123;it &amp;gt; 0&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;安全，避免整个类中类似空指针异常这样的错误，测试妹妹再也不用担心你的NullPointException了&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;通用，可以用于构建服务器端程序、Android程序或者运行在浏览器里的前端程序&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;互操作，重用已有的JVM平台框架或库，与Java无缝兼容，可直接在之前项目上面使用Kotlin&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;工具，一门语言需要工具化，这正是JetBrains做得最好的地方&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;可靠，JetBrains提供技术支持&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="Kotlin" scheme="http://yoursite.com/tags/Kotlin/"/>
     
   </entry>
   
