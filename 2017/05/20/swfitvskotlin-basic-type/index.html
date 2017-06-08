@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>KotlinThree&#39;s Blog</title>
+  <title>Swift vs Kotlin 漫谈之基础类型 | KotlinThree&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="KotlinThree&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Swift: Kotlin 君，又见面了。你知道 Swift 中 Array，Set，Dictionary都是值类型嘛？ Kotlin: 我们和你们不一样，我们的基础类型都是类。你看我们的 Int 类型的定义就是类 1234public class Int private () : Number, Comparable&amp;lt;Int&amp;gt; &amp;#123;    companion object :">
+<meta name="keywords" content="swift vs kotlin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift vs Kotlin 漫谈之基础类型">
+<meta property="og:url" content="http://yoursite.com/2017/05/20/swfitvskotlin-basic-type/index.html">
 <meta property="og:site_name" content="KotlinThree&#39;s Blog">
+<meta property="og:description" content="Swift: Kotlin 君，又见面了。你知道 Swift 中 Array，Set，Dictionary都是值类型嘛？ Kotlin: 我们和你们不一样，我们的基础类型都是类。你看我们的 Int 类型的定义就是类 1234public class Int private () : Number, Comparable&amp;lt;Int&amp;gt; &amp;#123;    companion object :">
+<meta property="og:updated_time" content="2017-06-08T03:54:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KotlinThree&#39;s Blog">
+<meta name="twitter:title" content="Swift vs Kotlin 漫谈之基础类型">
+<meta name="twitter:description" content="Swift: Kotlin 君，又见面了。你知道 Swift 中 Array，Set，Dictionary都是值类型嘛？ Kotlin: 我们和你们不一样，我们的基础类型都是类。你看我们的 Int 类型的定义就是类 1234public class Int private () : Number, Comparable&amp;lt;Int&amp;gt; &amp;#123;    companion object :">
   
     <link rel="alternative" href="/atom.xml" title="KotlinThree&#39;s Blog" type="application/atom+xml">
   
@@ -155,471 +160,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-swiftvskotlin-class-and-inheritance" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-swfitvskotlin-basic-type" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/08/swiftvskotlin-class-and-inheritance/">Swift vs Kotlin 漫谈系列之类与继承</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/08/swiftvskotlin-class-and-inheritance/" class="archive-article-date">
-  	<time datetime="2017-06-08T03:22:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。内容会由简及深，慢慢深入。</p>
-<h1 id="技术漫谈"><a href="#技术漫谈" class="headerlink" title="技术漫谈"></a>技术漫谈</h1><p><strong>Kotlin:</strong></p>
-<p>Swift 君，你好。😏</p>
-<p><strong>Swift:</strong></p>
-<p>Kotlin 君，你好。🙂，干嘛笑的那么坏。</p>
-        
-          <a class="article-more-a" href="/2017/06/08/swiftvskotlin-class-and-inheritance/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">swift vs kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/08/swiftvskotlin-class-and-inheritance/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-kotlin_do_java_not" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/27/kotlin_do_java_not/">那些年Kotlin轻易能实现，java很难实现的语法糖</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/27/kotlin_do_java_not/" class="archive-article-date">
-  	<time datetime="2017-05-27T07:00:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>做android开发那么多年， 一直都是兢兢业业用java去码代码，直到两年前的一天发现了kotlin这门神奇的语言。犀利的语法特性，优雅的表达方式，从此掉入此坑。</p>
-<p>这里有个<a href="http://www.jcodecraeer.com/demo/from-java-to-kotlin/classes.html" target="_blank" rel="external">对比链接</a>可以看到表达同一个含义，kotlin相对java在表达上的优势。 </p>
-<p>最近google io大会把kotlin定为Android开发第一级语言，着实掀起了一股讨论kotlin的浪潮。那么，未来的androider是不是会用kotlin替代java呢？这里我们来讨论下一个话题：那些Kotlin轻易能实现，java很难实现的语法糖，由此来看一看kotlin的独特魅力。</p>
-        
-          <a class="article-more-a" href="/2017/05/27/kotlin_do_java_not/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java vs kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/27/kotlin_do_java_not/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-sk_love_Type aliases" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/25/sk_love_Type aliases/">我与 Kotlin 的爱恨情仇之浅谈 Type aliases</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/25/sk_love_Type aliases/" class="archive-article-date">
-  	<time datetime="2017-05-25T13:24:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>在上一篇文章 <a href="http://shanghai.kotliner.cn/2017/05/25/sk_love_block/" target="_blank" rel="external">《我与 Kotlin 的爱恨情仇之浅谈 block》</a>最后, 我提到了 <code>Kotlin</code> 已经引入 <code>Type aliases</code> ，今天就跟大家一起来聊聊吧。</p>
-</blockquote>
-<h2 id="Type-aliases-是什么？"><a href="#Type-aliases-是什么？" class="headerlink" title="Type aliases 是什么？"></a>Type aliases 是什么？</h2><p>接受一个新的东西的时候，我们首先都会从字面去猜测它大概是用来做什么的，<code>Type aliases</code> 也不例外。<br> <code>Type</code> 顾名思义 <code>类型</code> , <code>aliases</code> 我想大伙也并不会太陌生，意味着 <code>别名</code>，很多时候我们会在系统的 <code>profile</code> 中加入一些 <code>aliases</code>，方便我们使用命令。二者联合起来就是： <code>给一个类型起一个别名</code>。</p>
-        
-          <a class="article-more-a" href="/2017/05/25/sk_love_Type aliases/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/25/sk_love_Type aliases/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-sk_love_Extensions" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/25/sk_love_Extensions/">我与 Kotlin 的爱恨情仇之浅谈 Extensions</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/25/sk_love_Extensions/" class="archive-article-date">
-  	<time datetime="2017-05-25T13:24:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Kotlin, similar to C# and Gosu, provides the ability to extend a class with new functionality without having to inherit from the class or use any type of design pattern such as Decorator. This is done via special declarations called extensions. Kotlin supports extension functions and extension properties.</p>
-<p>上一个章节<a href="http://shanghai.kotliner.cn/2017/05/25/sk_love_Type%20aliases/" target="_blank" rel="external">《我与 Kotlin 的爱恨情仇之浅谈 Type aliases》</a>中，带领大家一起领略了一下 <code>typealias</code>的基本用法。可以让你写出更加优美的代码。今天再带大家一起来领略一下 <code>Kotlin</code> 中另一个神奇好玩的东西: <code>Extensions</code>.</p>
-        
-          <a class="article-more-a" href="/2017/05/25/sk_love_Extensions/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/25/sk_love_Extensions/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-sk_love_block" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/23/sk_love_block/">我与 Kotlin 的爱恨情仇之浅谈 block</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/23/sk_love_block/" class="archive-article-date">
-  	<time datetime="2017-05-23T13:34:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>hi, IMSK。是的，你没看错，没迷路，这里是 <code>Kotlin</code>  ，不是 <code>Objective-C</code>，别怕接下来跟我一起认识认识这个 block 的前世今生。前方高能，请您带上耳机，戴上眼镜。</p>
-        
-          <a class="article-more-a" href="/2017/05/23/sk_love_block/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/23/sk_love_block/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-kotlin_properties_delegate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/22/kotlin_properties_delegate/">玩转 Kotlin 委托属性</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/22/kotlin_properties_delegate/" class="archive-article-date">
-  	<time datetime="2017-05-22T13:04:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>tags: Kotlin</p>
-<h2 id="Kotlin-属性"><a href="#Kotlin-属性" class="headerlink" title="Kotlin 属性"></a>Kotlin 属性</h2><p>要讲 Kotlin 的委托属性，要先从 Kotlin 的属性说起，当然关于属性的定义就不多介绍了。这里介绍一下 Kotlin 区别于 Java 独有的 back field 的概念。用过 Kotlin 的人都知道，Kotlin 的属性是天生带 Setter/Getter 方法的，不过如果要重写他们的话，写法有所不同。</p>
-        
-          <a class="article-more-a" href="/2017/05/22/kotlin_properties_delegate/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/22/kotlin_properties_delegate/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-swiftvskotlin_define_function" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/22/swiftvskotlin_define_function/">Swift vs. Kotlin 漫谈之函数定义</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/22/swiftvskotlin_define_function/" class="archive-article-date">
-  	<time datetime="2017-05-22T05:07:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>tags: Kotlin, Swift</p>
-<p>Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。</p>
-        
-          <a class="article-more-a" href="/2017/05/22/swiftvskotlin_define_function/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Swift</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">swift vs kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/22/swiftvskotlin_define_function/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-swfitvskotlin-basic-type" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/20/swfitvskotlin-basic-type/">Swift vs Kotlin 漫谈之基础类型</a>
+    <h1 class="article-title" itemprop="name">
+      Swift vs Kotlin 漫谈之基础类型
     </h1>
   
 
@@ -641,11 +189,215 @@
 <p>你看我们的Int类型是这样的</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Int</span> : <span class="title">SignedInteger</span>, <span class="title">Comparable</span>, <span class="title">Equatable</span> </span>&#123;</div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>既然你们的基础类型是类，那么会有引用问题嘛？一个对象被多个其他对象持有这种情况？</p>
-        
-          <a class="article-more-a" href="/2017/05/20/swfitvskotlin-basic-type/#more">more >></a>
-        
+<a id="more"></a>
+<p><strong><em>Kotlin:</em></strong></p>
+<p>基础类型没有提供修改接口，都是 <code>immutable</code> 类型，当值发生变化时都是生成了个新的对象，所以不会有引用问题。</p>
+<p><strong><em>Swift:</em></strong></p>
+<p>这样子，我明白了。说到这里我们来讲讲基础类型吧。</p>
+<p>Swift 里基础类型有整数，浮点数，布尔，字符串，元组，可选，集合类型(Array, Set, Dictionary)</p>
+<p><strong><em>Kotlin:</em></strong></p>
+<p>你的的基础元素还真丰富啊，不过我们除了没有元组，其他也都有呢。元祖在kotlin有个类似的概念，我们可以通过析构一个数据类型实现类似的功能，如标准库里提供的<code>Pair</code>，<code>Triple</code>！</p>
+<p><strong><em>Swift:</em></strong></p>
+<p>我们先来说下整数类型吧！我们的整数有有符号整数Int，还有无符号整数UInt，一般情况下都是用Int，下面我们看看如何声明吧</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> one = <span class="number">1</span> <span class="comment">//Int</span></div><div class="line"><span class="keyword">let</span> two = <span class="number">2</span> <span class="comment">//Int</span></div><div class="line"><span class="keyword">let</span> oneHundred = <span class="number">100</span> <span class="comment">//Int</span></div><div class="line"><span class="keyword">let</span> oneThousnad = <span class="number">1_000</span> <span class="comment">//Int</span></div></pre></td></tr></table></figure>
+<p>使用二进制、八进值或十六进制表示可以这样声明</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> binaryInteger = <span class="number">0b10001</span> <span class="comment">//Int 17</span></div><div class="line"><span class="keyword">let</span> octalInteger = <span class="number">0o21</span> <span class="comment">//Int 17</span></div><div class="line"><span class="keyword">let</span> hexadecimalInteger = <span class="number">0x11</span>  <span class="comment">//Int 17</span></div></pre></td></tr></table></figure>
+<p><strong><em>Kotlin:</em></strong></p>
+<p>这个kotlin也是一样的写法，除了声明常量用<code>var</code>而不是<code>let</code>，另外kotlin不支持8进制。</p>
+<p>有了整数就有浮点数，你们的浮点数是什么样的？</p>
+<p><strong><em>Swift:</em></strong></p>
+<p>我们的浮点数有 Float 和 Double，Float是32位的精确的到小数点之后6位，Double是64位的精确到小数点之后的15位。<br>当声明一个浮点数时，如果不指定类型，Swift会类型推断为 Doule</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> p = <span class="number">3.14</span> <span class="comment">//Double</span></div><div class="line"><span class="keyword">let</span> pi = <span class="number">3.1415926</span> <span class="comment">//Double</span></div><div class="line"><span class="keyword">let</span> scale: <span class="type">Float</span> = <span class="number">1.0</span> <span class="comment">//Float</span></div></pre></td></tr></table></figure>
+<p>你们呢？是不是和我们一样啊？</p>
+<p><strong><em>Kotlin:</em></strong></p>
+<p>kotlin <code>Float</code>类型必须加f或F, <code>val scale: Float = 1.0F</code></p>
+<p><strong><em>Swift:</em></strong></p>
+<p>说到这里上周我为了一个选择抛硬币，所以这里要提下只拥有ture和false的Bool类型</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obverseSideOfCoin = <span class="literal">true</span></div><div class="line"><span class="keyword">var</span> reverseSideOfCoin = <span class="literal">false</span></div></pre></td></tr></table></figure>
+<p>就是因为有了Bool类型，所以我们才会有控制流呢！</p>
+<p><strong><em>Kotlin:</em></strong></p>
+<p>写程序最离不开的就是Boolean类型了吧，所有的语言都会支持。字符串我们也来讨论下吧，kotlin中字符串对象是不可变型，类是个final类型的class。</p>
+<p><strong><em>Swift:</em></strong></p>
+<p>嗯，我们Swift里字符串是改进很多的，这里我简单介绍下。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建一个字符串</span></div><div class="line"><span class="keyword">let</span> string = <span class="string">"我是一个字符串"</span></div><div class="line"><span class="comment">//创建一个空字符串</span></div><div class="line"><span class="keyword">let</span> emptyString = <span class="type">String</span>()</div><div class="line"><span class="comment">//判断字符串为空</span></div><div class="line"><span class="keyword">if</span> emptyString.isEmpty &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"empty"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面声明的字符串是不可变类型的，创建之后就不能更改，如果我需要更改一个字符串应该这样创建</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> swiftVSKotlin = <span class="string">"swift"</span></div><div class="line">swiftVSKotlin += <span class="string">"VS"</span></div><div class="line">swiftVSKotlin += <span class="string">"Kotilin"</span></div></pre></td></tr></table></figure>
+<p><strong><em>Kotlin：</em></strong></p>
+<p>这里其实创建了三个对象，编译器优化的话就是可能就是一个对象</p>
+<p><strong><em>Swift:</em></strong></p>
+<p>嗯，我们的字符串也可以按字符来遍历</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> animals = <span class="string">"🐶🐱🐭🐹🐰"</span></div><div class="line"><span class="keyword">for</span> animal <span class="keyword">in</span> animals.characters &#123;</div><div class="line">    <span class="built_in">print</span>(animal)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong><em>Kotlin:</em></strong></p>
+<p>kotlin有字符串模板概念，如</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">println(<span class="string">"name=<span class="subst">$&#123;user.name&#125;</span>"</span>)</div></pre></td></tr></table></figure>
+<p><code>${expression}</code>直接求值输出</p>
+<p><strong><em>Swift:</em></strong></p>
+<p>我们是这样写的</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> kotlin = <span class="string">"kotlin"</span></div><div class="line"><span class="keyword">let</span> swift = <span class="string">"swift"</span></div><div class="line"><span class="keyword">let</span> stirng = <span class="string">"<span class="subst">\(kotlin)</span>和<span class="subst">\(swift)</span>展开了一场切磋"</span></div></pre></td></tr></table></figure>
+<p>我们字符串比较也可以直接使用<code>==</code>来比较了，所以写OC的同学会犯错</p>
+<p><strong><em>Kotlin:</em></strong></p>
+<p>字符串拼接的写法还是有些差异的，我们单个变量的时候直接 <code>$</code> 后面加变量名就可以了。对于字符串的比较 Kotlin 也做了优化，可以直接用 <code>==</code> 来比较，也可以用 <code>===</code> 来进行引用的比较。不过我们这里还有一个更牛逼的字符串的写法，叫做 <code>raw string</code>。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> text = <span class="string">"""</span></div><div class="line">    for (c in "foo")</div><div class="line">        print(c)</div><div class="line">"""</div></pre></td></tr></table></figure>
+<p><code>raw string</code> 用三重引号表示(“””), 其内容不转义, 可以包含换行符和任意字符。怎么样，你们可以吗？</p>
+<p><strong><em>Swift:</em></strong></p>
+<p>这个我们没有，不过我们集合类型很强大，所以我们在函数式编程上有天然的优势呢，集合类型我就简单说下Array吧</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> someInts = [<span class="type">Int</span>]() <span class="comment">//创建空数组</span></div><div class="line"><span class="keyword">var</span> threeDoubles = <span class="type">Array</span>(repeating: <span class="number">0.0</span>, <span class="built_in">count</span>: <span class="number">3</span>) <span class="comment">//创建里面包含3个0.0的数组 [0.0, 0.0, 0.0]</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> array = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</div><div class="line"><span class="keyword">let</span> array2 = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</div><div class="line"><span class="keyword">let</span> array3 = array + array2 <span class="comment">// 可以通过两个数组相加创建一个新的数组</span></div></pre></td></tr></table></figure>
+<p>看 还是挺厉害的吧</p>
+<p><strong><em>kotlin:</em></strong></p>
+<p>确实简洁，我们也不弱</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> a1 = arrayListOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</div><div class="line"><span class="keyword">val</span> a2: IntArray = intArrayOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</div><div class="line">a2[<span class="number">0</span>] = a2[<span class="number">1</span>] + a2[<span class="number">2</span>]</div><div class="line"><span class="keyword">val</span> a3 = a1 + a2</div></pre></td></tr></table></figure>
+<p><strong><em>Swift:</em></strong></p>
+<p>高手对招果然痛快，哈哈。swift和kotlin都是很棒的语言。这次交流就这么多了，Swift在基础类型还有很多细节。下次在讲吧～</p>
+<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h2 id="Koltin"><a href="#Koltin" class="headerlink" title="Koltin"></a>Koltin</h2><p>在Kotlin中，所有东西都是对象，基本类型是<strong>内置的优化过</strong>的类。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Represents a 32-bit signed integer.</div><div class="line"> * On the JVM, non-nullable values of this type are represented as values of the primitive type `int`.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Int</span> <span class="keyword">private</span> </span>() : Number, Comparable&lt;<span class="built_in">Int</span>&gt; &#123;</div><div class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> : IntegerConstants&lt;<span class="built_in">Int</span>&gt; &#123;&#125;</div><div class="line"> 	...   </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Represents a single-precision 32-bit IEEE 754 floating point number.</div><div class="line"> * On the JVM, non-nullable values of this type are represented as values of the primitive type `float`.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Float</span> <span class="keyword">private</span> </span>() : Number, Comparable&lt;<span class="built_in">Float</span>&gt; &#123;</div><div class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> : FloatingPointConstants&lt;<span class="built_in">Float</span>&gt; &#123;&#125;</div><div class="line"> 	...   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="kotlin中的数字类型"><a href="#kotlin中的数字类型" class="headerlink" title="kotlin中的数字类型"></a>kotlin中的数字类型</h3><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Bit width</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Double</td>
+<td>64</td>
+</tr>
+<tr>
+<td>Float</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Long</td>
+<td>64</td>
+</tr>
+<tr>
+<td>Int</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Short</td>
+<td>16</td>
+</tr>
+<tr>
+<td>Byte</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p>和 java 类似，kotlin基本类型也是<code>Int</code>, <code>Long</code>, <code>Double</code>, <code>Float</code>, <code>Short</code>, <code>Byte</code>。这几种类型都继承类<code>Number</code><br>所以他们拥有父类的几个方法</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">— toByte(): <span class="built_in">Byte</span>— toShort(): <span class="built_in">Short</span>— toInt(): <span class="built_in">Int</span>— toLong(): <span class="built_in">Long</span>— toFloat(): <span class="built_in">Float</span>— toDouble(): <span class="built_in">Double</span></div><div class="line">— toChar(): <span class="built_in">Char</span></div></pre></td></tr></table></figure>
+<h3 id="基本类型的使用"><a href="#基本类型的使用" class="headerlink" title="基本类型的使用"></a>基本类型的使用</h3><p>声明变量用<code>var</code>或<code>val</code></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> a = <span class="number">123</span>	<span class="comment">// Int</span></div><div class="line"><span class="keyword">val</span> b = <span class="number">123</span>L	<span class="comment">// Long</span></div><div class="line"><span class="keyword">val</span> c = <span class="number">123.5</span>F	<span class="comment">// Float</span></div><div class="line"><span class="keyword">val</span> d = <span class="number">123.5</span>		<span class="comment">//Double</span></div><div class="line"><span class="keyword">val</span> e = <span class="number">0x00ff</span>	<span class="comment">// 十六进制</span></div><div class="line"><span class="keyword">val</span> f = <span class="number">0</span>b0101	<span class="comment">// 二进制</span></div><div class="line"></div><div class="line"><span class="comment">// tips: 不支持八进制</span></div></pre></td></tr></table></figure>
+<p>特殊用法：</p>
+<p><strong>数字字面值中的下划线(自 1.1 起) 你可以使用下划线使数字常量更易读</strong>:</p>
+<p>```kotlin<br>val oneMillion = 1_000_000<br>val creditCardNumber = 1234_5678_9012_3456L<br>val socialSecurityNumber = 999_99_9999L<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 布尔</div><div class="line"></div><div class="line">布尔用 Boolean 类型表示,它有两个值:`true` 和 `false`。 若需要可空引用布尔会被装箱。内置的布尔运算有:- `||` 短路逻辑或</div><div class="line">- `&amp;&amp;` 短路逻辑与</div><div class="line">- `!` 逻辑非</div><div class="line"></div><div class="line"></div><div class="line">### 数组</div><div class="line">数组在 Kotlin 中使用 `Array` 类来表示,它定义了 `get` 和 `set` 函数(按照运算符重载约定这会转变为 `[]` )和 `size` 属性,以及一些其他有用的成员 函数:我们可以使用库函数 `arrayOf()` 来创建一个数组并传递元素值给它,这样 `arrayOf(1, 2, 3)` 创建了 `array [1, 2, 3]`。</div><div class="line"></div><div class="line"></div><div class="line">### 字符串</div><div class="line"></div><div class="line">字符串用 String 类型表示。字符串是不可变的。字符串的元素字符可以使用索引运算符访问: s[i] 。可以用 for 循环迭代字符串:</div></pre></td></tr></table></figure></p>
+<p>for (c in str) {<br>    println(c)<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">String的源码定义</div><div class="line"></div><div class="line">```kotlin</div><div class="line">/**</div><div class="line"> * The `String` class represents character strings. All string literals in Kotlin programs, such as `&quot;abc&quot;`, are</div><div class="line"> * implemented as instances of this class.</div><div class="line"> */</div><div class="line">public class String : Comparable&lt;String&gt;, CharSequence &#123;</div><div class="line">    companion object &#123;&#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * Returns a string obtained by concatenating this string with the string representation of the given [other] object.</div><div class="line">     */</div><div class="line">    public operator fun plus(other: Any?): String</div><div class="line"></div><div class="line">    public override val length: Int</div><div class="line"></div><div class="line">    public override fun get(index: Int): Char</div><div class="line"></div><div class="line">    public override fun subSequence(start: Int, end: Int): CharSequence</div><div class="line"></div><div class="line">    public override fun compareTo(other: String): Int</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h4><p>可以用<code>${}</code>包含任意表达式，如果表达式是单个变量，可省略<code>{}</code>如：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> s = <span class="string">"abc"</span></div><div class="line"><span class="keyword">val</span> str = <span class="string">"<span class="subst">$s</span>.length is <span class="subst">$&#123;s.length&#125;</span>"</span></div><div class="line"><span class="comment">// 求值结果是abc.length is 3</span></div><div class="line"></div><div class="line">println(<span class="string">"1 + 2 = <span class="subst">$&#123;<span class="number">1</span> + <span class="number">2</span>&#125;</span>"</span>)</div><div class="line"><span class="comment">// 输出 1 + 2 = 3</span></div></pre></td></tr></table></figure>
+<h4 id="原生字符串-raw-string"><a href="#原生字符串-raw-string" class="headerlink" title="原生字符串(raw string)"></a>原生字符串(raw string)</h4><p>Kotlin 中存在两种字符串字面值: 一种称为转义字符串(escaped string), 其中可以包含转义字符, 另一种成为原生字符串(raw string), 其内容可以包含换行符和任意文本. 转义字符串(escaped string) 与 Java 的字符串非常类似:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> s = <span class="string">"Hello, world!\n"</span></div></pre></td></tr></table></figure>
+<p>原生字符串(raw string)由三重引号表示(“””), 其内容不转义, 可以包含换行符和任意字符:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> text = <span class="string">"""</span></div><div class="line">    for (c in "foo")</div><div class="line">        print(c)</div><div class="line">"""</div></pre></td></tr></table></figure>
+<h3 id="类型智能转换"><a href="#类型智能转换" class="headerlink" title="类型智能转换"></a>类型智能转换</h3><p>在许多情况下,不需要在 Kotlin 中使用显式转换操作符,因为编译器跟踪 不可变值的 <code>is</code> 检查,并在需要时自动插入(安全的)转换:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">demo</span><span class="params">(x: <span class="type">Any</span>)</span></span> &#123;	<span class="keyword">if</span> (x <span class="keyword">is</span> String) &#123;		print(x.length) <span class="comment">// x 自动转换为字符串</span></div><div class="line">	&#125;&#125;</div></pre></td></tr></table></figure>
+<h3 id="相等性"><a href="#相等性" class="headerlink" title="相等性"></a>相等性</h3><p>Kotlin 中有两种类型的相等性:</p>
+<ul>
+<li>引用相等(两个引用指向同一对象)</li>
+<li>结构相等(用 <code>equals()</code> 检查)</li>
+</ul>
+<h4 id="引用相等"><a href="#引用相等" class="headerlink" title="引用相等"></a>引用相等</h4><p>引用相等由 <code>===</code>(以及其否定形式 <code>!==</code> )操作判断。<code>a === b</code> 当且仅当 a 和 b 指向同一个对象时求值为 true。</p>
+<h4 id="结构相等"><a href="#结构相等" class="headerlink" title="结构相等"></a>结构相等</h4><p>结构相等由 <code>==</code>(以及其否定形式 <code>!=</code> )操作判断。按照惯例,像 <code>a == b</code> 这样的表达式会翻译成</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a?.equals(b) ?: (b === <span class="literal">null</span>)</div></pre></td></tr></table></figure>
+<p>也就是说如果 <code>a</code> 不是 <code>null</code> 则调用 <code>equals(Any?)</code> 函数,否则(即 <code>a</code> 是 <code>null</code> )检查 <code>b</code> 是否与 <code>null</code> 引用相等。</p>
+<p>简单理解就是:</p>
+<p><strong><code>==</code>表示比较值， <code>===</code>表示比较引用</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> a = StringBuffer(<span class="string">"aaa"</span>).toString()</div><div class="line"><span class="keyword">val</span> b = <span class="string">"aaa"</span></div><div class="line"></div><div class="line"><span class="keyword">val</span> r1 = a == b <span class="comment">// 求值结果是true</span></div><div class="line"><span class="keyword">val</span> r2 = a === b <span class="comment">// 求值结果是false</span></div><div class="line"></div><div class="line"><span class="comment">// 如果val a = "aaa", 则两个都输出true， 思考为啥会这样？</span></div></pre></td></tr></table></figure>
+<h2 id="Swift"><a href="#Swift" class="headerlink" title="Swift"></a>Swift</h2><p>Swift 拥有 C 和 Objective-C 语言支持的基础类型，比如Int，Float，String，Bool..同时根据语言特性对集合类型（Collection Types） Array， Set ，Dictionary 增加了扩展。</p>
+<p>除了基础类型，Swift 还增加了元组(Tuples)和 Optional，Optional篇幅较大将于之后的章节详细介绍。</p>
+<p>Swift 作为强类型（type-safe）的语言, 意味着在使用值时，编译器已经知道具体的数据类型。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>x</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>整数</td>
+<td>Int UInt</td>
+</tr>
+<tr>
+<td>浮点数</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>字符串</td>
+<td>String</td>
+</tr>
+<tr>
+<td>元组</td>
+<td>()</td>
+</tr>
+<tr>
+<td>可选类型</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>集合类型</td>
+<td>Array，Set，Dictionary</td>
+</tr>
+</tbody>
+</table>
+<h3 id="整数-Integers"><a href="#整数-Integers" class="headerlink" title="整数 Integers"></a>整数 Integers</h3><p>整数类型是没有小数点部分的数组，比如 1，0，-1。<br>Swift 中有 Int 和 UInt 两种类型分表表示有符号和没有符号类型。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> one = <span class="number">1</span></div><div class="line"><span class="keyword">let</span> zero = <span class="number">0</span></div><div class="line"><span class="keyword">let</span> negativeOne = -<span class="number">1</span></div></pre></td></tr></table></figure>
+<h3 id="浮点数-Floating-Point-Number"><a href="#浮点数-Floating-Point-Number" class="headerlink" title="浮点数 Floating-Point Number"></a>浮点数 Floating-Point Number</h3><p>浮点数是有小数点部分的数字，比如 1.234567, 3.141597<br>Float 和Double 是 Swift 提供的两种浮点数类型。<br>Float类型有6位的精度和32位，Double类型有15位的精度和64位。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> pi = <span class="number">3.1415926</span></div><div class="line"><span class="keyword">let</span> goldenRatio = <span class="number">0.618</span></div><div class="line"><span class="keyword">let</span> floatValue: <span class="type">Double</span> = <span class="number">1.2345678</span></div></pre></td></tr></table></figure>
+<h3 id="布尔-Booleans"><a href="#布尔-Booleans" class="headerlink" title="布尔 Booleans"></a>布尔 Booleans</h3><p>布尔类型在 Swift 使用 Bool 来表示，Bool类型的值只有 true 和 false，一般用来做逻辑判断。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> toDoSomething: <span class="type">Bool</span> = <span class="literal">true</span></div><div class="line"><span class="keyword">if</span> toDoSomething &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"Hello wrold"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="字符串-String"><a href="#字符串-String" class="headerlink" title="字符串 String"></a>字符串 String</h3><p>字符的有序集合表示为 String 类型，String 类型是 Character类型集合。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建字符串</span></div><div class="line"><span class="keyword">let</span> string： <span class="type">String</span> = <span class="string">"我是一个字符串"</span></div><div class="line"><span class="comment">//创建空字符串</span></div><div class="line"><span class="keyword">let</span> emptyString = <span class="string">""</span></div><div class="line"><span class="keyword">let</span> anotherEmotyString = <span class="type">String</span>()</div><div class="line"><span class="keyword">if</span> emptyString.isEmpty &#123;</div><div class="line">	<span class="built_in">print</span>(<span class="string">"Empty"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>创建一个可变字符串适用<code>var</code>来声明</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> variableString = <span class="string">"Swift"</span></div><div class="line">variableString += <span class="string">"vs Koltin"</span></div></pre></td></tr></table></figure>
+<p>Swift的 <code>String</code>类型是值类型，已经不是 OC 时代的 引用类型了。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">String</span> </span>&#123;</div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>字符串的比较可以使用<code>==</code>号，</p>
+<h3 id="元组-Tuples"><a href="#元组-Tuples" class="headerlink" title="元组 Tuples"></a>元组 Tuples</h3><p>元组可以把多个值合并成一个值，比如</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> train = (<span class="number">12306</span>, <span class="string">"和谐号"</span>)</div></pre></td></tr></table></figure>
+<p>也可以在声明的时候分别给予名称</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> metro = (number: <span class="number">4</span>, name:<span class="string">"4号线"</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"metro number: <span class="subst">\(metro.number)</span> name: <span class="subst">\(metro.name)</span>"</span>)</div></pre></td></tr></table></figure>
+<h3 id="集合类型"><a href="#集合类型" class="headerlink" title="集合类型"></a>集合类型</h3><p>集合类型是Swift 函数式编程不可获取的部分，在之后会更详细的讲解</p>
+<h4 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组 Array"></a>数组 Array</h4><p>下面是数组的常用方法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建数组</span></div><div class="line"><span class="keyword">var</span> someInts = [<span class="type">Int</span>]()</div><div class="line"></div><div class="line"><span class="comment">//插入数据</span></div><div class="line">someInts.append(<span class="number">3</span>)</div><div class="line"></div><div class="line"><span class="comment">//创建默认值数组</span></div><div class="line"><span class="keyword">let</span> fourInt = <span class="type">Array</span>(repeating: <span class="number">0</span>, <span class="built_in">count</span>: <span class="number">4</span>)</div><div class="line"></div><div class="line"><span class="comment">//数组合并</span></div><div class="line"><span class="keyword">var</span> newIntArray = someInts + fourInt</div><div class="line"></div><div class="line"><span class="comment">//判断数组是否为空</span></div><div class="line"><span class="keyword">let</span> isArrayEmpty = newIntArray.isEmpty</div><div class="line"></div><div class="line"><span class="comment">//通过下标访问数组</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> firstElement = newIntArray[<span class="number">0</span>]</div><div class="line"></div><div class="line"><span class="comment">//获取数组最后一位</span></div><div class="line">newIntArray.last</div><div class="line"></div><div class="line"><span class="comment">//遍历数组</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> value <span class="keyword">in</span> newIntArray &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"value = <span class="subst">\(value)</span>"</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">//遍历数组2</span></div><div class="line"><span class="keyword">for</span> (index, value) <span class="keyword">in</span> newIntArray.enumerated() &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"Item <span class="subst">\(index + <span class="number">1</span>)</span>: <span class="subst">\(value)</span>"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我们喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://7xpox6.com1.z0.glb.clouddn.com/WechatIMG603.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -665,163 +417,83 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/20/swfitvskotlin-basic-type/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/20/swfitvskotlin-basic-type/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
-
-
-
   
-    <article id="post-swiftvskotlin_variables" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/18/swiftvskotlin_variables/">Swift vs. Kotlin 之变量定义</a>
-    </h1>
+    <a href="/2017/05/22/swiftvskotlin_define_function/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Swift vs. Kotlin 漫谈之函数定义
+        
+      </div>
+    </a>
   
-
-        
-        <a href="/2017/05/18/swiftvskotlin_variables/" class="archive-article-date">
-  	<time datetime="2017-05-18T04:59:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>tags: Kotlin, Swift</p>
-<p>Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。</p>
-        
-          <a class="article-more-a" href="/2017/05/18/swiftvskotlin_variables/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Swift</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">swift vs kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/18/swiftvskotlin_variables/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
   
-    <article id="post-2017-04-09-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+    <a href="/2017/05/18/swiftvskotlin_variables/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Swift vs. Kotlin 之变量定义</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/2017-04-09-01/">Kotlin Primer·第五章·函数与闭包</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/09/2017-04-09-01/" class="archive-article-date">
-  	<time datetime="2017-04-09T05:48:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>题外话：全书的目录以及主要内容已经公开，可在我公众号【<a href="http://mp.weixin.qq.com/s/3W6ciZYM1o_J5VqIFyNIpQ" target="_blank" rel="external">技术实验室</a>】的历史推送文章查看</p>
-<p>第一部分——快速上手<br><a href="http://shanghai.kotliner.cn/2017/02/03/2017-02-03-01/" target="_blank" rel="external">第一章·启程</a><br><a href="http://shanghai.kotliner.cn/2017/02/04/2017-02-04-01/" target="_blank" rel="external">第二章·基本语法</a><br><a href="http://shanghai.kotliner.cn/2017/02/07/2017-02-07-01/" target="_blank" rel="external">第三章·Kotlin 与 Java 混编</a><br>第二部分——开始学习 Kotlin<br><a href="http://shanghai.kotliner.cn/2017/02/12/2017-02-12-01/" target="_blank" rel="external">第四章·Kotlin 的类特性(上)</a><br><a href="http://shanghai.kotliner.cn/2017/02/26/2017-02-26-01/" target="_blank" rel="external">第四章·Kotlin 的类特性(下)</a><br><a href="http://shanghai.kotliner.cn/2017/04/09/2017-04-09-01/" target="_blank" rel="external">第五章·函数与闭包</a> </p>
-</blockquote>
-<p>函数与闭包的特性可以算是 Kotlin 语言最大的特性了。  </p>
-<h3 id="5-1-函数"><a href="#5-1-函数" class="headerlink" title="5.1 函数"></a>5.1 函数</h3><p>即使 Kotlin 是一门面向对象的编程语言，它也是有函数的概念的——而不像 Java 那样，仅仅有“方法”。<br>回顾一下前面第二章讲述的函数声明语法：</p>
-        
-          <a class="article-more-a" href="/2017/04/09/2017-04-09-01/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/09/2017-04-09-01/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
+</nav>
 
 
 
@@ -829,9 +501,10 @@
 
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -854,8 +527,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

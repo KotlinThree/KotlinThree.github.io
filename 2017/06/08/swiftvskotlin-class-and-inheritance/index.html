@@ -6,22 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>参与《Swift vs. Kotlin 漫谈》系列 | KotlinThree&#39;s Blog</title>
+  <title>Swift vs Kotlin 漫谈系列之类与继承 | KotlinThree&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="无论你是 Kotlin 开发者， 还是 Swift 开发者， 或者你两者都会， 你对参与 《Swift vs. Kotlin 漫谈》系列感兴趣的话，可以联系我。">
-<meta name="keywords" content="Kotlin,Swift">
+  <meta name="description" content="Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。内容会由简及深，慢慢深入。 技术漫谈Kotlin: Swift 君，你好。😏 Swift: Kotlin 君，你好。🙂，干嘛笑的那么坏。">
+<meta name="keywords" content="swift vs kotlin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="参与《Swift vs. Kotlin 漫谈》系列">
-<meta property="og:url" content="http://yoursite.com/2017/05/22/swiftvs.kotlin_project/index.html">
+<meta property="og:title" content="Swift vs Kotlin 漫谈系列之类与继承">
+<meta property="og:url" content="http://yoursite.com/2017/06/08/swiftvskotlin-class-and-inheritance/index.html">
 <meta property="og:site_name" content="KotlinThree&#39;s Blog">
-<meta property="og:description" content="无论你是 Kotlin 开发者， 还是 Swift 开发者， 或者你两者都会， 你对参与 《Swift vs. Kotlin 漫谈》系列感兴趣的话，可以联系我。">
-<meta property="og:image" content="http://7xpox6.com1.z0.glb.clouddn.com/WechatIMG616.jpeg?imageview2/2/w/720">
+<meta property="og:description" content="Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。内容会由简及深，慢慢深入。 技术漫谈Kotlin: Swift 君，你好。😏 Swift: Kotlin 君，你好。🙂，干嘛笑的那么坏。">
 <meta property="og:image" content="http://7xpox6.com1.z0.glb.clouddn.com/kotlin-three-wechat.jpg">
-<meta property="og:updated_time" content="2017-05-22T04:55:25.000Z">
+<meta property="og:updated_time" content="2017-06-08T03:54:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="参与《Swift vs. Kotlin 漫谈》系列">
-<meta name="twitter:description" content="无论你是 Kotlin 开发者， 还是 Swift 开发者， 或者你两者都会， 你对参与 《Swift vs. Kotlin 漫谈》系列感兴趣的话，可以联系我。">
-<meta name="twitter:image" content="http://7xpox6.com1.z0.glb.clouddn.com/WechatIMG616.jpeg?imageview2/2/w/720">
+<meta name="twitter:title" content="Swift vs Kotlin 漫谈系列之类与继承">
+<meta name="twitter:description" content="Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。内容会由简及深，慢慢深入。 技术漫谈Kotlin: Swift 君，你好。😏 Swift: Kotlin 君，你好。🙂，干嘛笑的那么坏。">
+<meta name="twitter:image" content="http://7xpox6.com1.z0.glb.clouddn.com/kotlin-three-wechat.jpg">
   
     <link rel="alternative" href="/atom.xml" title="KotlinThree&#39;s Blog" type="application/atom+xml">
   
@@ -163,41 +162,224 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-swiftvs.kotlin_project" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-swiftvskotlin-class-and-inheritance" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      参与《Swift vs. Kotlin 漫谈》系列
+      Swift vs Kotlin 漫谈系列之类与继承
     </h1>
   
 
         
-        <a href="/2017/05/22/swiftvs.kotlin_project/" class="archive-article-date">
-  	<time datetime="2017-05-22T04:53:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-22</time>
+        <a href="/2017/06/08/swiftvskotlin-class-and-inheritance/" class="archive-article-date">
+  	<time datetime="2017-06-08T03:22:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>无论你是 Kotlin 开发者，</p>
-<p>还是 Swift 开发者，</p>
-<p>或者你两者都会，</p>
-<p>你对参与 《Swift vs. Kotlin 漫谈》系列感兴趣的话，可以联系我。</p>
+        <p>Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。内容会由简及深，慢慢深入。</p>
+<h1 id="技术漫谈"><a href="#技术漫谈" class="headerlink" title="技术漫谈"></a>技术漫谈</h1><p><strong>Kotlin:</strong></p>
+<p>Swift 君，你好。😏</p>
+<p><strong>Swift:</strong></p>
+<p>Kotlin 君，你好。🙂，干嘛笑的那么坏。</p>
 <a id="more"></a>
-<p>我们这里列出了 《Swift vs. Kotlin 漫谈》系列的大纲，如果你对里面某一块感兴趣，就可以参与进来。</p>
-<p>当然如果你对大纲调整有意见，也可以给我们提建议。</p>
-<h2 id="参与方式"><a href="#参与方式" class="headerlink" title="参与方式"></a>参与方式</h2><ul>
-<li>扫描或长按下面的二维码联系我，我会把你拉到我们的群里</li>
-<li>在目录中尚未编辑的章节中选择自己感兴趣，然后参考之前的文章总结出相应的知识点</li>
-<li>在群里找到另一门语言对此感兴趣的哥们（如果没有的话，就是刘铎或哦好么人）</li>
-<li>然后你们一起完成这个章节</li>
+<p><strong>Kotlin:</strong></p>
+<p>没有什么，你最近是不是胖了。🙃</p>
+<p><strong>Swift:</strong></p>
+<p>😓赶紧进入正题吧，说说你们的类是怎么定义的。</p>
+<p><strong>Kotlin:</strong></p>
+<p>👌我们定义类和 Java 差不多，也是用 <code>class</code> 声明一个类，不过 Kotlin 里面如果类实体没有什么内容的话，可以不要大括号。</p>
+<p><strong>Swift:</strong></p>
+<p>哦哦，不要大括号，那好简洁啊，我们不行。不过我们实例化的时候可以不用 new 关键字。也就是 Swift 程序员不用 new 就可以有对象了😍。</p>
+<p><strong>Kotlin:</strong></p>
+<p>嘿，正经点，你都是有老婆的人了。不过这个我们也有😜，我们 Kotlin 程序员也可以不 new 就有对象了😄。</p>
+<p>Kotlin 的构造函数分为主构造函数和次构造函数。主构造函数是和类名称一起写在类头部，次构造函数是写在类体里面的。它们都是用 <code>constructor</code> 修饰。不过在定义主构造函数时，如果没有注解什么的，就可以不写了，所以看起来还是很👍的。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">constructor</span></span>(firstName: String) &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(firstName: String)</div></pre></td></tr></table></figure>
+<p><strong>Swift:</strong></p>
+<p>🤔，和 Swift 的概念差不过，我们叫「指定初始化器」（Designated Initializer）和「便捷初始化器」（Convenience Initializer）。都是写在类里面的，指定初始化器用 <code>init</code> 修饰，便捷初始化器需要再加个 <code>convenience</code> 关键字。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">let</span> string: <span class="type">String</span></div><div class="line">    </div><div class="line">    <span class="keyword">init</span>(string: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.string = string</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">convenience</span> <span class="keyword">init</span>() &#123;</div><div class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(string: <span class="string">"KotlinThree"</span>)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">printString</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(string)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>哎，你们这样主构造函数的初始化代码写在哪里。</p>
+<p><strong>Kotlin:</strong></p>
+<p>👍，这个问题问的太好了，我们主构造函数不能写代码😂。不过 Kotlin 提供了以 init 为关键字的初始化块用来写初始化代码，以解决主构造函数不能写代码的问题。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Customer</span></span>(name: String) &#123;</div><div class="line">    init &#123;</div><div class="line">        logger.info(<span class="string">"Customer initialized with value <span class="subst">$&#123;name&#125;</span>"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Kotlin 的次构造函数必须直接或间接（通过其他次构造函数）委托给主构造函数，委托到同一个类的另一个构造函数用 this 关键字，你们应该也有这个限制吧。</p>
+<p><strong>Swift:</strong></p>
+<p>是的，Swift 便捷初始化器需要去调用指定初始化器来完成初始化。听说你们可以用构造函数的参数定义类的属性。</p>
+<p><strong>Kotlin:</strong></p>
+<p>哟，🙆。Kotlin 可以通过在主构造函数参数前面添加 val 或者 var 修饰符，这样主构造函数的参数就变成了类的属性，这样就不需要再在类里面定义同样的属性再赋值了。</p>
+<p><strong>Swift:</strong></p>
+<p>666，👏。</p>
+<p>Swift 有类方法和实例方法，用 class 或 static 关键字修饰的方法就是类方法，这两个关键字的区别是 class 修饰的类方法可以被子类复写，static 修饰的类方法不行。既没用 class 修饰，也没用 static 修饰的就是实例方法。</p>
+<p><strong>Kotlin:</strong></p>
+<p>Kotlin 里面已经没有类方法的概念了。🤔不过，Kotlin 中可以用 object 关键字直接定义一个对象，在类内部，我们可以用 companion 为类声明一个伴生对象。伴生对象的成员可通过只使用类名作为限定符来调用，伴生对象的成员看起来像 Java 的静态成员，在运行时他们仍然是真实对象的实例成员。在 JVM 平台，如果使用 @JvmStatic 注解，你可以将伴生对象的成员生成为真正的静态方法和字段。</p>
+<p>不过你们的类方法还可以被子类重写，这个在 Java 里也不行。诶，说说你们类是怎么继承的啊。</p>
+<p><strong>Swift</strong></p>
+<p>Swift 中用 <code>:</code> 来声明类的继承关系，你们也是用冒号来继承一个类吧？</p>
+<p><strong>Kotlin:</strong></p>
+<p>是的，再也不用区分 <code>extends</code> 还是 <code>implements</code> 了。在 Kotlin 里面，所有的非抽象类默认都是静态的，也就是相当于 Java 中的 final。如果想要让某个类可以被继承，必须要现式的为该类添加 open 的关键字，该关键字提供了和 Java 中 final 相反的功能。</p>
+<p><strong>Swift:</strong></p>
+<p>😯，为什么要区分？</p>
+<p><strong>Kotlin:</strong></p>
+<p>因为在 Java 继承类和实现接口使用不同的关键字。</p>
+<p><strong>Swift:</strong></p>
+<p>Swift 中继承类和实现协议也都是用同一个 <code>:</code> 符号。Swift 里面如果不想让一个类能被继承，可以在声明类时加上 final 关键字。另外如果两个类分辨属于不同的模块，基类必须用 open 关键字修饰才能被另一个模块的类继承。</p>
+<p><strong>Kotlin:</strong></p>
+<p>那你们有没有抽象类的概念啊。</p>
+<p><strong>Swift:</strong></p>
+<p>👋没有。</p>
+<p><strong>Kotlin:</strong></p>
+<p>Kotlin 不但类默认是静态的，函数也是静态的，如果一个函数需要被重写，我们必须手动让他变成开放的，即在函数前面添加 open 关键字。如果子类想要重写某个方法，必须用 override 关键字修饰该方法，否则会报错。被 override 修饰的函数默认也是开放的，如果不想它再被继承，需要 final 来修饰该函数。</p>
+<p><strong>Swift:</strong></p>
+<p>Swift 函数倒是不需要，不过也需要用 override 关键字来修饰。构造函数的覆盖也是一样的，子类覆盖父类初始化器的步骤：</p>
+<ul>
+<li>初始化子类的所有成员变量</li>
+<li>用 super 调用父类的初始化器</li>
+<li>一些额外的操作</li>
 </ul>
-<p><img src="http://7xpox6.com1.z0.glb.clouddn.com/WechatIMG616.jpeg?imageview2/2/w/720" alt=""></p>
-<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><h3 id="属性定义（已完成）"><a href="#属性定义（已完成）" class="headerlink" title="属性定义（已完成）"></a>属性定义（已完成）</h3><h3 id="函数定义（已完成）"><a href="#函数定义（已完成）" class="headerlink" title="函数定义（已完成）"></a>函数定义（已完成）</h3><h3 id="基本类型和操作（编辑中…）"><a href="#基本类型和操作（编辑中…）" class="headerlink" title="基本类型和操作（编辑中…）"></a>基本类型和操作（编辑中…）</h3><h3 id="控制流（编辑中…）"><a href="#控制流（编辑中…）" class="headerlink" title="控制流（编辑中…）"></a>控制流（编辑中…）</h3><h3 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h3><h2 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h2><h3 id="类与继承（包含内部类）"><a href="#类与继承（包含内部类）" class="headerlink" title="类与继承（包含内部类）"></a>类与继承（包含内部类）</h3><h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><h3 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h3><h3 id="类的扩展"><a href="#类的扩展" class="headerlink" title="类的扩展"></a>类的扩展</h3><h3 id="数据类"><a href="#数据类" class="headerlink" title="数据类"></a>数据类</h3><h3 id="枚举（包含密封类）"><a href="#枚举（包含密封类）" class="headerlink" title="枚举（包含密封类）"></a>枚举（包含密封类）</h3><h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><h3 id="委托"><a href="#委托" class="headerlink" title="委托"></a>委托</h3><h2 id="函数与表达式"><a href="#函数与表达式" class="headerlink" title="函数与表达式"></a>函数与表达式</h2><h3 id="函数与表达式（包含内联函数）"><a href="#函数与表达式（包含内联函数）" class="headerlink" title="函数与表达式（包含内联函数）"></a>函数与表达式（包含内联函数）</h3><h3 id="高级函数"><a href="#高级函数" class="headerlink" title="高级函数"></a>高级函数</h3><h3 id="协同程序"><a href="#协同程序" class="headerlink" title="协同程序"></a>协同程序</h3><h2 id="语言特性"><a href="#语言特性" class="headerlink" title="语言特性"></a>语言特性</h2><h3 id="空安全"><a href="#空安全" class="headerlink" title="空安全"></a>空安全</h3><h3 id="操作符重载"><a href="#操作符重载" class="headerlink" title="操作符重载"></a>操作符重载</h3><h3 id="类型安全"><a href="#类型安全" class="headerlink" title="类型安全"></a>类型安全</h3><h3 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h3><h3 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h3><h2 id="标准库（1，2，3…）"><a href="#标准库（1，2，3…）" class="headerlink" title="标准库（1，2，3…）"></a>标准库（1，2，3…）</h2><h2 id="开源框架（1，2，3-）"><a href="#开源框架（1，2，3-）" class="headerlink" title="开源框架（1，2，3..）"></a>开源框架（1，2，3..）</h2><h2 id="高级"><a href="#高级" class="headerlink" title="高级"></a>高级</h2><h3 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h3><h3 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h3><h3 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h3><h3 id="语言设计"><a href="#语言设计" class="headerlink" title="语言设计"></a>语言设计</h3><hr>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>: <span class="title">BaseClass</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> text: <span class="type">String</span></div><div class="line"></div><div class="line">    <span class="keyword">override</span> <span class="keyword">init</span>() &#123;</div><div class="line">        text = <span class="string">"abc"</span></div><div class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>()</div><div class="line">        loadData()</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Kotlin:</strong></p>
+<p>Kotlin 如果有主构造函数的话，是直接在父类名称后面传递对应的参数。如果类没有主构造函数，那么每个次构造函数必须 使用 super 关键字初始化其基类型，或委托给另一个构造函数做到这一点。 注意，在这种情况下，不同的次构造函数可以调用基类型的不同的构造函数：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span></span>(p: <span class="built_in">Int</span>) : Base(p)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyView</span> : <span class="type">View &#123;</span></span></div><div class="line">    <span class="keyword">constructor</span>(ctx: Context) : <span class="keyword">super</span>(ctx)</div><div class="line"></div><div class="line">    <span class="keyword">constructor</span>(ctx: Context, attrs: AttributeSet) : <span class="keyword">super</span>(ctx, attrs)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Kotlin 属性覆盖和函数覆盖类似，需要使用 open 和 override 关键字，覆盖属性的类型必须兼容。可以用 var 属性覆盖 val 属性，反过来却不行。这是因为 var 本质上是多声明了一个 setter 方法。</p>
+<p><strong>Swift:</strong></p>
+<p>Swift 中储值属性不能覆盖，只能覆盖父类的计算属性，同样需要加上 override 关键字，不过属性覆盖用的不是很多。</p>
+<p><strong>Kotlin:</strong></p>
+<p>Swift 如果实现多个接口，会不会有不同协议带来同名函数的冲突的问题。😏</p>
+<p><strong>Swift:</strong></p>
+<p>Swift 如果有同样的名字 IDE 会报错，所以不同的协议如果被同一个类实现不能用同样的名字。😔</p>
+<p><strong>Kotlin:</strong></p>
+<p>😎Kotlin 可以，Kotlin 有一套规则来处理这样的冲突。在 Kotlin 中，如果一个类从它的直接超类继承相同成员的多个实现（由于接口函数可以有实现），它必须覆盖这个成员并提供其自己的实现。 为了表示采用从哪个超类型继承的实现，我们使用由尖括号中超类型名限定的 super，如 super。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line">    <span class="keyword">open</span> <span class="function"><span class="keyword">fun</span> <span class="title">f</span><span class="params">()</span></span> &#123; print(<span class="string">"A"</span>) &#125;</div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">a</span><span class="params">()</span></span> &#123; print(<span class="string">"a"</span>) &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">B</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">f</span><span class="params">()</span></span> &#123; print(<span class="string">"B"</span>) &#125; <span class="comment">// interface members are 'open' by default</span></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">b</span><span class="params">()</span></span> &#123; print(<span class="string">"b"</span>) &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span></span>() : A(), B &#123;</div><div class="line">    <span class="comment">// The compiler requires f() to be overridden:</span></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">f</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">super</span>&lt;A&gt;.f() <span class="comment">// call to A.f()</span></div><div class="line">        <span class="keyword">super</span>&lt;B&gt;.f() <span class="comment">// call to B.f()</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Swift:</strong></p>
+<p>这个不错，可以不怕名字冲突了。给你们手动点个赞 👍。</p>
+<p><strong>Kotlin:</strong></p>
+<p>😳，Kotlin 里面还新增了嵌套类的概念，就是可以直接在类体里面另外一个类，其实就是之前 Java 里面的静态内部类。这种写法在 Java 里面就是定义内部类，在 Kotlin 里面要定义内部类反而要加上 <code>Inner</code> 关键字。</p>
+<p><strong>Swift:</strong></p>
+<p>Swift 没有内部类的概念。😓</p>
+<p><strong>Kotlin:</strong></p>
+<p>🤗你们没有抽象类，也没有内部类，不过你们的协议好像有很多玩法。下次听你给我好好讲讲你们的协议是怎么样的？</p>
+<p><strong>Swift:</strong></p>
+<p>🤔好的，没有问题。</p>
+<h1 id="技术知识"><a href="#技术知识" class="headerlink" title="技术知识"></a>技术知识</h1><h2 id="Kotlin"><a href="#Kotlin" class="headerlink" title="Kotlin"></a>Kotlin</h2><h3 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h3><p>Kotlin 使用 <code>class</code> 关键字声明类。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>类声明由类名称、类头（指定其类型参数、主 构造函数等）和由大括号包围的类体构成。类头和类体都是可选的； 如果一个类没有类体，可以省略花括号。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></div></pre></td></tr></table></figure>
+<h3 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h3><p>但我们想要实例化一个类的对象的时候，不需要提供 <code>new</code> 关键字。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> invoice = Invoice()</div><div class="line"></div><div class="line"><span class="keyword">val</span> customer = Customer(<span class="string">"Joe Smith"</span>)</div></pre></td></tr></table></figure>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>Kotlin 的构造函数分为 <strong>主构造函数</strong> 和 <strong>次构造函数</strong>，主构造函数只能有一个，次构造函数可以有多个。</p>
+<h4 id="主构造函数"><a href="#主构造函数" class="headerlink" title="主构造函数"></a>主构造函数</h4><p>主构造函数是类头的一部分：它跟在类名（和可选的类型参数）后，用 <code>constructor</code> 关键字表示。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">constructor</span></span>(firstName: String) &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当主构造函数没有任何注解或者可见性修饰符，可以省略这个 <code>constructor</code> 关键字。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(firstName: String)</div></pre></td></tr></table></figure>
+<p>主构造函数没有自己的函数块，所以不能写任何代码，Kotlin 提供了以 <code>init</code> 为关键字的初始化块用来写初始化代码，以解决主构造函数不能写代码的问题，所以在初始化块中可以随意访问主构造函数的参数。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Customer</span></span>(name: String) &#123;</div><div class="line">    init &#123;</div><div class="line">        logger.info(<span class="string">"Customer initialized with value <span class="subst">$&#123;name&#125;</span>"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>默认情况下主构造函数的参数只能被 <code>初始化块</code> 和 <code>属性初始化</code> 访问。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Customer</span></span>(name: String) &#123;</div><div class="line">    <span class="keyword">val</span> customerKey = name.toUpperCase()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>不过我们可以通过在主构造函数参数前面添加 <code>val</code> 或者 <code>var</code> 修饰符，这样朱构造函数的参数就变成了类的属性。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(<span class="keyword">val</span> firstName: String, <span class="keyword">val</span> lastName: String, <span class="keyword">var</span> age: <span class="built_in">Int</span>) &#123;</div><div class="line">    <span class="comment">// ……</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>PS:如果构造函数有注解或可见性修饰符，这个 constructor 关键字是必需的，并且 这些修饰符在它前面</strong></p>
+<h4 id="次构造函数"><a href="#次构造函数" class="headerlink" title="次构造函数"></a>次构造函数</h4><p>次构造函数也是用 <code>constructor</code> 修饰，写在类体里面，可以有多个。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(parent: Person) &#123;</div><div class="line">        parent.children.add(<span class="keyword">this</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果类有主构造函数的话，次构造函数必须直接或间接（通过其他次构造函数）委托给主构造函数，委托到同一个类的另一个构造函数用 <code>this</code> 关键字。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(<span class="keyword">val</span> name: String) &#123;</div><div class="line">    <span class="keyword">constructor</span>(name: String, parent: Person) : <span class="keyword">this</span>(name) &#123;</div><div class="line">        parent.children.add(<span class="keyword">this</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果一个非抽象类没有声明任何（主或次）构造函数，它会有一个生成的 不带参数的主构造函数。构造函数的可见性是 public。如果你不希望你的类 有一个公有构造函数，你需要声明一个带有非默认可见性的空的主构造函数。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DontCreateMe</span> <span class="keyword">private</span> <span class="keyword">constructor</span> </span>() &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="类的成员"><a href="#类的成员" class="headerlink" title="类的成员"></a>类的成员</h3><p>Kotlin 类可以包含下面这些</p>
+<ul>
+<li>构造函数和初始化块</li>
+<li>函数</li>
+<li>属性</li>
+<li>嵌套类和内部类</li>
+<li>对象声明</li>
+</ul>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>我们用 <code>:</code> 声明要继承一个超级类，放在冒号后面。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">Base</span></span>(p: <span class="built_in">Int</span>)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span></span>(p: <span class="built_in">Int</span>) : Base(p)</div></pre></td></tr></table></figure>
+<p>如果类没有明确声明一个父类的话，默认是继承自 <code>Any</code>，<code>Any</code> 并不是 java.lang.Object；它除了 equals()、hashCode()和toString()外没有任何成员。 更多细节请查阅<a href="https://kotlinlang.org/docs/reference/java-interop.html#object-methods" target="_blank" rel="external">Java互操作性</a>部分。</p>
+<p>在 Kotlin 里面，所有的非抽象类默认都是静态的，也就是相当于 Java 中的 final。如果想要让某个类可以被继承，必须要现式的为该类添加 <code>open</code> 的关键字，该关键字提供了和 Java 中 final 相反的功能。</p>
+<p>如果类没有主构造函数，那么每个次构造函数必须 使用 super 关键字初始化其基类型，或委托给另一个构造函数做到这一点。 注意，在这种情况下，不同的次构造函数可以调用基类型的不同的构造函数：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyView</span> : <span class="type">View &#123;</span></span></div><div class="line">    <span class="keyword">constructor</span>(ctx: Context) : <span class="keyword">super</span>(ctx)</div><div class="line"></div><div class="line">    <span class="keyword">constructor</span>(ctx: Context, attrs: AttributeSet) : <span class="keyword">super</span>(ctx, attrs)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="抽象类与接口"><a href="#抽象类与接口" class="headerlink" title="抽象类与接口"></a>抽象类与接口</h4><p>同 Java 一样，Kotlin 用 <code>abstract</code> 声明一个抽象类，用 <code>interface</code> 关键字来定义接口，与 Java8 相似，接口中可以有函数的实现。</p>
+<p>与 Java 不同，你可以在接口中定义属性。在接口中声明的属性要么是抽象的，要么提供 访问器的实现。在接口中声明的属性不能有幕后字段（backing field），因此接口中声明的访问器 不能引用它们。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>&#123;</div><div class="line">    <span class="keyword">val</span> prop: <span class="built_in">Int</span> <span class="comment">// 抽象的</span></div><div class="line"></div><div class="line">    <span class="keyword">val</span> propertyWithImplementation: String</div><div class="line">        <span class="keyword">get</span>() = <span class="string">"foo"</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> &#123;</div><div class="line">        print(prop)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> : <span class="type">MyInterface &#123;</span></span></div><div class="line">    <span class="keyword">override</span> <span class="keyword">val</span> prop: <span class="built_in">Int</span> = <span class="number">29</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="覆盖方法"><a href="#覆盖方法" class="headerlink" title="覆盖方法"></a>覆盖方法</h4><p>默认类的函数也是静态的，如果一个函数需要被重写，我们必须手动让他变成开放的，即在函数前面添加 <code>open</code> 关键字。如果子类想要重写某个方法，必须用 <code>override</code> 关键字修饰该方法，否则会报错。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">Base</span> </span>&#123;</div><div class="line">    <span class="keyword">open</span> <span class="function"><span class="keyword">fun</span> <span class="title">v</span><span class="params">()</span></span> &#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">nv</span><span class="params">()</span></span> &#123;&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span></span>() : Base() &#123;</div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">v</span><span class="params">()</span></span> &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>被 <code>override</code> 修饰的函数默认也是开放的，如果不想它再被继承，需要 <code>final</code> 来修饰该函数。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">AnotherDerived</span></span>() : Base() &#123;</div><div class="line">    <span class="keyword">final</span> <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">v</span><span class="params">()</span></span> &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="覆盖属性"><a href="#覆盖属性" class="headerlink" title="覆盖属性"></a>覆盖属性</h4><p>属性覆盖和函数覆盖类似，需要使用 <code>open</code> 和 <code>override</code> 关键字，覆盖属性的类型必须兼容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">open class Foo &#123;</div><div class="line">    open val x: Int get &#123; ... &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Bar1 : Foo() &#123;</div><div class="line">    override val x: Int = ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们可以用 <code>var</code> 属性覆盖 <code>val</code> 属性，反过来却不行。这是因为 <code>var</code> 本质上是多声明了一个 <code>setter</code> 方法。</p>
+<p>此外，我们还可以在类的主构造函数的参数也可以同样实现属性覆盖。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Foo</span> </span>&#123;</div><div class="line">    <span class="keyword">val</span> count: <span class="built_in">Int</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bar1</span></span>(<span class="keyword">override</span> <span class="keyword">val</span> count: <span class="built_in">Int</span>) : Foo</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bar2</span> : <span class="type">Foo &#123;</span></span></div><div class="line">    <span class="keyword">override</span> <span class="keyword">var</span> count: <span class="built_in">Int</span> = <span class="number">0</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="覆盖规则"><a href="#覆盖规则" class="headerlink" title="覆盖规则"></a>覆盖规则</h4><p>在 Kotlin 中，如果一个类从它的直接超类继承相同成员的多个实现（由于接口函数可以有实现），它必须覆盖这个成员并提供其自己的实现。 为了表示采用从哪个超类型继承的实现，我们使用由尖括号中超类型名限定的 super，如 super<base>。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line">    <span class="keyword">open</span> <span class="function"><span class="keyword">fun</span> <span class="title">f</span><span class="params">()</span></span> &#123; print(<span class="string">"A"</span>) &#125;</div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">a</span><span class="params">()</span></span> &#123; print(<span class="string">"a"</span>) &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">B</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">f</span><span class="params">()</span></span> &#123; print(<span class="string">"B"</span>) &#125; <span class="comment">// interface members are 'open' by default</span></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">b</span><span class="params">()</span></span> &#123; print(<span class="string">"b"</span>) &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span></span>() : A(), B &#123;</div><div class="line">    <span class="comment">// The compiler requires f() to be overridden:</span></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">f</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">super</span>&lt;A&gt;.f() <span class="comment">// call to A.f()</span></div><div class="line">        <span class="keyword">super</span>&lt;B&gt;.f() <span class="comment">// call to B.f()</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>同时继承 A 和 B 没问题，并且 a() 和 b() 也没问题因为 C 只继承了每个函数的一个实现。 但是 f() 由 C 继承了两个实现，所以我们必须在 C 中覆盖 f() 并且提供我们自己的实现来消除歧义。</p>
+<h3 id="伴生对象"><a href="#伴生对象" class="headerlink" title="伴生对象"></a>伴生对象</h3><p>Kotlin 中可以用 <code>object</code> 关键字直接定义一个对象，在类内部，我们可以用 <code>companion</code> 为类声明一个伴生对象。伴生对象的成员可通过只使用类名作为限定符来调用，伴生对象的成员看起来像 Java 的静态成员，在运行时他们仍然是真实对象的实例成员。在 JVM 平台，如果使用 @JvmStatic 注解，你可以将伴生对象的成员生成为真正的 静态方法和字段。更详细信息请参见<a href="https://kotlinlang.org/docs/reference/java-to-kotlin-interop.html#static-fields" target="_blank" rel="external">Java 互操作</a>性一节。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> Factory &#123;</div><div class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">create</span><span class="params">()</span></span>: MyClass = MyClass()</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">val</span> instance = MyClass.create()</div></pre></td></tr></table></figure>
+<h3 id="内部类和嵌套类"><a href="#内部类和嵌套类" class="headerlink" title="内部类和嵌套类"></a>内部类和嵌套类</h3><p>我们可以直接在一个类里面定义另外一个类。当里面的类被 <code>Inner</code> 修饰符修饰，则是类的内部类，否则我们只是定义了一个嵌套类。</p>
+<p><strong>嵌套类：</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">val</span> bar: <span class="built_in">Int</span> = <span class="number">1</span></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Nested</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> = <span class="number">2</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">val</span> demo = Outer.Nested().foo() <span class="comment">// == 2</span></div></pre></td></tr></table></figure>
+<p><strong>内部类：</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">val</span> bar: <span class="built_in">Int</span> = <span class="number">1</span></div><div class="line">    inner <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> = bar</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">val</span> demo = Outer().Inner().foo() <span class="comment">// == 1</span></div></pre></td></tr></table></figure>
+<p>在 Kotlin 也有匿名内部类的概念，不过使用 <code>object</code> 表达式修饰：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">window.addMouseListener(<span class="keyword">object</span>: MouseAdapter() &#123;</div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">mouseClicked</span><span class="params">(e: <span class="type">MouseEvent</span>)</span></span> &#123;</div><div class="line">        <span class="comment">// ...</span></div><div class="line">    &#125;</div><div class="line">                                                                                                            </div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">mouseEntered</span><span class="params">(e: <span class="type">MouseEvent</span>)</span></span> &#123;</div><div class="line">        <span class="comment">// ...</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="Swift"><a href="#Swift" class="headerlink" title="Swift"></a>Swift</h2><h3 id="类的定义-1"><a href="#类的定义-1" class="headerlink" title="类的定义"></a>类的定义</h3><p>Swift 中用 <code>class</code> 关键字来定义类：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后可以用以下方式创建这个类的实例：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> instance = <span class="type">SomeClass</span>()</div></pre></td></tr></table></figure>
+<p><strong>PS:  Swift 中没有 NSObject 的基类概念</strong></p>
+<h3 id="构造函数（初始化器）"><a href="#构造函数（初始化器）" class="headerlink" title="构造函数（初始化器）"></a>构造函数（初始化器）</h3><p>构造函数也可以叫做初始化器（Initializer）<br>用 <code>init</code> 关键字来定义类的构造函数</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</div><div class="line">    <span class="keyword">init</span>(string: <span class="type">String</span>) &#123;</div><div class="line">	</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> instance = <span class="type">SomeClass</span>(string: <span class="string">"KotlinThree"</span>)</div></pre></td></tr></table></figure>
+<p>如果类含有成员变量，在类初始化时，必须保证所有成员变量都被初始化。<br>对于 Optional 类型的成员变量，如果没有显式地初始化，编译器会自动把它初始化为 nil。对于非 Optional 类型的成员变量，必须显式地初始化。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> number: <span class="type">Int</span></div><div class="line">    <span class="keyword">let</span> defaultValueNumber = <span class="number">3</span></div><div class="line">    <span class="keyword">let</span> optionalString: <span class="type">String</span>?</div><div class="line"></div><div class="line">    <span class="keyword">init</span>() &#123;</div><div class="line">        number = <span class="number">1</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h3><p>用 <code>deinit</code> 关键字来定义析构函数，析构函数在类销毁时调用。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</div><div class="line">    <span class="keyword">deinit</span> &#123;</div><div class="line">	</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="指定初始化器和便捷初始化器"><a href="#指定初始化器和便捷初始化器" class="headerlink" title="指定初始化器和便捷初始化器"></a>指定初始化器和便捷初始化器</h3><p>指定初始化器（Designated Initializer）是类的主要初始化器，每个类都至少需要有一个指定初始化器。</p>
+<p>在上面的例子中用 init 定义的就是指定初始化器。</p>
+<p>便捷初始化器（Convenience Initializer）需要用 <code>convenience</code> 来修饰。便捷初始化器需要去调用指定初始化器来完成初始化。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">let</span> string: <span class="type">String</span></div><div class="line">    </div><div class="line">    <span class="keyword">init</span>(string: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.string = string</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">convenience</span> <span class="keyword">init</span>() &#123;</div><div class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(string: <span class="string">"KotlinThree"</span>)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">printString</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(string)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> instance = <span class="type">SomeClass</span>()</div><div class="line">instance.printString()</div><div class="line"><span class="comment">/*</span></div><div class="line">输出结果：</div><div class="line">KotlinThree</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h3 id="类方法和实例方法"><a href="#类方法和实例方法" class="headerlink" title="类方法和实例方法"></a>类方法和实例方法</h3><p>用 <code>class</code> 或 <code>static</code> 关键字修饰的方法就是类方法，这两个关键字的区别是 <code>class</code> 修饰的类方法可以被子类复写，<code>static</code> 修饰的类方法不行。</p>
+<p>既没用 <code>class</code> 修饰，也没用 <code>static</code> 修饰的就是实例方法。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">classMethod</span>() </span>&#123;</div><div class="line">    </div><div class="line">    &#125;</div><div class="line">	</div><div class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">cannotBeOverridedClassMethod</span><span class="params">()</span></span> &#123;</div><div class="line">	</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">instanceMethod</span><span class="params">()</span></span> &#123;</div><div class="line">	</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 调用类方法</span></div><div class="line"><span class="type">SomeClass</span>.classMethod()</div><div class="line"><span class="comment">// 调用实例方法</span></div><div class="line"><span class="keyword">let</span> instance = <span class="type">SomeClass</span>()</div><div class="line">instance. instanceMethod()</div></pre></td></tr></table></figure>
+<h3 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h3><p>Swift 中用 <code>:</code> 来声明类的继承关系</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseClass</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">baseFunction</span><span class="params">()</span></span> &#123;</div><div class="line">	</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>: <span class="title">BaseClass</span> </span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>子类会获得父类的非 private 的属性和方法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> instance = <span class="type">SomeClass</span>()</div><div class="line">instance.baseFunction()</div></pre></td></tr></table></figure>
+<p>如果不想让一个类能被继承，可以在声明类时加上 <code>final</code> 关键字</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseClass</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
+<p>另外如果两个类分辨属于不同的模块，基类必须用 <code>open</code> 关键字修饰才能被另一个模块的类继承。</p>
+<p><strong>PS: Swift3 提供了五个访问控制的关键字 <code>open``public</code> <code>private</code> <code>fileprivate</code> <code>internal</code><br>用来控制访问级别，<code>internal</code>表示在模块内部可以完全访问，在模块外部不行，<code>fileprivate</code> 限定只能在当前的源文件中使用</strong> </p>
+<h3 id="必要初始化器"><a href="#必要初始化器" class="headerlink" title="必要初始化器"></a>必要初始化器</h3><p>必要初始化器（Required Initializers）使用 <code>required</code> 来修饰表明，如果子类继承父类都必须实现该初始化器。如果不使用指定初始化器，则无需显示写出。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">class BaseClass &#123;</div><div class="line">    </div><div class="line">    public var string: String</div><div class="line">    required init() &#123;</div><div class="line">        string = &quot;string&quot;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">class SomeClass: BaseClass &#123;</div><div class="line">    </div><div class="line">    required init() &#123;&#125; //如不实现则报错， 如不创建指定初始化器则可以省略</div><div class="line">    </div><div class="line">    init(label: String) &#123;</div><div class="line">        super.init()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="方法覆盖"><a href="#方法覆盖" class="headerlink" title="方法覆盖"></a>方法覆盖</h3><p>子类如果需要复写父类的方法，需要用 <code>override</code> 关键字来修饰</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>: <span class="title">BaseClass</span> </span>&#123;</div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">baseFunction</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="comment">// ...</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>子类方法调用父类的相同方法，用 <code>super</code> 关键字，例如：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>: <span class="title">BaseClass</span> </span>&#123;</div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">baseFunction</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">super</span>.baseFunction()</div><div class="line">        <span class="comment">// ...</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>覆盖父类初始化器的步骤：</p>
+<ol>
+<li>初始化子类的所有成员变量</li>
+<li>用 super 调用父类的初始化器</li>
+<li>一些额外的操作</li>
+</ol>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>: <span class="title">BaseClass</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> text: <span class="type">String</span></div><div class="line"></div><div class="line">    <span class="keyword">override</span> <span class="keyword">init</span>() &#123;</div><div class="line">        text = <span class="string">"abc"</span></div><div class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>()</div><div class="line">        loadData()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="类的嵌套"><a href="#类的嵌套" class="headerlink" title="类的嵌套"></a>类的嵌套</h3><p>Swift 中可以在类中再定义一个类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">class SomeClass &#123;</div><div class="line"></div><div class="line">    class AnotherClass &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以用 <code>.</code> 号的方式来在外面实例化里面嵌套的类</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> instance = <span class="type">SomeClass</span>.<span class="type">AnotherClass</span>()</div></pre></td></tr></table></figure>
+<p>也可以给 AnotherClass 加上 <code>private</code>，这样就无法再外面实例化了，只能在 SomeClass 这个类中实例化。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">AnotherClass</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">let</span> instance = <span class="type">AnotherClass</span>() <span class="comment">// 可以编译通过</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> instance = <span class="type">SomeClass</span>.<span class="type">AnotherClass</span>() <span class="comment">// 无法编译通过</span></div></pre></td></tr></table></figure>
+<h2 id="关于《Swift-vs-Kotlin-漫谈》系列"><a href="#关于《Swift-vs-Kotlin-漫谈》系列" class="headerlink" title="关于《Swift vs. Kotlin 漫谈》系列"></a>关于《Swift vs. Kotlin 漫谈》系列</h2><ul>
+<li>《Swift vs. Kotlin 漫谈》系列之变量定义</li>
+<li>《Swift vs. Kotlin 漫谈》系列之函数定义</li>
+<li>《Swift vs. Kotlin 漫谈》系列之控制流</li>
+<li>《Swift vs. Kotlin 漫谈》系列之基本类型</li>
+</ul>
+<p>《Swift vs. Kotlin 漫谈》系列是由 KotlinThree 发起的，旨在把 Swift 和 Kotlin 进行一个全面的对比，帮助 iOS 和 Android 开发对彼此的语言之间有一个更加深入的认识。如果你有兴趣可以关注我们公众号，也可以通过「原文链接」查看详情。</p>
+<hr>
 <p><img src="http://7xpox6.com1.z0.glb.clouddn.com/kotlin-three-wechat.jpg" alt=""></p>
 
       
@@ -238,11 +420,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Swift</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">swift vs kotlin</a>
         		</li>
       		
 		</ul>
@@ -298,7 +476,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/22/swiftvs.kotlin_project/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/08/swiftvskotlin-class-and-inheritance/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -312,18 +490,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/22/swiftvskotlin_define_function/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Swift vs. Kotlin 漫谈之函数定义
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/18/swiftvskotlin_variables/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Swift vs. Kotlin 之变量定义</div>
+    <a href="/2017/05/27/kotlin_do_java_not/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">那些年Kotlin轻易能实现，java很难实现的语法糖</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -504,6 +673,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java vs kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift vs kotlin</a>
               </li>
             
             <div class="clearfix"></div>
