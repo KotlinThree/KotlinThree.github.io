@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Kotlin | KotlinThree&#39;s Blog</title>
+  <title>KotlinThree&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="title: Swift vs. Kotlin 漫谈系列之接口date: 2017-05-29 13:07:40tags:   Swift Kotlin swift vs kotlin  Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。内容会由简及深，慢慢深">
+<meta property="og:type" content="article">
 <meta property="og:title" content="KotlinThree&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Kotlin/page/2/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/07/26/swiftvskotlin-properties/index.html">
 <meta property="og:site_name" content="KotlinThree&#39;s Blog">
+<meta property="og:description" content="title: Swift vs. Kotlin 漫谈系列之接口date: 2017-05-29 13:07:40tags:   Swift Kotlin swift vs kotlin  Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。内容会由简及深，慢慢深">
+<meta property="og:updated_time" content="2017-07-26T05:19:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KotlinThree&#39;s Blog">
+<meta name="twitter:description" content="title: Swift vs. Kotlin 漫谈系列之接口date: 2017-05-29 13:07:40tags:   Swift Kotlin swift vs kotlin  Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。内容会由简及深，慢慢深">
   
     <link rel="alternative" href="/atom.xml" title="KotlinThree&#39;s Blog" type="application/atom+xml">
   
@@ -155,490 +159,343 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-swiftvskotlin-properties" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: Swift vs. Kotlin 漫谈系列之接口<br>date: 2017-05-29 13:07:40<br>tags: </p>
+<ul>
+<li>Swift</li>
+<li>Kotlin</li>
+<li>swift vs kotlin</li>
+</ul>
+<p>Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。内容会由简及深，慢慢深入。</p>
+<a id="more"></a>
+<h1 id="技术漫谈"><a href="#技术漫谈" class="headerlink" title="技术漫谈"></a>技术漫谈</h1><p><strong>Kotlin:</strong></p>
+<p>Swift 君，多日不见，甚是想念。</p>
+<p><strong>Swift:</strong></p>
+<p>想念想念，咱们今天来说说什么呢？</p>
+<p><strong>Kotlin:</strong></p>
+<p>今天来说说属性。</p>
+<p><strong>Swift:</strong></p>
+<p>好的，你先来。</p>
+<p><strong>Kotlin:</strong></p>
+<p>属性在 Kotlin 中就是定义在类中的变量。</p>
+<p><strong>Swift:</strong></p>
+<p>在 Swift 中，属性可以定义在类、枚举和结构体中。</p>
+<p><strong>Kotlin:</strong></p>
+<p>Kotlin 在类中用 val 定义只读属性，用 var 定义可变属性，类的对象可以通过名称访问类的属性。</p>
+<p><strong>Swift:</strong></p>
+<p>这个 Swift 也比较类似，Swift 中用 let 定义只读属性，用 var 定义可变属性。</p>
+<p><strong>Kotlin:</strong></p>
+<p>Kotlin 定义属性的完整语法为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var &lt;propertyName&gt;[: &lt;PropertyType&gt;] [= &lt;property_initializer&gt;]</div><div class="line">    [&lt;getter&gt;]</div><div class="line">    [&lt;setter&gt;]</div></pre></td></tr></table></figure>
+<p>其中 initializer、getter 和 setter 是并不是必须的。在属性类型可以通过 initializer 推断的情况下，属性类型也可以不声明。</p>
+<p>举几个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">val a: Int = 1  // 直接声明</div><div class="line">val b = 2   // `Int` 类型是推断出来的</div><div class="line">val c: Int  // 在没有初始化赋值的化，需要定义类型</div></pre></td></tr></table></figure>
+<p><strong>Swift:</strong></p>
+<p>Swift 定义属性的语法大概为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let|var &lt;propertyName&gt;: [&lt;propertyType&gt;] [= &lt;initialValue&gt;]</div></pre></td></tr></table></figure>
+<p>同 Kotlin 很像，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let a: Int = 1</div><div class="line">let b = 2</div><div class="line">var c: Int</div></pre></td></tr></table></figure>
+<p><strong>Kotlin:</strong></p>
+<p>Kotlin 的属性可以自定义 Getter 和 Setter，具体方式实在属性定义的下一行写上：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> stringRepresentation: <span class="type">String</span></div><div class="line">    <span class="keyword">get</span>() = this.<span class="built_in">toString</span>()</div><div class="line">    <span class="keyword">set</span>(value) &#123;</div><div class="line">        setDataFromString(value) <span class="comment">// 解析字符串并赋值给其他属性</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p><strong>Swift:</strong></p>
+<p>Swift 总定义属性的 Getter 和 Setter 也是跟在属性的下一行</p>
+<p>struct Rect {<br>    var origin = CGPoint()</p>
+<pre><code>var center: CGPoint {
+    get {
+        let centerX = origin.x + (size.width / 2)
+        let centerY = origin.y + (size.height / 2)
+        return CGPoint(x: centerX, y: centerY) 
+    }
+    set(newCenter) {
+        origin.x = newCenter.x - (size.width / 2)
+        origin.y = newCenter.y - (size.height / 2)
+    }
+}
+</code></pre><p>}</p>
+<p><strong>Kotlin:</strong></p>
+<p>也可以省去 Getter 只写 Setter：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val isEmpty: Boolean</div><div class="line">    get() = this.size == 0</div></pre></td></tr></table></figure>
+<p><strong>Swift:</strong></p>
+<p>Swift 中如果只写 Getter 就成了只读属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var center: CGPoint &#123;</div><div class="line">    get &#123;</div><div class="line">        let centerX = origin.x + (size.width / 2)</div><div class="line">        let centerY = origin.y + (size.height / 2)</div><div class="line">        return CGPoint(x: centerX, y: centerY) </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Kotlin:</strong></p>
+<p>Kotlin 可以修改 Setter 方法的可见性，但是只能定义比属性本身相等或者更小的可见性，修改可见性的时候可以只定义可见性关键字和 set 关键字。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> setterVisibility: String = <span class="string">"abc"</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">set</span> <span class="comment">// 此 setter 是私有的并且有默认实现</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> setterWithAnnotation: Any? = <span class="literal">null</span></div><div class="line">    <span class="meta">@Inject</span> <span class="keyword">set</span> <span class="comment">// 用 Inject 注解此 setter</span></div></pre></td></tr></table></figure>
+<p><strong>Swift: </strong></p>
+<p>Swift 中大概就是 private(set) 关键字，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">private(set) var count: Int</div></pre></td></tr></table></figure>
+<p>类似的也有 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">interval(set) var count: Int</div></pre></td></tr></table></figure>
+<p><strong>Kotlin:</strong></p>
+<p>Kotlin 中在 Setter 中给自身赋值，是通过 <code>支持域</code>，用 <code>filed</code> 关键字来表示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var counter = 0 // the initializer value is written directly to the backing field</div><div class="line">    set(value) &#123;</div><div class="line">        if (value &gt;= 0) field = value</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p><strong>Swift:</strong></p>
+<p>在 Swift 中 Setter 只能定义在计算属性中，而计算属性不需要给自身赋值，没有对应的概念。</p>
+<p><strong>Kotlin:</strong></p>
+<p>Kotlin 中的 Getter，如果想要获取到属性本身的值，需要通过支持属性，支持属性就是将属性通过自定义的访问器完全委托给另外一个相同类型的私有属性。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">var</span> _table: Map&lt;String, <span class="built_in">Int</span>&gt;? = <span class="literal">null</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">val</span> table: Map&lt;String, <span class="built_in">Int</span>&gt;</div><div class="line">    <span class="keyword">get</span>() &#123;</div><div class="line">        <span class="keyword">if</span> (_table == <span class="literal">null</span>) &#123;</div><div class="line">            _table = HashMap() <span class="comment">// Type parameters are inferred</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> _table ?: <span class="keyword">throw</span> AssertionError(<span class="string">"Set to null by another thread"</span>)</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p><strong>Swift:</strong></p>
+<p>在 Objective-C 中有这种概念，Swift 中的 Setter 只能用在计算属性中，而计算属性时不允许读取自身的值的，因为自身并不保存值。</p>
+<p><strong>Kotlin:</strong></p>
+<p>Kotlin 有个属性委托的概念，可以吧 Getter 和 Setter 交给另一个类来实现。</p>
+<p><strong>Swift:</strong></p>
+<p>Swift 中没有。</p>
+<p><strong>Kotlin:</strong></p>
+<p>下面再说说编译期常亮，已知值的属性可以使用 const 修饰符标记为 编译期常量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const val SUBSYSTEM_DEPRECATED: String = &quot;This subsystem is deprecated&quot;</div></pre></td></tr></table></figure>
+<p><strong>Swift:</strong></p>
+<p>Swift 一般把常量定义在类型的外部，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">private let intConstant = 30</div><div class="line"></div><div class="line">class A &#123;</div><div class="line">    // ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Kotlin:</strong></p>
+<p>Kotlin 中的延迟加载有两个关键字 <code>lateinit</code> 和 <code>lazy</code><br><code>lateinit</code> 用在 var 属性上<br><code>lazy</code> 用在 let 属性上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public class MyTest &#123;</div><div class="line">    lateinit var subject: TestSubject</div><div class="line"></div><div class="line">    @SetUp fun setup() &#123;</div><div class="line">        subject = TestSubject()</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Test fun test() &#123;</div><div class="line">        subject.method()  // dereference directly</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Swift:</strong></p>
+<p>Swift 只有一个 <code>lazy</code>，只能用在 var 属性上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">publpublic class MyTest &#123;</div><div class="line">    lazy var subject: TestSubject</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Kotlin:</strong></p>
+<p>使用 <code>lateinit</code> 关键字有一些限制，</p>
+<ul>
+<li>只能用于在一个类的主体内声明的var属性（不在主构造函数中）</li>
+<li>该属性没有自定义的getter或setter</li>
+<li>属性的类型必须为非空，并且不能为原始类型</li>
+</ul>
+<p>当访问一个还没有被初始化的延迟加载属性，会抛出相应的异常，告知该属性还未被初始化。</p>
+<p><strong>Swift:</strong></p>
+<p>Swift 的延迟加载属性也只能定义成 var。</p>
+<p><strong>Kotlin:</strong></p>
+<p>官方推荐另外一个委托属性的应用就是 <code>Observable</code>，让属性在发生变动的时候可以被关注的地方观察到。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: String <span class="keyword">by</span> Delegates.observable(<span class="string">"&lt;no name&gt;"</span>) &#123;</div><div class="line">        prop, old, new -&gt;</div><div class="line">        println(<span class="string">"<span class="subst">$old</span> -&gt; <span class="subst">$new</span>"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">    <span class="keyword">val</span> user = User()</div><div class="line">    user.name = <span class="string">"first"</span></div><div class="line">    user.name = <span class="string">"second"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Swift:</strong></p>
+<p>在 Swift 中对应就是 willSet、didSet。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class StepCounter &#123;</div><div class="line">    var totalSteps: Int = 0 &#123;</div><div class="line">        willSet(newTotalSteps) &#123;</div><div class="line">            print(&quot;About to set totalSteps to \(newTotalSteps)&quot;)</div><div class="line">        &#125;</div><div class="line">        didSet &#123;</div><div class="line">            if totalSteps &gt; oldValue  &#123;</div><div class="line">                print(&quot;Added \(totalSteps - oldValue) steps&quot;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Kotlin:</strong></p>
+<p>最后来看看属性覆盖</p>
+<p>属性覆盖和函数覆盖类似，需要使用 <code>open</code> 和 <code>override</code> 关键字，覆盖属性的类型必须兼容。每个声明的属性可以被具有初始化器的属性或具有getter方法的属性覆盖。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">open class Foo &#123;</div><div class="line">    open val x: Int get &#123; ... &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Bar1 : Foo() &#123;</div><div class="line">    override val x: Int = ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Swift:</strong></p>
+<p>Swift 中也是这两个关键字：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">open class Foo &#123;</div><div class="line">    open var x: Int</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Bar1: Foo &#123;</div><div class="line">    override var x: Int</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Kotlin:</strong></p>
+<p>今天属性就到这里吧，下次见！</p>
+<p><strong>Swift:</strong></p>
+<p>下次见！</p>
+<h1 id="技术知识"><a href="#技术知识" class="headerlink" title="技术知识"></a>技术知识</h1><h2 id="Kotlin"><a href="#Kotlin" class="headerlink" title="Kotlin"></a>Kotlin</h2><p>Kotlin 在类里面用 val 定义只读属性，用 var 定义可变属性。类的对象可以通过名称访问类的属性。</p>
+<p>Kotlin 定义变量的完整语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var &lt;propertyName&gt;[: &lt;PropertyType&gt;] [= &lt;property_initializer&gt;]</div><div class="line">    [&lt;getter&gt;]</div><div class="line">    [&lt;setter&gt;]</div></pre></td></tr></table></figure>
+<p>其中 initializer、getter 和 setter 是并不是必须的。在属性类型可以通过 initializer 推断的情况下，属性类型也可以不声明。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">val a: Int = 1  // 直接声明</div><div class="line">val b = 2   // `Int` 类型是推断出来的</div><div class="line">val c: Int  // 在没有初始化赋值的化，需要定义类型</div></pre></td></tr></table></figure>
+<h3 id="Getters-and-Setters"><a href="#Getters-and-Setters" class="headerlink" title="Getters and Setters"></a>Getters and Setters</h3><p>我们可以自定义属性的访问器，定义在属性声明内部。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> isEmpty: <span class="built_in">Boolean</span></div><div class="line">    <span class="keyword">get</span>() = <span class="keyword">this</span>.size == <span class="number">0</span></div></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> stringRepresentation: String</div><div class="line">    <span class="keyword">get</span>() = <span class="keyword">this</span>.toString()</div><div class="line">    <span class="keyword">set</span>(value) &#123;</div><div class="line">        setDataFromString(value) <span class="comment">// 解析字符串并赋值给其他属性</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>从 1.1 起，Kotlin 还可以根据 Getter 方法推断出属性的类型。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> isEmpty <span class="keyword">get</span>() = <span class="keyword">this</span>.size == <span class="number">0</span>  <span class="comment">// 具有类型 Boolean</span></div></pre></td></tr></table></figure>
+<h4 id="修改可见性和注解"><a href="#修改可见性和注解" class="headerlink" title="修改可见性和注解"></a>修改可见性和注解</h4><p>Kotlin 可以修改 Setter 方法的可见性，但是只能定义比属性本身相等或者更小的可见性，修改可见性的时候可以只定义可见性关键字和 set 关键字。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> setterVisibility: String = <span class="string">"abc"</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">set</span> <span class="comment">// 此 setter 是私有的并且有默认实现</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> setterWithAnnotation: Any? = <span class="literal">null</span></div><div class="line">    <span class="meta">@Inject</span> <span class="keyword">set</span> <span class="comment">// 用 Inject 注解此 setter</span></div></pre></td></tr></table></figure>
+<h3 id="支持域"><a href="#支持域" class="headerlink" title="支持域"></a>支持域</h3><p>Kotlin 类里面并没有域，但是为了自定义访问器 Kotlin 提供了「支持域(Backing Fields)」来达到目的，我们用 <code>field</code> 关键字表示。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> counter = <span class="number">0</span> <span class="comment">// the initializer value is written directly to the backing field</span></div><div class="line">    <span class="keyword">set</span>(value) &#123;</div><div class="line">        <span class="keyword">if</span> (value &gt;= <span class="number">0</span>) field = value</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p><code>field</code> 关键字只能用在属性的访问器中。</p>
+<p>Kotlin 会为属性的默认访问器生成支持域，如果属性的访问器全部被自定义，且在自定义的访问器中没有用到支持域，那么就不会有支持域了。</p>
+<h3 id="支持属性"><a href="#支持属性" class="headerlink" title="支持属性"></a>支持属性</h3><p>支持属性其实就是将属性通过自定义的访问器完全委托给另外一个相同类型的私有属性，我们就将这个私有属性我们就可以称为支持属性。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">var</span> _table: Map&lt;String, <span class="built_in">Int</span>&gt;? = <span class="literal">null</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">val</span> table: Map&lt;String, <span class="built_in">Int</span>&gt;</div><div class="line">    <span class="keyword">get</span>() &#123;</div><div class="line">        <span class="keyword">if</span> (_table == <span class="literal">null</span>) &#123;</div><div class="line">            _table = HashMap() <span class="comment">// Type parameters are inferred</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> _table ?: <span class="keyword">throw</span> AssertionError(<span class="string">"Set to null by another thread"</span>)</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="编译期常量"><a href="#编译期常量" class="headerlink" title="编译期常量"></a>编译期常量</h3><p>已知值的属性可以使用 const 修饰符标记为 编译期常量。 这些属性需要满足以下要求：</p>
+<ul>
+<li>位于顶层或者是 object 的一个成员</li>
+<li>用 String 或原生类型 值初始化</li>
+<li>没有自定义 getter</li>
+</ul>
+<p>这些属性可以用在注解中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const val SUBSYSTEM_DEPRECATED: String = &quot;This subsystem is deprecated&quot;</div><div class="line"></div><div class="line">@Deprecated(SUBSYSTEM_DEPRECATED) fun foo() &#123; ... &#125;</div></pre></td></tr></table></figure>
+<h3 id="延迟加载"><a href="#延迟加载" class="headerlink" title="延迟加载"></a>延迟加载</h3><p>通常，声明为非空类型的属性必须在构造函数中初始化。但是，很多时候这并不方便。 例如，可以通过依赖注入或单元测试的设置方法初始化属性。在这种情况下，您不能在构造函数中提供非空的初始值，但是在引用类的体内属性时，仍然希望避免空检查。</p>
+<p>Kotlin 提供了 <code>lateinit</code> 关键字来修饰一个属性，可以让属性支持延迟加载。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyTest</span> </span>&#123;</div><div class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> subject: TestSubject</div><div class="line"></div><div class="line">    <span class="meta">@SetUp</span> <span class="function"><span class="keyword">fun</span> <span class="title">setup</span><span class="params">()</span></span> &#123;</div><div class="line">        subject = TestSubject()</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span> <span class="function"><span class="keyword">fun</span> <span class="title">test</span><span class="params">()</span></span> &#123;</div><div class="line">        subject.method()  <span class="comment">// dereference directly</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用 <code>lateinit</code> 关键字有一些限制，</p>
+<ul>
+<li>只能用于在一个类的主体内声明的var属性（不在主构造函数中）</li>
+<li>该属性没有自定义的getter或setter</li>
+<li>属性的类型必须为非空，并且不能为原始类型</li>
+</ul>
+<p>当访问一个还没有被初始化的延迟加载属性，会抛出相应的异常，告知该属性还未被初始化。</p>
+<h3 id="覆盖属性"><a href="#覆盖属性" class="headerlink" title="覆盖属性"></a>覆盖属性</h3><p>属性覆盖和函数覆盖类似，需要使用 <code>open</code> 和 <code>override</code> 关键字，覆盖属性的类型必须兼容。每个声明的属性可以被具有初始化器的属性或具有getter方法的属性覆盖。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">open class Foo &#123;</div><div class="line">    open val x: Int get &#123; ... &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Bar1 : Foo() &#123;</div><div class="line">    override val x: Int = ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们可以用 <code>var</code> 属性覆盖 <code>val</code> 属性，反过来却不行。这是因为 <code>var</code> 本质上是多声明了一个 <code>setter</code> 方法。</p>
+<p>此外，我们还可以在类的主构造函数的参数也可以同样实现属性覆盖。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Foo</span> </span>&#123;</div><div class="line">    <span class="keyword">val</span> count: <span class="built_in">Int</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bar1</span></span>(<span class="keyword">override</span> <span class="keyword">val</span> count: <span class="built_in">Int</span>) : Foo</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bar2</span> : <span class="type">Foo &#123;</span></span></div><div class="line">    <span class="keyword">override</span> <span class="keyword">var</span> count: <span class="built_in">Int</span> = <span class="number">0</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="属性委托"><a href="#属性委托" class="headerlink" title="属性委托"></a>属性委托</h3><p>定义一个委托属性的语法是 <code>val/var &lt;property name&gt;: &lt;Type&gt; by &lt;expression&gt;</code>，其中 <code>by</code> 后面的就是属性的委托。属性委托不用继承什么特别的接口，只要拥有用 <code>operator</code> 修饰的 <code>getValue()</code> 和 <code>setValue()</code> (适用 var)的函数就可以了。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Delegate</span> </span>&#123;</div><div class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">getValue</span><span class="params">(thisRef: <span class="type">Any</span>?, property: <span class="type">KProperty</span>&lt;*&gt;)</span></span>: String &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"<span class="subst">$thisRef</span>, thank you for delegating '<span class="subst">$&#123;property.name&#125;</span>' to me!"</span></div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">setValue</span><span class="params">(thisRef: <span class="type">Any</span>?, property: <span class="type">KProperty</span>&lt;*&gt;, value: <span class="type">String</span>)</span></span> &#123;</div><div class="line">        println(<span class="string">"<span class="subst">$value</span> has been assigned to '<span class="subst">$&#123;property.name&#125;</span> in <span class="subst">$thisRef</span>.'"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>对于参数的意义：</p>
+<ul>
+<li><code>thisRef</code>，属性的拥有者；</li>
+<li><code>property</code>，对属性的描述，是 KProperty&lt;*&gt; 类型或是它的父类；</li>
+<li><code>value</code>，属性的值。</li>
+</ul>
+<h4 id="lazy"><a href="#lazy" class="headerlink" title="lazy"></a>lazy</h4><p>通过 <code>lazy</code> 我们可以定义一个懒加载的属性，该属性的初始化不会再类创建的时候发生，而是在第一次用到它的时候赋值。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> propLazy: <span class="built_in">Int</span> <span class="keyword">by</span> lazy&#123;<span class="number">1</span>&#125;</div></pre></td></tr></table></figure>
+<h4 id="Observable"><a href="#Observable" class="headerlink" title="Observable"></a>Observable</h4><p>官方推荐另外一个委托属性的应用就是 <code>Observable</code>，让属性在发生变动的时候可以被关注的地方观察到。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: String <span class="keyword">by</span> Delegates.observable(<span class="string">"&lt;no name&gt;"</span>) &#123;</div><div class="line">        prop, old, new -&gt;</div><div class="line">        println(<span class="string">"<span class="subst">$old</span> -&gt; <span class="subst">$new</span>"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">    <span class="keyword">val</span> user = User()</div><div class="line">    user.name = <span class="string">"first"</span></div><div class="line">    user.name = <span class="string">"second"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Storing"><a href="#Storing" class="headerlink" title="Storing"></a>Storing</h4><p><code>Storing</code> 的使用场景是被模型的属性全部委托到 <code>Map</code> 的结构去真实的存储数据，用于解析 <code>Json</code> 或者做一些动态的事情。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>(<span class="keyword">val</span> map: Map&lt;String, Any?&gt;) &#123;</div><div class="line">    <span class="keyword">val</span> name: String <span class="keyword">by</span> map</div><div class="line">    <span class="keyword">val</span> age: <span class="built_in">Int</span>     <span class="keyword">by</span> map</div><div class="line">&#125;</div><div class="line">``` </div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">## Swift</div><div class="line"></div><div class="line">属性可以定义在类、结构体、枚举这三种类型中，用 let 声明只读属性，用 <span class="keyword">var</span> 声明可变属性，定义属性的基本语法为：</div><div class="line"></div><div class="line">```swift</div><div class="line">let|<span class="keyword">var</span> &lt;propertyName&gt;: [&lt;propertyType&gt;] [= &lt;initialValue&gt;]</div></pre></td></tr></table></figure>
+<p>根据属性本身是否保存值可以分为储值属性和计算属性。</p>
+<h3 id="储值属性"><a href="#储值属性" class="headerlink" title="储值属性"></a>储值属性</h3><p>定义属性时不加 get 和 set 的属性就是储值属性，储值属性本身保存一个值。这个值可以被修改（var），叫可变储值属性；也可以不允许被修改（let），叫不可变储值属性。</p>
+<p>例如在结构体 <code>FixedLengthRange</code> 中定义两个储值属性：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">FixedLengthRange</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> firstValue: <span class="type">Int</span></div><div class="line">    <span class="keyword">let</span> length: <span class="type">Int</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以在创建这个结构体的实例时给它的属性赋初始值</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> rangeOfFourItems = <span class="type">FixedLengthRange</span>(firstValue: <span class="number">0</span>, length: <span class="number">4</span>)</div></pre></td></tr></table></figure>
+<p>由于 firstValue 这个属性是用 var 定义的可变属性，可以在实例创建后修改这个属性的值：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rangeOfFourItems.firstValue = <span class="number">6</span></div></pre></td></tr></table></figure>
+<p>而 length 这个属性是用 let 定义的只读属性，它的值不能再被修改。</p>
+<h4 id="常量结构体的储值属性"><a href="#常量结构体的储值属性" class="headerlink" title="常量结构体的储值属性"></a>常量结构体的储值属性</h4><p>还是上面那个例子，不同的是，如果把实例定义为常量，这时它的所有属性都不能被修改。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> rangeOfFourItems = <span class="type">FixedLengthRange</span>(firstValue: <span class="number">0</span>, length: <span class="number">4</span>)</div><div class="line">rangeOfFourItems.firstValue = <span class="number">6</span> <span class="comment">// 编译报错</span></div></pre></td></tr></table></figure>
+<p>对于是引用类型的类来说，常量类实例的属性还是可以被修改的。</p>
+<h4 id="延迟加载的储值属性"><a href="#延迟加载的储值属性" class="headerlink" title="延迟加载的储值属性"></a>延迟加载的储值属性</h4><p>延迟加载的储值属性直到这个属性被第一次使用的时候才会被初始化，用 lazy 关键字来指定一个储值属性是延迟加载的。代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">class DataManager &#123;</div><div class="line">    lazy var importer = DataImporter()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意 lazy 修饰的属性只能用 var 来定义，不能用 let。因为 Swift 的类型的实例在初始化结束后必须保证每个属性都有初始值，而延迟加载的属性再没用到的时候不会执行它的初始化代码来赋值，而是系统会给它一个隐式的初始化值，当属性被使用时，再去执行它的初始化代码给属性设置值，这时相当于改变了属性的值，所以延迟加载只能用在可变属性上。</p>
+<p>如果一个类型的属性在程序运行过程中可能从来不会被用到，那么把它定义成延迟加载的是一个不错的选择，可以有效的节省系统资源，提高程序运行效率。</p>
+<h4 id="储值属性和实例变量"><a href="#储值属性和实例变量" class="headerlink" title="储值属性和实例变量"></a>储值属性和实例变量</h4><p>如果你有较多的 Objective-C 开发经验，那么一定知道在 Objective-C 中，每个属性的背后是一个私有的实例变量在保存属性的值，属性在这个私有实例变量基础上增加了一些额外的 Setter, Getter 操作，提供访问限制，KVO 的支持等。Swift 的属性已经把这两者合为一体，这避免了在不同上下文访问属性值时产生歧义，也简化了属性声明过程。</p>
+<h3 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h3><p>在类、结构体和枚举中也可以定义计算属性，计算属性本身并不保存值，它的值通过提供一个 Getter 计算出来，并且可以选择性提供一个 Setter 来进行赋值计算。</p>
+<h4 id="Setter-和-Getter"><a href="#Setter-和-Getter" class="headerlink" title="Setter 和 Getter"></a>Setter 和 Getter</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Rect</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> origin = <span class="type">CGPoint</span>()</div><div class="line"></div><div class="line">    <span class="keyword">var</span> center: <span class="type">CGPoint</span> &#123;</div><div class="line">        <span class="keyword">get</span> &#123;</div><div class="line">            <span class="keyword">let</span> centerX = origin.x + (size.width / <span class="number">2</span>)</div><div class="line">            <span class="keyword">let</span> centerY = origin.y + (size.height / <span class="number">2</span>)</div><div class="line">            <span class="keyword">return</span> <span class="type">CGPoint</span>(x: centerX, y: centerY) </div><div class="line">        &#125;</div><div class="line">        <span class="keyword">set</span>(newCenter) &#123;</div><div class="line">            origin.x = newCenter.x - (size.width / <span class="number">2</span>)</div><div class="line">            origin.y = newCenter.y - (size.height / <span class="number">2</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>看上面代码，结构体 Rect 中有一个计算属性 center，在这个计算属性定义的后面跟了一堆大括号，里面写了一个 get 和 set。对于计算属性来说，get 是必须的，属性值就是通过 get 中的代码计算得出，get 代码块中的 return 的值就是 center 属性得到的值。</p>
+<p>一样也可以提供一个 set 代码块，其中的代码会在的大歌会在给 center 属性赋值时执行，这里在给另一个属性 origin 对象的属性进行赋值。set 关键字后面可以跟一个括号，里面写的是代表给这个属性赋的新值的变量名称，可以随便起，也可以省去这个括号，那么代表新值得变量名默认为 newValue。</p>
+<p>因为计算属性的值不是固定的，因此只能用 var 修饰计算属性，不能用 let。</p>
+<h4 id="只读计算属性"><a href="#只读计算属性" class="headerlink" title="只读计算属性"></a>只读计算属性</h4><p>计算属性可以仅提供 get 代码块，不提供 set 代码块，就像这样：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> center: <span class="type">CGPoint</span> &#123;</div><div class="line">    <span class="keyword">get</span> &#123;</div><div class="line">        <span class="keyword">let</span> centerX = origin.x + (size.width / <span class="number">2</span>)</div><div class="line">        <span class="keyword">let</span> centerY = origin.y + (size.height / <span class="number">2</span>)</div><div class="line">        <span class="keyword">return</span> <span class="type">CGPoint</span>(x: centerX, y: centerY) </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这是这个 center 为只读计算属性，在这种情况下，可以省去 get 和一对大括号，简写为：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> center: <span class="type">CGPoint</span> &#123;</div><div class="line">    <span class="keyword">let</span> centerX = origin.x + (size.width / <span class="number">2</span>)</div><div class="line">    <span class="keyword">let</span> centerY = origin.y + (size.height / <span class="number">2</span>)</div><div class="line">    <span class="keyword">return</span> <span class="type">CGPoint</span>(x: centerX, y: centerY) </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="属性观察"><a href="#属性观察" class="headerlink" title="属性观察"></a>属性观察</h3><p>有时候我们想要在属性的值发生变化的之前和之后做一些事情，在 Swift 中，可以很方便的使用属性观察来实现。</p>
+<p>在属性定义的时候，Swift 提供了两个关键字：willSet 和 didSet 来引出属性值发生发生变化前，和属性值发生变化后执行的代码块，例如：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">StepCounter</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> totalSteps: <span class="type">Int</span> = <span class="number">0</span> &#123;</div><div class="line">        <span class="keyword">willSet</span>(newTotalSteps) &#123;</div><div class="line">            <span class="built_in">print</span>(<span class="string">"About to set totalSteps to \(newTotalSteps)"</span>)</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">didSet</span> &#123;</div><div class="line">            <span class="keyword">if</span> totalSteps &gt; oldValue  &#123;</div><div class="line">                <span class="built_in">print</span>(<span class="string">"Added \(totalSteps - oldValue) steps"</span>)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>看上面代码，StepCounter 类有个 totalSteps 储值属性，在属性定义之后的一对大括号中，写了 willSet 和 didSet 这两个代码块。</p>
+<p>当 totalSteps 的值发生变化时，例如：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> stepCounter = <span class="type">StepCounter</span>()</div><div class="line">stepCounter.totalSteps = <span class="number">200</span></div></pre></td></tr></table></figure>
+<p>在 stepCounter 的值被实际修改为 200 前，会执行 willSet 中的代码，willSet 后可以跟一个小括号，里面是代表即将付给属性的新值的变量，如果不写小括号，则默认为 newValue。</p>
+<p>在 stepCounter 的值被实际修改为 200 之后，会执行 didSet 中的代码，didSet 代码块中，Swift 提供了一个变量 oldValue 代表被修改前的旧值。</p>
+<h3 id="类型属性"><a href="#类型属性" class="headerlink" title="类型属性"></a>类型属性</h3><p>上面所讲的都是实例属性，Swift 中也可以定义类型属性，类型属性属于类型本身，而不属于类型的实例。在属性定义的时候，用 static 修饰的就是类型属性。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SomeStructure</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></div><div class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面的 storedTypeProperty 和 computedTypeProperty 就是 SomeStructure 这个类型本身的属性，可以通过：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="type">SomeStructure</span>.storedTypeProperty</div><div class="line"><span class="type">SomeStructure</span>.computedTypeProperty</div></pre></td></tr></table></figure>
+<p>来调用。</p>
+<p>对于类，也可以用 class 来修饰，class 允许这个属性被子类复写，这是 class 唯一与 static 不同的地方，static 定义的属性不能被子类复写，例如：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">var</span> <span class="title">overrideableComputedTypeProperty</span>: <span class="title">Int</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">107</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我们喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://7xpox6.com1.z0.glb.clouddn.com/WechatIMG603.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/26/2017-02-26-01/" class="archive-article-date">
-  	<time datetime="2017-02-26T03:48:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/26/2017-02-26-01/">Kotlin Primer·第四章·Kotlin 的类特性(下)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/12/2017-02-12-01/" class="archive-article-date">
-  	<time datetime="2017-02-12T05:48:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/12/2017-02-12-01/">Kotlin Primer·第四章·Kotlin 的类特性(上)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/07/2017-02-07-01/" class="archive-article-date">
-  	<time datetime="2017-02-07T07:34:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/07/2017-02-07-01/">Kotlin Primer·第三章·Kotlin 与 Java 混编</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/04/2017-02-04-01/" class="archive-article-date">
-  	<time datetime="2017-02-04T07:44:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/04/2017-02-04-01/">Kotlin Primer·第二章·基本语法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/03/2017-02-03-01/" class="archive-article-date">
-  	<time datetime="2017-02-03T09:34:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/03/2017-02-03-01/">Kotlin Primer·第一章·启程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/08/27/kotlin_good_bad_bugly/" class="archive-article-date">
-  	<time datetime="2016-08-27T08:59:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/27/kotlin_good_bad_bugly/">Kotlin：The Good, The Bad, and The Ugly(译)</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/26/swiftvskotlin-properties/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/08/02/kotlin_one_method_no_viewholder/" class="archive-article-date">
-  	<time datetime="2016-08-02T15:57:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-02</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/02/kotlin_one_method_no_viewholder/">Kotlin 一个扩展函数，从此丢掉 ViewHolder</a>
-    </h1>
+  
+    <a href="/2017/07/26/swfitvskotlin-extension/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/14/kotlin-type-option/" class="archive-article-date">
-  	<time datetime="2016-07-14T10:52:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/14/kotlin-type-option/">NullPointException 利器 Kotlin 可选型</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/05/kotlin_function_three_common_methods/" class="archive-article-date">
-  	<time datetime="2016-07-05T14:06:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/05/kotlin_function_three_common_methods/">Kotlin 函数式编程三板斧</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">函数式编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/13/kotlin_config_http_kolley/" class="archive-article-date">
-  	<time datetime="2016-06-13T12:23:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/13/kotlin_config_http_kolley/">Kotlin 实现配置化网络请求</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络请求</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/Kotlin/">&laquo; Prev</a><a class="page-number" href="/tags/Kotlin/">1</a><span class="page-number current">2</span><a class="page-number" href="/tags/Kotlin/page/3/">3</a><a class="extend next" rel="next" href="/tags/Kotlin/page/3/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -662,9 +519,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Kotlin | KotlinThree&#39;s Blog</title>
+  <title>KotlinThree&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="title: Swift vs. Kotlin 漫谈之扩展篇 👊date: 2017-07-01 13:07:40tags:   Swift Kotlin swift vs kotlin">
+<meta property="og:type" content="article">
 <meta property="og:title" content="KotlinThree&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Kotlin/page/2/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/07/26/swfitvskotlin-extension/index.html">
 <meta property="og:site_name" content="KotlinThree&#39;s Blog">
+<meta property="og:description" content="title: Swift vs. Kotlin 漫谈之扩展篇 👊date: 2017-07-01 13:07:40tags:   Swift Kotlin swift vs kotlin">
+<meta property="og:updated_time" content="2017-07-26T05:19:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KotlinThree&#39;s Blog">
+<meta name="twitter:description" content="title: Swift vs. Kotlin 漫谈之扩展篇 👊date: 2017-07-01 13:07:40tags:   Swift Kotlin swift vs kotlin">
   
     <link rel="alternative" href="/atom.xml" title="KotlinThree&#39;s Blog" type="application/atom+xml">
   
@@ -155,490 +159,338 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-swfitvskotlin-extension" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: Swift vs. Kotlin 漫谈之扩展篇 👊<br>date: 2017-07-01 13:07:40<br>tags: </p>
+<ul>
+<li>Swift</li>
+<li>Kotlin</li>
+<li>swift vs kotlin</li>
+</ul>
+<a id="more"></a>
+<blockquote>
+<p>《Swift vs. Kotlin 漫谈》系列经过一段时间已经有一些积累了，如果想要查看之前的漫谈系列，可以点击上面的 <code>KotlinThree</code> 关注我们的公众号。</p>
+</blockquote>
+<h2 id="技术漫谈"><a href="#技术漫谈" class="headerlink" title="技术漫谈"></a>技术漫谈</h2><p><strong><em>Swift:</em></strong></p>
+<p>Kotlin 君，我看你最近加班多，都快没有时间谈恋爱了？你和你的女神近况怎么样？</p>
+<p><strong><em>Kotlin</em></strong></p>
+<p>Swift君，别闹。我们只是朋友关系；</p>
+<p><strong><em>Swift</em></strong></p>
+<p>傻子都看得出来你对你的女神有意思，看你单身20余载，恋爱经验匮乏，要不要我传授你撩妹秘诀？</p>
+<p><strong><em>Kotlin</em></strong></p>
+<p>懂我者Swift君也，快说说看；</p>
+<p><strong><em>Swift</em></strong></p>
+<p>以我们Swift为例，我们先定义一个人类，然后你就是<code>kotliner</code>和你女神<code>angel</code></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Human</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">var</span> age: <span class="type">Int</span></div><div class="line">    <span class="keyword">var</span> lover: <span class="type">Human</span>?</div><div class="line">    <span class="keyword">init</span>(<span class="number">_</span> name:<span class="type">String</span>, age: <span class="type">Int</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">        <span class="keyword">self</span>.age = age</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> kotliner = <span class="type">Human</span>.<span class="keyword">init</span>(<span class="string">"Kotliner"</span>, age: <span class="number">26</span>)</div><div class="line"><span class="keyword">var</span> angel = <span class="type">Human</span>.<span class="keyword">init</span>(<span class="string">"Angel"</span>, age: <span class="number">27</span>)</div></pre></td></tr></table></figure>
+<p><strong><em>Kotlin</em></strong></p>
+<p>先定义一个<code>Human</code>是吧，好，我也完成了。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Human</span></span>(name:String)&#123;</div><div class="line">    <span class="keyword">var</span> lover: Human?</div><div class="line">    <span class="keyword">constructor</span>(name:String ,age: <span class="built_in">Int</span>) : <span class="keyword">this</span>(name)&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">val</span> kotliner = Human(<span class="string">"Kotliner"</span>, age: <span class="number">26</span>)</div><div class="line"><span class="keyword">val</span> angel = Human(<span class="string">"Angel"</span>, age: <span class="number">27</span>)</div></pre></td></tr></table></figure>
+<p><strong><em>Swift</em></strong></p>
+<p>然后：第一步，我教你先识别你的女神是不是单身, extension 就可以给 Human 添加一个是否单身的属性（计算性属性）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//note: Swift扩展只能是计算型属性，也必须使用var修饰，且不能赋值操作</span></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Human</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> isSingle: <span class="type">Bool</span> &#123;</div><div class="line">        <span class="keyword">return</span> lover == <span class="literal">nil</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> angelIsSingle = angel.isSingle <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p>你看, 恭喜👏恭喜🎉，女神还单身，你有机会是吧！</p>
+<p><strong><em>Kotlin</em></strong></p>
+<p>这TMD也可以啊，看我也现学现卖一下。是否单身的属性我们也可以加，就是写法不太一样；</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> Human.isSingle : <span class="built_in">Boolean</span> </div><div class="line">    <span class="keyword">get</span>() = <span class="keyword">this</span>.lover == <span class="literal">null</span></div><div class="line"></div><div class="line"><span class="keyword">val</span> angelIsSingle = angel.isSingle <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p><strong><em>Swift</em></strong></p>
+<p>哎呦不错哦，看样子Kotlin君天资聪慧，不久就可以脱单了；<br>再来：我看你女神比较高冷，试试使用撩妹秘籍，通过Extension，让Human学会一个陷入爱河的方法（func）<br>如果是你来撩的话</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Human</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">fallInLoveBy</span>撩<span class="title">X</span>秘籍<span class="params">(<span class="number">_</span> lover: Human)</span></span> &#123;</div><div class="line">        <span class="keyword">self</span>.lover = lover;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">angel.fallInLoveBy撩<span class="type">X</span>秘籍(kotliner)</div><div class="line"><span class="keyword">let</span> isSingle = angel.isSingle <span class="comment">// false</span></div><div class="line"><span class="keyword">let</span> angelsLover = angel.lover?.name <span class="comment">// Kotliner</span></div></pre></td></tr></table></figure>
+<p>看，你的女神不是单身了，而且爱上你了；</p>
+<p>当然，只要你博爱，在Swift里甚至可以让全世界男女都爱上你 🙃</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//note: 类方法扩展，未实例对象</span></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Human</span> </span>&#123;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">perfectLoversName</span>() -&gt; <span class="title">String</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Kotliner"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> name = <span class="type">Human</span>.perfectLoversName() <span class="comment">// Kotliner</span></div></pre></td></tr></table></figure>
+<p><strong><em>Kotlin</em></strong></p>
+<p>这招狠啊，我也试试看看，有没有觉得我们的写法要更简洁点：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> Human.fallInLoveBy撩X秘籍<span class="params">(lover: <span class="type">Human</span>)</span></span>&#123;</div><div class="line">    <span class="keyword">this</span>.lover = lover</div><div class="line">&#125;</div><div class="line"></div><div class="line">angel.fallInLoveBy撩X秘籍(kotliner)</div><div class="line"></div><div class="line"><span class="keyword">val</span> isSingle = angel.isSingle <span class="comment">// false</span></div><div class="line"><span class="keyword">val</span> angelsLover = angel.lover?.name <span class="comment">// Kotliner</span></div></pre></td></tr></table></figure>
+<p><strong><em>Swift</em></strong></p>
+<p>是啊，厉害厉害。</p>
+<p><strong><em>Kotlin</em></strong></p>
+<p>我还悟出了其他的撩妹技巧，你也看看你以前用过没有；</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> Human.壁咚<span class="params">(lover: <span class="type">Human</span>)</span></span>&#123;</div><div class="line">    <span class="keyword">this</span>.lover = <span class="literal">null</span></div><div class="line">    lover = <span class="literal">null</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">kotliner.壁咚(angel)  <span class="comment">//卒......</span></div></pre></td></tr></table></figure>
+<p><strong><em>Swift</em></strong></p>
+<p>哈哈哈哈哈，强行壁咚的下场太可怕了，我们也一样只是换成<code>nil</code>,但这个扩展是同源的，和前面一样的。<br>我还有一招献上</p>
+<p><strong><em>Kotlin</em></strong></p>
+<p>霸王硬上弓？😆</p>
+<p><strong><em>Swift</em></strong></p>
+<p>那不是你卒，是你两全卒。🤣<br>回正题，你知道以前我们父母他们那一辈有媒妁之约，男孩女孩一出生就婚定一生是吧！前面一大堆的扩展学习太麻烦都可以省去，我直接在你女神出生那一刻就给你定娃娃亲，这事就简单了;（构造器）</p>
+<p><code>当你的女神还是一个baby的时候，订个娃娃亲就好简单了</code></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// note: 构造器扩展只能用便利构造器 详见 《类与继承》 漫谈篇</span></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Human</span> </span>&#123;</div><div class="line">    <span class="comment">// 刚刚出生 age=0</span></div><div class="line">    <span class="keyword">convenience</span> <span class="keyword">init</span>(birthWithName name: <span class="type">String</span>, lover: <span class="type">Human</span>?) &#123;</div><div class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(name, age: <span class="number">0</span>)</div><div class="line">        <span class="keyword">self</span>.lover = lover</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// Angelababy（感情你女神是杨颖啊）</span></div><div class="line"><span class="keyword">var</span> angelBaby = <span class="type">Human</span>.<span class="keyword">init</span>(birthWithName: <span class="string">"Angel"</span>, lover: kotliner)</div></pre></td></tr></table></figure>
+<p>哈哈哈，一下子就成了。</p>
+<p><strong><em>Kotlin</em></strong></p>
+<p>这个好，你们可以事后诸葛，但我们是没法做构造器扩展的,倒是可以在创建类时添加一个的构造器:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Human</span></span>(name:String)&#123;</div><div class="line">    ...</div><div class="line">    <span class="keyword">constructor</span>(name:String ,lover: Human,age: <span class="built_in">Int</span> = <span class="number">0</span>) : <span class="keyword">this</span>(name)&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> angelBaby = Human(name = <span class="string">"Angel"</span>, lover = kotliner)</div></pre></td></tr></table></figure>
+<p>试了这么多方法有好有坏，都这么快就学会了，女神我算是已经追求到手了，我打算明天求婚。</p>
+<p><strong><em>Swift</em></strong></p>
+<p>等等等一下。。好不容易追到你女神，你要爱惜她 尊重她 安慰她 保护着她，俩人同心建立起美满的家庭。。。<br>你愿意这样做吗？</p>
+<p><strong><em>Kotlin</em></strong></p>
+<p>Yes, I do</p>
+<p><strong><em>Swift</em></strong></p>
+<p>好在你是程序员，物质基础比较牢靠，结婚后需要有一份稳定的工作做保证；</p>
+<p><strong><em>Kotlin</em></strong></p>
+<p>是是是，我这边公司加班太多了，以后都没法陪老婆孩子，想换一家工作时间分配比较合理一点的公司，你给我推荐一下吧；</p>
+<p><strong><em>Swift</em></strong></p>
+<p>好，这份我们公司的程序员工作合同，签了它就可以过来上班了</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">DeveloperJobProtocol</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> job:<span class="type">String</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">    <span class="keyword">var</span> salary: <span class="type">Int</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">    <span class="keyword">var</span> level: <span class="type">Int</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">    <span class="keyword">var</span> childSex: <span class="type">Sex</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>签合同很简单，看我给你演示一下</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Sex</span> </span>&#123;</div><div class="line">    <span class="keyword">case</span> male, female</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Human</span>: <span class="title">DeveloperJobProtocol</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> job:<span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Andriod"</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> salary: <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> level*<span class="number">2000</span> + <span class="number">6000</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> level: <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">6</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> childSex: <span class="type">Sex</span> &#123;</div><div class="line">        <span class="keyword">return</span> .female</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">kotliner.salary <span class="comment">// 18k</span></div></pre></td></tr></table></figure>
+<p>这是我们公司根据你的情况给你做的合同</p>
+<p><strong><em>Kotlin</em></strong></p>
+<p>18k，很好。知足了</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">Sex</span> </span>&#123;</div><div class="line">    male,female</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">val</span> Human.job: String</div><div class="line"><span class="keyword">get</span>():String &#123;</div><div class="line">     <span class="keyword">return</span> <span class="string">"Andriod"</span></div><div class="line">    &#125;</div><div class="line"><span class="keyword">var</span> Human.salary: <span class="built_in">Int</span></div><div class="line"><span class="keyword">get</span>():<span class="built_in">Int</span> &#123;</div><div class="line">     <span class="keyword">return</span> level*<span class="number">2000</span> + <span class="number">6000</span></div><div class="line">    &#125;</div><div class="line"><span class="keyword">var</span> Human.level: <span class="built_in">Int</span></div><div class="line"><span class="keyword">get</span>():<span class="built_in">Int</span> &#123;</div><div class="line">     <span class="keyword">return</span> <span class="number">6</span></div><div class="line">    &#125;</div><div class="line"><span class="keyword">var</span> Human.childSex: Sex</div><div class="line"><span class="keyword">get</span>():<span class="built_in">Int</span> &#123;</div><div class="line">     <span class="keyword">return</span> Sex.female</div><div class="line">    &#125;</div><div class="line"></div><div class="line">kotliner.salary <span class="comment">// 18k</span></div></pre></td></tr></table></figure>
+<p>合同我签了，但 childSex 是什么鬼？</p>
+<p><strong><em>Swift</em></strong></p>
+<p>你做了程序员，那你不就注定生女儿了嘛。我都想象到未来你们生女儿一起生活的画面了！（扩展嵌套类型）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Human</span> </span>&#123;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Child</span>: <span class="title">Human</span> </span>&#123;</div><div class="line">        <span class="keyword">var</span> sex:<span class="type">Sex</span> = kotliner.childSex</div><div class="line">        <span class="keyword">weak</span> <span class="keyword">var</span> father: <span class="type">Human</span>? = kotliner</div><div class="line">        <span class="keyword">weak</span> <span class="keyword">var</span> mother: <span class="type">Human</span>? = kotliner.lover</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> daughter: <span class="type">Child</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="type">Child</span>.<span class="keyword">init</span>(<span class="string">"littleAngel"</span>, age: <span class="number">0</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> yourChild = kotliner.daughter</div><div class="line"><span class="keyword">let</span> childFatherName = yourChild.father?.name <span class="comment">// Kotliner</span></div></pre></td></tr></table></figure>
+<p><strong><em>Kotlin</em></strong></p>
+<p>哇！！！当程序员居然有这个福利。我喜欢生女儿，生女儿好；可是为什么我女儿的父亲母亲要用<code>weak</code></p>
+<p><strong><em>Swift</em></strong></p>
+<p>你傻啊，你女儿终有一天会嫁出去的，不用<code>weak</code>的话就和你循环引用释放不了，你还想留你女儿一辈子？但是Human的lover我没有加weak，就是故意让你们相互引用，相守一身不离不弃；</p>
+<p><strong><em>Kotlin</em></strong></p>
+<p>我。。。（感动ing）</p>
+<p><strong><em>Swift</em></strong></p>
+<p>好了好了，你先关注当下<br>婚礼的事情只欠东风，你这还没有结婚就有孩子了，明儿求婚还不是百分百搞定；</p>
+<p><strong><em>Kotlin</em></strong></p>
+<p>Swift君，多谢兄弟帮忙；婚礼的事情也希望请你多多指教，我没有经验；</p>
+<p><strong><em>Swift</em></strong></p>
+<p>其实都差不多了，就差一本结婚证，你们能够遵守婚姻协议后这事就成了</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 婚姻协议</span></div><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">MarriageProtocol</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> promise:<span class="type">String</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">    <span class="keyword">var</span> approveByGovernment: <span class="type">Bool</span> &#123;<span class="keyword">get</span>&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 这协议的内容我已经限制人类身上了，动物结婚不需要政府允许的</span></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">MarriageProtocol</span> <span class="title">where</span> <span class="title">Self</span>: <span class="title">Human</span> </span>&#123;</div><div class="line">    <span class="comment">// 誓言承诺</span></div><div class="line">    <span class="keyword">var</span> promise: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"我愿意无论是顺境或逆境，富裕或贫穷，健康或疾病，快乐或忧愁，都将毫无保留地爱ta，对ta忠诚直到永远。无论是健康或疾病。贫穷或富有，无论是年轻漂亮还是容颜老去，我都始终愿意与ta，相亲相爱，相依相伴，相濡以沫，一生一世，不离不弃"</span></div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 政府允许</span></div><div class="line">    <span class="keyword">var</span> approveByGovernment: <span class="type">Bool</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>剩下的你们遵守婚姻协议就好了</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 人类遵守了婚姻协议：1.履行承诺；2.政府认可</span></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Human</span>: <span class="title">MarriageProtocol</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> kotlinerPromise = kotliner.promise</div><div class="line"><span class="keyword">let</span> angelPromise = angel.promise</div><div class="line"><span class="keyword">let</span> angelAuthentic = kotliner.approveByGovernment <span class="comment">// true</span></div><div class="line"><span class="keyword">let</span> kotlinerAuthentic = angel.approveByGovernment <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p>好了，你们的婚姻都有政府见证，都有对方的誓言。恭喜你kotlin君🎉，你脱单了</p>
+<p><strong><em>Kotlin</em></strong></p>
+<p>Swift君 😭，我说不出话了。好兄弟无言表达我的谢意；</p>
+<p><strong><em>Swift</em></strong></p>
+<p>这没什么，我只是分享指导了我的撩妹技巧而已；</p>
+<p><strong><code>内心独白：</code></strong></p>
+<p>TMD,为啥我Swift君指导别人都能成功，自己单身狗当着都是偷偷摸摸的。不做ios了，我要转Android开发；脱单的可能不是考秘籍，而是靠Google爸爸啊 😩</p>
+<h2 id="知识点总结"><a href="#知识点总结" class="headerlink" title="知识点总结"></a>知识点总结</h2><h3 id="Swift"><a href="#Swift" class="headerlink" title="Swift"></a>Swift</h3><p>扩展 就是为一个已有的类、结构体、枚举类型或者协议类型添加新功能。这包括在没有权限获取原始源代码的情况下扩展类型的能力。扩展和 Objective-C 中的分类类似。</p>
+<ul>
+<li>扩展语法</li>
+<li>计算属性</li>
+<li>构造器</li>
+<li>方法</li>
+<li>下标</li>
+<li>嵌套类型</li>
+<li>协议</li>
+</ul>
+<h4 id="扩展语法"><a href="#扩展语法" class="headerlink" title="扩展语法"></a>扩展语法</h4><p>使用关键字 <code>extension</code> 来声明扩展：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">SomeType</span> </span>&#123;</div><div class="line">    <span class="comment">// 为 SomeType 添加的新功能</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以通过扩展来扩展一个已有类型，使其采纳一个或多个协议。在这种情况下，无论是类还是结构体，协议名字的书写方式完全一样：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">SomeType</span>: <span class="title">SomeProtocol</span>, <span class="title">AnotherProctocol</span> </span>&#123;</div><div class="line">    <span class="comment">// 协议实现写到这里</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="计算型属性"><a href="#计算型属性" class="headerlink" title="计算型属性"></a>计算型属性</h4><p>扩展可以为已有类型添加计算型实例属性和计算型类型属性</p>
+<h4 id="基础类型"><a href="#基础类型" class="headerlink" title="基础类型"></a>基础类型</h4><blockquote>
+<p>Note: Swift的基础类型都是结构体，相当于直接对一个定义的结构体做扩展，同时结构体和枚举组成Swift中比较重要的值类型概念</p>
+</blockquote>
+<p>如下：为 Swift 的内建 Double 类型添加了五个计算型实例属性</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Double</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> km: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> / <span class="number">1000.0</span> &#125;</div><div class="line">    <span class="keyword">var</span> m : <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> &#125;</div><div class="line">    <span class="keyword">var</span> cm: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> * <span class="number">100.0</span> &#125;</div><div class="line">    <span class="keyword">var</span> mm: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="keyword">self</span> * <span class="number">1000.0</span> &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> <span class="built_in">distance</span> = <span class="type">Double</span>(<span class="number">7353</span>)</div><div class="line"><span class="built_in">distance</span>.km <span class="comment">// 7.353km</span></div></pre></td></tr></table></figure>
+<h4 id="结构体（class-类似）"><a href="#结构体（class-类似）" class="headerlink" title="结构体（class 类似）"></a>结构体（class 类似）</h4><p>定义一个iOSer结构体，外加一个name属性；</p>
+<blockquote>
+<p>Note: 由于扩展 work 方法，修改了值类型本身，故需要添加 <code>mutating</code> 修饰. 当然我们也可以新建一个方法 <code>new work</code>, 返回String字段,结构体本身值不变故不需要 <code>mutating</code> 修饰</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">iOSer</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">iOSer</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> isValid: <span class="type">Bool</span> &#123;</div><div class="line">        <span class="keyword">return</span> !name.isEmpty</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">work</span><span class="params">()</span></span> &#123;</div><div class="line">        name = name + <span class="string">"_coding_dog"</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">newWork</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> name + <span class="string">"_coding_dog"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>想要理解 <code>mutating</code> 是如何工作的，可以查阅在 Swift 中 <code>inout</code> 函数参数修饰词；他们行为是相似的；</p>
+<h4 id="枚举扩展"><a href="#枚举扩展" class="headerlink" title="枚举扩展"></a>枚举扩展</h4><p>详细可参考漫谈《枚举篇》</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">enum</span> <span class="title">AppleDevice</span> </span>&#123;</div><div class="line">    <span class="keyword">case</span> iPhone,iPod,iPad,<span class="type">Mac</span>,iMac</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">AppleDevice</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">whatShouldIBuy</span><span class="params">(money: Int)</span></span> -&gt; <span class="type">AppleDevice</span> &#123;</div><div class="line">        <span class="keyword">if</span> money &lt; <span class="number">10000</span> &#123;</div><div class="line">            <span class="keyword">return</span> .iPhone</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> .<span class="type">Mac</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="支持构造器"><a href="#支持构造器" class="headerlink" title="支持构造器"></a>支持构造器</h4><p>扩展可以为已有类型添加新的构造器。这可以让你扩展其它类型，将你自己的定制类型作为其构造器参数，或者提供该类型的原始实现中未提供的额外初始化选项。</p>
+<blockquote>
+<p>Note: 扩展能为类添加新的便利构造器，但是它们不能为类添加新的指定构造器或析构器。指定构造器和析构器必须总是由原始的类实现来提供。但是结构体你随意,只要构造器可以初始化所有确定属性值就好了（带？的可选值属性可以不理会）</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 参考已有的如上代码：iOSer、Human</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">iOSer</span> </span>&#123;</div><div class="line">    <span class="comment">// 结构体</span></div><div class="line">    <span class="keyword">init</span>(firstName: <span class="type">String</span>, secondName: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = firstName + secondName</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Human</span> </span>&#123;</div><div class="line">    <span class="comment">// 类</span></div><div class="line">    <span class="keyword">convenience</span> <span class="keyword">init</span>(firstName: <span class="type">String</span>, secondName: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(name: firstName + secondName)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="方法扩展"><a href="#方法扩展" class="headerlink" title="方法扩展"></a>方法扩展</h4><p>扩展可以为已有类型添加新的实例方法和类型方法、静态方法<br>结构体的静态方法相当于引用类型的类型方法</p>
+<blockquote>
+<p>Note: 结构体的静态方法相当于引用类型的类型方法，类的静态方法和类方法相似，但是static修饰类时是不会被override（重写的），但class可以</p>
+</blockquote>
+<p>如下：结构体没有类型方法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">iOSer</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">bestPrictise</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Swift3.1"</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">favoriteLanguage</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"\(name) loved swift"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> bp = iOSer.bestPrictise()</div><div class="line"><span class="keyword">let</span> xcodeyang = iOSer(name: <span class="string">"xy"</span>)</div><div class="line">xcodeyang.favoriteLanguage()</div></pre></td></tr></table></figure>
+<p>如下：给人类添加三个扩展方法， coding 方法参数是一个闭包，也可以认为是一个无返回值的匿名函数</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Human</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">tranlateChinese</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"人类"</span></div><div class="line">    &#125;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">tranlateJanpanese</span>() -&gt; <span class="title">String</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"ピープル"</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">coding</span><span class="params">(code:<span class="params">(<span class="params">()</span></span></span></span>-&gt;<span class="type">Void</span>)?) &#123;</div><div class="line">        code?()</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> chineseName = <span class="type">Human</span>.tranlateChinese()</div><div class="line"><span class="keyword">let</span> janpaneseName = <span class="type">Human</span>.tranlateJanpanese()</div><div class="line"><span class="keyword">let</span> me = <span class="type">Human</span>(firstName: <span class="string">"yang"</span>, secondName: <span class="string">"zhi"</span>)</div><div class="line">me.coding &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"Hello World"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="嵌套类型"><a href="#嵌套类型" class="headerlink" title="嵌套类型"></a>嵌套类型</h4><p>扩展可以为已有的类、结构体和枚举添加新的嵌套类型：</p>
+<p>比如结构体里面的枚举等等</p>
+<blockquote>
+<p>Note: 属性experience 后面有一个闭包，而且有didSet方法；乍一看很想计算型属性，但是它是存储型属性；didSet和willSet是属性被设置的回调函数，相当于观察者模式；可以根据此判断一个属性是不是计算型属性；</p>
+<p>比如：myFavoriteDSL，newJob 是计算型 而 experience和salary是存储型属性</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">iOSer</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Job</span> </span>&#123;</div><div class="line">        <span class="keyword">var</span> experience: <span class="type">Int</span> = <span class="number">0</span> &#123;</div><div class="line">            <span class="keyword">didSet</span>&#123;</div><div class="line">                salary = experience&gt;<span class="number">3</span> ? <span class="number">50</span>:<span class="number">10</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> salary = <span class="number">0</span></div><div class="line"></div><div class="line">        <span class="keyword">init</span>(l: <span class="type">Language</span>) &#123;</div><div class="line">            <span class="keyword">if</span> l != .oc &#123;</div><div class="line">                experience = <span class="number">3</span></div><div class="line">                salary = <span class="number">30</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Language</span> </span>&#123;</div><div class="line">        <span class="keyword">case</span> oc, swift, java, js, <span class="built_in">c</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> myFavoriteDSL: <span class="type">Language</span> &#123;</div><div class="line">        <span class="keyword">return</span> .js</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> newJob: <span class="type">Job</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="type">Job</span>(l: myFavoriteDSL)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">xcodeyang.newJob.salary</div></pre></td></tr></table></figure>
+<h4 id="下标"><a href="#下标" class="headerlink" title="下标"></a>下标</h4><p>扩展可以为已有类型添加新下标。<br>常见数组，字典等等</p>
+<p>这个例子为 Swift 内建类型 Int 添加了一个整型下标。该下标 [n] 返回十进制数字从右向左数的第 n 个数字：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Int</span> </span>&#123;</div><div class="line">    <span class="keyword">subscript</span>(digitIndex: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">var</span> decimalBase = <span class="number">1</span></div><div class="line">        <span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">0</span>..&lt;digitIndex &#123;</div><div class="line">            decimalBase *= <span class="number">10</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">self</span> / decimalBase) % <span class="number">10</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="number">746381295</span>[<span class="number">0</span>] <span class="comment">// 5</span></div><div class="line"><span class="number">746381295</span>[<span class="number">5</span>] <span class="comment">// 3</span></div></pre></td></tr></table></figure>
+<p>如果该 Int 值没有足够的位数，即下标越界，那么上述下标实现会返回 0，犹如在数字左边自动补 0：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">746381295</span>[<span class="number">9</span>]</div><div class="line"><span class="comment">// 返回 0，即等同于：</span></div><div class="line"><span class="number">0746381295</span>[<span class="number">9</span>]</div></pre></td></tr></table></figure>
+<h4 id="扩展-amp-amp-协议"><a href="#扩展-amp-amp-协议" class="headerlink" title="扩展 &amp;&amp; 协议"></a>扩展 &amp;&amp; 协议</h4><p>详细可以参考漫谈的协议部分，其中包含面向协议编程</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">TextRepresentable</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> textualDescription: <span class="type">String</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Human</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">var</span> textualDescription: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"这个人叫\(name)"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="通过扩展遵循协议"><a href="#通过扩展遵循协议" class="headerlink" title="通过扩展遵循协议"></a>通过扩展遵循协议</h5><p>如上：Human 已经实现了 textualDescription方法，故执行加入当前协议即可；</p>
+<blockquote>
+<p>Note: 这简直看不出有个毛用，但是下面的协议类型转化还是很有用的，即 textProtocal 和 human 两个初始化是一样的只是指向类型不一样；<br>textProtocal 只能调用他的属性textualDescription，但是human实例是可以调用它的两个属性</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Human</span>: <span class="title">TextRepresentable</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> textProtocal: <span class="type">TextRepresentable</span> = <span class="type">Human</span>(name: <span class="string">"john"</span>)</div><div class="line">textProtocal.textualDescription</div><div class="line"><span class="comment">// 或者</span></div><div class="line"><span class="keyword">let</span> human = <span class="type">Human</span>(name: <span class="string">"john"</span>)</div><div class="line">human.textualDescription</div></pre></td></tr></table></figure>
+<blockquote>
+<p>复习一下，协议属性不管是 set get 都是计算型属性，除非执行协议的类本身就有相同的属性（如上Human），而且是确定性的存储型属性；（Human 那个是确定有值的计算型属性）</p>
+<p>Note: 下面的这部分更应该属于协议的范畴而非扩展，协议的继承；</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">PrettyTextRepresentable</span>: <span class="title">TextRepresentable</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> prettyTextualDescription: <span class="type">String</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Human</span>: <span class="title">PrettyTextRepresentable</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> prettyTextualDescription: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> name.isEmpty ? <span class="string">"❌: 人名无效"</span> : <span class="string">"✅：这个人叫\(name)"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> john = <span class="type">Human</span>(name: <span class="string">"john"</span>)</div><div class="line"><span class="keyword">let</span> unnamed = <span class="type">Human</span>(name: <span class="string">""</span>)</div><div class="line"><span class="built_in">print</span>(john.prettyTextualDescription)</div><div class="line"><span class="built_in">print</span>(unnamed.prettyTextualDescription)</div></pre></td></tr></table></figure>
+<h5 id="通过扩展遵循协议实现协议的默认实现"><a href="#通过扩展遵循协议实现协议的默认实现" class="headerlink" title="通过扩展遵循协议实现协议的默认实现"></a>通过扩展遵循协议实现协议的默认实现</h5><p>和上面同名的属性方法不一致的是，可以通过对协议的扩展，实现协议的属性和方法（即默认实现），那不论谁遵守协议，都直接拥有协议的功能；未被默认实现的部分需要再实现如 <code>gameName</code> 属性；当然在扩展里也可以重新实现已默认实现的方法属性，不需要override</p>
+<blockquote>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">PlayGame</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> gameName: <span class="type">String</span> &#123;<span class="keyword">get</span>&#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">startGame</span><span class="params">()</span></span></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">endGame</span><span class="params">()</span></span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">PlayGame</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">startGame</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"\(self.gameName) 游戏开始了"</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">endGame</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="keyword">self</span>.gameName + <span class="string">" 结束了"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Human</span>: <span class="title">PlayGame</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> gameName: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"王者荣耀"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">human.gameName</div><div class="line">human.startGame()</div><div class="line">human.endGame()</div></pre></td></tr></table></figure>
+<h5 id="为协议扩展添加限制条件"><a href="#为协议扩展添加限制条件" class="headerlink" title="为协议扩展添加限制条件"></a>为协议扩展添加限制条件</h5><p>协议扩展默认实现可以针对遵守协议的对象类型做约束（如下），也可以</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Programmer</span>: <span class="title">Human</span> </span>&#123;&#125;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Designer</span>: <span class="title">Human</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="comment">// 娱乐项目</span></div><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Entertainment</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span> &#123;<span class="keyword">get</span>&#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">haveFun</span><span class="params">()</span></span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Entertainment</span> <span class="title">where</span> <span class="title">Self</span>: <span class="title">Programmer</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"王者荣耀"</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">haveFun</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"开始玩\(name)啦。。"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Programmer</span>: <span class="title">Entertainment</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Designer</span>: <span class="title">Entertainment</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">haveFun</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"自己看看\(name)"</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span> = <span class="string">"动画片"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> prog = <span class="type">Programmer</span>()</div><div class="line">prog.haveFun() <span class="comment">// 开始玩王者荣耀啦。。</span></div><div class="line"><span class="keyword">let</span> desi = <span class="type">Designer</span>()</div><div class="line">desi.haveFun() <span class="comment">// 自己看看动画片</span></div></pre></td></tr></table></figure>
+<p>当然更有意义的应当是约束协议实现对象所遵守的另一个协议，而非对象类型</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Entertainment</span> <span class="title">where</span> <span class="title">Self</span>: <span class="title">PlayGame</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.gameName</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">haveFun</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"play \(self.gameName)"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="集合的运用"><a href="#集合的运用" class="headerlink" title="集合的运用"></a>集合的运用</h4><p>同理属于对Swift的基础类型的拓展，不用多说；</p>
+<p>这里涉及到迭代器的相关知识，后面在深究</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Collection</span> <span class="title">where</span> <span class="title">Iterator</span>.<span class="title">Element</span>: <span class="title">Entertainment</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> allNames:<span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.<span class="built_in">reduce</span>(<span class="string">"结果："</span>, &#123;</div><div class="line">            $<span class="number">0</span> + <span class="string">"\n"</span> + $<span class="number">1</span>.name</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> representableArray = [<span class="type">Designer</span>(),<span class="type">Designer</span>(),<span class="type">Designer</span>()]</div><div class="line"><span class="comment">// 留下待解决问题</span></div><div class="line"><span class="comment">//let representableArray = [Programmer(),Designer()] as [Entertainment]</span></div><div class="line"><span class="built_in">print</span>(representableArray.allNames)</div></pre></td></tr></table></figure>
+<h3 id="Kotlin-篇"><a href="#Kotlin-篇" class="headerlink" title="Kotlin 篇"></a>Kotlin 篇</h3><p>在Kotlin中，允许对类进行扩展，不需要继承或使用 Decorator 模式，通过一种特殊形式的声明，来实现某一具体功能。扩展函数是静态解析的，并未对原类增添函数或者属性，也就是说对其本身没有丝毫影响。</p>
+<h4 id="扩展函数"><a href="#扩展函数" class="headerlink" title="扩展函数"></a>扩展函数</h4><p>在kotlin里，通过扩展函数，我们可以很方便的为一个类添加一个方法。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> String.<span class="title">lastChar</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="keyword">this</span>.length - <span class="number">1</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> String.<span class="title">lastChar</span><span class="params">()</span></span> = <span class="keyword">get</span>(<span class="keyword">this</span>.length - <span class="number">1</span>)</div></pre></td></tr></table></figure></p>
+<p>上面两种写法其实是一样的。其中，this关键字指代接收者对象(receiver object)(也就是调用扩展函数时, 在点号之前指定的对象实例)，有时可以省略。</p>
+<h5 id="扩展函数的调用"><a href="#扩展函数的调用" class="headerlink" title="扩展函数的调用"></a>扩展函数的调用</h5><p>以上面的函数为例<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"Android"</span>.lastChar()</div></pre></td></tr></table></figure></p>
+<h5 id="扩展函数的声明格式："><a href="#扩展函数的声明格式：" class="headerlink" title="扩展函数的声明格式："></a>扩展函数的声明格式：</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> receiverType.<span class="title">functionName</span><span class="params">(params)</span></span>&#123;</div><div class="line">    body</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其中</p>
+<ul>
+<li>receiverType：表示函数的接收者，也就是函数扩展的对象</li>
+<li>functionName：扩展函数的名称</li>
+<li>params：扩展函数的参数，可以为NULL</li>
+<li>body 函数体</li>
+</ul>
+<h4 id="扩展函数是静态解析的"><a href="#扩展函数是静态解析的" class="headerlink" title="扩展函数是静态解析的"></a>扩展函数是静态解析的</h4><p>扩展方法是静态解析的，而并不是真正给类添加了这个方法。<br>调用的扩展函数是由函数调用所在的表达式的类型来决定的，而不是由表达式运行时求值结果决定的。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> : <span class="type">Animal</span></span>()</div><div class="line"></div><div class="line"><span class="keyword">object</span> Main &#123;</div><div class="line">    <span class="function"><span class="keyword">fun</span> Animal.<span class="title">food</span><span class="params">()</span></span> = <span class="string">"food"</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">fun</span> Cat.<span class="title">food</span><span class="params">()</span></span> = <span class="string">"fish"</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">fun</span> Animal.<span class="title">printFood</span><span class="params">(anim: <span class="type">Animal</span>)</span></span>&#123;</div><div class="line">        println(anim.food())</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@JvmStatic</span> <span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">        Animal().printFood(Cat())</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>最终的输出是 food ，而不是 fish 。<br>因为扩展方法是静态解析的，在添加扩展方法的时候类型为Animal，那么即便运行时传入了子类对象，也依旧会执行参数中声明时类型的方法。</p>
+<h5 id="成员函数和扩展函数"><a href="#成员函数和扩展函数" class="headerlink" title="成员函数和扩展函数"></a>成员函数和扩展函数</h5><p>如果一个类定义有一个成员函数和一个扩展函数，而这两个函数又有相同的接收者类型、相同的名字并且都适用给定的参数，这种情况总是优先调用成员函数。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> : <span class="type">Animal</span></span>()&#123;</div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">printFood</span><span class="params">()</span></span>&#123;</div><div class="line">          println(<span class="string">"meat"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">object</span> Main &#123;</div><div class="line">    <span class="function"><span class="keyword">fun</span> Dog.<span class="title">printFood</span><span class="params">()</span></span>&#123;</div><div class="line">        println(<span class="string">"bone"</span>)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@JvmStatic</span> <span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">        <span class="keyword">val</span> dog: Dog = Dog()</div><div class="line">        dog.printFood()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里输出 meat。</p>
+<h4 id="扩展属性"><a href="#扩展属性" class="headerlink" title="扩展属性"></a>扩展属性</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> TextView.leftMargin:<span class="built_in">Int</span></div><div class="line"><span class="keyword">get</span>():<span class="built_in">Int</span> &#123;</div><div class="line">     <span class="keyword">return</span> (layoutParams <span class="keyword">as</span> ViewGroup.MarginLayoutParams).leftMargin</div><div class="line">    &#125;</div><div class="line"><span class="keyword">set</span>(value) &#123;</div><div class="line">        (layoutParams <span class="keyword">as</span> ViewGroup.MarginLayoutParams).leftMargin=value</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>由于扩展没有实际的将成员插入类中，因此对扩展属性来说幕后字段是无效的。所以,对于扩展属性不允许存在初始化器。 扩展属性的行为只能由显式提供的 getters/setters 定义。也就意味着扩展属性只能被声明为val而不能被声明为var.如果强制声明为var，即使进行了初始化，在运行也会报异常错误，提示该属性没有幕后字段。</p>
+<h4 id="伴生对象的扩展"><a href="#伴生对象的扩展" class="headerlink" title="伴生对象的扩展"></a>伴生对象的扩展</h4><p>如果一个类定义有一个伴生对象 ，你也可以为伴生对象定义扩展函数和属性：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> Animal.Companion.<span class="title">eat</span><span class="params">()</span></span> &#123;</div><div class="line">    println(<span class="string">"eat"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">val</span> Animal.Companion.food: String</div><div class="line"><span class="keyword">get</span>() = <span class="string">"food"</span></div><div class="line"></div><div class="line"><span class="meta">@JvmStatic</span> <span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line"></div><div class="line">    println(<span class="string">"food:<span class="subst">$&#123;Animal.food&#125;</span>"</span>)</div><div class="line">    Animal.eat()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>对于伴生对象的扩展属性和方法，只需用类名作为限定符去调用他们就可以了。</p>
+<h4 id="扩展的作用域"><a href="#扩展的作用域" class="headerlink" title="扩展的作用域"></a>扩展的作用域</h4><p>我们在 <code>a</code> 包中定义的扩展方法</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> a</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> Cat.<span class="title">food</span><span class="params">()</span></span> &#123; …… &#125;</div></pre></td></tr></table></figure>
+<p>要在a包之外使用这个扩展，我们需要在调用方导入它：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> b</div><div class="line"><span class="keyword">import</span> a.food <span class="comment">// 导入所有名为“food”的扩展</span></div><div class="line">                   <span class="comment">// 或者</span></div><div class="line"><span class="keyword">import</span> a.*   <span class="comment">// 从“a包”导入一切</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">usage</span><span class="params">(cat: <span class="type">Cat</span>)</span></span> &#123;</div><div class="line">    cat.food()</div></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我们喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://7xpox6.com1.z0.glb.clouddn.com/WechatIMG603.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/26/2017-02-26-01/" class="archive-article-date">
-  	<time datetime="2017-02-26T03:48:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/26/2017-02-26-01/">Kotlin Primer·第四章·Kotlin 的类特性(下)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/12/2017-02-12-01/" class="archive-article-date">
-  	<time datetime="2017-02-12T05:48:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/12/2017-02-12-01/">Kotlin Primer·第四章·Kotlin 的类特性(上)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/07/2017-02-07-01/" class="archive-article-date">
-  	<time datetime="2017-02-07T07:34:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/07/2017-02-07-01/">Kotlin Primer·第三章·Kotlin 与 Java 混编</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/04/2017-02-04-01/" class="archive-article-date">
-  	<time datetime="2017-02-04T07:44:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/04/2017-02-04-01/">Kotlin Primer·第二章·基本语法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/03/2017-02-03-01/" class="archive-article-date">
-  	<time datetime="2017-02-03T09:34:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/03/2017-02-03-01/">Kotlin Primer·第一章·启程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/08/27/kotlin_good_bad_bugly/" class="archive-article-date">
-  	<time datetime="2016-08-27T08:59:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/27/kotlin_good_bad_bugly/">Kotlin：The Good, The Bad, and The Ugly(译)</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/26/swfitvskotlin-extension/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/08/02/kotlin_one_method_no_viewholder/" class="archive-article-date">
-  	<time datetime="2016-08-02T15:57:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-02</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/02/kotlin_one_method_no_viewholder/">Kotlin 一个扩展函数，从此丢掉 ViewHolder</a>
-    </h1>
+    <a href="/2017/07/26/swiftvskotlin-properties/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/08/swiftvskotlin-class-and-inheritance/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Swift vs Kotlin 漫谈系列之类与继承</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/14/kotlin-type-option/" class="archive-article-date">
-  	<time datetime="2016-07-14T10:52:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/14/kotlin-type-option/">NullPointException 利器 Kotlin 可选型</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/05/kotlin_function_three_common_methods/" class="archive-article-date">
-  	<time datetime="2016-07-05T14:06:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/05/kotlin_function_three_common_methods/">Kotlin 函数式编程三板斧</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">函数式编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/13/kotlin_config_http_kolley/" class="archive-article-date">
-  	<time datetime="2016-06-13T12:23:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/13/kotlin_config_http_kolley/">Kotlin 实现配置化网络请求</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络请求</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/Kotlin/">&laquo; Prev</a><a class="page-number" href="/tags/Kotlin/">1</a><span class="page-number current">2</span><a class="page-number" href="/tags/Kotlin/page/3/">3</a><a class="extend next" rel="next" href="/tags/Kotlin/page/3/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -662,9 +514,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

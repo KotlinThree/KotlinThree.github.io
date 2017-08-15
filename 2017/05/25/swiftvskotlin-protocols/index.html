@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Kotlin | KotlinThree&#39;s Blog</title>
+  <title>Swift vs. Kotlin 漫谈之函数定义 | KotlinThree&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="KotlinThree&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Kotlin/page/2/index.html">
+  <meta name="description" content="Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。内容会由简及深，慢慢深入。">
+<meta name="keywords" content="Kotlin,Swift,swift vs kotlin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift vs. Kotlin 漫谈之函数定义">
+<meta property="og:url" content="http://yoursite.com/2017/05/25/swiftvskotlin-protocols/index.html">
 <meta property="og:site_name" content="KotlinThree&#39;s Blog">
+<meta property="og:description" content="Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。内容会由简及深，慢慢深入。">
+<meta property="og:image" content="http://7xpox6.com1.z0.glb.clouddn.com/kotlin-three-wechat.jpg">
+<meta property="og:updated_time" content="2017-07-26T05:21:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KotlinThree&#39;s Blog">
+<meta name="twitter:title" content="Swift vs. Kotlin 漫谈之函数定义">
+<meta name="twitter:description" content="Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。内容会由简及深，慢慢深入。">
+<meta name="twitter:image" content="http://7xpox6.com1.z0.glb.clouddn.com/kotlin-three-wechat.jpg">
   
     <link rel="alternative" href="/atom.xml" title="KotlinThree&#39;s Blog" type="application/atom+xml">
   
@@ -155,291 +162,286 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-swiftvskotlin-protocols" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Swift vs. Kotlin 漫谈之函数定义
+    </h1>
+  
+
+        
+        <a href="/2017/05/25/swiftvskotlin-protocols/" class="archive-article-date">
+  	<time datetime="2017-05-25T05:07:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-25</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Kotlin 君和 Swift 君在一个团队一起开发已经很久了，由于平台的差异性，他们经常会进行一些技术上的交流（PK），「Kotlin vs. Swift」课程就是他们在互相切磋是的语录。内容会由简及深，慢慢深入。</p>
+<a id="more"></a>
+<h1 id="技术漫谈"><a href="#技术漫谈" class="headerlink" title="技术漫谈"></a>技术漫谈</h1><p><strong>Kotlin:</strong></p>
+<p>Hi, 小 S, Swift 4 发布了，有啥新变化吗？</p>
+<p><strong>Swift:</strong></p>
+<p>哈，小 K, 你也关注 WWDC 啊。</p>
+<p>总体来说 Swift 4 没有从 Swift 2 到 Swift 3 变化那么大，但也有很多强大的新特性值得我们去学习，我们的土豪铎已经总结好了 Swift 4 的所有新特性，可以直接点击链接去学习。<a href="http://liuduo.me/2017/06/09/Whats_new_in_swift_4_completely/" target="_blank" rel="external">最全的 Swift 4 新特性解析</a></p>
+<p><strong>Kotlin:</strong></p>
+<p>👍，真有速度。</p>
+<p><strong>Swift:</strong></p>
+<p>😆，必须滴，我们今天就基于 Swift 4 的新语法来讨论一下接口吧？</p>
+<p><strong>Kotlin:</strong></p>
+<p>好啊，接口对我们开发来说是个很重要的概念。设计模式中要求我们写代码要遵循依赖倒置原则，就是程序要依赖于抽象接口，不要依赖于具体实现，也就是要求我们要面向接口编程。</p>
+<p><strong>Swift:</strong></p>
+<p>是的，在 Swift 中，接口被称为协议（即 <code>Protocol</code> ）, 苹果大大强化了 <code>Protocol</code> 在这门语言中的地位，整个 Swift 标准库也是基于 <code>Protocol</code> 来设计的，可以说 Swift 是一门面向 <code>protocol</code> 编程的语言。</p>
+<p><strong>Kotlin:</strong></p>
+<p>听起来好流比，那来说说你们是怎么定义接口的？</p>
+<p><strong>Swift:</strong></p>
+<p>我们用 <code>Protocol</code> 关键字来定义接口：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SomeProtocol</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">f</span><span class="params">()</span></span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>你们呢？</p>
+<p><strong>Kotlin:</strong></p>
+<p>我们同 Java 一样，用 <code>interface</code> 关键字来定义接口：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">f</span><span class="params">()</span></span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Swift:</strong></p>
+<p>嗯，看起来就是关键字不一样。你们怎么实现接口呢？</p>
+<p><strong>Kotlin:</strong></p>
+<p>一个类要实现某个接口，需要在类型名称后加上协议名称，中间以冒号（<code>:</code>）分隔：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span>: <span class="type">MyInterface &#123;</span></span></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">f</span><span class="params">()</span></span> &#123;</div><div class="line">       <span class="comment">// 具体实现</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一个类或者对象可以实现一个或多个接口。实现多个接口时，各接口之间用逗号（<code>,</code>）分隔.</p>
+<p><strong>Swift:</strong></p>
+<p>我们也是一样的，只是我们不需要写 <code>override</code> 关键字，只有当子类复写父类的方法或计算属性时才需要用 <code>override</code> 修饰。另外，我们还可以通过扩展类型来实现协议：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line">    <span class="comment">//...类的定义</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">MyClass</span>: <span class="title">SomeProtocol</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">f</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="comment">// 具体实现</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Kotlin:</strong></p>
+<p>👍 ，这意味着你们不用修改原有类型，就可以让原有类型符合某个协议了，甚至可以扩展标准库中的某个基础类型来实现自定义的协议。这很符合开闭原则嘛。</p>
+<p><strong>Swift:</strong></p>
+<p>是啊，牛不牛 😆。</p>
+<p>我们实现协议的类型除了 <code>class</code> 外，还可以是 <code>struct</code> 或 <code>enum</code>。</p>
+<p><strong>Kotlin:</strong></p>
+<p>Kotlin 没有结构体的概念， <code>enum</code> 也可以实现接口。</p>
+<p>来说说你们的接口中可以声明哪些东西吧？</p>
+<p><strong>Swift:</strong></p>
+<p>我们可以在协议中声明属性和方法，用 <code>var</code> 关键字来声明变量属性，并在属性声明后加上 <code>{ set get }</code> 来表示属性是可读可写的，用 <code>{ get }</code> 来表示属性是只读的。</p>
+<p>协议里面声明的属性和方法一定是抽象的，不能有实现，由符合协议的类型来提供所有属性和方法的实现。</p>
+<p><strong>Kotlin:</strong></p>
+<p>我们也可以声明属性和方法，而且 Kotlin 可以直接在接口中为属性和方法提供默认实现：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>&#123;</div><div class="line">    <span class="keyword">val</span> prop: <span class="built_in">Int</span> <span class="comment">// 抽象的</span></div><div class="line">    <span class="keyword">val</span> propertyWithImplementation: String</div><div class="line">        <span class="keyword">get</span>() = <span class="string">"foo"</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> &#123;</div><div class="line">        print(prop)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> : <span class="type">MyInterface &#123;</span></span></div><div class="line">    <span class="keyword">override</span> <span class="keyword">val</span> prop: <span class="built_in">Int</span> = <span class="number">29</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Swift:</strong></p>
+<p>👍，虽然我们不能在协议中直接提供属性和方法的默认实现，但是我们可以通过协议扩展来达到此目的。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">MyProtocol</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> prop: <span class="type">Int</span> &#123; <span class="keyword">get</span> <span class="keyword">set</span> &#125;</div><div class="line">    <span class="keyword">var</span> propertyWithImplementation: <span class="type">String</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">foo</span><span class="params">()</span></span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">MyProtocol</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> propertyWithImplementation: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"foo"</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">foo</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(prop)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span>: <span class="title">MyProtocol</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> prop: <span class="type">Int</span> = <span class="number">29</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Kotlin:</strong></p>
+<p>哇~，你们这个协议扩展有点厉害了。</p>
+<p><strong>Swift:</strong></p>
+<p>是的，正是这个特性，才使得我们面向协议编程成为可能。我们甚至可以在扩展中添加协议里没有定义过的方法和属性。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">MyProtocol</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">isExceed</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span> &#123;</div><div class="line">        <span class="keyword">return</span> prop &gt; <span class="number">30</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> instance = <span class="type">MyClass</span>()</div><div class="line"><span class="built_in">print</span>(instance.isExceed())</div><div class="line"><span class="comment">// false</span></div></pre></td></tr></table></figure>
+<p><strong>Kotlin:</strong></p>
+<p>🙏，这就意味着你们也有能力扩展标准库里的协议了，可以很方便的给标准库里的协议添加新的方法和属性。</p>
+<p><strong>Swift:</strong></p>
+<p>聪明，确实是这样。不仅如此，在扩展协议的时候，还可以指定一些限制条件，只有遵循协议的类型满足这些限制条件时，才能获得协议扩展提供的默认实现。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">TextRepresentable</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> textualDescription: <span class="type">String</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Hamster</span>: <span class="title">TextRepresentable</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">var</span> textualDescription: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"A hamster named <span class="subst">\(name)</span>"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Collection</span> <span class="title">where</span> <span class="title">Iterator</span>.<span class="title">Element</span>: <span class="title">TextRepresentable</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> textualDescription: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">let</span> itemsAsText = <span class="keyword">self</span>.<span class="built_in">map</span> &#123; $<span class="number">0</span>.textualDescription &#125;</div><div class="line">        <span class="keyword">return</span> <span class="string">"["</span> + itemsAsText.joined(separator: <span class="string">", "</span>) + <span class="string">"]"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> hamsters = [<span class="type">Hamster</span>(name: <span class="string">"Jim"</span>), <span class="type">Hamster</span>(name: <span class="string">"Merry"</span>)]</div><div class="line"><span class="built_in">print</span>(hamsters.textualDescription)</div><div class="line"><span class="comment">// [A hamster named Jim, A hamster named Merry]</span></div></pre></td></tr></table></figure>
+<p>这里扩展了 Swift 标准库中的 <code>Collection</code> 协议，但是限制只适用于集合中的元素遵循了 <code>TextRepresentable</code> 协议的情况。 因为 <code>Swift</code> 中 <code>Array</code> 符合 <code>Collection</code> 协议，而 <code>Hamster</code> 类型又符合 <code>TextRepresentable</code> 协议，所以 <code>hamsters</code> 可以使用 <code>textualDescription</code> 属性得到数组内容的文本表示。</p>
+<p><strong>Kotlin:</strong></p>
+<p>赞啊~，你们这个协议扩展太强大了，不仅可以扩展自己定义的协议，还可以扩展标准库中的协议，怪不得苹果称 <code>Swift</code> 是面向协议编程的语言。</p>
+<p>Swift 在实现多个协议时，会不会有不同协议带来同名方法或属性的冲突的问题？</p>
+<p><strong>Swift:</strong></p>
+<p>我们还不能很好地处理多个协议的冲突问题。😭</p>
+<p><strong>Kotlin:</strong></p>
+<p>😎 Kotlin 可以，Kotlin 有一套规则来处理这样的冲突。在 Kotlin 中，如果一个类从它的直接超类继承相同成员的多个实现（由于接口函数可以有实现），它必须覆盖这个成员并提供其自己的实现。 为了表示采用从哪个超类型继承的实现，我们使用由尖括号中超类型名限定的 super，如 super<a>。</a></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line">    <span class="keyword">open</span> <span class="function"><span class="keyword">fun</span> <span class="title">f</span><span class="params">()</span></span> &#123; print(<span class="string">"A"</span>) &#125;</div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">a</span><span class="params">()</span></span> &#123; print(<span class="string">"a"</span>) &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">B</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">f</span><span class="params">()</span></span> &#123; print(<span class="string">"B"</span>) &#125; <span class="comment">// interface members are 'open' by default</span></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">b</span><span class="params">()</span></span> &#123; print(<span class="string">"b"</span>) &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span></span>() : A(), B &#123;</div><div class="line">    <span class="comment">// The compiler requires f() to be overridden:</span></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">f</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">super</span>&lt;A&gt;.f() <span class="comment">// call to A.f()</span></div><div class="line">        <span class="keyword">super</span>&lt;B&gt;.f() <span class="comment">// call to B.f()</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Swift:</strong></p>
+<p>这个好赞，可以不怕名字冲突了 👍。</p>
+<p>Kotlin 的接口中可以声明类方法吗？</p>
+<p><strong>Kotlin:</strong></p>
+<p>Kotlin 里面已经没有类方法的概念了。</p>
+<p><strong>Swift:</strong></p>
+<p>我们可以在协议中使用 <code>static</code> 关键字来声明类型方法，如果实现该协议的类型是 <code>class</code> 类型，则在实现类中除了用 <code>static</code> 来修饰类型方法外，也可以使用 <code>class</code>关键字.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SomeProtocol</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">someTypeMethod</span><span class="params">()</span></span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>: <span class="title">SomeProtocol</span> </span>&#123;</div><div class="line">    <span class="comment">// 这里也可以用 static 修饰，区别是 static 修饰的属性</span></div><div class="line">    <span class="comment">// 或方法不能被子类复写，class 修饰的可以被子类复写</span></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">someTypeMethod</span>() </span>&#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"type method"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Kotlin:</strong></p>
+<p>我们的接口虽然不支持类方法，但是我们可以给接口中定义的方法的参数设置默认值。</p>
+<p><strong>Swift:</strong></p>
+<p>这。。。我们不支持为协议中的方法的参数提供默认值。😭</p>
+<p><strong>Kotlin:</strong></p>
+<p>😏，方法参数的默认值必须定义在接口中，在实现类或对象实现该方法时，不能为函数提供默认值。同时接口的中函数不能用 <code>JVMOverride</code> 注解修饰，所以接口中定义的带有默认值的参数，不能为 Java 生成重载方法，如果接口是定义在库里面，Kotlin 的实现也无法使用自动重载功能，需要手动重载。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IDownload</span></span>&#123;</div><div class="line">	<span class="function"><span class="title">fun</span><span class="params">(url: <span class="type">String</span>, isSupportBreakpointC: <span class="type">Boolean</span> = <span class="literal">true</span>)</span></span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownloadImpl</span>: <span class="type">IDownload&#123;</span></span></div><div class="line">	<span class="keyword">override</span> <span class="function"><span class="title">fun</span><span class="params">(url: <span class="type">String</span>, isSupportBreakpointC: <span class="type">Boolean</span>)</span></span>&#123;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Swift:</strong></p>
+<p>🐂，这点算你强。</p>
+<p>我们的协议中可以定义可变方法，如果协议中定义的实例方法会改变遵循该协议的类型的实例，那么需要在该方法前加 <code>mutating</code> 关键字, 表示可以在该方法中修改它所属的实例以及实例的任意属性的值, 例如：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Togglable</span> </span>&#123;</div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">toggle</span><span class="params">()</span></span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">enum</span> <span class="title">OnOffSwitch</span>: <span class="title">Togglable</span> </span>&#123;</div><div class="line">    <span class="keyword">case</span> off, on</div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">toggle</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</div><div class="line">        <span class="keyword">case</span> .off:</div><div class="line">            <span class="keyword">self</span> = .on</div><div class="line">        <span class="keyword">case</span> .on:</div><div class="line">            <span class="keyword">self</span> = .off</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> lightSwitch = <span class="type">OnOffSwitch</span>.off</div><div class="line">lightSwitch.toggle()</div><div class="line"><span class="comment">// lightSwitch 现在的值为 .On</span></div></pre></td></tr></table></figure>
+<p><strong>Kotlin:</strong></p>
+<p>🙄 我们没这特性，这点你赢了。</p>
+<p><strong>Swift:</strong></p>
+<p>岂止如此，我们的协议中还可以要求遵循协议的类型实现指定的构造器：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SomeProtocol</span> </span>&#123;</div><div class="line">    <span class="keyword">init</span>(someParameter: <span class="type">Int</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>: <span class="title">SomeProtocol</span> </span>&#123;</div><div class="line">    <span class="keyword">required</span> <span class="keyword">init</span>(someParameter: <span class="type">Int</span>) &#123;</div><div class="line">        <span class="comment">// initializer implementation goes here</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在符合协议的类中实现构造器，必须在构造器实现前加上 <code>required</code> 修饰符。使用 <code>required</code> 修饰符可以确保所有子类也必须提供此构造器实现，从而也能符合协议。 如果类已经被标记为 <code>final</code>，那么不需要在协议构造器的实现中使用 <code>required</code> 修饰符，因为 <code>final</code> 类不能有子类.</p>
+<p>协议还可以为遵循协议的类型定义可失败构造器。</p>
+<p><strong>Kotlin:</strong></p>
+<p>好吧，我们不可以在接口中声明构造器。</p>
+<p><strong>Swift:</strong></p>
+<p>😄，你们的接口可以继承吗？</p>
+<p>Swift 中协议能够继承一个或多个其他协议，可以在继承的协议的基础上增加新的要求.</p>
+<p><strong>Kotlin:</strong></p>
+<p>当然可以，这是基本的用法好伐。</p>
+<p><strong>Swift:</strong></p>
+<p>好吧。。我们还可以通过让协议继承 <code>AnyObject</code> 协议来限制协议只能被 <code>Class</code> 类型遵循，而结构体或枚举不能遵循该协议。</p>
+<p><strong>Kotlin:</strong></p>
+<p>我们并没有这种限制，接口可以被类和枚举实现。</p>
+<p><strong>Swift:</strong></p>
+<p>你们的接口可以组合吗？</p>
+<p>Swift 可以采用 <code>&amp;</code> 符号将多个协议进行组合：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Named</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Aged</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> age: <span class="type">Int</span> &#123; <span class="keyword">get</span> &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Person</span>: <span class="title">Named</span>, <span class="title">Aged</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">var</span> age: <span class="type">Int</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">wishHappyBirthday</span><span class="params">(to celebrator: Named &amp; Aged)</span></span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"Happy birthday, <span class="subst">\(celebrator.name)</span>, you're <span class="subst">\(celebrator.age)</span>!"</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> birthdayPerson = <span class="type">Person</span>(name: <span class="string">"Malcolm"</span>, age: <span class="number">21</span>)</div><div class="line">wishHappyBirthday(to: birthdayPerson)</div><div class="line"><span class="comment">// Prints "Happy birthday, Malcolm, you're 21!"</span></div></pre></td></tr></table></figure>
+<p>这里 <code>wishHappyBirthday(to:)</code> 函数的参数类型为 <code>Named &amp; Aged</code>, 这意味着它不关心参数的具体类型，只要参数符合这两个协议即可。当然也可以给组合的协议指定一个别名：<code>typealias Property = Named &amp; Aged</code></p>
+<p><strong>Kotlin:</strong></p>
+<p>666，你们的协议真是玩出花了，这个功能我们也没有😢。</p>
+<p><strong>Swift:</strong> </p>
+<p>除了协议与协议组合外，协议还可以与类进行组合：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Location</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> latitude: <span class="type">Double</span></div><div class="line">    <span class="keyword">var</span> longitude: <span class="type">Double</span></div><div class="line">    <span class="keyword">init</span>(latitude: <span class="type">Double</span>, longitude: <span class="type">Double</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.latitude = latitude</div><div class="line">        <span class="keyword">self</span>.longitude = longitude</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">City</span>: <span class="title">Location</span>, <span class="title">Named</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>, latitude: <span class="type">Double</span>, longitude: <span class="type">Double</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(latitude: latitude, longitude: longitude)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">beginConcert</span><span class="params">(<span class="keyword">in</span> location: Location &amp; Named)</span></span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"Hello, <span class="subst">\(location.name)</span>!"</span>)</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="keyword">let</span> seattle = <span class="type">City</span>(name: <span class="string">"Seattle"</span>, latitude: <span class="number">47.6</span>, longitude: -<span class="number">122.3</span>)</div><div class="line">beginConcert(<span class="keyword">in</span>: seattle)</div></pre></td></tr></table></figure>
+<p>这里的 <code>beginConcert(in:)</code> 函数的参数要求是 <code>Location</code> 的子类，且必须符合 <code>Named</code> 协议.</p>
+<p><strong>Kotlin:</strong></p>
+<p>太赞了~，给你点32个赞👍！</p>
+<p><strong>Swift:</strong></p>
+<p>你们是怎么判断某个实例是否符合某个协议的？</p>
+<p><strong>Kotlin:</strong></p>
+<p>这就是判断某个对象是否是某个类型嘛，当然是用 <code>is</code> 啦，如果是类型转换的话用 <code>as</code> 。</p>
+<p><strong>Swift:</strong></p>
+<p>嗯嗯，这点我们是一致的。</p>
+<p>你们可以定义接口中的方法或属性为可选吗？</p>
+<p><strong>Kotlin:</strong></p>
+<p>何谓可选？</p>
+<p><strong>Swift:</strong></p>
+<p>就是可以实现也可以不实现</p>
+<p><strong>Kotlin:</strong></p>
+<p>前面讲过了啊，如果接口中的属性或方法在实现类中可以实现也可以不实现，则可以在接口定义中为该方法提供默认实现。</p>
+<p><strong>Swift:</strong></p>
+<p>嗯，Swift 是通过协议扩展提供默认实现来到达可选的目的。</p>
+<p>不过 Swift 也可以像 <code>Objective-C</code> 里那样定义可选的接口方法，就需要在 <code>protocol</code> 定义之前加上 <code>@objc</code>，将 <code>protocol</code> 变为 <code>Objective-C</code> 的。然后使用 <code>optional</code> 关键字来声明某些方法或属性在符合该协议的类中可以不实现，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@objc protocol CounterDataSource &#123;</div><div class="line">    @objc optional func incrementForCount(count: Int) -&gt; Int</div><div class="line">    @objc optional var fixedIncrement: Int &#123; get &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>需要注意的是，标记为 <code>@objc</code> 的 <code>protocol</code> 只能被 <code>class</code> 实现，不能被 <code>struct</code> 和 <code>enum</code> 类型实现，而且实现它的 <code>class</code> 中的方法也必须被标注为 <code>@objc</code>，或者整个类就是继承自 <code>NSObject</code>。</p>
+<p><strong>Kotlin:</strong></p>
+<p>额。。。这岂不是很蛋疼</p>
+<p><strong>Swift:</strong></p>
+<p>😆，是的，所以这种方式并不提倡。</p>
+<p><code>Swift</code> 可以使用 <code>Protocol</code> 来实现委托（代理）模式，委托（代理）模式允许类或结构体将一些需要它们负责的功能委托给其他类型的实例，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">protocol RentHouserDelegate&#123;</div><div class="line">    func rent(_ name:String);</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Tenant &#123;</div><div class="line">    var name = &quot;lucy&quot;</div><div class="line">    var delegate: RentHouserDelegate?</div><div class="line">    func rentHouse()&#123;</div><div class="line">        delegate?.rent(name)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Intermediary: RentHouserDelegate &#123;</div><div class="line">    var name=&quot;lily&quot;</div><div class="line">    func rent(_ name:String) &#123;</div><div class="line">        print(&quot;\(name) 请 \(self.name) 帮她租一套房子&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person = Tenant();</div><div class="line">person.delegate = Intermediary()</div><div class="line">person.rentHouse()</div><div class="line">// lucy 请 lily 帮她租一套房子</div></pre></td></tr></table></figure>
+<p><strong>Kotlin:</strong></p>
+<p>这是接口的一种常用方法，我们依赖注入框架就大量使用这种方式。</p>
+<p><strong>Swift:</strong></p>
+<p>哈哈，英雄所见略同。</p>
+<p>好了，就到这吧，今天的PK互有攻防，好带劲😎~</p>
+<p><strong>Kotlin:</strong></p>
+<p>😀，总体来说还是你们的协议比较强大。</p>
+<p><strong>Swift:</strong></p>
+<p>那是，要不然苹果怎么敢称 Swift 是一门面向协议编程的语言呢</p>
+<p><strong>Kotlin:</strong></p>
+<p>好吧，咱们来日方长。</p>
+<p><strong>Swift:</strong></p>
+<p>嗯嗯，后会有期。</p>
+<h2 id="Kotlin"><a href="#Kotlin" class="headerlink" title="Kotlin"></a>Kotlin</h2><h3 id="接口定义"><a href="#接口定义" class="headerlink" title="接口定义"></a>接口定义</h3><p>同 Java 一样，Kotlin 用 <code>interface</code> 关键字来定义接口，Kotlin 接口中可以有函数的实现，也可以只有抽象方法，接口无法保存状态，它可以有属性但必须声明为抽象或提供访问器实现。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">bar</span><span class="params">()</span></span></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> &#123;</div><div class="line">      <span class="comment">// 可选的方法体</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="实现接口"><a href="#实现接口" class="headerlink" title="实现接口"></a>实现接口</h3><p>Kotlin 的一个类或者对象可以实现一个或多个接口。由于 Kotlin 接口本身的函数式可以有实现的，所以在一个类或对象实现多个接口的时候，就有可能发生冲突，这包括接口之间的的成员冲突，也包括接口与父类直接的成员冲突。</p>
+<h4 id="覆盖冲突"><a href="#覆盖冲突" class="headerlink" title="覆盖冲突"></a>覆盖冲突</h4><p>在 Kotlin 中，如果一个类从它的直接超类继承相同成员的多个实现（由于接口函数可以有实现），它必须覆盖这个成员并提供其自己的实现。 为了表示采用从哪个超类型继承的实现，我们使用由尖括号中超类型名限定的 super，如 super<base>。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line">    <span class="keyword">open</span> <span class="function"><span class="keyword">fun</span> <span class="title">f</span><span class="params">()</span></span> &#123; print(<span class="string">"A"</span>) &#125;</div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">a</span><span class="params">()</span></span> &#123; print(<span class="string">"a"</span>) &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">B</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">f</span><span class="params">()</span></span> &#123; print(<span class="string">"B"</span>) &#125; <span class="comment">// interface members are 'open' by default</span></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">b</span><span class="params">()</span></span> &#123; print(<span class="string">"b"</span>) &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span></span>() : A(), B &#123;</div><div class="line">    <span class="comment">// The compiler requires f() to be overridden:</span></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">f</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">super</span>&lt;A&gt;.f() <span class="comment">// call to A.f()</span></div><div class="line">        <span class="keyword">super</span>&lt;B&gt;.f() <span class="comment">// call to B.f()</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>同时继承 A 和 B 没问题，并且 a() 和 b() 也没问题因为 C 只继承了每个函数的一个实现。 但是 f() 由 C 继承了两个实现，所以我们必须在 C 中覆盖 f() 并且提供我们自己的实现来消除歧义。</p>
+<h3 id="接口中的属性"><a href="#接口中的属性" class="headerlink" title="接口中的属性"></a>接口中的属性</h3><p>Kotlin 中可以在接口中定义属性。在接口中声明的属性要么是抽象的，要么提供访问器的实现。在接口中声明的属性不能有幕后字段（backing field），因此接口中声明的访问器不能引用它们。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>&#123;</div><div class="line">    <span class="keyword">val</span> prop: <span class="built_in">Int</span> <span class="comment">// 抽象的</span></div><div class="line"></div><div class="line">    <span class="keyword">val</span> propertyWithImplementation: String</div><div class="line">        <span class="keyword">get</span>() = <span class="string">"foo"</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> &#123;</div><div class="line">        print(prop)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> : <span class="type">MyInterface &#123;</span></span></div><div class="line">    <span class="keyword">override</span> <span class="keyword">val</span> prop: <span class="built_in">Int</span> = <span class="number">29</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="函数默认参数与重载"><a href="#函数默认参数与重载" class="headerlink" title="函数默认参数与重载"></a>函数默认参数与重载</h3><p>如果接口函数需要定义默认值的话，必须定义在接口中，在实现类或对象实现该方法时，不能为函数提供默认值。同时接口的中函数不能用 <code>JVMOverride</code> 注解修饰，所以接口中定义的带有默认值的参数，不能为 Java 生成重载方法，如果接口是定义在库里面，Kotlin 的实现也无法使用自动重载功能，需要手动重载。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">interface IDownload&#123;</div><div class="line">	fun(url: String, isSupportBreakpointC: Boolean = true)</div><div class="line">&#125;</div><div class="line"></div><div class="line">class DownloadImpl&#123;</div><div class="line">	override fun(url: String, isSupportBreakpointC: Boolean)&#123;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Swift"><a href="#Swift" class="headerlink" title="Swift"></a>Swift</h2><h3 id="Protocol"><a href="#Protocol" class="headerlink" title="Protocol"></a>Protocol</h3><p><code>Swift</code> 是一门支持面向协议编程的语言，在 <code>Swift</code> 语言中，协议被赋予了更多的功能和更广阔的使用空间。恰逢苹果发布了 <code>swift 4</code>，以下都是基于最新的 <code>swift 4</code> 语法进行讲述。</p>
+<h4 id="协议语法"><a href="#协议语法" class="headerlink" title="协议语法"></a>协议语法</h4><p>协议声明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">protocol SomeProtocol &#123;</div><div class="line">    // protocol definition goes here</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>要让自定义类型符合某个协议，需要在类型名称后加上协议名称，中间以冒号（<code>:</code>）分隔。符合多个协议时，各协议之间用逗号（<code>,</code>）分隔. <code>swift</code> 中，符合协议的类型可以是 <code>class</code>、<code>struct</code> 或 <code>enum</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">struct SomeStructure: FirstProtocol, AnotherProtocol &#123;</div><div class="line">    // structure definition goes here</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>需要注意的是，如果某个类在符合某个协议的同时又继承自某个父类，应将其父类名放在其符合的协议名之前。</p>
+<h4 id="协议属性声明"><a href="#协议属性声明" class="headerlink" title="协议属性声明"></a>协议属性声明</h4><p>协议中可以声明符合此协议的类型必须实现的属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">protocol SomeProtocol &#123;</div><div class="line">    var mustBeSettable: Int &#123; get set &#125;</div><div class="line">    var doesNotNeedToBeSettable: Int &#123; get &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>协议不指定属性是存储型属性还是计算型属性，它只指定属性的名称和类型，以及属性是可读的还是可读可写的。</p>
+<p>协议总是用 <code>var</code> 关键字来声明变量属性，在类型声明后加上 <code>{ set get }</code> 来表示属性是可读可写的，用 <code>{ get }</code> 来表示属性是只读的。</p>
+<p>协议中总是使用 <code>static</code> 关键字定义类型属性，如果是 <code>class</code>类型实现协议，除了 <code>static</code>，还可以使用 <code>class</code> 关键字来声明类型属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">protocol AnotherProtocol &#123;</div><div class="line">    static var someTypeProperty: Int &#123; get &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class SomeClass: AnotherProtocol &#123;</div><div class="line">    // 这里也可以用 static 修饰，区别是 static 修饰的属性</div><div class="line">    或方法不能被子类复写，class 修饰的可以被子类复写</div><div class="line">    class var someTypeProperty: Int &#123;</div><div class="line">        return 0</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="协议方法声明"><a href="#协议方法声明" class="headerlink" title="协议方法声明"></a>协议方法声明</h4><p>协议可以要求遵循协议的类型实现某些指定的实例方法或类方法。需要注意的是，不支持为协议中的方法的参数提供默认值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">protocol RandomNumberGenerator &#123;</div><div class="line">    func random() -&gt; Double</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>与属性类似，在协议中也使用 <code>static</code> 定义类方法，当 <code>class</code> 类型实现协议时，可以使用 <code>class</code> 关键字来修饰.</p>
+<p>如果协议中定义的实例方法会改变遵循该协议的类型的实例，那么需要在该方法前加 <code>mutating</code> 关键字, 表示可以在该方法中修改它所属的实例以及实例的任意属性的值, 例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">protocol Togglable &#123;</div><div class="line">    mutating func toggle()</div><div class="line">&#125;</div><div class="line"></div><div class="line">enum OnOffSwitch: Togglable &#123;</div><div class="line">    case off, on</div><div class="line">    mutating func toggle() &#123;</div><div class="line">        switch self &#123;</div><div class="line">        case .off:</div><div class="line">            self = .on</div><div class="line">        case .on:</div><div class="line">            self = .off</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var lightSwitch = OnOffSwitch.off</div><div class="line">lightSwitch.toggle()</div><div class="line">// lightSwitch 现在的值为 .On</div></pre></td></tr></table></figure>
+<h3 id="协议构造器声明"><a href="#协议构造器声明" class="headerlink" title="协议构造器声明"></a>协议构造器声明</h3><p>协议可以要求遵循协议的类型实现指定的构造器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">protocol SomeProtocol &#123;</div><div class="line">    init(someParameter: Int)</div><div class="line">&#125;</div><div class="line"></div><div class="line">class SomeClass: SomeProtocol &#123;</div><div class="line">    required init(someParameter: Int) &#123;</div><div class="line">        // initializer implementation goes here</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在符合协议的类中实现构造器，必须在构造器实现前加上 <code>required</code> 修饰符。使用 <code>required</code> 修饰符可以确保所有子类也必须提供此构造器实现，从而也能符合协议. 如果类已经被标记为 <code>final</code>，那么不需要在协议构造器的实现中使用 <code>required</code> 修饰符，因为 <code>final</code> 类不能有子类.</p>
+<p>协议还可以为遵循协议的类型定义可失败构造器。</p>
+<h4 id="委托（代理）模式"><a href="#委托（代理）模式" class="headerlink" title="委托（代理）模式"></a>委托（代理）模式</h4><p><code>Swift</code> 可以使用 <code>Protocol</code> 来实现委托（代理）模式，委托（代理）模式允许类或结构体将一些需要它们负责的功能委托给其他类型的实例，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">protocol RentHouserDelegate&#123;</div><div class="line">    func rent(_ name:String);</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Tenant &#123;</div><div class="line">    var name = &quot;lucy&quot;</div><div class="line">    var delegate: RentHouserDelegate?</div><div class="line">    func rentHouse()&#123;</div><div class="line">        delegate?.rent(name)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Intermediary: RentHouserDelegate &#123;</div><div class="line">    var name=&quot;lily&quot;</div><div class="line">    func rent(_ name:String) &#123;</div><div class="line">        print(&quot;\(name) 请 \(self.name) 帮她租一套房子&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person = Tenant();</div><div class="line">person.delegate = Intermediary()</div><div class="line">person.rentHouse()</div><div class="line">// lucy 请 lily 帮她租一套房子</div></pre></td></tr></table></figure>
+<h4 id="通过扩展遵循协议"><a href="#通过扩展遵循协议" class="headerlink" title="通过扩展遵循协议"></a>通过扩展遵循协议</h4><p>可以通过扩展令已有类型遵循并符合协议：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">protocol TextRepresentable &#123;</div><div class="line">    var textualDescription: String &#123; get &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">struct Circular &#123;</div><div class="line">    var radius: Int</div><div class="line">&#125;</div><div class="line"></div><div class="line">extension Circular: TextRepresentable &#123;</div><div class="line">    var textualDescription: String &#123;</div><div class="line">        return &quot;The circular&apos;s radius is \(radius)&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">let circular = Circular(radius: 2)</div><div class="line">print(circular.textualDescription)</div><div class="line">// The circular&apos;s radius is 2</div></pre></td></tr></table></figure>
+<p>当一个类型已经符合了某个协议中的所有要求，却还没有声明遵循该协议时，可以通过空扩展来使该类型遵循该协议:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">struct Square &#123;</div><div class="line">    var width: Int</div><div class="line">    var textualDescription: String &#123;</div><div class="line">        return &quot;The square&apos;s width is \(width)&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">extension Square: TextRepresentable &#123;&#125;</div><div class="line"></div><div class="line">let square = Square(width: 3)</div><div class="line">let squareTextRepresentable: TextRepresentable = square</div><div class="line">print(squareTextRepresentable.textualDescription)</div><div class="line">// The square&apos;s width is 3</div></pre></td></tr></table></figure>
+<h4 id="协议类型"><a href="#协议类型" class="headerlink" title="协议类型"></a>协议类型</h4><p>尽管协议本身并未实现任何功能，但是协议可以被当做一个成熟的类型来使用。<br>协议类型也可以在数组或者字典这样的集合中使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let things: [TextRepresentable] = [circular, square]</div><div class="line">for thing in things &#123;</div><div class="line">    print(thing.textualDescription)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="协议的继承"><a href="#协议的继承" class="headerlink" title="协议的继承"></a>协议的继承</h4><p>协议能够继承一个或多个其他协议，可以在继承的协议的基础上增加新的要求：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">protocol PrettyTextRepresentable: TextRepresentable &#123;</div><div class="line">    var prettyTextualDescription: String &#123; get &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">extension Square: PrettyTextRepresentable &#123;</div><div class="line">    var prettyTextualDescription: String &#123;</div><div class="line">        var output = textualDescription + &quot;: &quot;</div><div class="line">        output += &quot;the area is \(width*width)&quot;</div><div class="line">        return output</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">print(square.prettyTextualDescription)</div><div class="line">// The square&apos;s width is 3: the area is 9</div></pre></td></tr></table></figure>
+<h3 id="Class-类型专属协议"><a href="#Class-类型专属协议" class="headerlink" title="Class 类型专属协议"></a>Class 类型专属协议</h3><p>通过让协议继承 <code>AnyObject</code> 协议来限制协议只能被 <code>Class</code> 类型遵循，而结构体或枚举不能遵循该协议</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">protocol SomeClassOnlyProtocol: AnyObject, SomeInheritedProtocol &#123;</div><div class="line">    // class-only protocol definition goes here</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="协议合成"><a href="#协议合成" class="headerlink" title="协议合成"></a>协议合成</h4><p>可以采用 <code>&amp;</code> 符号将多个协议进行组合：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">protocol Named &#123;</div><div class="line">    var name: String &#123; get &#125;</div><div class="line">&#125;</div><div class="line">protocol Aged &#123;</div><div class="line">    var age: Int &#123; get &#125;</div><div class="line">&#125;</div><div class="line">struct Person: Named, Aged &#123;</div><div class="line">    var name: String</div><div class="line">    var age: Int</div><div class="line">&#125;</div><div class="line">func wishHappyBirthday(to celebrator: Named &amp; Aged) &#123;</div><div class="line">    print(&quot;Happy birthday, \(celebrator.name), you&apos;re \(celebrator.age)!&quot;)</div><div class="line">&#125;</div><div class="line">let birthdayPerson = Person(name: &quot;Malcolm&quot;, age: 21)</div><div class="line">wishHappyBirthday(to: birthdayPerson)</div><div class="line">// Prints &quot;Happy birthday, Malcolm, you&apos;re 21!&quot;</div></pre></td></tr></table></figure>
+<p>这里 <code>wishHappyBirthday(to:)</code> 函数的参数类型为 <code>Named &amp; Aged</code>, 这意味着它不关心参数的具体类型，只要参数符合这两个协议即可。当然也可以给组合的协议指定一个别名：<code>typealias Property = Named &amp; Aged</code></p>
+<p>除了协议与协议组合外，协议还可以与 <code>class</code> 进行组合：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Location &#123;</div><div class="line">    var latitude: Double</div><div class="line">    var longitude: Double</div><div class="line">    init(latitude: Double, longitude: Double) &#123;</div><div class="line">        self.latitude = latitude</div><div class="line">        self.longitude = longitude</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">class City: Location, Named &#123;</div><div class="line">    var name: String</div><div class="line">    init(name: String, latitude: Double, longitude: Double) &#123;</div><div class="line">        self.name = name</div><div class="line">        super.init(latitude: latitude, longitude: longitude)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">func beginConcert(in location: Location &amp; Named) &#123;</div><div class="line">    print(&quot;Hello, \(location.name)!&quot;)</div><div class="line">&#125;</div><div class="line"> </div><div class="line">let seattle = City(name: &quot;Seattle&quot;, latitude: 47.6, longitude: -122.3)</div><div class="line">beginConcert(in: seattle)</div></pre></td></tr></table></figure>
+<p>这里的 <code>beginConcert(in:)</code> 函数的参数要求是 <code>Location</code> 的子类，且必须符合 <code>Named</code> 协议.</p>
+<h4 id="检查协议一致性"><a href="#检查协议一致性" class="headerlink" title="检查协议一致性"></a>检查协议一致性</h4><p>可以通过 <code>is</code> <code>as?</code> <code>as</code> 来检查某个实例是否符合某个协议：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">let things: [Any] = [circular, square, &quot;abc&quot;]</div><div class="line">for thing in things &#123;</div><div class="line">    if let object = thing as? TextRepresentable &#123;</div><div class="line">        print(object.textualDescription)</div><div class="line">    &#125; else &#123;</div><div class="line">        print(&quot;It does not conform to TextRepresentable&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="可选协议"><a href="#可选协议" class="headerlink" title="可选协议"></a>可选协议</h4><p>原生的 <code>Swift protocol</code> 里没有可选项，所有定义的方法都是必须实现的。如果想要像 <code>Objective-C</code> 里那样定义可选的接口方法，就需要在 <code>protocol</code> 定义之前加上 <code>@objc</code>，将 <code>protocol</code> 变为 <code>Objective-C</code> 的。然后使用 <code>optional</code> 关键字来声明某些方法或属性在符合该协议的类中可以不实现，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@objc protocol CounterDataSource &#123;</div><div class="line">    @objc optional func incrementForCount(count: Int) -&gt; Int</div><div class="line">    @objc optional var fixedIncrement: Int &#123; get &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>需要注意的是，标记为 <code>@objc</code> 的 <code>protocol</code> 只能被 <code>class</code> 实现，不能被 <code>struct</code> 和 <code>enum</code> 类型实现，而且实现它的 <code>class</code> 中的方法还必须也被标注为 <code>@objc</code>，或者整个类就是继承自 <code>NSObject</code>。这还是很蛋疼的。</p>
+<h4 id="协议扩展"><a href="#协议扩展" class="headerlink" title="协议扩展"></a>协议扩展</h4><p>协议可以通过扩展来为遵循协议的类型提供属性和方法的实现，即使协议中没有声明。这样就无需在每个遵循协议的类型中都重复同样的实现，也无需使用全局函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">protocol TextRepresentable &#123;</div><div class="line">    var textualDescription: String &#123; get &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">extension TextRepresentable &#123;</div><div class="line">    func hasDescription() -&gt; Bool &#123;</div><div class="line">        return !textualDescription.isEmpty</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还可以通过协议扩展来为协议要求的属性、方法提供默认的实现。这样在遵循这个协议的类型中，可以不用实现这个属性或方法，调用的时候默认调 <code>extension</code> 中的实现。这也相当于变相将 <code>protocol</code> 中的属性或方法设定为了 <code>`optional</code>. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">extension TextRepresentable &#123;</div><div class="line">    var textualDescription: String &#123;</div><div class="line">        return &quot;This is a shape&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在扩展协议的时候，也可以指定一些限制条件，只有遵循协议的类型满足这些限制条件时，才能获得协议扩展提供的默认实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">extension Collection where Iterator.Element: TextRepresentable &#123;</div><div class="line">    var textualDescription: String &#123;</div><div class="line">        let itemsAsText = self.map &#123; $0.textualDescription &#125;</div><div class="line">        return &quot;[&quot; + itemsAsText.joined(separator: &quot;, &quot;) + &quot;]&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">let circulars = [Circular(radius: 1), Circular(radius: 2)]</div><div class="line">print(circulars.textualDescription)</div><div class="line">// [The circular&apos;s radius is 1, The circular&apos;s radius is 2]</div></pre></td></tr></table></figure>
+<p>这里扩展了 <code>Collection</code> 协议，但是限制只适用于集合中的元素遵循了 <code>TextRepresentable</code> 协议的情况。 因为 <code>Swift</code> 中 <code>Array</code> 符合 <code>Collection</code> 协议，而 <code>Circular</code> 类型又符合 <code>TextRepresentable</code> 协议，所以 <code>circulars</code> 可以使用 <code>textualDescription</code> 属性得到数组内容的文本表示</p>
+<h2 id="关于《Swift-vs-Kotlin-漫谈》系列"><a href="#关于《Swift-vs-Kotlin-漫谈》系列" class="headerlink" title="关于《Swift vs. Kotlin 漫谈》系列"></a>关于《Swift vs. Kotlin 漫谈》系列</h2><ul>
+<li>《Swift vs. Kotlin 漫谈》系列之变量定义</li>
+<li>《Swift vs. Kotlin 漫谈》系列之函数定义</li>
+<li>《Swift vs. Kotlin 漫谈》系列之控制流</li>
+<li>《Swift vs. Kotlin 漫谈》系列之基本类型</li>
+</ul>
+<p>《Swift vs. Kotlin 漫谈》系列是由 KotlinThree 发起的，旨在把 Swift 和 Kotlin 进行一个全面的对比，帮助 iOS 和 Android 开发对彼此的语言之间有一个更加深入的认识。如果你有兴趣可以关注我们公众号，也可以通过「原文链接」查看详情。</p>
+<hr>
+<p><img src="http://7xpox6.com1.z0.glb.clouddn.com/kotlin-three-wechat.jpg" alt=""></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我们喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://7xpox6.com1.z0.glb.clouddn.com/WechatIMG603.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/26/2017-02-26-01/" class="archive-article-date">
-  	<time datetime="2017-02-26T03:48:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/26/2017-02-26-01/">Kotlin Primer·第四章·Kotlin 的类特性(下)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/12/2017-02-12-01/" class="archive-article-date">
-  	<time datetime="2017-02-12T05:48:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/12/2017-02-12-01/">Kotlin Primer·第四章·Kotlin 的类特性(上)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/07/2017-02-07-01/" class="archive-article-date">
-  	<time datetime="2017-02-07T07:34:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/07/2017-02-07-01/">Kotlin Primer·第三章·Kotlin 与 Java 混编</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/04/2017-02-04-01/" class="archive-article-date">
-  	<time datetime="2017-02-04T07:44:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/04/2017-02-04-01/">Kotlin Primer·第二章·基本语法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/03/2017-02-03-01/" class="archive-article-date">
-  	<time datetime="2017-02-03T09:34:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/03/2017-02-03-01/">Kotlin Primer·第一章·启程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/code/" class="article-tag-list-link color5">code</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/08/27/kotlin_good_bad_bugly/" class="archive-article-date">
-  	<time datetime="2016-08-27T08:59:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/27/kotlin_good_bad_bugly/">Kotlin：The Good, The Bad, and The Ugly(译)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -449,196 +451,107 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/08/02/kotlin_one_method_no_viewholder/" class="archive-article-date">
-  	<time datetime="2016-08-02T15:57:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/02/kotlin_one_method_no_viewholder/">Kotlin 一个扩展函数，从此丢掉 ViewHolder</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Swift</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">swift vs kotlin</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/25/swiftvskotlin-protocols/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/14/kotlin-type-option/" class="archive-article-date">
-  	<time datetime="2016-07-14T10:52:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-14</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/14/kotlin-type-option/">NullPointException 利器 Kotlin 可选型</a>
-    </h1>
+    <a href="/2017/05/25/sk_love_Type aliases/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          我与 Kotlin 的爱恨情仇之浅谈 Type aliases
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/23/sk_love_block/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我与 Kotlin 的爱恨情仇之浅谈 block</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/05/kotlin_function_three_common_methods/" class="archive-article-date">
-  	<time datetime="2016-07-05T14:06:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/05/kotlin_function_three_common_methods/">Kotlin 函数式编程三板斧</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">函数式编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/13/kotlin_config_http_kolley/" class="archive-article-date">
-  	<time datetime="2016-06-13T12:23:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/13/kotlin_config_http_kolley/">Kotlin 实现配置化网络请求</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kotlin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络请求</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/Kotlin/">&laquo; Prev</a><a class="page-number" href="/tags/Kotlin/">1</a><span class="page-number current">2</span><a class="page-number" href="/tags/Kotlin/page/3/">3</a><a class="extend next" rel="next" href="/tags/Kotlin/page/3/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -662,9 +575,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

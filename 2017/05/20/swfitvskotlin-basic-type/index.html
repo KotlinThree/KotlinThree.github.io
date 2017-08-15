@@ -233,7 +233,7 @@
 <p><code>${expression}</code>直接求值输出</p>
 <p><strong><em>Swift:</em></strong></p>
 <p>我们是这样写的</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> kotlin = <span class="string">"kotlin"</span></div><div class="line"><span class="keyword">let</span> swift = <span class="string">"swift"</span></div><div class="line"><span class="keyword">let</span> stirng = <span class="string">"<span class="subst">\(kotlin)</span>和<span class="subst">\(swift)</span>展开了一场切磋"</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> kotlin = <span class="string">"kotlin"</span></div><div class="line"><span class="keyword">let</span> swift = <span class="string">"swift"</span></div><div class="line"><span class="keyword">let</span> stirng = <span class="string">"\(kotlin)和\(swift)展开了一场切磋"</span></div></pre></td></tr></table></figure>
 <p>我们字符串比较也可以直接使用<code>==</code>来比较了，所以写OC的同学会犯错</p>
 <p><strong><em>Kotlin:</em></strong></p>
 <p>字符串拼接的写法还是有些差异的，我们单个变量的时候直接 <code>$</code> 后面加变量名就可以了。对于字符串的比较 Kotlin 也做了优化，可以直接用 <code>==</code> 来比较，也可以用 <code>===</code> 来进行引用的比较。不过我们这里还有一个更牛逼的字符串的写法，叫做 <code>raw string</code>。</p>
@@ -365,10 +365,10 @@
 <h3 id="元组-Tuples"><a href="#元组-Tuples" class="headerlink" title="元组 Tuples"></a>元组 Tuples</h3><p>元组可以把多个值合并成一个值，比如</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> train = (<span class="number">12306</span>, <span class="string">"和谐号"</span>)</div></pre></td></tr></table></figure>
 <p>也可以在声明的时候分别给予名称</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> metro = (number: <span class="number">4</span>, name:<span class="string">"4号线"</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"metro number: <span class="subst">\(metro.number)</span> name: <span class="subst">\(metro.name)</span>"</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> metro = (number: <span class="number">4</span>, name:<span class="string">"4号线"</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"metro number: \(metro.number) name: \(metro.name)"</span>)</div></pre></td></tr></table></figure>
 <h3 id="集合类型"><a href="#集合类型" class="headerlink" title="集合类型"></a>集合类型</h3><p>集合类型是Swift 函数式编程不可获取的部分，在之后会更详细的讲解</p>
 <h4 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组 Array"></a>数组 Array</h4><p>下面是数组的常用方法</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建数组</span></div><div class="line"><span class="keyword">var</span> someInts = [<span class="type">Int</span>]()</div><div class="line"></div><div class="line"><span class="comment">//插入数据</span></div><div class="line">someInts.append(<span class="number">3</span>)</div><div class="line"></div><div class="line"><span class="comment">//创建默认值数组</span></div><div class="line"><span class="keyword">let</span> fourInt = <span class="type">Array</span>(repeating: <span class="number">0</span>, <span class="built_in">count</span>: <span class="number">4</span>)</div><div class="line"></div><div class="line"><span class="comment">//数组合并</span></div><div class="line"><span class="keyword">var</span> newIntArray = someInts + fourInt</div><div class="line"></div><div class="line"><span class="comment">//判断数组是否为空</span></div><div class="line"><span class="keyword">let</span> isArrayEmpty = newIntArray.isEmpty</div><div class="line"></div><div class="line"><span class="comment">//通过下标访问数组</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> firstElement = newIntArray[<span class="number">0</span>]</div><div class="line"></div><div class="line"><span class="comment">//获取数组最后一位</span></div><div class="line">newIntArray.last</div><div class="line"></div><div class="line"><span class="comment">//遍历数组</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> value <span class="keyword">in</span> newIntArray &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"value = <span class="subst">\(value)</span>"</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">//遍历数组2</span></div><div class="line"><span class="keyword">for</span> (index, value) <span class="keyword">in</span> newIntArray.enumerated() &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"Item <span class="subst">\(index + <span class="number">1</span>)</span>: <span class="subst">\(value)</span>"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建数组</span></div><div class="line"><span class="keyword">var</span> someInts = [<span class="type">Int</span>]()</div><div class="line"></div><div class="line"><span class="comment">//插入数据</span></div><div class="line">someInts.append(<span class="number">3</span>)</div><div class="line"></div><div class="line"><span class="comment">//创建默认值数组</span></div><div class="line"><span class="keyword">let</span> fourInt = <span class="type">Array</span>(repeating: <span class="number">0</span>, <span class="built_in">count</span>: <span class="number">4</span>)</div><div class="line"></div><div class="line"><span class="comment">//数组合并</span></div><div class="line"><span class="keyword">var</span> newIntArray = someInts + fourInt</div><div class="line"></div><div class="line"><span class="comment">//判断数组是否为空</span></div><div class="line"><span class="keyword">let</span> isArrayEmpty = newIntArray.isEmpty</div><div class="line"></div><div class="line"><span class="comment">//通过下标访问数组</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> firstElement = newIntArray[<span class="number">0</span>]</div><div class="line"></div><div class="line"><span class="comment">//获取数组最后一位</span></div><div class="line">newIntArray.last</div><div class="line"></div><div class="line"><span class="comment">//遍历数组</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> value <span class="keyword">in</span> newIntArray &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"value = \(value)"</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">//遍历数组2</span></div><div class="line"><span class="keyword">for</span> (index, value) <span class="keyword">in</span> newIntArray.enumerated() &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"Item \(index + 1): \(value)"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
 
@@ -597,6 +597,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kotlin</a>
               </li>
              
@@ -610,30 +614,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">类与对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">star</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">class</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">继承</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">委托</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -661,7 +641,27 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java vs kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">函数式编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">class</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">继承</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">委托</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -669,11 +669,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java vs kotlin</a>
+                <a href="javascript:void(0)" class="js-tag color1">swift vs kotlin</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swift vs kotlin</a>
+                <a href="javascript:void(0)" class="js-tag color5">star</a>
               </li>
             
             <div class="clearfix"></div>
